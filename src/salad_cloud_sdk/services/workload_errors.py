@@ -13,9 +13,9 @@ class WorkloadErrorsService(BaseService):
     ) -> WorkloadErrorList:
         """Gets the workload errors
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
         :param container_group_name: The unique container group name
         :type container_group_name: str

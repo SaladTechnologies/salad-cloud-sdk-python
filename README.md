@@ -86,7 +86,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="b6n01-l4p5c2vk4867z")
+result = sdk.quotas.get_quotas(organization_name="fl1mcxorfzr4rx2m8p8o1avm0cpka2159")
 
 print(result)
 
@@ -128,9 +128,9 @@ The SDK includes several models that represent the data structures used in API r
 | [ContainerGroupInstance](documentation/models/ContainerGroupInstance.md)                       | Represents the details of a single container group instance              |
 | [WorkloadErrorList](documentation/models/WorkloadErrorList.md)                                 | Represents a list of workload errors                                     |
 | [QueueList](documentation/models/QueueList.md)                                                 | Represents a list of queues                                              |
-| [CreateQueue](documentation/models/CreateQueue.md)                                             | Represents a request to create a queue                                   |
-| [Queue](documentation/models/Queue.md)                                                         | Represents a queue                                                       |
-| [UpdateQueue](documentation/models/UpdateQueue.md)                                             | Represents a request to update a queue                                   |
+| [CreateQueue](documentation/models/CreateQueue.md)                                             | Represents a request to create a new queue.                              |
+| [Queue](documentation/models/Queue.md)                                                         | Represents a queue.                                                      |
+| [UpdateQueue](documentation/models/UpdateQueue.md)                                             | Represents a request to update an existing queue.                        |
 | [QueueJobList](documentation/models/QueueJobList.md)                                           | Represents a list of queue jobs                                          |
 | [CreateQueueJob](documentation/models/CreateQueueJob.md)                                       | Represents a request to create a queue job                               |
 | [QueueJob](documentation/models/QueueJob.md)                                                   | Represents a queue job                                                   |

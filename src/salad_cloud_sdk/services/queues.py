@@ -16,11 +16,11 @@ class QueuesService(BaseService):
 
     @cast_models
     def list_queues(self, organization_name: str, project_name: str) -> QueueList:
-        """Gets the list of queues
+        """Gets the list of queues in the given project.
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -54,13 +54,13 @@ class QueuesService(BaseService):
     def create_queue(
         self, request_body: CreateQueue, organization_name: str, project_name: str
     ) -> Queue:
-        """Creates a new queue
+        """Creates a new queue in the given project.
 
         :param request_body: The request body.
         :type request_body: CreateQueue
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -96,13 +96,13 @@ class QueuesService(BaseService):
     def get_queue(
         self, organization_name: str, project_name: str, queue_name: str
     ) -> Queue:
-        """Gets a queue
+        """Gets an existing queue in the given project.
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -144,15 +144,15 @@ class QueuesService(BaseService):
         project_name: str,
         queue_name: str,
     ) -> Queue:
-        """Updates a queue
+        """Updates an existing queue in the given project.
 
         :param request_body: The request body.
         :type request_body: UpdateQueue
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -192,13 +192,13 @@ class QueuesService(BaseService):
     def delete_queue(
         self, organization_name: str, project_name: str, queue_name: str
     ) -> Any:
-        """Deletes a queue
+        """Deletes an existing queue in the given project.
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -241,11 +241,11 @@ class QueuesService(BaseService):
     ) -> QueueJobList:
         """Retrieves a list of queue jobs
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
         :param page: The page number, defaults to None
         :type page: int, optional
@@ -299,11 +299,11 @@ class QueuesService(BaseService):
 
         :param request_body: The request body.
         :type request_body: CreateQueueJob
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -349,13 +349,13 @@ class QueuesService(BaseService):
     ) -> QueueJob:
         """Retrieves a job in a queue
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
-        :param queue_job_id: The unique job id
+        :param queue_job_id: The job identifier. This is automatically generated and assigned when the job is created.
         :type queue_job_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -401,13 +401,13 @@ class QueuesService(BaseService):
     ) -> Any:
         """Deletes a queue job
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
-        :param project_name: The unique project name
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
         :type project_name: str
-        :param queue_name: The unique queue name
+        :param queue_name: The queue name.
         :type queue_name: str
-        :param queue_job_id: The unique job id
+        :param queue_job_id: The job identifier. This is automatically generated and assigned when the job is created.
         :type queue_job_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.

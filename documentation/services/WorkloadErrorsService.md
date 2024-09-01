@@ -15,11 +15,11 @@ Gets the workload errors
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -38,9 +38,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.workload_errors.get_workload_errors(
-    organization_name="wcmipcr4lct7sh6q8x591va-p0i2bmxlz92yn1jipe9lpa6ycl1ukd",
-    project_name="k-gt-dvmb-gmo",
-    container_group_name="wg"
+    organization_name="e1hyb0xog4htqwzv2xifmedj8m3aft",
+    project_name="ita8o56f6-ln3mgpj5ybc3o2jr6guahpm6a-9zm",
+    container_group_name="in0mmtzaxq1g5d8jy220ol2mol23pv6c6zej"
 )
 
 print(result)

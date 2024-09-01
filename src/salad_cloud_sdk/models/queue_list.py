@@ -9,14 +9,14 @@ from .queue import Queue
 class QueueList(BaseModel):
     """Represents a list of queues
 
-    :param items: items
+    :param items: The list of queues.
     :type items: List[Queue]
     """
 
     def __init__(self, items: List[Queue]):
         """Represents a list of queues
 
-        :param items: items
+        :param items: The list of queues.
         :type items: List[Queue]
         """
         self.items = self._define_list(items, Queue)

@@ -7,21 +7,21 @@ from .container_group import ContainerGroup
 
 @JsonMap({"id_": "id"})
 class Queue(BaseModel):
-    """Represents a queue
+    """Represents a queue.
 
-    :param id_: id_
+    :param id_: The queue identifier. This is automatically generated and assigned when the queue is created.
     :type id_: str
-    :param name: name
+    :param name: The queue name. This must be unique within the project.
     :type name: str
-    :param display_name: display_name
+    :param display_name: The display name. This may be used as a more human-readable name.
     :type display_name: str
-    :param description: The description, defaults to None
+    :param description: The description. This may be used as a space for notes or other information about the queue., defaults to None
     :type description: str, optional
     :param container_groups: container_groups
     :type container_groups: List[ContainerGroup]
-    :param create_time: create_time
+    :param create_time: The date and time the queue was created.
     :type create_time: str
-    :param update_time: update_time
+    :param update_time: The date and time the queue was last updated.
     :type update_time: str
     """
 
@@ -35,21 +35,21 @@ class Queue(BaseModel):
         update_time: str,
         description: str = None,
     ):
-        """Represents a queue
+        """Represents a queue.
 
-        :param id_: id_
+        :param id_: The queue identifier. This is automatically generated and assigned when the queue is created.
         :type id_: str
-        :param name: name
+        :param name: The queue name. This must be unique within the project.
         :type name: str
-        :param display_name: display_name
+        :param display_name: The display name. This may be used as a more human-readable name.
         :type display_name: str
-        :param description: The description, defaults to None
+        :param description: The description. This may be used as a space for notes or other information about the queue., defaults to None
         :type description: str, optional
         :param container_groups: container_groups
         :type container_groups: List[ContainerGroup]
-        :param create_time: create_time
+        :param create_time: The date and time the queue was created.
         :type create_time: str
-        :param update_time: update_time
+        :param update_time: The date and time the queue was last updated.
         :type update_time: str
         """
         self.id_ = id_

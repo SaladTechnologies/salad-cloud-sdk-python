@@ -17,9 +17,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="iugscfp5-4x1xl1-c1ax256",
-    project_name="noy7vldsml0wxbxw",
-    queue_name="sdtl98ziqb"
+    organization_name="s3artniqzrtb3xp",
+    project_name="ghu49za-gk-63eofvgj1t0umc64usbu",
+    queue_name="tz9a-29ellqfizdwuu79xr4e598"
 )
 
 print(result)
