@@ -2,31 +2,31 @@
 
 A list of all methods in the `QueuesService` service. Click on the method name to view detailed information about that method.
 
-| Methods                               | Description                    |
-| :------------------------------------ | :----------------------------- |
-| [list_queues](#list_queues)           | Gets the list of queues        |
-| [create_queue](#create_queue)         | Creates a new queue            |
-| [get_queue](#get_queue)               | Gets a queue                   |
-| [update_queue](#update_queue)         | Updates a queue                |
-| [delete_queue](#delete_queue)         | Deletes a queue                |
-| [list_queue_jobs](#list_queue_jobs)   | Retrieves a list of queue jobs |
-| [create_queue_job](#create_queue_job) | Creates a new job              |
-| [get_queue_job](#get_queue_job)       | Retrieves a job in a queue     |
-| [delete_queue_job](#delete_queue_job) | Deletes a queue job            |
+| Methods                               | Description                                     |
+| :------------------------------------ | :---------------------------------------------- |
+| [list_queues](#list_queues)           | Gets the list of queues in the given project.   |
+| [create_queue](#create_queue)         | Creates a new queue in the given project.       |
+| [get_queue](#get_queue)               | Gets an existing queue in the given project.    |
+| [update_queue](#update_queue)         | Updates an existing queue in the given project. |
+| [delete_queue](#delete_queue)         | Deletes an existing queue in the given project. |
+| [list_queue_jobs](#list_queue_jobs)   | Retrieves a list of queue jobs                  |
+| [create_queue_job](#create_queue_job) | Creates a new job                               |
+| [get_queue_job](#get_queue_job)       | Retrieves a job in a queue                      |
+| [delete_queue_job](#delete_queue_job) | Deletes a queue job                             |
 
 ## list_queues
 
-Gets the list of queues
+Gets the list of queues in the given project.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/projects/{project_name}/queues`
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 
 **Return Type**
 
@@ -45,8 +45,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="tuw6h14q4yanz6jzs-93quj",
-    project_name="zd-1kwc3qrr2qrta5-ma5yft7izvjtyvbpfqpzas8ys0rleuecgeq"
+    organization_name="gcmqvx5-larlezt8ks00ar9f8kfq524njjzfmn5dis4gk",
+    project_name="x9ql9z"
 )
 
 print(result)
@@ -54,18 +54,18 @@ print(result)
 
 ## create_queue
 
-Creates a new queue
+Creates a new queue in the given project.
 
 - HTTP Method: `POST`
 - Endpoint: `/organizations/{organization_name}/projects/{project_name}/queues`
 
 **Parameters**
 
-| Name              | Type                                    | Required | Description                  |
-| :---------------- | :-------------------------------------- | :------- | :--------------------------- |
-| request_body      | [CreateQueue](../models/CreateQueue.md) | ✅       | The request body.            |
-| organization_name | str                                     | ✅       | The unique organization name |
-| project_name      | str                                     | ✅       | The unique project name      |
+| Name              | Type                                    | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :-------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_body      | [CreateQueue](../models/CreateQueue.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organization_name | str                                     | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str                                     | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 
 **Return Type**
 
@@ -85,15 +85,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateQueue(
-    name="ctrq4osv0lra1vqw6",
-    display_name="snv",
-    description="irure commodo ipsum veniam tempor"
+    name="mh7g70vophyeafe4lxl6gmt4hizzzamvy3j90uelmwdmv",
+    display_name="gEiIPCAh",
+    description="dolor aliquip"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="tuw6h14q4yanz6jzs-93quj",
-    project_name="zd-1kwc3qrr2qrta5-ma5yft7izvjtyvbpfqpzas8ys0rleuecgeq"
+    organization_name="gcmqvx5-larlezt8ks00ar9f8kfq524njjzfmn5dis4gk",
+    project_name="x9ql9z"
 )
 
 print(result)
@@ -101,18 +101,18 @@ print(result)
 
 ## get_queue
 
-Gets a queue
+Gets an existing queue in the given project.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/projects/{project_name}/queues/{queue_name}`
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
-| queue_name        | str  | ✅       | The unique queue name        |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -131,9 +131,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue(
-    organization_name="j0404lk6i34cuer",
-    project_name="ekiabi4sbb23l56oq87j1v",
-    queue_name="w4hdchyg-8n5glaql3-539c26ytntnk7-le269faihpgelqal6jc72"
+    organization_name="s6o2b",
+    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
+    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
 )
 
 print(result)
@@ -141,19 +141,19 @@ print(result)
 
 ## update_queue
 
-Updates a queue
+Updates an existing queue in the given project.
 
 - HTTP Method: `PATCH`
 - Endpoint: `/organizations/{organization_name}/projects/{project_name}/queues/{queue_name}`
 
 **Parameters**
 
-| Name              | Type                                    | Required | Description                  |
-| :---------------- | :-------------------------------------- | :------- | :--------------------------- |
-| request_body      | [UpdateQueue](../models/UpdateQueue.md) | ✅       | The request body.            |
-| organization_name | str                                     | ✅       | The unique organization name |
-| project_name      | str                                     | ✅       | The unique project name      |
-| queue_name        | str                                     | ✅       | The unique queue name        |
+| Name              | Type                                    | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :-------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_body      | [UpdateQueue](../models/UpdateQueue.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organization_name | str                                     | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str                                     | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str                                     | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -173,15 +173,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateQueue(
-    display_name="tgkuNWMcC",
-    description="in"
+    display_name="MoX4JPAm1M.",
+    description="in ea minim labore"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="j0404lk6i34cuer",
-    project_name="ekiabi4sbb23l56oq87j1v",
-    queue_name="w4hdchyg-8n5glaql3-539c26ytntnk7-le269faihpgelqal6jc72"
+    organization_name="s6o2b",
+    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
+    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
 )
 
 print(result)
@@ -189,18 +189,18 @@ print(result)
 
 ## delete_queue
 
-Deletes a queue
+Deletes an existing queue in the given project.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/organizations/{organization_name}/projects/{project_name}/queues/{queue_name}`
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
-| queue_name        | str  | ✅       | The unique queue name        |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Example Usage Code Snippet**
 
@@ -215,9 +215,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="j0404lk6i34cuer",
-    project_name="ekiabi4sbb23l56oq87j1v",
-    queue_name="w4hdchyg-8n5glaql3-539c26ytntnk7-le269faihpgelqal6jc72"
+    organization_name="s6o2b",
+    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
+    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
 )
 
 print(result)
@@ -232,13 +232,13 @@ Retrieves a list of queue jobs
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
-| queue_name        | str  | ✅       | The unique queue name        |
-| page              | int  | ❌       | The page number              |
-| page_size         | int  | ❌       | The number of items per page |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
+| page              | int  | ❌       | The page number                                                                                                                                                                                                                                     |
+| page_size         | int  | ❌       | The number of items per page                                                                                                                                                                                                                        |
 
 **Return Type**
 
@@ -257,11 +257,11 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="iugscfp5-4x1xl1-c1ax256",
-    project_name="noy7vldsml0wxbxw",
-    queue_name="sdtl98ziqb",
-    page=477149090,
-    page_size=12
+    organization_name="s3artniqzrtb3xp",
+    project_name="ghu49za-gk-63eofvgj1t0umc64usbu",
+    queue_name="tz9a-29ellqfizdwuu79xr4e598",
+    page=1660039363,
+    page_size=20
 )
 
 print(result)
@@ -276,12 +276,12 @@ Creates a new job
 
 **Parameters**
 
-| Name              | Type                                          | Required | Description                  |
-| :---------------- | :-------------------------------------------- | :------- | :--------------------------- |
-| request_body      | [CreateQueueJob](../models/CreateQueueJob.md) | ✅       | The request body.            |
-| organization_name | str                                           | ✅       | The unique organization name |
-| project_name      | str                                           | ✅       | The unique project name      |
-| queue_name        | str                                           | ✅       | The unique queue name        |
+| Name              | Type                                          | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :-------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_body      | [CreateQueueJob](../models/CreateQueueJob.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organization_name | str                                           | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str                                           | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str                                           | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -308,9 +308,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="iugscfp5-4x1xl1-c1ax256",
-    project_name="noy7vldsml0wxbxw",
-    queue_name="sdtl98ziqb"
+    organization_name="s3artniqzrtb3xp",
+    project_name="ghu49za-gk-63eofvgj1t0umc64usbu",
+    queue_name="tz9a-29ellqfizdwuu79xr4e598"
 )
 
 print(result)
@@ -325,12 +325,12 @@ Retrieves a job in a queue
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
-| queue_name        | str  | ✅       | The unique queue name        |
-| queue_job_id      | str  | ✅       | The unique job id            |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
+| queue_job_id      | str  | ✅       | The job identifier. This is automatically generated and assigned when the job is created.                                                                                                                                                           |
 
 **Return Type**
 
@@ -349,9 +349,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="vxqcbddvaoe06qhpuoplm89wi2894q9cpfigd95ewlngasgx2e93zxei",
-    project_name="iri0-iro9w0j3jvvgj2awj6-0ivo86",
-    queue_name="e7zccce0i4ccb53k4gtsp-47yvqix8go1831z2sf2i8",
+    organization_name="q5amdp8n95tm7sbm4-h-l-za21p3dtwrf8h51jcaivs9xc",
+    project_name="nhu27mdjh418v3ixyidy7jsx-nnjlyt7-bhj1c1wox",
+    queue_name="tszyoxkrcz6v9wz35jltvo0g-6z9z",
     queue_job_id="queue_job_id"
 )
 
@@ -367,12 +367,12 @@ Deletes a queue job
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
-| queue_name        | str  | ✅       | The unique queue name        |
-| queue_job_id      | str  | ✅       | The unique job id            |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
+| queue_job_id      | str  | ✅       | The job identifier. This is automatically generated and assigned when the job is created.                                                                                                                                                           |
 
 **Example Usage Code Snippet**
 
@@ -387,9 +387,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="vxqcbddvaoe06qhpuoplm89wi2894q9cpfigd95ewlngasgx2e93zxei",
-    project_name="iri0-iro9w0j3jvvgj2awj6-0ivo86",
-    queue_name="e7zccce0i4ccb53k4gtsp-47yvqix8go1831z2sf2i8",
+    organization_name="q5amdp8n95tm7sbm4-h-l-za21p3dtwrf8h51jcaivs9xc",
+    project_name="nhu27mdjh418v3ixyidy7jsx-nnjlyt7-bhj1c1wox",
+    queue_name="tszyoxkrcz6v9wz35jltvo0g-6z9z",
     queue_job_id="queue_job_id"
 )
 

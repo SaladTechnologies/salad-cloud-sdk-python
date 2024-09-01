@@ -26,10 +26,10 @@ Gets the list of container groups
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
-| project_name      | str  | ✅       | The unique project name      |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 
 **Return Type**
 
@@ -48,8 +48,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_groups(
-    organization_name="apihl1d8o144-mf49qtwmztxy5e3c9v5qfb4l0g8j1lcj9-nh4i6dz2e7jf3",
-    project_name="vjbveijqip5mysgje2g39crv0td0zupa8uxmseld79zsgkh7je6z"
+    organization_name="nhyrq",
+    project_name="r92pbz5hsuado6z0y3kws22ptp7cp7eaw33zizk"
 )
 
 print(result)
@@ -64,11 +64,11 @@ Creates a new container group
 
 **Parameters**
 
-| Name              | Type                                                      | Required | Description                  |
-| :---------------- | :-------------------------------------------------------- | :------- | :--------------------------- |
-| request_body      | [CreateContainerGroup](../models/CreateContainerGroup.md) | ✅       | The request body.            |
-| organization_name | str                                                       | ✅       | The unique organization name |
-| project_name      | str                                                       | ✅       | The unique project name      |
+| Name              | Type                                                      | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :-------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_body      | [CreateContainerGroup](../models/CreateContainerGroup.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organization_name | str                                                       | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name      | str                                                       | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 
 **Return Type**
 
@@ -88,17 +88,17 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateContainerGroup(
-    name="qqgh5gtdxccg-tsuo",
-    display_name="0GALm",
+    name="yywq967xo8ifvlka8kdg6t3d8cqm9k9rc7a8bvhvcpg50j51gan4fglcmonhm",
+    display_name="0hxi6,PR",
     container={
-        "image": "exercitation eu pariatur elit adipisicing",
+        "image": "nostrud aute adipisicing",
         "resources": {
-            "cpu": 12,
-            "memory": 26125,
+            "cpu": 10,
+            "memory": 7505,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 30852754821
+            "storage_amount": 3605508236
         },
         "command": [
             "command"
@@ -107,13 +107,13 @@ request_body = CreateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "incididunt cupidatat",
-                "api_token": "ullamco",
-                "dataset": "ad nisi laborum"
+                "host": "sed",
+                "api_token": "nisi elit est",
+                "dataset": "Excepteur"
             },
             "datadog": {
-                "host": "sint",
-                "api_key": "labore cupidatat",
+                "host": "Lorem magna qui Duis",
+                "api_key": "minim aliquip qui",
                 "tags": [
                     {
                         "name": "name",
@@ -122,20 +122,20 @@ request_body = CreateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "cupidatat",
-                "ingestion_key": "dolor occaecat in dolore in"
+                "host": "adipisicing",
+                "ingestion_key": "culpa enim"
             },
             "splunk": {
-                "host": "cillum in dolor",
-                "token": "ex incididunt elit adipisicing"
+                "host": "ut",
+                "token": "aliquip dolore"
             },
             "tcp": {
-                "host": "incididunt fugiat enim officia sed",
-                "port": 30285
+                "host": "irure reprehenderit ut",
+                "port": 26986
             },
             "http": {
-                "host": "enim magna esse",
-                "port": 30824,
+                "host": "cupidatat irure reprehenderit amet",
+                "port": 9553,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -170,24 +170,24 @@ request_body = CreateContainerGroup(
             }
         }
     },
-    autostart_policy=False,
+    autostart_policy=True,
     restart_policy="always",
-    replicas=81,
+    replicas=122,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 4886,
+        "port": 53954,
         "auth": False
     },
     liveness_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -198,14 +198,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 1,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -213,11 +213,11 @@ request_body = CreateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -228,14 +228,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 9,
+        "initial_delay_seconds": 10,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -243,11 +243,11 @@ request_body = CreateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -258,30 +258,30 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 6,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_connection={
-        "path": "velit elit",
-        "port": 7009,
-        "queue_name": "wh1ewe-69ifjpdhw0h4i3hwpdzw-n1fpjd0naycxeb1u1iiyrp-4y1t7"
+        "path": "qui cupidatat esse labore",
+        "port": 36246,
+        "queue_name": "tv1-ax-msj6w-h3wkst4x03b6y4ltw1qvh-38ot"
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="apihl1d8o144-mf49qtwmztxy5e3c9v5qfb4l0g8j1lcj9-nh4i6dz2e7jf3",
-    project_name="vjbveijqip5mysgje2g39crv0td0zupa8uxmseld79zsgkh7je6z"
+    organization_name="nhyrq",
+    project_name="r92pbz5hsuado6z0y3kws22ptp7cp7eaw33zizk"
 )
 
 print(result)
@@ -296,11 +296,11 @@ Gets a container group
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -319,9 +319,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group(
-    organization_name="a147vxii7gy6-eg0n389rp",
-    project_name="zcgtz8t87b",
-    container_group_name="jonf9u1s785z-11dylxjw4966ge-9p6qcjc-qtefzoj09ev3nsih"
+    organization_name="hjn8ph-8qr9s",
+    project_name="zpcs1c-85eq2giu1ly3ke1lk2gb3mqhp",
+    container_group_name="obcxrd0mqez"
 )
 
 print(result)
@@ -336,12 +336,12 @@ Updates a container group
 
 **Parameters**
 
-| Name                 | Type                                                      | Required | Description                     |
-| :------------------- | :-------------------------------------------------------- | :------- | :------------------------------ |
-| request_body         | [UpdateContainerGroup](../models/UpdateContainerGroup.md) | ✅       | The request body.               |
-| organization_name    | str                                                       | ✅       | The unique organization name    |
-| project_name         | str                                                       | ✅       | The unique project name         |
-| container_group_name | str                                                       | ✅       | The unique container group name |
+| Name                 | Type                                                      | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :-------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_body         | [UpdateContainerGroup](../models/UpdateContainerGroup.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organization_name    | str                                                       | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str                                                       | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str                                                       | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -361,16 +361,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="s1RiI 0-",
+    display_name="GzGG5v3-Z",
     container={
-        "image": "ipsum pariatur non proident dolore",
+        "image": "labore mollit tempor elit",
         "resources": {
-            "cpu": 2,
-            "memory": 19703,
+            "cpu": 3,
+            "memory": 2085,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 4820479057
+            "storage_amount": 27222255995
         },
         "command": [
             "command"
@@ -379,13 +379,13 @@ request_body = UpdateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "aliquip magna est ex tempor",
-                "api_token": "esse magna eu ut amet",
-                "dataset": "in pariatur Duis non"
+                "host": "et in ipsum",
+                "api_token": "in sit in velit mollit",
+                "dataset": "in"
             },
             "datadog": {
-                "host": "Duis",
-                "api_key": "id magna cupidatat ipsum aliqua",
+                "host": "incididunt irure",
+                "api_key": "ea ullamco",
                 "tags": [
                     {
                         "name": "name",
@@ -394,20 +394,20 @@ request_body = UpdateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "Duis culpa cillum",
-                "ingestion_key": "exercitation sint aute aliqua ex"
+                "host": "labore irure enim consequat",
+                "ingestion_key": "aliquip consequat"
             },
             "splunk": {
-                "host": "ex culpa exercitation ad proident",
-                "token": "laborum"
+                "host": "ea fugiat",
+                "token": "nulla pariatur"
             },
             "tcp": {
-                "host": "pariatur",
-                "port": 45370
+                "host": "reprehenderit magna Ut veniam do",
+                "port": 37055
             },
             "http": {
-                "host": "ut in et quis adipisicing",
-                "port": 33069,
+                "host": "nisi laborum pariatur",
+                "port": 15435,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -442,20 +442,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=97,
+    replicas=242,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 14234
+        "port": 16926
     },
     liveness_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -466,14 +466,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 1,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -481,11 +481,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -496,14 +496,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 9,
+        "initial_delay_seconds": 10,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -511,11 +511,11 @@ request_body = UpdateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 39336
+            "port": 33909
         },
         "http": {
             "path": "path",
-            "port": 8799,
+            "port": 58747,
             "scheme": "http",
             "headers": [
                 {
@@ -526,14 +526,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15387
+            "port": 54101
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 6,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -543,9 +543,9 @@ request_body = UpdateContainerGroup(
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="a147vxii7gy6-eg0n389rp",
-    project_name="zcgtz8t87b",
-    container_group_name="jonf9u1s785z-11dylxjw4966ge-9p6qcjc-qtefzoj09ev3nsih"
+    organization_name="hjn8ph-8qr9s",
+    project_name="zpcs1c-85eq2giu1ly3ke1lk2gb3mqhp",
+    container_group_name="obcxrd0mqez"
 )
 
 print(result)
@@ -560,11 +560,11 @@ Deletes a container group
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Example Usage Code Snippet**
 
@@ -579,9 +579,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.delete_container_group(
-    organization_name="a147vxii7gy6-eg0n389rp",
-    project_name="zcgtz8t87b",
-    container_group_name="jonf9u1s785z-11dylxjw4966ge-9p6qcjc-qtefzoj09ev3nsih"
+    organization_name="hjn8ph-8qr9s",
+    project_name="zpcs1c-85eq2giu1ly3ke1lk2gb3mqhp",
+    container_group_name="obcxrd0mqez"
 )
 
 print(result)
@@ -596,11 +596,11 @@ Starts a container group
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Example Usage Code Snippet**
 
@@ -615,9 +615,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.start_container_group(
-    organization_name="jsq6na2w8d2wlvk-85d3jxhjhjigc",
-    project_name="fv6oyiqlky7x2i-whfkhuex4ceacw4n3kgc3y89xb",
-    container_group_name="a17zo0pyz6xi8-xbb6y7-prw04kcruh1moxld03jx91-zpoej07l0146fz"
+    organization_name="x1dy6hcwr9a5xaxeifh6e02xtma0zqz8asfuvjihhlkjxajbi3pwr9bnx",
+    project_name="y7lm",
+    container_group_name="l3q-oa3p3"
 )
 
 print(result)
@@ -632,11 +632,11 @@ Stops a container group
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Example Usage Code Snippet**
 
@@ -651,9 +651,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.stop_container_group(
-    organization_name="ohrlrstei115qknuq5qe4nwnj",
-    project_name="mb04z87rwlzn3oww-l1t2vxu9r52mu126bs1owp2gdjes6jc5ch-ei3t5i",
-    container_group_name="kda80pcf6aqiptmp19a40ofjecyop-nmf2k9mz2fveuxwp-0fo3gm2pxa"
+    organization_name="qg6vce6y8gr9gth6qwq",
+    project_name="hgk2",
+    container_group_name="xxf9hw2fg7q6om9s6wkwjqmbzvl-xnxr-q14lm43yp"
 )
 
 print(result)
@@ -668,11 +668,11 @@ Retrieves a list of container group instances
 
 **Parameters**
 
-| Name                 | Type | Required | Description                     |
-| :------------------- | :--- | :------- | :------------------------------ |
-| organization_name    | str  | ✅       | The unique organization name    |
-| project_name         | str  | ✅       | The unique project name         |
-| container_group_name | str  | ✅       | The unique container group name |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -691,9 +691,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_group_instances(
-    organization_name="i4i4ci3lnqp4d8my25qe5eucwfr0ni9ksw1jelhxjh",
-    project_name="jfbvsusu0d8a1e8x94q0wsip8olrhfnnvkr7bgvgo196fb90srivpmzldjm59q",
-    container_group_name="jk7y5mmm88"
+    organization_name="r2ewwqmqzjxx4rgbkz9z0o",
+    project_name="wsjwmyricvgcl-a",
+    container_group_name="lfjbdzaim314b-agf7f3di5"
 )
 
 print(result)
@@ -708,12 +708,12 @@ Retrieves the details of a single instance within a container group by instance 
 
 **Parameters**
 
-| Name                        | Type | Required | Description                     |
-| :-------------------------- | :--- | :------- | :------------------------------ |
-| organization_name           | str  | ✅       | The unique organization name    |
-| project_name                | str  | ✅       | The unique project name         |
-| container_group_name        | str  | ✅       | The unique container group name |
-| container_group_instance_id | str  | ✅       | The unique instance identifier  |
+| Name                        | Type | Required | Description                                                                                                                                                                                                                                         |
+| :-------------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name           | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+| container_group_instance_id | str  | ✅       | The unique instance identifier                                                                                                                                                                                                                      |
 
 **Return Type**
 
@@ -732,9 +732,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group_instance(
-    organization_name="r3b4l8zryeh7q3m-b8y1cgkv",
-    project_name="lw3mzmlm01jbt-edmy-frcr",
-    container_group_name="jahux-5",
+    organization_name="r73buakrgl6y3rjdvhzythcjdr395d9kcqp4cb924r41g8h69zigf6pcd56q",
+    project_name="ij2glutxyxjzu-kbkyf64swspzpifkfz1iqxdqeh723l4g1l4if4prvjrh",
+    container_group_name="dy89w4q4lafvnap7fs4nkqpn7ls1z4okwf0mrkx5ngmb8o-bh3029krp8r4nbzi",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -750,12 +750,12 @@ Remove a node from a workload and reallocate the workload to a different node
 
 **Parameters**
 
-| Name                        | Type | Required | Description                     |
-| :-------------------------- | :--- | :------- | :------------------------------ |
-| organization_name           | str  | ✅       | The unique organization name    |
-| project_name                | str  | ✅       | The unique project name         |
-| container_group_name        | str  | ✅       | The unique container group name |
-| container_group_instance_id | str  | ✅       | The unique instance identifier  |
+| Name                        | Type | Required | Description                                                                                                                                                                                                                                         |
+| :-------------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name           | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+| container_group_instance_id | str  | ✅       | The unique instance identifier                                                                                                                                                                                                                      |
 
 **Example Usage Code Snippet**
 
@@ -770,9 +770,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.reallocate_container_group_instance(
-    organization_name="bmy1l0br-rmixwbvc9ty97juj635ydst",
-    project_name="q3p4vyxuezsi2df5k3zo",
-    container_group_name="k8xkphecgevqm3hvsc67whgqy-mn014uo7xy84n57s-p1hdusj8g4tnc0b",
+    organization_name="v3y98q43p0yluu6goai4jrn6fimmbqq9dx0ysgegc9lbt3rb5ve2dfxn47rzqt",
+    project_name="dsz8ru-a-8c24v6nkirwkf0y7",
+    container_group_name="rvvhdab0-otceyo1pjg79tnitjvskxomth5lg4v240t9",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -788,12 +788,12 @@ Stops a container, destroys it, creates a new one without requiring the image to
 
 **Parameters**
 
-| Name                        | Type | Required | Description                     |
-| :-------------------------- | :--- | :------- | :------------------------------ |
-| organization_name           | str  | ✅       | The unique organization name    |
-| project_name                | str  | ✅       | The unique project name         |
-| container_group_name        | str  | ✅       | The unique container group name |
-| container_group_instance_id | str  | ✅       | The unique instance identifier  |
+| Name                        | Type | Required | Description                                                                                                                                                                                                                                         |
+| :-------------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name           | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+| container_group_instance_id | str  | ✅       | The unique instance identifier                                                                                                                                                                                                                      |
 
 **Example Usage Code Snippet**
 
@@ -808,9 +808,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.recreate_container_group_instance(
-    organization_name="qz-vxewuk2trppo3qsv4l21p7b-ff5slo4yczyvujato6654uo",
-    project_name="u7gkyhv80k2lnlplemq9834io55hrceikk4fyg6zd3i-m174lzoyodgcj9f1f",
-    container_group_name="ngdah36m21h5",
+    organization_name="s6kh32qycsfx2nq31jsr4cu78utkmdfyxq2dutq30f1kgben6cwy2216zw",
+    project_name="ve8h7ruif57rm1z2f7e741vj2k8eq7ndtsvg8rk9cps8opkv30dop2y",
+    container_group_name="n53hzo0tabn9gntx3gxr0jo4pi3ty2akde1ugp2xc",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -826,12 +826,12 @@ Restarts a workload on a node without reallocating it
 
 **Parameters**
 
-| Name                        | Type | Required | Description                     |
-| :-------------------------- | :--- | :------- | :------------------------------ |
-| organization_name           | str  | ✅       | The unique organization name    |
-| project_name                | str  | ✅       | The unique project name         |
-| container_group_name        | str  | ✅       | The unique container group name |
-| container_group_instance_id | str  | ✅       | The unique instance identifier  |
+| Name                        | Type | Required | Description                                                                                                                                                                                                                                         |
+| :-------------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name           | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+| container_group_instance_id | str  | ✅       | The unique instance identifier                                                                                                                                                                                                                      |
 
 **Example Usage Code Snippet**
 
@@ -846,9 +846,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.restart_container_group_instance(
-    organization_name="q4bvcc9w5lcg",
-    project_name="ar4nzwg42bty8xw-dowooq-ycquvtr7pp0h2y24hkt0ps",
-    container_group_name="j0s47o7jvc3kavg47t-viw2vz0xrxk6qarbrczxkh6",
+    organization_name="ml61xwkce80bgd0",
+    project_name="kuexscfukz0bups982",
+    container_group_name="r8gqlu7c",
     container_group_instance_id="container_group_instance_id"
 )
 

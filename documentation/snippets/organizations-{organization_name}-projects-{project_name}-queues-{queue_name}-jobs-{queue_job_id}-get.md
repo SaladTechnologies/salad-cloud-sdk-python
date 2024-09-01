@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="vxqcbddvaoe06qhpuoplm89wi2894q9cpfigd95ewlngasgx2e93zxei",
-    project_name="iri0-iro9w0j3jvvgj2awj6-0ivo86",
-    queue_name="e7zccce0i4ccb53k4gtsp-47yvqix8go1831z2sf2i8",
+    organization_name="q5amdp8n95tm7sbm4-h-l-za21p3dtwrf8h51jcaivs9xc",
+    project_name="nhu27mdjh418v3ixyidy7jsx-nnjlyt7-bhj1c1wox",
+    queue_name="tszyoxkrcz6v9wz35jltvo0g-6z9z",
     queue_job_id="queue_job_id"
 )
 

@@ -1,10 +1,10 @@
 {
-	"name": "salad-cloud-sdk",
-	"image": "mcr.microsoft.com/devcontainers/python:3.9-bullseye",
-	"postCreateCommand": "bash install.sh",
-	"customizations": {
-		"codespaces":{
-		  "openFiles": ["examples/sample.py"]
-		}
-	}
+  "name": "salad-cloud-sdk",
+  "image": "mcr.microsoft.com/devcontainers/python:3.9-bullseye",
+  "postCreateCommand": "bash install.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["examples/sample.py"]
+    }
+  }
 }

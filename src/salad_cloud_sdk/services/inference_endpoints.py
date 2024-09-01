@@ -18,7 +18,7 @@ class InferenceEndpointsService(BaseService):
     ) -> InferenceEndpointsList:
         """Gets the list of all inference endpoints
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param page: The page number, defaults to None
         :type page: int, optional
@@ -58,7 +58,7 @@ class InferenceEndpointsService(BaseService):
     ) -> InferenceEndpoint:
         """Gets an inference endpoint
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param inference_endpoint_name: The unique inference endpoint name
         :type inference_endpoint_name: str
@@ -98,7 +98,7 @@ class InferenceEndpointsService(BaseService):
     ) -> InferenceEndpointJobList:
         """Retrieves a list of an inference endpoint jobs
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param inference_endpoint_name: The unique inference endpoint name
         :type inference_endpoint_name: str
@@ -147,7 +147,7 @@ class InferenceEndpointsService(BaseService):
 
         :param request_body: The request body.
         :type request_body: CreateInferenceEndpointJob
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param inference_endpoint_name: The unique inference endpoint name
         :type inference_endpoint_name: str
@@ -188,7 +188,7 @@ class InferenceEndpointsService(BaseService):
     ) -> InferenceEndpointJob:
         """Retrieves a job in an inference endpoint
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param inference_endpoint_name: The unique inference endpoint name
         :type inference_endpoint_name: str
@@ -231,7 +231,7 @@ class InferenceEndpointsService(BaseService):
     ) -> Any:
         """Deletes an inference endpoint job
 
-        :param organization_name: The unique organization name
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param inference_endpoint_name: The unique inference endpoint name
         :type inference_endpoint_name: str

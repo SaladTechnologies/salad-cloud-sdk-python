@@ -1,6 +1,6 @@
 {
   "liblabVersion": "2.1.30",
-  "date": "2024-08-31T20:15:31.371Z",
+  "date": "2024-09-01T16:26:41.730Z",
   "config": {
     "apiId": 1094,
     "sdkName": "salad-cloud-sdk",
@@ -24,7 +24,7 @@
         ],
         "githubRepoName": "salad-cloud-sdk-dotnet",
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "sdkVersion": "0.9.0-alpha.1",
         "targetBranch": "main"
@@ -32,7 +32,7 @@
       "go": {
         "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go",
         "githubRepoName": "salad-cloud-sdk-go",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "sdkVersion": "0.9.0-alpha.1",
         "targetBranch": "main"
@@ -56,7 +56,7 @@
         ],
         "githubRepoName": "salad-cloud-sdk-java",
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "sdkVersion": "0.9.0-alpha.1",
         "targetBranch": "main"
@@ -99,7 +99,7 @@
           }
         ],
         "githubRepoName": "salad-cloud-sdk-python",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "sdkVersion": "0.9.0-alpha.1",
         "targetBranch": "main"
@@ -114,7 +114,7 @@
         },
         "providerVersion": "0.9.0-alpha.1",
         "githubRepoName": "terraform-provider-salad-cloud",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "targetBranch": "main"
       },
@@ -136,7 +136,7 @@
         ],
         "githubRepoName": "salad-cloud-sdk-javascript",
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
-        "ignoreFiles": ["LICENSE"],
+        "ignoreFiles": [".gitignore", "LICENSE"],
         "liblabVersion": "2",
         "sdkVersion": "0.9.0-alpha.1",
         "targetBranch": "main"
@@ -298,7 +298,7 @@
       }
     ],
     "githubRepoName": "salad-cloud-sdk-python",
-    "ignoreFiles": ["LICENSE"],
+    "ignoreFiles": [".gitignore", "LICENSE"],
     "targetBranch": "main",
     "language": "python",
     "deliveryMethod": "zip",
@@ -345,7 +345,6 @@
     "src/salad_cloud_sdk/services/utils/validator.py",
     "src/salad_cloud_sdk/services/utils/base_service.py",
     "pyproject.toml",
-    ".gitignore",
     "src/salad_cloud_sdk/models/utils/cast_models.py",
     "src/salad_cloud_sdk/net/transport/utils.py",
     "src/salad_cloud_sdk/hooks/hook.py",

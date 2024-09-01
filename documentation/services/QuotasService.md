@@ -15,9 +15,9 @@ Gets the organization quotas
 
 **Parameters**
 
-| Name              | Type | Required | Description                  |
-| :---------------- | :--- | :------- | :--------------------------- |
-| organization_name | str  | ✅       | The unique organization name |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 
 **Return Type**
 
@@ -35,7 +35,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="b6n01-l4p5c2vk4867z")
+result = sdk.quotas.get_quotas(organization_name="fl1mcxorfzr4rx2m8p8o1avm0cpka2159")
 
 print(result)
 ```
