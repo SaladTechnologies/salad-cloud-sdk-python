@@ -35,7 +35,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.organization_data.list_gpu_classes(organization_name="wxgeliermrcdrg557eislsg5l8m8kmas3z0-6ns")
+result = sdk.organization_data.list_gpu_classes(organization_name="ksb7ikadj659qttkrqdm5b9xdre4met9iop")
 
 print(result)
 ```

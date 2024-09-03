@@ -45,8 +45,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="gcmqvx5-larlezt8ks00ar9f8kfq524njjzfmn5dis4gk",
-    project_name="x9ql9z"
+    organization_name="rtxaydgbmb5wprcvb9628akhug9lnd3c0",
+    project_name="p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177"
 )
 
 print(result)
@@ -85,15 +85,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateQueue(
-    name="mh7g70vophyeafe4lxl6gmt4hizzzamvy3j90uelmwdmv",
-    display_name="gEiIPCAh",
-    description="dolor aliquip"
+    name="wcaz2jbu5pfmpygxffsf4bh4e6",
+    display_name="Ef",
+    description="aute Ut nostrud veniam sint"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="gcmqvx5-larlezt8ks00ar9f8kfq524njjzfmn5dis4gk",
-    project_name="x9ql9z"
+    organization_name="rtxaydgbmb5wprcvb9628akhug9lnd3c0",
+    project_name="p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177"
 )
 
 print(result)
@@ -131,9 +131,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue(
-    organization_name="s6o2b",
-    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
-    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
+    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
+    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
+    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
 )
 
 print(result)
@@ -173,15 +173,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateQueue(
-    display_name="MoX4JPAm1M.",
-    description="in ea minim labore"
+    display_name="TLURNvvFGXm",
+    description="aliqua et sit anim esse"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="s6o2b",
-    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
-    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
+    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
+    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
+    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
 )
 
 print(result)
@@ -215,9 +215,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="s6o2b",
-    project_name="z-hsy9-rgx52jml2un9bjy3nn4rykiwe0vex",
-    queue_name="q77lymon4qqm4j2k111l74jgrz9lbr76iko0hba99bukkai1ci9jgia3pwf8f-v"
+    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
+    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
+    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
 )
 
 print(result)
@@ -257,11 +257,11 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="s3artniqzrtb3xp",
-    project_name="ghu49za-gk-63eofvgj1t0umc64usbu",
-    queue_name="tz9a-29ellqfizdwuu79xr4e598",
-    page=1660039363,
-    page_size=20
+    organization_name="jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs",
+    project_name="sn780t45z2tw4xt1b86w0clx6vkq-3",
+    queue_name="sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c",
+    page=2110014563,
+    page_size=23
 )
 
 print(result)
@@ -308,9 +308,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="s3artniqzrtb3xp",
-    project_name="ghu49za-gk-63eofvgj1t0umc64usbu",
-    queue_name="tz9a-29ellqfizdwuu79xr4e598"
+    organization_name="jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs",
+    project_name="sn780t45z2tw4xt1b86w0clx6vkq-3",
+    queue_name="sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c"
 )
 
 print(result)
@@ -349,9 +349,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="q5amdp8n95tm7sbm4-h-l-za21p3dtwrf8h51jcaivs9xc",
-    project_name="nhu27mdjh418v3ixyidy7jsx-nnjlyt7-bhj1c1wox",
-    queue_name="tszyoxkrcz6v9wz35jltvo0g-6z9z",
+    organization_name="j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr",
+    project_name="eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d",
+    queue_name="zbvvpn2qgtohp",
     queue_job_id="queue_job_id"
 )
 
@@ -387,9 +387,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="q5amdp8n95tm7sbm4-h-l-za21p3dtwrf8h51jcaivs9xc",
-    project_name="nhu27mdjh418v3ixyidy7jsx-nnjlyt7-bhj1c1wox",
-    queue_name="tszyoxkrcz6v9wz35jltvo0g-6z9z",
+    organization_name="j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr",
+    project_name="eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d",
+    queue_name="zbvvpn2qgtohp",
     queue_job_id="queue_job_id"
 )
 

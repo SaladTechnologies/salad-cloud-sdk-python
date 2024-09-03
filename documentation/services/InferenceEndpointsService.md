@@ -43,9 +43,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="st2-urph37evrys1geyqe9zqcl509sj17pmml--8w-efwac",
-    page=1281776861,
-    page_size=39
+    organization_name="wg1umdxtc9fte8osib-e-5ux2vsmrhjjt13u7q3pryxxnm",
+    page=756148233,
+    page_size=66
 )
 
 print(result)
@@ -82,8 +82,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="r3ca1qhgg3f8sedhivpq69pz1fv6p6td3lk58q-xi9e71",
-    inference_endpoint_name="ex"
+    organization_name="uzp1dyfm2yp4-lxa27tl0fwms3fu3myo74a99jr6ouv4w8",
+    inference_endpoint_name="aute Ut reprehenderit occaecat sed"
 )
 
 print(result)
@@ -122,10 +122,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="o5xa3fo8vph2o1f-37ajjw041g16mvzbwxaa3c0u0co",
-    inference_endpoint_name="nulla do",
-    page=1108363256,
-    page_size=2
+    organization_name="trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00",
+    inference_endpoint_name="ut officia ut",
+    page=1653138765,
+    page_size=76
 )
 
 print(result)
@@ -171,8 +171,8 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="o5xa3fo8vph2o1f-37ajjw041g16mvzbwxaa3c0u0co",
-    inference_endpoint_name="nulla do"
+    organization_name="trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00",
+    inference_endpoint_name="ut officia ut"
 )
 
 print(result)
@@ -210,8 +210,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="s04w2crlogjmfdcc56apm9zbbx488p3ma8ymve3kv7u5j1tuskgp-t61s33ubq",
-    inference_endpoint_name="sint ea",
+    organization_name="b7tj9",
+    inference_endpoint_name="sed eu labore",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 
@@ -246,8 +246,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="s04w2crlogjmfdcc56apm9zbbx488p3ma8ymve3kv7u5j1tuskgp-t61s33ubq",
-    inference_endpoint_name="sint ea",
+    organization_name="b7tj9",
+    inference_endpoint_name="sed eu labore",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 
