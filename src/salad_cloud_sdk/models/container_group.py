@@ -11,6 +11,7 @@ from .container_group_liveness_probe import ContainerGroupLivenessProbe
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_group_startup_probe import ContainerGroupStartupProbe
 from .container_group_queue_connection import ContainerGroupQueueConnection
+from .queue_autoscaler import QueueAutoscaler
 
 
 @JsonMap({"id_": "id"})
@@ -53,6 +54,8 @@ class ContainerGroup(BaseModel):
     :type pending_change: bool
     :param version: version
     :type version: int
+    :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+    :type queue_autoscaler: QueueAutoscaler, optional
     """
 
     def __init__(
@@ -75,6 +78,7 @@ class ContainerGroup(BaseModel):
         readiness_probe: ContainerGroupReadinessProbe = None,
         startup_probe: ContainerGroupStartupProbe = None,
         queue_connection: ContainerGroupQueueConnection = None,
+        queue_autoscaler: QueueAutoscaler = None,
     ):
         """Represents a container group
 
@@ -114,6 +118,8 @@ class ContainerGroup(BaseModel):
         :type pending_change: bool
         :param version: version
         :type version: int
+        :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+        :type queue_autoscaler: QueueAutoscaler, optional
         """
         self.id_ = id_
         self.name = self._define_str(
@@ -155,3 +161,4 @@ class ContainerGroup(BaseModel):
         self.update_time = update_time
         self.pending_change = pending_change
         self.version = self._define_number("version", version, ge=1)
+        self.queue_autoscaler = self._define_object(queue_autoscaler, QueueAutoscaler)

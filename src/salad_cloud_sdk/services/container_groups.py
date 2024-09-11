@@ -322,7 +322,7 @@ class ContainerGroupsService(BaseService):
     def list_container_group_instances(
         self, organization_name: str, project_name: str, container_group_name: str
     ) -> ContainerGroupInstances:
-        """Retrieves a list of container group instances
+        """Gets the list of container group instances
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -370,7 +370,7 @@ class ContainerGroupsService(BaseService):
         container_group_name: str,
         container_group_instance_id: str,
     ) -> ContainerGroupInstance:
-        """Retrieves the details of a single instance within a container group by instance ID
+        """Gets a container group instance
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -422,7 +422,7 @@ class ContainerGroupsService(BaseService):
         container_group_name: str,
         container_group_instance_id: str,
     ) -> Any:
-        """Remove a node from a workload and reallocate the workload to a different node
+        """Reallocates a container group instance to run on a different Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -472,7 +472,7 @@ class ContainerGroupsService(BaseService):
         container_group_name: str,
         container_group_instance_id: str,
     ) -> Any:
-        """Stops a container, destroys it, creates a new one without requiring the image to be downloaded again on a different node
+        """Stops a container, destroys it, and starts a new one without requiring the image to be downloaded again on a new Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -522,7 +522,7 @@ class ContainerGroupsService(BaseService):
         container_group_name: str,
         container_group_instance_id: str,
     ) -> Any:
-        """Restarts a workload on a node without reallocating it
+        """Stops a container and restarts it on the same Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str

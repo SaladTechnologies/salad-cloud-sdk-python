@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Set
 from .utils import extract_original_data
 
 
@@ -80,7 +80,7 @@ class Request:
         self.headers["Content-Type"] = content_type
         return self
 
-    def set_scopes(self, scopes: list) -> "Request":
+    def set_scopes(self, scopes: Set[str]) -> "Request":
         """
         Set the scopes for the request.
 

@@ -29,6 +29,7 @@ from .container_group_liveness_probe import ContainerGroupLivenessProbe
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_group_startup_probe import ContainerGroupStartupProbe
 from .container_group_queue_connection import ContainerGroupQueueConnection
+from .queue_autoscaler import QueueAutoscaler
 from .container_resource_requirements import ContainerResourceRequirements
 from .container_group_priority import ContainerGroupPriority
 from .container_group_status import ContainerGroupStatus

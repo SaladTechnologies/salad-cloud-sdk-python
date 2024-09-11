@@ -239,7 +239,7 @@ class QueuesService(BaseService):
         page: int = None,
         page_size: int = None,
     ) -> QueueJobList:
-        """Retrieves a list of queue jobs
+        """Gets the list of jobs in a queue
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -347,7 +347,7 @@ class QueuesService(BaseService):
         queue_name: str,
         queue_job_id: str,
     ) -> QueueJob:
-        """Retrieves a job in a queue
+        """Gets a job in a queue
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -399,7 +399,7 @@ class QueuesService(BaseService):
         queue_name: str,
         queue_job_id: str,
     ) -> Any:
-        """Deletes a queue job
+        """Cancels a job in a queue
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str

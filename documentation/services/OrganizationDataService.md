@@ -15,9 +15,9 @@ List the GPU Classes
 
 **Parameters**
 
-| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
-| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| Name              | Type  | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | `str` | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 
 **Return Type**
 
@@ -35,7 +35,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.organization_data.list_gpu_classes(organization_name="wxgeliermrcdrg557eislsg5l8m8kmas3z0-6ns")
+result = sdk.organization_data.list_gpu_classes(organization_name="ksb7ikadj659qttkrqdm5b9xdre4met9iop")
 
 print(result)
 ```
