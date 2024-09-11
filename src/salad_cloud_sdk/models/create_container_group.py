@@ -10,6 +10,7 @@ from .container_group_liveness_probe import ContainerGroupLivenessProbe
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_group_startup_probe import ContainerGroupStartupProbe
 from .container_group_queue_connection import ContainerGroupQueueConnection
+from .queue_autoscaler import QueueAutoscaler
 
 
 @JsonMap({})
@@ -40,6 +41,8 @@ class CreateContainerGroup(BaseModel):
     :type startup_probe: ContainerGroupStartupProbe, optional
     :param queue_connection: Represents container group queue connection, defaults to None
     :type queue_connection: ContainerGroupQueueConnection, optional
+    :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+    :type queue_autoscaler: QueueAutoscaler, optional
     """
 
     def __init__(
@@ -56,6 +59,7 @@ class CreateContainerGroup(BaseModel):
         readiness_probe: ContainerGroupReadinessProbe = None,
         startup_probe: ContainerGroupStartupProbe = None,
         queue_connection: ContainerGroupQueueConnection = None,
+        queue_autoscaler: QueueAutoscaler = None,
     ):
         """Represents a request to create a container group
 
@@ -83,6 +87,8 @@ class CreateContainerGroup(BaseModel):
         :type startup_probe: ContainerGroupStartupProbe, optional
         :param queue_connection: Represents container group queue connection, defaults to None
         :type queue_connection: ContainerGroupQueueConnection, optional
+        :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+        :type queue_autoscaler: QueueAutoscaler, optional
         """
         self.name = self._define_str(
             "name",
@@ -121,3 +127,4 @@ class CreateContainerGroup(BaseModel):
         self.queue_connection = self._define_object(
             queue_connection, ContainerGroupQueueConnection
         )
+        self.queue_autoscaler = self._define_object(queue_autoscaler, QueueAutoscaler)

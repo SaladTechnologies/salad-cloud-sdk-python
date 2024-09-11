@@ -4,6 +4,6 @@ Represents a list of workload errors
 
 **Properties**
 
-| Name  | Type                | Required | Description |
-| :---- | :------------------ | :------- | :---------- |
-| items | List[WorkloadError] | ✅       |             |
+| Name  | Type                  | Required | Description |
+| :---- | :-------------------- | :------- | :---------- |
+| items | `List[WorkloadError]` | ✅       |             |
