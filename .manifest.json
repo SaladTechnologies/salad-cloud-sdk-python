@@ -1,6 +1,6 @@
 {
-  "liblabVersion": "2.1.30",
-  "date": "2024-09-01T16:26:41.730Z",
+  "liblabVersion": "2.2.0",
+  "date": "2024-09-11T03:56:15.040Z",
   "config": {
     "apiId": 1094,
     "sdkName": "salad-cloud-sdk",
@@ -510,6 +510,7 @@
     "documentation/services/InferenceEndpointsService.md",
     "README.md",
     "documentation/services/QueuesService.md",
+    "PyPI_README.md",
     "src/salad_cloud_sdk/services/inference_endpoints.py",
     "documentation/models/Container.md",
     "documentation/services/ContainerGroupsService.md",

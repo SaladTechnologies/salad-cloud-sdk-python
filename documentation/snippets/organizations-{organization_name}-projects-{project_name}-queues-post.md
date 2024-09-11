@@ -10,15 +10,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateQueue(
-    name="mh7g70vophyeafe4lxl6gmt4hizzzamvy3j90uelmwdmv",
-    display_name="gEiIPCAh",
-    description="dolor aliquip"
+    name="qezkr2369ic05v6gnnllg6fhb-84kitkca0jy309-oh27ro0i5p95v4le",
+    display_name="IR",
+    description="consequat nulla magna minim ad"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="gcmqvx5-larlezt8ks00ar9f8kfq524njjzfmn5dis4gk",
-    project_name="x9ql9z"
+    organization_name="v2321xyb8mgby4oaz0nnednrzwspo5e",
+    project_name="uqcz1p0g5ye7j57a"
 )
 
 print(result)

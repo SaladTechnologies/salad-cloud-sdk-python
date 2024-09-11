@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.delete_container_group(
-    organization_name="hjn8ph-8qr9s",
-    project_name="zpcs1c-85eq2giu1ly3ke1lk2gb3mqhp",
-    container_group_name="obcxrd0mqez"
+    organization_name="xpjrui87jps52s0iy",
+    project_name="hd-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4lnt5rb91fzs2",
+    container_group_name="naw4grzs1ulr8elj96ymws1tye0"
 )
 
 print(result)

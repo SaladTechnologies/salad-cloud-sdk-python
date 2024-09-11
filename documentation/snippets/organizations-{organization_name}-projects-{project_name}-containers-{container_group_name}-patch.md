@@ -10,16 +10,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="GzGG5v3-Z",
+    display_name="v9k",
     container={
-        "image": "labore mollit tempor elit",
+        "image": "mollit exercitation",
         "resources": {
-            "cpu": 3,
-            "memory": 2085,
+            "cpu": 11,
+            "memory": 17397,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 27222255995
+            "storage_amount": 53243271378
         },
         "command": [
             "command"
@@ -28,13 +28,13 @@ request_body = UpdateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "et in ipsum",
-                "api_token": "in sit in velit mollit",
-                "dataset": "in"
+                "host": "Lorem esse minim enim",
+                "api_token": "eiusmod",
+                "dataset": "incididunt ut Ut"
             },
             "datadog": {
-                "host": "incididunt irure",
-                "api_key": "ea ullamco",
+                "host": "Excepteur",
+                "api_key": "sit nisi nulla esse",
                 "tags": [
                     {
                         "name": "name",
@@ -43,20 +43,20 @@ request_body = UpdateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "labore irure enim consequat",
-                "ingestion_key": "aliquip consequat"
+                "host": "anim",
+                "ingestion_key": "id velit Lorem"
             },
             "splunk": {
-                "host": "ea fugiat",
-                "token": "nulla pariatur"
+                "host": "sint nostrud sunt anim commodo",
+                "token": "eu culpa voluptate ut"
             },
             "tcp": {
-                "host": "reprehenderit magna Ut veniam do",
-                "port": 37055
+                "host": "do eu Ut minim mollit",
+                "port": 51879
             },
             "http": {
-                "host": "nisi laborum pariatur",
-                "port": 15435,
+                "host": "in sit Excepteur dolor consectetur",
+                "port": 16123,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -91,20 +91,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=242,
+    replicas=57,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 16926
+        "port": 27521
     },
     liveness_probe={
         "tcp": {
-            "port": 33909
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 58747,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -115,37 +115,7 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 54101
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 1,
-        "period_seconds": 10,
-        "timeout_seconds": 30,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    readiness_probe={
-        "tcp": {
-            "port": 33909
-        },
-        "http": {
-            "path": "path",
-            "port": 58747,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 54101
+            "port": 6425
         },
         "exec_": {
             "command": [
@@ -153,18 +123,18 @@ request_body = UpdateContainerGroup(
             ]
         },
         "initial_delay_seconds": 10,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
+        "period_seconds": 10,
+        "timeout_seconds": 30,
         "success_threshold": 1,
         "failure_threshold": 3
     },
-    startup_probe={
+    readiness_probe={
         "tcp": {
-            "port": 33909
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 58747,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -175,14 +145,44 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 54101
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "initial_delay_seconds": 5,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 30306
+        },
+        "http": {
+            "path": "path",
+            "port": 53006,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 6425
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 0,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -192,9 +192,9 @@ request_body = UpdateContainerGroup(
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="hjn8ph-8qr9s",
-    project_name="zpcs1c-85eq2giu1ly3ke1lk2gb3mqhp",
-    container_group_name="obcxrd0mqez"
+    organization_name="xpjrui87jps52s0iy",
+    project_name="hd-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4lnt5rb91fzs2",
+    container_group_name="naw4grzs1ulr8elj96ymws1tye0"
 )
 
 print(result)

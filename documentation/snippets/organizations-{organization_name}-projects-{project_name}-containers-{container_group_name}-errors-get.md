@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.workload_errors.get_workload_errors(
-    organization_name="e1hyb0xog4htqwzv2xifmedj8m3aft",
-    project_name="ita8o56f6-ln3mgpj5ybc3o2jr6guahpm6a-9zm",
-    container_group_name="in0mmtzaxq1g5d8jy220ol2mol23pv6c6zej"
+    organization_name="vfx7paxg-h04conuqmz3mxb9iax5-m-abnacd2yjnwg6xlm838mbbxxjo-h52",
+    project_name="sonqyj90ubo8reysxpqq7xwg32lxlhjn2dh8g4ria4k5s",
+    container_group_name="dzd-3pdeog5yu4egwx3g9mbcmuyxmxx"
 )
 
 print(result)
