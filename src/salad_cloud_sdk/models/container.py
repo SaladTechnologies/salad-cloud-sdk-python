@@ -86,7 +86,8 @@ class LoggingDatadog1(BaseModel):
         self.api_key = self._define_str(
             "api_key", api_key, min_length=1, max_length=1000
         )
-        self.tags = self._define_list(tags, DatadogTags1)
+        if tags is not None:
+            self.tags = self._define_list(tags, DatadogTags1)
 
 
 @JsonMap({})
@@ -275,11 +276,15 @@ class LoggingHttp1(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
-        self.user = self._define_str("user", user, nullable=True)
-        self.password = self._define_str("password", password, nullable=True)
-        self.path = self._define_str("path", path, nullable=True)
+        if user is not None:
+            self.user = self._define_str("user", user, nullable=True)
+        if password is not None:
+            self.password = self._define_str("password", password, nullable=True)
+        if path is not None:
+            self.path = self._define_str("path", path, nullable=True)
         self.format = self._enum_matching(format, HttpFormat1.list(), "format")
-        self.headers = self._define_list(headers, HttpHeaders1)
+        if headers is not None:
+            self.headers = self._define_list(headers, HttpHeaders1)
         self.compression = self._enum_matching(
             compression, HttpCompression1.list(), "compression"
         )
@@ -327,12 +332,18 @@ class ContainerLogging(BaseModel):
         :param http: http, defaults to None
         :type http: LoggingHttp1, optional
         """
-        self.axiom = self._define_object(axiom, LoggingAxiom1)
-        self.datadog = self._define_object(datadog, LoggingDatadog1)
-        self.new_relic = self._define_object(new_relic, LoggingNewRelic1)
-        self.splunk = self._define_object(splunk, LoggingSplunk1)
-        self.tcp = self._define_object(tcp, LoggingTcp1)
-        self.http = self._define_object(http, LoggingHttp1)
+        if axiom is not None:
+            self.axiom = self._define_object(axiom, LoggingAxiom1)
+        if datadog is not None:
+            self.datadog = self._define_object(datadog, LoggingDatadog1)
+        if new_relic is not None:
+            self.new_relic = self._define_object(new_relic, LoggingNewRelic1)
+        if splunk is not None:
+            self.splunk = self._define_object(splunk, LoggingSplunk1)
+        if tcp is not None:
+            self.tcp = self._define_object(tcp, LoggingTcp1)
+        if http is not None:
+            self.http = self._define_object(http, LoggingHttp1)
 
 
 @JsonMap({})
@@ -390,12 +401,15 @@ class Container(BaseModel):
         self.image = self._define_str("image", image, min_length=1, max_length=1024)
         self.resources = self._define_object(resources, ContainerResourceRequirements)
         self.command = command
-        self.priority = (
-            self._enum_matching(priority, ContainerGroupPriority.list(), "priority")
-            if priority
-            else None
-        )
-        self.size = self._define_number("size", size, nullable=True)
-        self.hash = self._define_str("hash", hash, nullable=True)
-        self.environment_variables = environment_variables
-        self.logging = self._define_object(logging, ContainerLogging)
+        if priority is not None:
+            self.priority = self._enum_matching(
+                priority, ContainerGroupPriority.list(), "priority"
+            )
+        if size is not None:
+            self.size = size
+        if hash is not None:
+            self.hash = hash
+        if environment_variables is not None:
+            self.environment_variables = environment_variables
+        if logging is not None:
+            self.logging = self._define_object(logging, ContainerLogging)

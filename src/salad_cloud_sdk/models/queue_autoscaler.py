@@ -48,25 +48,20 @@ class QueueAutoscaler(BaseModel):
             "min_replicas", min_replicas, ge=0, le=100
         )
         self.max_replicas = self._define_number(
-            "max_replicas", max_replicas, ge=1, le=100
+            "max_replicas", max_replicas, ge=1, le=250
         )
         self.desired_queue_length = self._define_number(
             "desired_queue_length", desired_queue_length, ge=1, le=100
         )
-        self.polling_period = self._define_number(
-            "polling_period", polling_period, nullable=True, ge=15, le=1800
-        )
-        self.max_upscale_per_minute = self._define_number(
-            "max_upscale_per_minute",
-            max_upscale_per_minute,
-            nullable=True,
-            ge=1,
-            le=100,
-        )
-        self.max_downscale_per_minute = self._define_number(
-            "max_downscale_per_minute",
-            max_downscale_per_minute,
-            nullable=True,
-            ge=1,
-            le=100,
-        )
+        if polling_period is not None:
+            self.polling_period = self._define_number(
+                "polling_period", polling_period, ge=15, le=1800
+            )
+        if max_upscale_per_minute is not None:
+            self.max_upscale_per_minute = self._define_number(
+                "max_upscale_per_minute", max_upscale_per_minute, ge=1, le=100
+            )
+        if max_downscale_per_minute is not None:
+            self.max_downscale_per_minute = self._define_number(
+                "max_downscale_per_minute", max_downscale_per_minute, ge=1, le=100
+            )

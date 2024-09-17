@@ -15,11 +15,11 @@ Gets the workload errors
 
 **Parameters**
 
-| Name                 | Type  | Required | Description                                                                                                                                                                                                                                         |
-| :------------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| organization_name    | `str` | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| project_name         | `str` | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
-| container_group_name | `str` | ✅       | The unique container group name                                                                                                                                                                                                                     |
+| Name                 | Type | Required | Description                                                                                                                                                                                                                                         |
+| :------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -38,9 +38,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.workload_errors.get_workload_errors(
-    organization_name="u9szw31h4fee237cnffybnugpd7nbngs47jne2vq5j0d2m4f20",
-    project_name="c5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844m0ne",
-    container_group_name="khlkkgda39h5upyur493wxwbxrj4x"
+    organization_name="frtmwlnemnvjip49fx7paxg-h04cn",
+    project_name="jqmz3mxb9iax5-m-abnacd2yjnwg6xlm838m",
+    container_group_name="bxxj"
 )
 
 print(result)

@@ -41,21 +41,21 @@ class ContainerGroupsQuotas(BaseModel):
         """
         self.max_created_container_groups = max_created_container_groups
         self.container_instance_quota = container_instance_quota
-        self.max_container_group_reallocations_per_minute = self._define_number(
-            "max_container_group_reallocations_per_minute",
-            max_container_group_reallocations_per_minute,
-            nullable=True,
-            ge=0,
-        )
-        self.max_container_group_recreates_per_minute = self._define_number(
-            "max_container_group_recreates_per_minute",
-            max_container_group_recreates_per_minute,
-            nullable=True,
-            ge=0,
-        )
-        self.max_container_group_restarts_per_minute = self._define_number(
-            "max_container_group_restarts_per_minute",
-            max_container_group_restarts_per_minute,
-            nullable=True,
-            ge=0,
-        )
+        if max_container_group_reallocations_per_minute is not None:
+            self.max_container_group_reallocations_per_minute = self._define_number(
+                "max_container_group_reallocations_per_minute",
+                max_container_group_reallocations_per_minute,
+                ge=0,
+            )
+        if max_container_group_recreates_per_minute is not None:
+            self.max_container_group_recreates_per_minute = self._define_number(
+                "max_container_group_recreates_per_minute",
+                max_container_group_recreates_per_minute,
+                ge=0,
+            )
+        if max_container_group_restarts_per_minute is not None:
+            self.max_container_group_restarts_per_minute = self._define_number(
+                "max_container_group_restarts_per_minute",
+                max_container_group_restarts_per_minute,
+                ge=0,
+            )

@@ -3,12 +3,14 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.update_container_group import UpdateContainerGroup
-from ..models.create_container_group import CreateContainerGroup
-from ..models.container_group_list import ContainerGroupList
-from ..models.container_group_instances import ContainerGroupInstances
-from ..models.container_group_instance import ContainerGroupInstance
-from ..models.container_group import ContainerGroup
+from ..models import (
+    ContainerGroup,
+    ContainerGroupInstance,
+    ContainerGroupInstances,
+    ContainerGroupList,
+    CreateContainerGroup,
+    UpdateContainerGroup,
+)
 
 
 class ContainerGroupsService(BaseService):

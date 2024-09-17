@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="wg1umdxtc9fte8osib-e-5ux2vsmrhjjt13u7q3pryxxnm",
-    page=756148233,
-    page_size=66
+    organization_name="v7xmi1ci3kyzzon0m2ie",
+    page=215491405,
+    page_size=64
 )
 
 print(result)

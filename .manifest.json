@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.2.0",
-  "date": "2024-09-11T04:10:25.858Z",
+  "liblabVersion": "2.4.0",
+  "date": "2024-09-17T04:02:31.175Z",
   "config": {
-    "apiId": 1143,
+    "apiId": 1172,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.2",
+    "sdkVersion": "0.9.0-alpha.3",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["python"],
@@ -26,7 +26,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "go": {
@@ -34,7 +34,7 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "java": {
@@ -58,11 +58,11 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "python": {
-        "alwaysInitializeOptionals": true,
+        "alwaysInitializeOptionals": false,
         "classifiers": [
           "Development Status :: 3 - Alpha",
           "Intended Audience :: Developers",
@@ -101,7 +101,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       },
       "terraform": {
@@ -112,7 +112,7 @@
         "providerSchemaConfig": {
           "authTokenKey": "api_key"
         },
-        "providerVersion": "0.9.0-alpha.2",
+        "providerVersion": "0.9.0-alpha.3",
         "githubRepoName": "terraform-provider-salad-cloud",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
@@ -138,7 +138,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.2",
+        "sdkVersion": "0.9.0-alpha.3",
         "targetBranch": "main"
       }
     },
@@ -232,7 +232,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.2",
+    "apiVersion": "0.9.0-alpha.3",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -261,7 +261,7 @@
     },
     "multiTenant": true,
     "includeWatermark": false,
-    "alwaysInitializeOptionals": true,
+    "alwaysInitializeOptionals": false,
     "classifiers": [
       "Development Status :: 3 - Alpha",
       "Intended Audience :: Developers",

@@ -64,10 +64,14 @@ class ContainerGroupStartupProbe(BaseModel):
         :param failure_threshold: failure_threshold
         :type failure_threshold: int
         """
-        self.tcp = self._define_object(tcp, ContainerGroupProbeTcp)
-        self.http = self._define_object(http, ContainerGroupProbeHttp)
-        self.grpc = self._define_object(grpc, ContainerGroupProbeGrpc)
-        self.exec_ = self._define_object(exec_, ContainerGroupProbeExec)
+        if tcp is not None:
+            self.tcp = self._define_object(tcp, ContainerGroupProbeTcp)
+        if http is not None:
+            self.http = self._define_object(http, ContainerGroupProbeHttp)
+        if grpc is not None:
+            self.grpc = self._define_object(grpc, ContainerGroupProbeGrpc)
+        if exec_ is not None:
+            self.exec_ = self._define_object(exec_, ContainerGroupProbeExec)
         self.initial_delay_seconds = self._define_number(
             "initial_delay_seconds", initial_delay_seconds, ge=0
         )

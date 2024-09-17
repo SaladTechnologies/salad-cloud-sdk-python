@@ -143,22 +143,31 @@ class ContainerGroup(BaseModel):
         )
         self.replicas = self._define_number("replicas", replicas, ge=0, le=100)
         self.current_state = self._define_object(current_state, ContainerGroupState)
-        self.country_codes = self._define_list(country_codes, CountryCode)
-        self.networking = self._define_object(networking, ContainerGroupNetworking)
-        self.liveness_probe = self._define_object(
-            liveness_probe, ContainerGroupLivenessProbe
-        )
-        self.readiness_probe = self._define_object(
-            readiness_probe, ContainerGroupReadinessProbe
-        )
-        self.startup_probe = self._define_object(
-            startup_probe, ContainerGroupStartupProbe
-        )
-        self.queue_connection = self._define_object(
-            queue_connection, ContainerGroupQueueConnection
-        )
+        if country_codes is not None:
+            self.country_codes = self._define_list(country_codes, CountryCode)
+        if networking is not None:
+            self.networking = self._define_object(networking, ContainerGroupNetworking)
+        if liveness_probe is not None:
+            self.liveness_probe = self._define_object(
+                liveness_probe, ContainerGroupLivenessProbe
+            )
+        if readiness_probe is not None:
+            self.readiness_probe = self._define_object(
+                readiness_probe, ContainerGroupReadinessProbe
+            )
+        if startup_probe is not None:
+            self.startup_probe = self._define_object(
+                startup_probe, ContainerGroupStartupProbe
+            )
+        if queue_connection is not None:
+            self.queue_connection = self._define_object(
+                queue_connection, ContainerGroupQueueConnection
+            )
         self.create_time = create_time
         self.update_time = update_time
         self.pending_change = pending_change
         self.version = self._define_number("version", version, ge=1)
-        self.queue_autoscaler = self._define_object(queue_autoscaler, QueueAutoscaler)
+        if queue_autoscaler is not None:
+            self.queue_autoscaler = self._define_object(
+                queue_autoscaler, QueueAutoscaler
+            )

@@ -16,4 +16,5 @@ class UpdateContainerGroupNetworking(BaseModel):
         :param port: port, defaults to None
         :type port: int, optional
         """
-        self.port = self._define_number("port", port, nullable=True, ge=1, le=65535)
+        if port is not None:
+            self.port = self._define_number("port", port, nullable=True, ge=1, le=65535)

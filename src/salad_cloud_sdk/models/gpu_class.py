@@ -40,4 +40,5 @@ class GpuClass(BaseModel):
         self.id_ = id_
         self.name = self._define_str("name", name, min_length=2, max_length=63)
         self.prices = self._define_list(prices, GpuClassPrice)
-        self.is_high_demand = is_high_demand
+        if is_high_demand is not None:
+            self.is_high_demand = is_high_demand

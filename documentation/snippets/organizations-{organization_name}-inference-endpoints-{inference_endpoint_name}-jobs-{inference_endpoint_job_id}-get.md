@@ -9,8 +9,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="b7tj9",
-    inference_endpoint_name="sed eu labore",
+    organization_name="fa9p9or6f6b78k5l055jui8tmpngms0ir5zg3ixfzqkola94rkm",
+    inference_endpoint_name="mollit",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 

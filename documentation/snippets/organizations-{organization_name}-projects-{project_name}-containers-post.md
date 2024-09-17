@@ -10,17 +10,17 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateContainerGroup(
-    name="qfojt-6ccoil4t55-ccoyybgw92dermtsdfn3t2xmag",
-    display_name="O0hSlJUW",
+    name="n1yhwjdpa4rchjtb6qp-hyt0s34",
+    display_name="ICNHy",
     container={
-        "image": "voluptate officia adipisicing",
+        "image": "velit irure dolore cupidatat",
         "resources": {
-            "cpu": 10,
-            "memory": 17858,
+            "cpu": 2,
+            "memory": 20102,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 32391110488
+            "storage_amount": 4874892434
         },
         "command": [
             "command"
@@ -29,13 +29,13 @@ request_body = CreateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "Ut con",
-                "api_token": "nostrud irure dolore",
-                "dataset": "mollit irure et Duis dolore"
+                "host": "sed aute in cillum",
+                "api_token": "sunt aute pariatur",
+                "dataset": "tempor"
             },
             "datadog": {
-                "host": "pariatur",
-                "api_key": "non ut",
+                "host": "incid",
+                "api_key": "dolor eu pariatur",
                 "tags": [
                     {
                         "name": "name",
@@ -44,20 +44,20 @@ request_body = CreateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "cupidatat cillum est sit minim",
-                "ingestion_key": "dolore laboris fugiat Duis"
+                "host": "laborum ea aliqua",
+                "ingestion_key": "anim in incididunt ut Ut"
             },
             "splunk": {
-                "host": "aliquip velit culpa",
-                "token": "ex"
+                "host": "officia dolor in aliqua consectetur",
+                "token": "ipsum consectetur ea"
             },
             "tcp": {
-                "host": "aliqua",
-                "port": 17249
+                "host": "cupidatat do labore pariatur",
+                "port": 58307
             },
             "http": {
-                "host": "magna",
-                "port": 62049,
+                "host": "Excepteur sunt",
+                "port": 49224,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -94,22 +94,22 @@ request_body = CreateContainerGroup(
     },
     autostart_policy=False,
     restart_policy="always",
-    replicas=114,
+    replicas=67,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 9813,
+        "port": 40145,
         "auth": False
     },
     liveness_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -120,14 +120,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 5,
+        "initial_delay_seconds": 10,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -135,11 +135,11 @@ request_body = CreateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -150,14 +150,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "initial_delay_seconds": 5,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -165,11 +165,11 @@ request_body = CreateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -180,38 +180,38 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 4,
+        "initial_delay_seconds": 0,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_connection={
-        "path": "ullamco magna est nulla aliqua",
-        "port": 49952,
-        "queue_name": "nnz26lyemw7nednorlqjlsihb42092pn8d"
+        "path": "ipsum proident",
+        "port": 10282,
+        "queue_name": "cnb3eo62nsjao0"
     },
     queue_autoscaler={
-        "min_replicas": 57,
-        "max_replicas": 24,
-        "desired_queue_length": 20,
-        "polling_period": 1406,
-        "max_upscale_per_minute": 35,
-        "max_downscale_per_minute": 42
+        "min_replicas": 45,
+        "max_replicas": 217,
+        "desired_queue_length": 98,
+        "polling_period": 897,
+        "max_upscale_per_minute": 40,
+        "max_downscale_per_minute": 82
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="v50imwzgi4em4q035",
-    project_name="m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1"
+    organization_name="g4zikv73wys88ns82g85qcczec2y8bnwc4gs8q6aeebojnkc8rl8-7px",
+    project_name="n62j25cdo2sjh0v34w5-21z63jxnxh38ckz48-k1ecu"
 )
 
 print(result)

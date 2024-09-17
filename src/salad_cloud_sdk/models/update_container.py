@@ -38,18 +38,22 @@ class Resources(BaseModel):
         :param storage_amount: storage_amount, defaults to None
         :type storage_amount: int, optional
         """
-        self.cpu = self._define_number("cpu", cpu, nullable=True, ge=1, le=16)
-        self.memory = self._define_number(
-            "memory", memory, nullable=True, ge=1024, le=30720
-        )
-        self.gpu_classes = gpu_classes
-        self.storage_amount = self._define_number(
-            "storage_amount",
-            storage_amount,
-            nullable=True,
-            ge=1073741824,
-            le=53687091200,
-        )
+        if cpu is not None:
+            self.cpu = self._define_number("cpu", cpu, nullable=True, ge=1, le=16)
+        if memory is not None:
+            self.memory = self._define_number(
+                "memory", memory, nullable=True, ge=1024, le=30720
+            )
+        if gpu_classes is not None:
+            self.gpu_classes = gpu_classes
+        if storage_amount is not None:
+            self.storage_amount = self._define_number(
+                "storage_amount",
+                storage_amount,
+                nullable=True,
+                ge=1073741824,
+                le=53687091200,
+            )
 
 
 @JsonMap({})
@@ -131,7 +135,8 @@ class LoggingDatadog3(BaseModel):
         self.api_key = self._define_str(
             "api_key", api_key, min_length=1, max_length=1000
         )
-        self.tags = self._define_list(tags, DatadogTags3)
+        if tags is not None:
+            self.tags = self._define_list(tags, DatadogTags3)
 
 
 @JsonMap({})
@@ -320,11 +325,15 @@ class LoggingHttp3(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
-        self.user = self._define_str("user", user, nullable=True)
-        self.password = self._define_str("password", password, nullable=True)
-        self.path = self._define_str("path", path, nullable=True)
+        if user is not None:
+            self.user = self._define_str("user", user, nullable=True)
+        if password is not None:
+            self.password = self._define_str("password", password, nullable=True)
+        if path is not None:
+            self.path = self._define_str("path", path, nullable=True)
         self.format = self._enum_matching(format, HttpFormat3.list(), "format")
-        self.headers = self._define_list(headers, HttpHeaders4)
+        if headers is not None:
+            self.headers = self._define_list(headers, HttpHeaders4)
         self.compression = self._enum_matching(
             compression, HttpCompression3.list(), "compression"
         )
@@ -372,12 +381,18 @@ class UpdateContainerLogging(BaseModel):
         :param http: http, defaults to None
         :type http: LoggingHttp3, optional
         """
-        self.axiom = self._define_object(axiom, LoggingAxiom3)
-        self.datadog = self._define_object(datadog, LoggingDatadog3)
-        self.new_relic = self._define_object(new_relic, LoggingNewRelic3)
-        self.splunk = self._define_object(splunk, LoggingSplunk3)
-        self.tcp = self._define_object(tcp, LoggingTcp3)
-        self.http = self._define_object(http, LoggingHttp3)
+        if axiom is not None:
+            self.axiom = self._define_object(axiom, LoggingAxiom3)
+        if datadog is not None:
+            self.datadog = self._define_object(datadog, LoggingDatadog3)
+        if new_relic is not None:
+            self.new_relic = self._define_object(new_relic, LoggingNewRelic3)
+        if splunk is not None:
+            self.splunk = self._define_object(splunk, LoggingSplunk3)
+        if tcp is not None:
+            self.tcp = self._define_object(tcp, LoggingTcp3)
+        if http is not None:
+            self.http = self._define_object(http, LoggingHttp3)
 
 
 @JsonMap({})
@@ -517,13 +532,18 @@ class UpdateContainerRegistryAuthentication(BaseModel):
         :param gcp_gar: gcp_gar, defaults to None
         :type gcp_gar: RegistryAuthenticationGcpGar2, optional
         """
-        self.basic = self._define_object(basic, RegistryAuthenticationBasic2)
-        self.gcp_gcr = self._define_object(gcp_gcr, RegistryAuthenticationGcpGcr2)
-        self.aws_ecr = self._define_object(aws_ecr, RegistryAuthenticationAwsEcr2)
-        self.docker_hub = self._define_object(
-            docker_hub, RegistryAuthenticationDockerHub2
-        )
-        self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar2)
+        if basic is not None:
+            self.basic = self._define_object(basic, RegistryAuthenticationBasic2)
+        if gcp_gcr is not None:
+            self.gcp_gcr = self._define_object(gcp_gcr, RegistryAuthenticationGcpGcr2)
+        if aws_ecr is not None:
+            self.aws_ecr = self._define_object(aws_ecr, RegistryAuthenticationAwsEcr2)
+        if docker_hub is not None:
+            self.docker_hub = self._define_object(
+                docker_hub, RegistryAuthenticationDockerHub2
+            )
+        if gcp_gar is not None:
+            self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar2)
 
 
 @JsonMap({})
@@ -573,18 +593,23 @@ class UpdateContainer(BaseModel):
         :param registry_authentication: registry_authentication, defaults to None
         :type registry_authentication: UpdateContainerRegistryAuthentication, optional
         """
-        self.image = self._define_str(
-            "image", image, nullable=True, min_length=1, max_length=1024
-        )
-        self.resources = self._define_object(resources, Resources)
-        self.command = command
-        self.priority = (
-            self._enum_matching(priority, ContainerGroupPriority.list(), "priority")
-            if priority
-            else None
-        )
-        self.environment_variables = environment_variables
-        self.logging = self._define_object(logging, UpdateContainerLogging)
-        self.registry_authentication = self._define_object(
-            registry_authentication, UpdateContainerRegistryAuthentication
-        )
+        if image is not None:
+            self.image = self._define_str(
+                "image", image, nullable=True, min_length=1, max_length=1024
+            )
+        if resources is not None:
+            self.resources = self._define_object(resources, Resources)
+        if command is not None:
+            self.command = command
+        if priority is not None:
+            self.priority = self._enum_matching(
+                priority, ContainerGroupPriority.list(), "priority"
+            )
+        if environment_variables is not None:
+            self.environment_variables = environment_variables
+        if logging is not None:
+            self.logging = self._define_object(logging, UpdateContainerLogging)
+        if registry_authentication is not None:
+            self.registry_authentication = self._define_object(
+                registry_authentication, UpdateContainerRegistryAuthentication
+            )

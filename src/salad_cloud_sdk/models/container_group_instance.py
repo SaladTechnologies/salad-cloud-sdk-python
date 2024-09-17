@@ -85,5 +85,7 @@ class ContainerGroupInstance(BaseModel):
         self.state = self._enum_matching(state, State.list(), "state")
         self.update_time = update_time
         self.version = self._define_number("version", version, ge=1)
-        self.ready = ready
-        self.started = started
+        if ready is not None:
+            self.ready = ready
+        if started is not None:
+            self.started = started

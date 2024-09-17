@@ -97,34 +97,44 @@ class CreateContainerGroup(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.display_name = self._define_str(
-            "display_name",
-            display_name,
-            nullable=True,
-            pattern="^[ ,-.0-9A-Za-z]+$",
-            min_length=2,
-            max_length=63,
-        )
+        if display_name is not None:
+            self.display_name = self._define_str(
+                "display_name",
+                display_name,
+                nullable=True,
+                pattern="^[ ,-.0-9A-Za-z]+$",
+                min_length=2,
+                max_length=63,
+            )
         self.container = self._define_object(container, CreateContainer)
         self.autostart_policy = autostart_policy
         self.restart_policy = self._enum_matching(
             restart_policy, ContainerRestartPolicy.list(), "restart_policy"
         )
         self.replicas = self._define_number("replicas", replicas, ge=0, le=250)
-        self.country_codes = self._define_list(country_codes, CountryCode)
-        self.networking = self._define_object(
-            networking, CreateContainerGroupNetworking
-        )
-        self.liveness_probe = self._define_object(
-            liveness_probe, ContainerGroupLivenessProbe
-        )
-        self.readiness_probe = self._define_object(
-            readiness_probe, ContainerGroupReadinessProbe
-        )
-        self.startup_probe = self._define_object(
-            startup_probe, ContainerGroupStartupProbe
-        )
-        self.queue_connection = self._define_object(
-            queue_connection, ContainerGroupQueueConnection
-        )
-        self.queue_autoscaler = self._define_object(queue_autoscaler, QueueAutoscaler)
+        if country_codes is not None:
+            self.country_codes = self._define_list(country_codes, CountryCode)
+        if networking is not None:
+            self.networking = self._define_object(
+                networking, CreateContainerGroupNetworking
+            )
+        if liveness_probe is not None:
+            self.liveness_probe = self._define_object(
+                liveness_probe, ContainerGroupLivenessProbe
+            )
+        if readiness_probe is not None:
+            self.readiness_probe = self._define_object(
+                readiness_probe, ContainerGroupReadinessProbe
+            )
+        if startup_probe is not None:
+            self.startup_probe = self._define_object(
+                startup_probe, ContainerGroupStartupProbe
+            )
+        if queue_connection is not None:
+            self.queue_connection = self._define_object(
+                queue_connection, ContainerGroupQueueConnection
+            )
+        if queue_autoscaler is not None:
+            self.queue_autoscaler = self._define_object(
+                queue_autoscaler, QueueAutoscaler
+            )

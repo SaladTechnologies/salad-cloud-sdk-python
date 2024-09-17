@@ -15,7 +15,7 @@ if "%USE_VENV%"=="1" (
 
 pip install build
 python -m build --outdir dist .
-pip install dist\salad_cloud_sdk-0.9.0-alpha.2-py3-none-any.whl --force-reinstall
+pip install dist\salad_cloud_sdk-0.9.0-alpha.3-py3-none-any.whl --force-reinstall
 
 if "%USE_VENV%"=="1" (
     deactivate

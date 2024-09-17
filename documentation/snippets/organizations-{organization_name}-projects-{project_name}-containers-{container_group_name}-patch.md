@@ -10,16 +10,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="-xzxtaW.t2I",
+    display_name="HD",
     container={
-        "image": "ex cillum dolor",
+        "image": "sit Ut aliqua consequat sunt",
         "resources": {
-            "cpu": 11,
-            "memory": 21424,
+            "cpu": 13,
+            "memory": 25675,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 12333132242
+            "storage_amount": 46594236814
         },
         "command": [
             "command"
@@ -28,13 +28,13 @@ request_body = UpdateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "commodo ea exercitation pariatur consequat",
-                "api_token": "ipsum",
-                "dataset": "id Excepteur"
+                "host": "voluptate exercitation culpa commodo",
+                "api_token": "do amet non id",
+                "dataset": "nostrud irure enim cillum"
             },
             "datadog": {
-                "host": "exercitation aliquip",
-                "api_key": "veniam",
+                "host": "officia dolore ex",
+                "api_key": "nostrud proident dolor laborum",
                 "tags": [
                     {
                         "name": "name",
@@ -43,20 +43,20 @@ request_body = UpdateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "amet velit sed cillum",
-                "ingestion_key": "et"
+                "host": "esse",
+                "ingestion_key": "Duis exercitation aliquip consectetur dolore"
             },
             "splunk": {
-                "host": "proident",
-                "token": "est"
+                "host": "incididunt dolore tempor",
+                "token": "dolore laboris non amet"
             },
             "tcp": {
-                "host": "ut velit ea cillum",
-                "port": 13557
+                "host": "est cupidatat",
+                "port": 49463
             },
             "http": {
-                "host": "nisi fugiat cupidatat",
-                "port": 60288,
+                "host": "laborum",
+                "port": 12450,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -91,20 +91,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=110,
+    replicas=244,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 64823
+        "port": 55659
     },
     liveness_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -115,14 +115,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 5,
+        "initial_delay_seconds": 10,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -130,11 +130,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -145,14 +145,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "initial_delay_seconds": 5,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -160,11 +160,11 @@ request_body = UpdateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 23269
+            "port": 30306
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 53006,
             "scheme": "http",
             "headers": [
                 {
@@ -175,14 +175,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 6425
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 4,
+        "initial_delay_seconds": 0,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -192,9 +192,9 @@ request_body = UpdateContainerGroup(
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="gq7z7dvdopv2czgde1zrufxgiv5tp-kncd4gfzda9ik-lw",
-    project_name="xd-if9b1yvozs9trd4v0bll7qwslfehyhnfadnjp2w52gwrmz",
-    container_group_name="ojjj5b9hbe2fr6f5t7j1htjaws1zx3r"
+    organization_name="bvf99pxxwtres8z9zwaod8ipjrui87jps52s0izl8d-g9wqh8bjg",
+    project_name="d2tyh4q9ni9h81tilnlnf5i-r38a8vv5h3",
+    container_group_name="it5rb91fzs3spaw4grzs1ulr7"
 )
 
 print(result)

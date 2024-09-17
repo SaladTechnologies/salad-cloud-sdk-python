@@ -2,7 +2,7 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.gpu_classes_list import GpuClassesList
+from ..models import GpuClassesList
 
 
 class OrganizationDataService(BaseService):
