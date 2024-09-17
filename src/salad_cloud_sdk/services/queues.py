@@ -3,13 +3,15 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.update_queue import UpdateQueue
-from ..models.queue_list import QueueList
-from ..models.queue_job_list import QueueJobList
-from ..models.queue_job import QueueJob
-from ..models.queue import Queue
-from ..models.create_queue_job import CreateQueueJob
-from ..models.create_queue import CreateQueue
+from ..models import (
+    CreateQueue,
+    CreateQueueJob,
+    Queue,
+    QueueJob,
+    QueueJobList,
+    QueueList,
+    UpdateQueue,
+)
 
 
 class QueuesService(BaseService):

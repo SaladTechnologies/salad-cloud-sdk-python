@@ -3,11 +3,13 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inference_endpoints_list import InferenceEndpointsList
-from ..models.inference_endpoint_job_list import InferenceEndpointJobList
-from ..models.inference_endpoint_job import InferenceEndpointJob
-from ..models.inference_endpoint import InferenceEndpoint
-from ..models.create_inference_endpoint_job import CreateInferenceEndpointJob
+from ..models import (
+    CreateInferenceEndpointJob,
+    InferenceEndpoint,
+    InferenceEndpointJob,
+    InferenceEndpointJobList,
+    InferenceEndpointsList,
+)
 
 
 class InferenceEndpointsService(BaseService):

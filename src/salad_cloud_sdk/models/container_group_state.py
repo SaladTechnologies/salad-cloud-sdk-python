@@ -43,7 +43,10 @@ class ContainerGroupState(BaseModel):
         :type instance_status_counts: ContainerGroupInstanceStatusCount
         """
         self.status = self._enum_matching(status, ContainerGroupStatus.list(), "status")
-        self.description = self._define_str("description", description, nullable=True)
+        if description is not None:
+            self.description = self._define_str(
+                "description", description, nullable=True
+            )
         self.start_time = start_time
         self.finish_time = finish_time
         self.instance_status_counts = self._define_object(

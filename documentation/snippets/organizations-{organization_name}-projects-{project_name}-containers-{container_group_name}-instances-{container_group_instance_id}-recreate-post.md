@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.recreate_container_group_instance(
-    organization_name="pkfh3rhnvt4x30k5t",
-    project_name="o7r3q30xz",
-    container_group_name="aq7hd1fjfxgtq8uehil3eplo",
+    organization_name="wpyuvzjd-oj09ghynxoh7290af1yiwyo8xtgc4vp6ssr245-lzbbnxajn",
+    project_name="jxep9ngo2h5",
+    container_group_name="kolehqryzs0nwtgem-0z1kzoxeehf59gi91ttsn9ueh4r0udym74x",
     container_group_instance_id="container_group_instance_id"
 )
 

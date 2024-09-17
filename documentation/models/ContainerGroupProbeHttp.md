@@ -2,9 +2,9 @@
 
 **Properties**
 
-| Name    | Type                                    | Required | Description |
-| :------ | :-------------------------------------- | :------- | :---------- |
-| path    | `str`                                   | ✅       |             |
-| port    | `int`                                   | ✅       |             |
-| scheme  | `ContainerProbeHttpScheme`              | ❌       |             |
-| headers | `List[ContainerGroupProbeHttpHeaders2]` | ❌       |             |
+| Name    | Type                                  | Required | Description |
+| :------ | :------------------------------------ | :------- | :---------- |
+| path    | str                                   | ✅       |             |
+| port    | int                                   | ✅       |             |
+| scheme  | ContainerProbeHttpScheme              | ❌       |             |
+| headers | List[ContainerGroupProbeHttpHeaders2] | ❌       |             |

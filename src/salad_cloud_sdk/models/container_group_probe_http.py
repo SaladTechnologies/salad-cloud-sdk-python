@@ -40,9 +40,9 @@ class ContainerGroupProbeHttp(BaseModel):
         """
         self.path = path
         self.port = self._define_number("port", port, ge=0, le=65536)
-        self.scheme = (
-            self._enum_matching(scheme, ContainerProbeHttpScheme.list(), "scheme")
-            if scheme
-            else None
-        )
-        self.headers = self._define_list(headers, ContainerGroupProbeHttpHeaders2)
+        if scheme is not None:
+            self.scheme = self._enum_matching(
+                scheme, ContainerProbeHttpScheme.list(), "scheme"
+            )
+        if headers is not None:
+            self.headers = self._define_list(headers, ContainerGroupProbeHttpHeaders2)

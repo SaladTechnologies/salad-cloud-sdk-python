@@ -25,5 +25,7 @@ class CreateQueueJob(BaseModel):
         :type webhook: str, optional
         """
         self.input = input
-        self.metadata = metadata
-        self.webhook = self._define_str("webhook", webhook, nullable=True)
+        if metadata is not None:
+            self.metadata = metadata
+        if webhook is not None:
+            self.webhook = self._define_str("webhook", webhook, nullable=True)

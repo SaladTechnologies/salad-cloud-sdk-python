@@ -31,14 +31,16 @@ class CreateQueue(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.display_name = self._define_str(
-            "display_name",
-            display_name,
-            nullable=True,
-            pattern="^[ ,-.0-9A-Za-z]+$",
-            min_length=2,
-            max_length=63,
-        )
-        self.description = self._define_str(
-            "description", description, nullable=True, max_length=500
-        )
+        if display_name is not None:
+            self.display_name = self._define_str(
+                "display_name",
+                display_name,
+                nullable=True,
+                pattern="^[ ,-.0-9A-Za-z]+$",
+                min_length=2,
+                max_length=63,
+            )
+        if description is not None:
+            self.description = self._define_str(
+                "description", description, nullable=True, max_length=500
+            )

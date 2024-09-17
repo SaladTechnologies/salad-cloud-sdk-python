@@ -16,9 +16,9 @@ Gets the webhook secret key
 
 **Parameters**
 
-| Name              | Type  | Required | Description                                                                                                                                                                                                                                         |
-| :---------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| organization_name | `str` | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 
 **Return Type**
 
@@ -36,7 +36,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.webhook_secret_key.get_webhook_secret_key(organization_name="dyxdaqq1t3iwwpawdlk-78rt9bh26smkuf3v0nd2ropp")
+result = sdk.webhook_secret_key.get_webhook_secret_key(organization_name="o1yeste00ep44ion-cfbuqm7ankfh00qxjgqhc7gu8nezs4j9l1xu8i")
 
 print(result)
 ```
@@ -50,9 +50,9 @@ Updates the webhook secret key
 
 **Parameters**
 
-| Name              | Type  | Required | Description                                                                                                                                                                                                                                         |
-| :---------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| organization_name | `str` | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| Name              | Type | Required | Description                                                                                                                                                                                                                                         |
+| :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 
 **Return Type**
 
@@ -70,7 +70,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.webhook_secret_key.update_webhook_secret_key(organization_name="dyxdaqq1t3iwwpawdlk-78rt9bh26smkuf3v0nd2ropp")
+result = sdk.webhook_secret_key.update_webhook_secret_key(organization_name="o1yeste00ep44ion-cfbuqm7ankfh00qxjgqhc7gu8nezs4j9l1xu8i")
 
 print(result)
 ```

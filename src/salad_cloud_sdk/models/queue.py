@@ -67,9 +67,10 @@ class Queue(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.description = self._define_str(
-            "description", description, nullable=True, max_length=500
-        )
+        if description is not None:
+            self.description = self._define_str(
+                "description", description, nullable=True, max_length=500
+            )
         self.container_groups = self._define_list(container_groups, ContainerGroup)
         self.create_time = create_time
         self.update_time = update_time

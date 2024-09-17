@@ -40,6 +40,8 @@ class Quotas(BaseModel):
         self.container_groups_quotas = self._define_object(
             container_groups_quotas, ContainerGroupsQuotas
         )
-        self.create_time = self._define_str("create_time", create_time, nullable=True)
+        if create_time is not None:
+            self.create_time = create_time
         self.recipes_quotas = self._define_object(recipes_quotas, RecipesQuotas)
-        self.update_time = self._define_str("update_time", update_time, nullable=True)
+        if update_time is not None:
+            self.update_time = update_time

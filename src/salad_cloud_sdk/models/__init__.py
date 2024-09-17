@@ -3,7 +3,7 @@ from .create_container_group import CreateContainerGroup
 from .container_group import ContainerGroup
 from .update_container_group import UpdateContainerGroup
 from .container_group_instances import ContainerGroupInstances
-from .container_group_instance import ContainerGroupInstance
+from .container_group_instance import ContainerGroupInstance, State
 from .workload_error_list import WorkloadErrorList
 from .queue_list import QueueList
 from .create_queue import CreateQueue
@@ -11,16 +11,16 @@ from .queue import Queue
 from .update_queue import UpdateQueue
 from .queue_job_list import QueueJobList
 from .create_queue_job import CreateQueueJob
-from .queue_job import QueueJob
+from .queue_job import QueueJob, QueueJobStatus
 from .quotas import Quotas
 from .inference_endpoints_list import InferenceEndpointsList
 from .inference_endpoint import InferenceEndpoint
 from .inference_endpoint_job_list import InferenceEndpointJobList
 from .create_inference_endpoint_job import CreateInferenceEndpointJob
-from .inference_endpoint_job import InferenceEndpointJob
+from .inference_endpoint_job import InferenceEndpointJob, InferenceEndpointJobStatus
 from .gpu_classes_list import GpuClassesList
 from .webhook_secret_key import WebhookSecretKey
-from .container import Container
+from .container import Container, ContainerLogging
 from .container_restart_policy import ContainerRestartPolicy
 from .container_group_state import ContainerGroupState
 from .country_code import CountryCode
@@ -41,14 +41,26 @@ from .container_group_probe_grpc import ContainerGroupProbeGrpc
 from .container_group_probe_exec import ContainerGroupProbeExec
 from .container_probe_http_scheme import ContainerProbeHttpScheme
 from .container_group_probe_http_headers_2 import ContainerGroupProbeHttpHeaders2
-from .create_container import CreateContainer
+from .create_container import (
+    CreateContainer,
+    CreateContainerLogging,
+    CreateContainerRegistryAuthentication,
+)
 from .create_container_group_networking import CreateContainerGroupNetworking
-from .update_container import UpdateContainer
+from .update_container import (
+    UpdateContainer,
+    Resources,
+    UpdateContainerLogging,
+    UpdateContainerRegistryAuthentication,
+)
 from .update_container_group_networking import UpdateContainerGroupNetworking
 from .workload_error import WorkloadError
-from .queue_job_event import QueueJobEvent
+from .queue_job_event import QueueJobEvent, QueueJobEventAction
 from .container_groups_quotas import ContainerGroupsQuotas
 from .recipes_quotas import RecipesQuotas
-from .inference_endpoint_job_event import InferenceEndpointJobEvent
+from .inference_endpoint_job_event import (
+    InferenceEndpointJobEvent,
+    InferenceEndpointJobEventAction,
+)
 from .gpu_class import GpuClass
 from .gpu_class_price import GpuClassPrice

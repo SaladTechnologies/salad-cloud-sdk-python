@@ -7,6 +7,6 @@ sdk = SaladCloudSdk(
     timeout=10000,
 )
 
-result = sdk.quotas.get_quotas(organization_name="o110sou")
+result = sdk.quotas.get_quotas(organization_name="yp5d1ln00phm36ghf3imgjjp6z9mn")
 
 print(result)

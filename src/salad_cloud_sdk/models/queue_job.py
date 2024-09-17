@@ -95,10 +95,13 @@ class QueueJob(BaseModel):
         """
         self.id_ = id_
         self.input = input
-        self.metadata = metadata
-        self.webhook = self._define_str("webhook", webhook, nullable=True)
+        if metadata is not None:
+            self.metadata = metadata
+        if webhook is not None:
+            self.webhook = self._define_str("webhook", webhook, nullable=True)
         self.status = self._enum_matching(status, QueueJobStatus.list(), "status")
         self.events = self._define_list(events, QueueJobEvent)
-        self.output = output
+        if output is not None:
+            self.output = output
         self.create_time = create_time
         self.update_time = update_time

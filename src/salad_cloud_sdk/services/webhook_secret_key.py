@@ -1,8 +1,8 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.webhook_secret_key import WebhookSecretKey
 from ..models.utils.cast_models import cast_models
+from ..models import WebhookSecretKey
 
 
 class WebhookSecretKeyService(BaseService):

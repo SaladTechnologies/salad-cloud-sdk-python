@@ -54,5 +54,6 @@ class WorkloadError(BaseModel):
         self.instance_id = instance_id
         self.machine_id = machine_id
         self.allocated_at = allocated_at
-        self.started_at = self._define_str("started_at", started_at, nullable=True)
+        if started_at is not None:
+            self.started_at = self._define_str("started_at", started_at, nullable=True)
         self.version = self._define_number("version", version, ge=1)

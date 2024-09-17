@@ -37,11 +37,13 @@ class ContainerResourceRequirements(BaseModel):
         """
         self.cpu = self._define_number("cpu", cpu, ge=1, le=16)
         self.memory = self._define_number("memory", memory, ge=1024, le=30720)
-        self.gpu_classes = gpu_classes
-        self.storage_amount = self._define_number(
-            "storage_amount",
-            storage_amount,
-            nullable=True,
-            ge=1073741824,
-            le=53687091200,
-        )
+        if gpu_classes is not None:
+            self.gpu_classes = gpu_classes
+        if storage_amount is not None:
+            self.storage_amount = self._define_number(
+                "storage_amount",
+                storage_amount,
+                nullable=True,
+                ge=1073741824,
+                le=53687091200,
+            )

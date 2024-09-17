@@ -108,13 +108,16 @@ class InferenceEndpointJob(BaseModel):
         self.id_ = id_
         self.input = input
         self.inference_endpoint_name = inference_endpoint_name
-        self.metadata = metadata
-        self.webhook = self._define_str("webhook", webhook, nullable=True)
+        if metadata is not None:
+            self.metadata = metadata
+        if webhook is not None:
+            self.webhook = self._define_str("webhook", webhook, nullable=True)
         self.status = self._enum_matching(
             status, InferenceEndpointJobStatus.list(), "status"
         )
         self.events = self._define_list(events, InferenceEndpointJobEvent)
         self.organization_name = organization_name
-        self.output = output
+        if output is not None:
+            self.output = output
         self.create_time = create_time
         self.update_time = update_time

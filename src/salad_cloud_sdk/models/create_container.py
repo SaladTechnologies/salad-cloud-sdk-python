@@ -86,7 +86,8 @@ class LoggingDatadog2(BaseModel):
         self.api_key = self._define_str(
             "api_key", api_key, min_length=1, max_length=1000
         )
-        self.tags = self._define_list(tags, DatadogTags2)
+        if tags is not None:
+            self.tags = self._define_list(tags, DatadogTags2)
 
 
 @JsonMap({})
@@ -275,11 +276,15 @@ class LoggingHttp2(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
-        self.user = self._define_str("user", user, nullable=True)
-        self.password = self._define_str("password", password, nullable=True)
-        self.path = self._define_str("path", path, nullable=True)
+        if user is not None:
+            self.user = self._define_str("user", user, nullable=True)
+        if password is not None:
+            self.password = self._define_str("password", password, nullable=True)
+        if path is not None:
+            self.path = self._define_str("path", path, nullable=True)
         self.format = self._enum_matching(format, HttpFormat2.list(), "format")
-        self.headers = self._define_list(headers, HttpHeaders3)
+        if headers is not None:
+            self.headers = self._define_list(headers, HttpHeaders3)
         self.compression = self._enum_matching(
             compression, HttpCompression2.list(), "compression"
         )
@@ -327,12 +332,18 @@ class CreateContainerLogging(BaseModel):
         :param http: http, defaults to None
         :type http: LoggingHttp2, optional
         """
-        self.axiom = self._define_object(axiom, LoggingAxiom2)
-        self.datadog = self._define_object(datadog, LoggingDatadog2)
-        self.new_relic = self._define_object(new_relic, LoggingNewRelic2)
-        self.splunk = self._define_object(splunk, LoggingSplunk2)
-        self.tcp = self._define_object(tcp, LoggingTcp2)
-        self.http = self._define_object(http, LoggingHttp2)
+        if axiom is not None:
+            self.axiom = self._define_object(axiom, LoggingAxiom2)
+        if datadog is not None:
+            self.datadog = self._define_object(datadog, LoggingDatadog2)
+        if new_relic is not None:
+            self.new_relic = self._define_object(new_relic, LoggingNewRelic2)
+        if splunk is not None:
+            self.splunk = self._define_object(splunk, LoggingSplunk2)
+        if tcp is not None:
+            self.tcp = self._define_object(tcp, LoggingTcp2)
+        if http is not None:
+            self.http = self._define_object(http, LoggingHttp2)
 
 
 @JsonMap({})
@@ -472,13 +483,18 @@ class CreateContainerRegistryAuthentication(BaseModel):
         :param gcp_gar: gcp_gar, defaults to None
         :type gcp_gar: RegistryAuthenticationGcpGar1, optional
         """
-        self.basic = self._define_object(basic, RegistryAuthenticationBasic1)
-        self.gcp_gcr = self._define_object(gcp_gcr, RegistryAuthenticationGcpGcr1)
-        self.aws_ecr = self._define_object(aws_ecr, RegistryAuthenticationAwsEcr1)
-        self.docker_hub = self._define_object(
-            docker_hub, RegistryAuthenticationDockerHub1
-        )
-        self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar1)
+        if basic is not None:
+            self.basic = self._define_object(basic, RegistryAuthenticationBasic1)
+        if gcp_gcr is not None:
+            self.gcp_gcr = self._define_object(gcp_gcr, RegistryAuthenticationGcpGcr1)
+        if aws_ecr is not None:
+            self.aws_ecr = self._define_object(aws_ecr, RegistryAuthenticationAwsEcr1)
+        if docker_hub is not None:
+            self.docker_hub = self._define_object(
+                docker_hub, RegistryAuthenticationDockerHub1
+            )
+        if gcp_gar is not None:
+            self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar1)
 
 
 @JsonMap({})
@@ -530,14 +546,17 @@ class CreateContainer(BaseModel):
         """
         self.image = self._define_str("image", image, min_length=1, max_length=1024)
         self.resources = self._define_object(resources, ContainerResourceRequirements)
-        self.command = command
-        self.priority = (
-            self._enum_matching(priority, ContainerGroupPriority.list(), "priority")
-            if priority
-            else None
-        )
-        self.environment_variables = environment_variables
-        self.logging = self._define_object(logging, CreateContainerLogging)
-        self.registry_authentication = self._define_object(
-            registry_authentication, CreateContainerRegistryAuthentication
-        )
+        if command is not None:
+            self.command = command
+        if priority is not None:
+            self.priority = self._enum_matching(
+                priority, ContainerGroupPriority.list(), "priority"
+            )
+        if environment_variables is not None:
+            self.environment_variables = environment_variables
+        if logging is not None:
+            self.logging = self._define_object(logging, CreateContainerLogging)
+        if registry_authentication is not None:
+            self.registry_authentication = self._define_object(
+                registry_authentication, CreateContainerRegistryAuthentication
+            )
