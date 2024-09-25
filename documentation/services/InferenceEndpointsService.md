@@ -43,9 +43,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="v7xmi1ci3kyzzon0m2ie",
-    page=215491405,
-    page_size=64
+    organization_name="wg1umdxtc9fte8osib-e-5ux2vsmrhjjt13u7q3pryxxnm",
+    page=756148233,
+    page_size=66
 )
 
 print(result)
@@ -82,8 +82,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="w2k19i504j7b03k36nalu2j2kwky05nt4105g",
-    inference_endpoint_name="esse qui sunt"
+    organization_name="uzp1dyfm2yp4-lxa27tl0fwms3fu3myo74a99jr6ouv4w8",
+    inference_endpoint_name="aute Ut reprehenderit occaecat sed"
 )
 
 print(result)
@@ -122,10 +122,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="oca52ltywv",
-    inference_endpoint_name="nulla in do",
-    page=249665069,
-    page_size=63
+    organization_name="trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00",
+    inference_endpoint_name="ut officia ut",
+    page=1653138765,
+    page_size=76
 )
 
 print(result)
@@ -171,8 +171,8 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="oca52ltywv",
-    inference_endpoint_name="nulla in do"
+    organization_name="trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00",
+    inference_endpoint_name="ut officia ut"
 )
 
 print(result)
@@ -210,8 +210,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="fa9p9or6f6b78k5l055jui8tmpngms0ir5zg3ixfzqkola94rkm",
-    inference_endpoint_name="mollit",
+    organization_name="b7tj9",
+    inference_endpoint_name="sed eu labore",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 
@@ -246,8 +246,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="fa9p9or6f6b78k5l055jui8tmpngms0ir5zg3ixfzqkola94rkm",
-    inference_endpoint_name="mollit",
+    organization_name="b7tj9",
+    inference_endpoint_name="sed eu labore",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 

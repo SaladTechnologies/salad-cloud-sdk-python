@@ -8,7 +8,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.webhook_secret_key.update_webhook_secret_key(organization_name="o1yeste00ep44ion-cfbuqm7ankfh00qxjgqhc7gu8nezs4j9l1xu8i")
+result = sdk.webhook_secret_key.update_webhook_secret_key(organization_name="dyxdaqq1t3iwwpawdlk-78rt9bh26smkuf3v0nd2ropp")
 
 print(result)
 

@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="v8az1xa5dcxhbrhwkxlx3lw0pdkr3o6osknzh2tjfasx0nsa3dsbwz4m6an8",
-    project_name="qi5",
-    queue_name="vxffyxrcpjz02o68mnowwsycakrj2ndjibysiw7xvw8v11op7e4dq1ckmwu5v27",
+    organization_name="j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr",
+    project_name="eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d",
+    queue_name="zbvvpn2qgtohp",
     queue_job_id="queue_job_id"
 )
 
