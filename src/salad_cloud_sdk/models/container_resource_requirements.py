@@ -36,7 +36,7 @@ class ContainerResourceRequirements(BaseModel):
         :type storage_amount: int, optional
         """
         self.cpu = self._define_number("cpu", cpu, ge=1, le=16)
-        self.memory = self._define_number("memory", memory, ge=1024, le=30720)
+        self.memory = self._define_number("memory", memory, ge=1024, le=61440)
         if gpu_classes is not None:
             self.gpu_classes = gpu_classes
         if storage_amount is not None:

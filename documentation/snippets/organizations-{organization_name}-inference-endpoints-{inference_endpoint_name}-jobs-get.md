@@ -9,10 +9,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="oca52ltywv",
-    inference_endpoint_name="nulla in do",
-    page=249665069,
-    page_size=63
+    organization_name="bzx0y-i4o1cvulgdrx",
+    inference_endpoint_name="minim",
+    page=82661968,
+    page_size=27
 )
 
 print(result)

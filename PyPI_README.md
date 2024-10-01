@@ -1,11 +1,11 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.3<a id="saladcloudsdk-python-sdk-090-alpha3"></a>
+# SaladCloudSdk Python SDK 0.9.0-alpha.4<a id="saladcloudsdk-python-sdk-090-alpha4"></a>
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.3`
-- SDK version: `0.9.0-alpha.3`
+- API version: `0.9.0-alpha.4`
+- SDK version: `0.9.0-alpha.4`
 
 ## About the API<a id="about-the-api"></a>
 
@@ -86,7 +86,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="yp5d1ln00phm36ghf3imgjjp6z9mn")
+result = sdk.quotas.get_quotas(organization_name="o110sou")
 
 print(result)
 
@@ -170,7 +170,6 @@ The SDK includes several models that represent the data structures used in API r
 | WorkloadError                     | Represents a workload error                                              |
 | QueueJobEvent                     | Represents an event for queue job                                        |
 | ContainerGroupsQuotas             |                                                                          |
-| RecipesQuotas                     |                                                                          |
 | InferenceEndpointJobEvent         | Represents an event for inference endpoint job                           |
 | GpuClass                          | Represents a GPU Class                                                   |
 | GpuClassPrice                     | Represents the price of a GPU class for a given container group priority |
