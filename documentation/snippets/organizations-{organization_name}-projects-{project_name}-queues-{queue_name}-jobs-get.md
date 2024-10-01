@@ -9,11 +9,11 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="bodal6rzqd6z",
-    project_name="tw1si55p9gl6eb4zglez6wd",
-    queue_name="sp8h2",
-    page=648177408,
-    page_size=33
+    organization_name="jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs",
+    project_name="sn780t45z2tw4xt1b86w0clx6vkq-3",
+    queue_name="sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c",
+    page=2110014563,
+    page_size=23
 )
 
 print(result)

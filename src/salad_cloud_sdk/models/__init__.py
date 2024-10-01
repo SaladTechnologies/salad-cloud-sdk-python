@@ -57,7 +57,6 @@ from .update_container_group_networking import UpdateContainerGroupNetworking
 from .workload_error import WorkloadError
 from .queue_job_event import QueueJobEvent, QueueJobEventAction
 from .container_groups_quotas import ContainerGroupsQuotas
-from .recipes_quotas import RecipesQuotas
 from .inference_endpoint_job_event import (
     InferenceEndpointJobEvent,
     InferenceEndpointJobEventAction,

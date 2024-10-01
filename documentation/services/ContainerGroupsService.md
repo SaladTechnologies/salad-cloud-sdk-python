@@ -48,8 +48,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_groups(
-    organization_name="g4zikv73wys88ns82g85qcczec2y8bnwc4gs8q6aeebojnkc8rl8-7px",
-    project_name="n62j25cdo2sjh0v34w5-21z63jxnxh38ckz48-k1ecu"
+    organization_name="v50imwzgi4em4q035",
+    project_name="m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1"
 )
 
 print(result)
@@ -88,17 +88,17 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateContainerGroup(
-    name="n1yhwjdpa4rchjtb6qp-hyt0s34",
-    display_name="ICNHy",
+    name="qfojt-6ccoil4t55-ccoyybgw92dermtsdfn3t2xmag",
+    display_name="O0hSlJUW",
     container={
-        "image": "velit irure dolore cupidatat",
+        "image": "voluptate officia adipisicing",
         "resources": {
-            "cpu": 2,
-            "memory": 20102,
+            "cpu": 10,
+            "memory": 35273,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 4874892434
+            "storage_amount": 32391110488
         },
         "command": [
             "command"
@@ -107,13 +107,13 @@ request_body = CreateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "sed aute in cillum",
-                "api_token": "sunt aute pariatur",
-                "dataset": "tempor"
+                "host": "Ut con",
+                "api_token": "nostrud irure dolore",
+                "dataset": "mollit irure et Duis dolore"
             },
             "datadog": {
-                "host": "incid",
-                "api_key": "dolor eu pariatur",
+                "host": "pariatur",
+                "api_key": "non ut",
                 "tags": [
                     {
                         "name": "name",
@@ -122,20 +122,20 @@ request_body = CreateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "laborum ea aliqua",
-                "ingestion_key": "anim in incididunt ut Ut"
+                "host": "cupidatat cillum est sit minim",
+                "ingestion_key": "dolore laboris fugiat Duis"
             },
             "splunk": {
-                "host": "officia dolor in aliqua consectetur",
-                "token": "ipsum consectetur ea"
+                "host": "aliquip velit culpa",
+                "token": "ex"
             },
             "tcp": {
-                "host": "cupidatat do labore pariatur",
-                "port": 58307
+                "host": "aliqua",
+                "port": 17249
             },
             "http": {
-                "host": "Excepteur sunt",
-                "port": 49224,
+                "host": "magna",
+                "port": 62049,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -172,22 +172,22 @@ request_body = CreateContainerGroup(
     },
     autostart_policy=False,
     restart_policy="always",
-    replicas=67,
+    replicas=114,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 40145,
+        "port": 9813,
         "auth": False
     },
     liveness_probe={
         "tcp": {
-            "port": 30306
+            "port": 23269
         },
         "http": {
             "path": "path",
-            "port": 53006,
+            "port": 61900,
             "scheme": "http",
             "headers": [
                 {
@@ -198,37 +198,7 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 6425
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 10,
-        "period_seconds": 10,
-        "timeout_seconds": 30,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    readiness_probe={
-        "tcp": {
-            "port": 30306
-        },
-        "http": {
-            "path": "path",
-            "port": 53006,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 6425
+            "port": 58759
         },
         "exec_": {
             "command": [
@@ -236,18 +206,18 @@ request_body = CreateContainerGroup(
             ]
         },
         "initial_delay_seconds": 5,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
+        "period_seconds": 10,
+        "timeout_seconds": 30,
         "success_threshold": 1,
         "failure_threshold": 3
     },
-    startup_probe={
+    readiness_probe={
         "tcp": {
-            "port": 30306
+            "port": 23269
         },
         "http": {
             "path": "path",
-            "port": 53006,
+            "port": 61900,
             "scheme": "http",
             "headers": [
                 {
@@ -258,38 +228,68 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 6425
+            "port": 58759
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 6,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 23269
+        },
+        "http": {
+            "path": "path",
+            "port": 61900,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 58759
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 4,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_connection={
-        "path": "ipsum proident",
-        "port": 10282,
-        "queue_name": "cnb3eo62nsjao0"
+        "path": "ullamco magna est nulla aliqua",
+        "port": 49952,
+        "queue_name": "nnz26lyemw7nednorlqjlsihb42092pn8d"
     },
     queue_autoscaler={
-        "min_replicas": 45,
-        "max_replicas": 217,
-        "desired_queue_length": 98,
-        "polling_period": 897,
-        "max_upscale_per_minute": 40,
-        "max_downscale_per_minute": 82
+        "min_replicas": 57,
+        "max_replicas": 58,
+        "desired_queue_length": 20,
+        "polling_period": 1406,
+        "max_upscale_per_minute": 35,
+        "max_downscale_per_minute": 42
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="g4zikv73wys88ns82g85qcczec2y8bnwc4gs8q6aeebojnkc8rl8-7px",
-    project_name="n62j25cdo2sjh0v34w5-21z63jxnxh38ckz48-k1ecu"
+    organization_name="v50imwzgi4em4q035",
+    project_name="m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1"
 )
 
 print(result)
@@ -327,9 +327,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group(
-    organization_name="bvf99pxxwtres8z9zwaod8ipjrui87jps52s0izl8d-g9wqh8bjg",
-    project_name="d2tyh4q9ni9h81tilnlnf5i-r38a8vv5h3",
-    container_group_name="it5rb91fzs3spaw4grzs1ulr7"
+    organization_name="gq7z7dvdopv2czgde1zrufxgiv5tp-kncd4gfzda9ik-lw",
+    project_name="xd-if9b1yvozs9trd4v0bll7qwslfehyhnfadnjp2w52gwrmz",
+    container_group_name="ojjj5b9hbe2fr6f5t7j1htjaws1zx3r"
 )
 
 print(result)
@@ -369,16 +369,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="HD",
+    display_name="-xzxtaW.t2I",
     container={
-        "image": "sit Ut aliqua consequat sunt",
+        "image": "ex cillum dolor",
         "resources": {
-            "cpu": 13,
-            "memory": 25675,
+            "cpu": 11,
+            "memory": 21424,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 46594236814
+            "storage_amount": 12333132242
         },
         "command": [
             "command"
@@ -387,13 +387,13 @@ request_body = UpdateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "voluptate exercitation culpa commodo",
-                "api_token": "do amet non id",
-                "dataset": "nostrud irure enim cillum"
+                "host": "commodo ea exercitation pariatur consequat",
+                "api_token": "ipsum",
+                "dataset": "id Excepteur"
             },
             "datadog": {
-                "host": "officia dolore ex",
-                "api_key": "nostrud proident dolor laborum",
+                "host": "exercitation aliquip",
+                "api_key": "veniam",
                 "tags": [
                     {
                         "name": "name",
@@ -402,20 +402,20 @@ request_body = UpdateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "esse",
-                "ingestion_key": "Duis exercitation aliquip consectetur dolore"
+                "host": "amet velit sed cillum",
+                "ingestion_key": "et"
             },
             "splunk": {
-                "host": "incididunt dolore tempor",
-                "token": "dolore laboris non amet"
+                "host": "proident",
+                "token": "est"
             },
             "tcp": {
-                "host": "est cupidatat",
-                "port": 49463
+                "host": "ut velit ea cillum",
+                "port": 13557
             },
             "http": {
-                "host": "laborum",
-                "port": 12450,
+                "host": "nisi fugiat cupidatat",
+                "port": 60288,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -450,20 +450,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=244,
+    replicas=110,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 55659
+        "port": 64823
     },
     liveness_probe={
         "tcp": {
-            "port": 30306
+            "port": 23269
         },
         "http": {
             "path": "path",
-            "port": 53006,
+            "port": 61900,
             "scheme": "http",
             "headers": [
                 {
@@ -474,37 +474,7 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 6425
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 10,
-        "period_seconds": 10,
-        "timeout_seconds": 30,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    readiness_probe={
-        "tcp": {
-            "port": 30306
-        },
-        "http": {
-            "path": "path",
-            "port": 53006,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 6425
+            "port": 58759
         },
         "exec_": {
             "command": [
@@ -512,18 +482,18 @@ request_body = UpdateContainerGroup(
             ]
         },
         "initial_delay_seconds": 5,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
+        "period_seconds": 10,
+        "timeout_seconds": 30,
         "success_threshold": 1,
         "failure_threshold": 3
     },
-    startup_probe={
+    readiness_probe={
         "tcp": {
-            "port": 30306
+            "port": 23269
         },
         "http": {
             "path": "path",
-            "port": 53006,
+            "port": 61900,
             "scheme": "http",
             "headers": [
                 {
@@ -534,14 +504,44 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 6425
+            "port": 58759
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 6,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 23269
+        },
+        "http": {
+            "path": "path",
+            "port": 61900,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 58759
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 4,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -551,9 +551,9 @@ request_body = UpdateContainerGroup(
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="bvf99pxxwtres8z9zwaod8ipjrui87jps52s0izl8d-g9wqh8bjg",
-    project_name="d2tyh4q9ni9h81tilnlnf5i-r38a8vv5h3",
-    container_group_name="it5rb91fzs3spaw4grzs1ulr7"
+    organization_name="gq7z7dvdopv2czgde1zrufxgiv5tp-kncd4gfzda9ik-lw",
+    project_name="xd-if9b1yvozs9trd4v0bll7qwslfehyhnfadnjp2w52gwrmz",
+    container_group_name="ojjj5b9hbe2fr6f5t7j1htjaws1zx3r"
 )
 
 print(result)
@@ -587,9 +587,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.delete_container_group(
-    organization_name="bvf99pxxwtres8z9zwaod8ipjrui87jps52s0izl8d-g9wqh8bjg",
-    project_name="d2tyh4q9ni9h81tilnlnf5i-r38a8vv5h3",
-    container_group_name="it5rb91fzs3spaw4grzs1ulr7"
+    organization_name="gq7z7dvdopv2czgde1zrufxgiv5tp-kncd4gfzda9ik-lw",
+    project_name="xd-if9b1yvozs9trd4v0bll7qwslfehyhnfadnjp2w52gwrmz",
+    container_group_name="ojjj5b9hbe2fr6f5t7j1htjaws1zx3r"
 )
 
 print(result)
@@ -623,9 +623,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.start_container_group(
-    organization_name="z530zonqyj90ub",
-    project_name="jreysxpqq7xwg32lxlhjn2dh8g4ria4k5sfrzd-3pdeog5yu4egwx3g9mbc",
-    container_group_name="iyxmxxkxqv-nsi3p0ihren7kh3cozmla70br"
+    organization_name="zfx07sgyz1fs97sfhtue78-54vdogp2qrcnt-8a",
+    project_name="v7jhy3jn2rdf012fi7ouno3mk9",
+    container_group_name="a4d0ajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8naw"
 )
 
 print(result)
@@ -659,9 +659,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.stop_container_group(
-    organization_name="rywspw00apvowm2uk3ia7vi9jlaex78t718",
-    project_name="ecf-7edommguhpzfl",
-    container_group_name="ox6-1ksn8m"
+    organization_name="c0o0gqev-mnkpy8af-s7rq68p2lenu8izbg09xnu6-fkv4dta4yd",
+    project_name="rpi16e4ddle58fi8u9w2qgnsgj7cnci4p90a72aagy0f001ws1rwna83a3asuz",
+    container_group_name="fd6ugn07m5xpcp89lefemdke05z4s9eg1d2caksvlhpzm"
 )
 
 print(result)
@@ -699,9 +699,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_group_instances(
-    organization_name="qaykn0y-5uryou3umpp3jva-wgcda23a08440n-ew1-qmamfu9iq2qrkhhpqc0",
-    project_name="g57w5xgt26suu7z",
-    container_group_name="oqechp8q9apf4t0-uai3sdl150pq-zx5u-9-kc8z4mp1vscg"
+    organization_name="dcbh1",
+    project_name="pdcapp3enb9gd2f4k49vviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyoj",
+    container_group_name="vl2kuh4c67m3ae7qwlwipkdye-ad"
 )
 
 print(result)
@@ -740,9 +740,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group_instance(
-    organization_name="quemfxcv",
-    project_name="ze7tm-bp-8n1hvh8fnv7mx285iuup332rpaf",
-    container_group_name="shaiuchf2q8kkg3dsgwkty0ap7uq2b1ex4akekgljza8i9375vs22d352n",
+    organization_name="b0up7kyr7vabeivb96iwcvlvvm1n",
+    project_name="ngljb",
+    container_group_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -778,9 +778,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.reallocate_container_group_instance(
-    organization_name="mmcbsf7w3wlau11f5g2zdmdpxhq",
-    project_name="ehv7x3dhck87lv8-z-wg2fzk8ea2roe6yryt0-t1885d",
-    container_group_name="k62ut0igkfak4jbmum3tb50owd1q7z43vbdm-ym2fjvtwvm3kubeomi0c0",
+    organization_name="xk27gbnpmwk5xor49bk4ujk7",
+    project_name="cy1l6xj-5vzihwp4ho850l3faynnuq71ru6y",
+    container_group_name="mgza-e8llajq25o36x8b-38phh",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -816,9 +816,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.recreate_container_group_instance(
-    organization_name="wpyuvzjd-oj09ghynxoh7290af1yiwyo8xtgc4vp6ssr245-lzbbnxajn",
-    project_name="jxep9ngo2h5",
-    container_group_name="kolehqryzs0nwtgem-0z1kzoxeehf59gi91ttsn9ueh4r0udym74x",
+    organization_name="pkfh3rhnvt4x30k5t",
+    project_name="o7r3q30xz",
+    container_group_name="aq7hd1fjfxgtq8uehil3eplo",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -854,9 +854,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.restart_container_group_instance(
-    organization_name="k3eg40ckcze227v3cr47o2hb606akllh",
-    project_name="dz9w578p05nje8zv80xtiift-dhcux3behoqegicbjgytvavm7ngiki6uxl76e",
-    container_group_name="kwg5dgz5gi",
+    organization_name="kd79h7bg0vpngqc8hz5pxjwi7muqnmuuqsx3q3zm2hxkci5yv6kho",
+    project_name="u5ljgqmbs6a7s",
+    container_group_name="qmq3nj6oy8b2wpzbidnelidy9s6k9w",
     container_group_instance_id="container_group_instance_id"
 )
 

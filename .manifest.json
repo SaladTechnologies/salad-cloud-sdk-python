@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.4.0",
-  "date": "2024-09-17T04:02:31.175Z",
+  "liblabVersion": "2.5.0",
+  "date": "2024-10-01T05:14:00.531Z",
   "config": {
-    "apiId": 1172,
+    "apiId": 1228,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.3",
+    "sdkVersion": "0.9.0-alpha.4",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["python"],
@@ -26,7 +26,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "go": {
@@ -34,7 +34,7 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "java": {
@@ -58,7 +58,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.5",
         "targetBranch": "main"
       },
       "python": {
@@ -101,7 +101,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
+        "sdkVersion": "0.9.0-alpha.4",
         "targetBranch": "main"
       },
       "terraform": {
@@ -112,7 +112,7 @@
         "providerSchemaConfig": {
           "authTokenKey": "api_key"
         },
-        "providerVersion": "0.9.0-alpha.3",
+        "providerVersion": "0.9.0-alpha.1",
         "githubRepoName": "terraform-provider-salad-cloud",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
@@ -138,8 +138,9 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.3",
-        "targetBranch": "main"
+        "sdkVersion": "0.9.0-alpha.5",
+        "targetBranch": "main",
+        "generateEnumAs": "enum"
       }
     },
     "publishing": {
@@ -232,7 +233,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.3",
+    "apiVersion": "0.9.0-alpha.4",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -312,7 +313,7 @@
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.4"
+        "axios": "^1.7.7"
       },
       "languages": ["typescript"]
     },
@@ -440,7 +441,6 @@
     "documentation/models/UpdateContainerGroupNetworking.md",
     "documentation/models/WorkloadError.md",
     "documentation/models/ContainerGroupsQuotas.md",
-    "documentation/models/RecipesQuotas.md",
     "documentation/models/GpuClass.md",
     "documentation/models/GpuClassPrice.md",
     "src/salad_cloud_sdk/models/utils/one_of_base_model.py",
@@ -498,7 +498,6 @@
     "src/salad_cloud_sdk/models/update_container_group_networking.py",
     "src/salad_cloud_sdk/models/workload_error.py",
     "src/salad_cloud_sdk/models/container_groups_quotas.py",
-    "src/salad_cloud_sdk/models/recipes_quotas.py",
     "src/salad_cloud_sdk/models/gpu_class.py",
     "src/salad_cloud_sdk/models/gpu_class_price.py",
     "src/salad_cloud_sdk/services/webhook_secret_key.py",
