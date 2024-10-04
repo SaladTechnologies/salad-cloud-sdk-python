@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "salad-cloud-sdk"
-version = "0.9.0-alpha.4"
+version = "0.9.0-alpha.5"
 license = { text = "MIT" }
 description = """The SaladCloud REST API. Please refer to the [SaladCloud API Documentation](https://docs.salad.com/api-reference) for more details."""
 readme = "PyPI_README.md"

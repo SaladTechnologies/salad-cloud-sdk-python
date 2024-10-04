@@ -45,8 +45,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="rtxaydgbmb5wprcvb9628akhug9lnd3c0",
-    project_name="p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177"
+    organization_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
+    project_name="xk27gbnpmwk5xor49bk4ujk7"
 )
 
 print(result)
@@ -85,15 +85,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateQueue(
-    name="wcaz2jbu5pfmpygxffsf4bh4e6",
-    display_name="Ef",
-    description="aute Ut nostrud veniam sint"
+    name="ho4d79h7bg0vpngqc8hz5pxjwi",
+    display_name="IWPKHVWPTc",
+    description="aliqua id nostrud"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="rtxaydgbmb5wprcvb9628akhug9lnd3c0",
-    project_name="p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177"
+    organization_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
+    project_name="xk27gbnpmwk5xor49bk4ujk7"
 )
 
 print(result)
@@ -131,9 +131,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue(
-    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
-    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
-    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
+    organization_name="bb5wprcvb9628akhug9lnd2",
+    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
+    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
 )
 
 print(result)
@@ -173,15 +173,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateQueue(
-    display_name="TLURNvvFGXm",
-    description="aliqua et sit anim esse"
+    display_name="O5Yf2",
+    description="cupidatat"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
-    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
-    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
+    organization_name="bb5wprcvb9628akhug9lnd2",
+    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
+    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
 )
 
 print(result)
@@ -215,9 +215,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3",
-    project_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
-    queue_name="bnkfiyt3k5ke3wy-5gl1809r"
+    organization_name="bb5wprcvb9628akhug9lnd2",
+    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
+    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
 )
 
 print(result)
@@ -257,11 +257,11 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs",
-    project_name="sn780t45z2tw4xt1b86w0clx6vkq-3",
-    queue_name="sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c",
-    page=2110014563,
-    page_size=23
+    organization_name="wcaz2jbu5pfmpygxffsf4bh4e6",
+    project_name="dzh9lv6afpamv8cx0x6",
+    queue_name="s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2",
+    page=706148771,
+    page_size=45
 )
 
 print(result)
@@ -308,9 +308,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs",
-    project_name="sn780t45z2tw4xt1b86w0clx6vkq-3",
-    queue_name="sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c"
+    organization_name="wcaz2jbu5pfmpygxffsf4bh4e6",
+    project_name="dzh9lv6afpamv8cx0x6",
+    queue_name="s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2"
 )
 
 print(result)
@@ -349,9 +349,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr",
-    project_name="eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d",
-    queue_name="zbvvpn2qgtohp",
+    organization_name="zm-jv",
+    project_name="tq26",
+    queue_name="je5dpzbgsk8gvp",
     queue_job_id="queue_job_id"
 )
 
@@ -387,9 +387,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr",
-    project_name="eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d",
-    queue_name="zbvvpn2qgtohp",
+    organization_name="zm-jv",
+    project_name="tq26",
+    queue_name="je5dpzbgsk8gvp",
     queue_job_id="queue_job_id"
 )
 

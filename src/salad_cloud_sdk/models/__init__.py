@@ -24,7 +24,10 @@ from .container import Container, ContainerLogging
 from .container_restart_policy import ContainerRestartPolicy
 from .container_group_state import ContainerGroupState
 from .country_code import CountryCode
-from .container_group_networking import ContainerGroupNetworking
+from .container_group_networking import (
+    ContainerGroupNetworking,
+    ContainerGroupNetworkingLoadBalancer,
+)
 from .container_group_liveness_probe import ContainerGroupLivenessProbe
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_group_startup_probe import ContainerGroupStartupProbe
@@ -46,7 +49,10 @@ from .create_container import (
     CreateContainerLogging,
     CreateContainerRegistryAuthentication,
 )
-from .create_container_group_networking import CreateContainerGroupNetworking
+from .create_container_group_networking import (
+    CreateContainerGroupNetworking,
+    CreateContainerGroupNetworkingLoadBalancer,
+)
 from .update_container import (
     UpdateContainer,
     Resources,

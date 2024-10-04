@@ -43,9 +43,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="l50g1umdxtc9fte7",
-    page=832002798,
-    page_size=51
+    organization_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
+    page=121822981,
+    page_size=37
 )
 
 print(result)
@@ -82,8 +82,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="zux2vsmrhjjt13u7q3pryxxnnnyigut20zp1dyfm2yp4-lxa27tl0e",
-    inference_endpoint_name="qui adipisicing"
+    organization_name="u5ke3wy-5gl1809s8so",
+    inference_endpoint_name="et tempor sint"
 )
 
 print(result)
@@ -122,10 +122,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="bzx0y-i4o1cvulgdrx",
-    inference_endpoint_name="minim",
-    page=82661968,
-    page_size=27
+    organization_name="yg0u13rmnwb7eyumc25lm4prwopvwr-1961f",
+    inference_endpoint_name="consectetur occaecat",
+    page=355955712,
+    page_size=39
 )
 
 print(result)
@@ -171,8 +171,8 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="bzx0y-i4o1cvulgdrx",
-    inference_endpoint_name="minim"
+    organization_name="yg0u13rmnwb7eyumc25lm4prwopvwr-1961f",
+    inference_endpoint_name="consectetur occaecat"
 )
 
 print(result)
@@ -210,8 +210,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="v0jo001xz6w2uhgmhtgvpqzhztmaqawqn92-rig0bznv-21cb7tj-hp2ecbvldq",
-    inference_endpoint_name="elit sint",
+    organization_name="kdhvnhwadaqzuh18",
+    inference_endpoint_name="eiusmod dolore do",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 
@@ -246,8 +246,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="v0jo001xz6w2uhgmhtgvpqzhztmaqawqn92-rig0bznv-21cb7tj-hp2ecbvldq",
-    inference_endpoint_name="elit sint",
+    organization_name="kdhvnhwadaqzuh18",
+    inference_endpoint_name="eiusmod dolore do",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 

@@ -9,9 +9,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.stop_container_group(
-    organization_name="c0o0gqev-mnkpy8af-s7rq68p2lenu8izbg09xnu6-fkv4dta4yd",
-    project_name="rpi16e4ddle58fi8u9w2qgnsgj7cnci4p90a72aagy0f001ws1rwna83a3asuz",
-    container_group_name="fd6ugn07m5xpcp89lefemdke05z4s9eg1d2caksvlhpzm"
+    organization_name="jpqhlkkgd",
+    project_name="a9h5upyur493wxwbxrj4xt9wfx07sgyz1fs97sfhtue78-54vd",
+    container_group_name="jp2qrcnt-8a3"
 )
 
 print(result)

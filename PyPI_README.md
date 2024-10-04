@@ -1,11 +1,11 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.4<a id="saladcloudsdk-python-sdk-090-alpha4"></a>
+# SaladCloudSdk Python SDK 0.9.0-alpha.5<a id="saladcloudsdk-python-sdk-090-alpha5"></a>
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.4`
-- SDK version: `0.9.0-alpha.4`
+- API version: `0.9.0-alpha.5`
+- SDK version: `0.9.0-alpha.5`
 
 ## About the API<a id="about-the-api"></a>
 
@@ -86,7 +86,7 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="o110sou")
+result = sdk.quotas.get_quotas(organization_name="oecson4k2eclxr")
 
 print(result)
 

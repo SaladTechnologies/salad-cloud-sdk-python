@@ -9,8 +9,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="rtxaydgbmb5wprcvb9628akhug9lnd3c0",
-    project_name="p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177"
+    organization_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
+    project_name="xk27gbnpmwk5xor49bk4ujk7"
 )
 
 print(result)
