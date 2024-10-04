@@ -1,3 +1,4 @@
+from typing import Union
 from .services.container_groups import ContainerGroupsService
 from .services.workload_errors import WorkloadErrorsService
 from .services.queues import QueuesService
@@ -13,34 +14,44 @@ class SaladCloudSdk:
         self,
         api_key: str = None,
         api_key_header: str = "Salad-Api-Key",
-        base_url: str = Environment.DEFAULT.value,
+        base_url: Union[Environment, str] = Environment.DEFAULT,
         timeout: int = 60000,
     ):
         """
         Initializes SaladCloudSdk the SDK class.
         """
 
-        self.container_groups = ContainerGroupsService(base_url=base_url)
-        self.workload_errors = WorkloadErrorsService(base_url=base_url)
-        self.queues = QueuesService(base_url=base_url)
-        self.quotas = QuotasService(base_url=base_url)
-        self.inference_endpoints = InferenceEndpointsService(base_url=base_url)
-        self.organization_data = OrganizationDataService(base_url=base_url)
-        self.webhook_secret_key = WebhookSecretKeyService(base_url=base_url)
+        self._base_url = (
+            base_url.value if isinstance(base_url, Environment) else base_url
+        )
+        self.container_groups = ContainerGroupsService(base_url=self._base_url)
+        self.workload_errors = WorkloadErrorsService(base_url=self._base_url)
+        self.queues = QueuesService(base_url=self._base_url)
+        self.quotas = QuotasService(base_url=self._base_url)
+        self.inference_endpoints = InferenceEndpointsService(base_url=self._base_url)
+        self.organization_data = OrganizationDataService(base_url=self._base_url)
+        self.webhook_secret_key = WebhookSecretKeyService(base_url=self._base_url)
         self.set_api_key(api_key, api_key_header)
         self.set_timeout(timeout)
 
-    def set_base_url(self, base_url):
+    def set_base_url(self, base_url: Union[Environment, str]):
         """
         Sets the base URL for the entire SDK.
+
+        :param Union[Environment, str] base_url: The base URL to be set.
+        :return: The SDK instance.
         """
-        self.container_groups.set_base_url(base_url)
-        self.workload_errors.set_base_url(base_url)
-        self.queues.set_base_url(base_url)
-        self.quotas.set_base_url(base_url)
-        self.inference_endpoints.set_base_url(base_url)
-        self.organization_data.set_base_url(base_url)
-        self.webhook_secret_key.set_base_url(base_url)
+        self._base_url = (
+            base_url.value if isinstance(base_url, Environment) else base_url
+        )
+
+        self.container_groups.set_base_url(self._base_url)
+        self.workload_errors.set_base_url(self._base_url)
+        self.queues.set_base_url(self._base_url)
+        self.quotas.set_base_url(self._base_url)
+        self.inference_endpoints.set_base_url(self._base_url)
+        self.organization_data.set_base_url(self._base_url)
+        self.webhook_secret_key.set_base_url(self._base_url)
 
         return self
 

@@ -8,6 +8,7 @@ from .update_container_group_networking import UpdateContainerGroupNetworking
 from .container_group_liveness_probe import ContainerGroupLivenessProbe
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_group_startup_probe import ContainerGroupStartupProbe
+from .queue_autoscaler import QueueAutoscaler
 
 
 @JsonMap({})
@@ -30,6 +31,8 @@ class UpdateContainerGroup(BaseModel):
     :type readiness_probe: ContainerGroupReadinessProbe, optional
     :param startup_probe: Represents the container group startup probe, defaults to None
     :type startup_probe: ContainerGroupStartupProbe, optional
+    :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+    :type queue_autoscaler: QueueAutoscaler, optional
     """
 
     def __init__(
@@ -42,6 +45,7 @@ class UpdateContainerGroup(BaseModel):
         liveness_probe: ContainerGroupLivenessProbe = None,
         readiness_probe: ContainerGroupReadinessProbe = None,
         startup_probe: ContainerGroupStartupProbe = None,
+        queue_autoscaler: QueueAutoscaler = None,
     ):
         """Represents a request to update a container group
 
@@ -61,6 +65,8 @@ class UpdateContainerGroup(BaseModel):
         :type readiness_probe: ContainerGroupReadinessProbe, optional
         :param startup_probe: Represents the container group startup probe, defaults to None
         :type startup_probe: ContainerGroupStartupProbe, optional
+        :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
+        :type queue_autoscaler: QueueAutoscaler, optional
         """
         if display_name is not None:
             self.display_name = self._define_str(
@@ -94,4 +100,8 @@ class UpdateContainerGroup(BaseModel):
         if startup_probe is not None:
             self.startup_probe = self._define_object(
                 startup_probe, ContainerGroupStartupProbe
+            )
+        if queue_autoscaler is not None:
+            self.queue_autoscaler = self._define_object(
+                queue_autoscaler, QueueAutoscaler
             )

@@ -17,8 +17,8 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="bzx0y-i4o1cvulgdrx",
-    inference_endpoint_name="minim"
+    organization_name="yg0u13rmnwb7eyumc25lm4prwopvwr-1961f",
+    inference_endpoint_name="consectetur occaecat"
 )
 
 print(result)

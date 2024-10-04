@@ -10,10 +10,10 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CreateContainerGroup(
-    name="qfojt-6ccoil4t55-ccoyybgw92dermtsdfn3t2xmag",
-    display_name="O0hSlJUW",
+    name="xvih",
+    display_name="INce5LCTy",
     container={
-        "image": "voluptate officia adipisicing",
+        "image": "reprehenderit",
         "resources": {
             "cpu": 10,
             "memory": 35273,
@@ -29,13 +29,13 @@ request_body = CreateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "Ut con",
-                "api_token": "nostrud irure dolore",
-                "dataset": "mollit irure et Duis dolore"
+                "host": "irure ut eiusmod velit incididunt",
+                "api_token": "deserunt aute cillum dolor occaecat",
+                "dataset": "exercitation sit"
             },
             "datadog": {
-                "host": "pariatur",
-                "api_key": "non ut",
+                "host": "sunt consequat irure fugiat",
+                "api_key": "magna",
                 "tags": [
                     {
                         "name": "name",
@@ -44,20 +44,20 @@ request_body = CreateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "cupidatat cillum est sit minim",
-                "ingestion_key": "dolore laboris fugiat Duis"
+                "host": "quis aute in id proident",
+                "ingestion_key": "aliqua enim pariatur"
             },
             "splunk": {
-                "host": "aliquip velit culpa",
-                "token": "ex"
+                "host": "ad",
+                "token": "irure velit labore nostrud elit"
             },
             "tcp": {
-                "host": "aliqua",
-                "port": 17249
+                "host": "fugiat do",
+                "port": 1272
             },
             "http": {
-                "host": "magna",
-                "port": 62049,
+                "host": "cillum",
+                "port": 21241,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -94,22 +94,26 @@ request_body = CreateContainerGroup(
     },
     autostart_policy=False,
     restart_policy="always",
-    replicas=114,
+    replicas=12,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 9813,
-        "auth": False
+        "port": 43901,
+        "auth": False,
+        "load_balancer": "round_robin",
+        "single_connection_limit": True,
+        "client_request_timeout": 100000,
+        "server_response_timeout": 100000
     },
     liveness_probe={
         "tcp": {
-            "port": 23269
+            "port": 61900
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 58759,
             "scheme": "http",
             "headers": [
                 {
@@ -120,37 +124,7 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 5,
-        "period_seconds": 10,
-        "timeout_seconds": 30,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    readiness_probe={
-        "tcp": {
-            "port": 23269
-        },
-        "http": {
-            "path": "path",
-            "port": 61900,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 58759
+            "port": 32748
         },
         "exec_": {
             "command": [
@@ -158,18 +132,18 @@ request_body = CreateContainerGroup(
             ]
         },
         "initial_delay_seconds": 6,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
+        "period_seconds": 10,
+        "timeout_seconds": 30,
         "success_threshold": 1,
         "failure_threshold": 3
     },
-    startup_probe={
+    readiness_probe={
         "tcp": {
-            "port": 23269
+            "port": 61900
         },
         "http": {
             "path": "path",
-            "port": 61900,
+            "port": 58759,
             "scheme": "http",
             "headers": [
                 {
@@ -180,7 +154,7 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 58759
+            "port": 32748
         },
         "exec_": {
             "command": [
@@ -188,23 +162,53 @@ request_body = CreateContainerGroup(
             ]
         },
         "initial_delay_seconds": 4,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 61900
+        },
+        "http": {
+            "path": "path",
+            "port": 58759,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 32748
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 10,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_connection={
-        "path": "ullamco magna est nulla aliqua",
-        "port": 49952,
-        "queue_name": "nnz26lyemw7nednorlqjlsihb42092pn8d"
+        "path": "pariatur Ut aliqua irure",
+        "port": 34903,
+        "queue_name": "nz26lyemw7nednorlqjlsihb3"
     },
     queue_autoscaler={
-        "min_replicas": 57,
-        "max_replicas": 58,
-        "desired_queue_length": 20,
-        "polling_period": 1406,
-        "max_upscale_per_minute": 35,
-        "max_downscale_per_minute": 42
+        "min_replicas": 96,
+        "max_replicas": 190,
+        "desired_queue_length": 42,
+        "polling_period": 684,
+        "max_upscale_per_minute": 95,
+        "max_downscale_per_minute": 10
     }
 )
 
