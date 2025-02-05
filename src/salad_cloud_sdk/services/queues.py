@@ -1,4 +1,3 @@
-from typing import Any
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -27,7 +26,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: QueueList
         """
 
@@ -49,7 +48,7 @@ class QueuesService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return QueueList._unmap(response)
 
     @cast_models
@@ -67,7 +66,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Created
+        :return: The parsed response data.
         :rtype: Queue
         """
 
@@ -91,7 +90,7 @@ class QueuesService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
@@ -109,7 +108,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: Queue
         """
 
@@ -135,7 +134,7 @@ class QueuesService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
@@ -159,7 +158,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: Queue
         """
 
@@ -187,13 +186,13 @@ class QueuesService(BaseService):
             .set_body(request_body, "application/merge-patch+json")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
     def delete_queue(
         self, organization_name: str, project_name: str, queue_name: str
-    ) -> Any:
+    ) -> None:
         """Deletes an existing queue in the given project.
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -229,8 +228,7 @@ class QueuesService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def list_queue_jobs(
@@ -256,7 +254,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: QueueJobList
         """
 
@@ -286,7 +284,7 @@ class QueuesService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return QueueJobList._unmap(response)
 
     @cast_models
@@ -310,7 +308,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Created
+        :return: The parsed response data.
         :rtype: QueueJob
         """
 
@@ -338,7 +336,7 @@ class QueuesService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return QueueJob._unmap(response)
 
     @cast_models
@@ -362,7 +360,7 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: QueueJob
         """
 
@@ -390,7 +388,7 @@ class QueuesService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return QueueJob._unmap(response)
 
     @cast_models
@@ -400,7 +398,7 @@ class QueuesService(BaseService):
         project_name: str,
         queue_name: str,
         queue_job_id: str,
-    ) -> Any:
+    ) -> None:
         """Cancels a job in a queue
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -440,5 +438,4 @@ class QueuesService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)

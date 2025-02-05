@@ -42,6 +42,7 @@ class ContainerGroupLivenessProbe(BaseModel):
         http: ContainerGroupProbeHttp = None,
         grpc: ContainerGroupProbeGrpc = None,
         exec_: ContainerGroupProbeExec = None,
+        **kwargs,
     ):
         """Represents the container group liveness probe
 
@@ -87,3 +88,4 @@ class ContainerGroupLivenessProbe(BaseModel):
         self.failure_threshold = self._define_number(
             "failure_threshold", failure_threshold, ge=1
         )
+        self._kwargs = kwargs

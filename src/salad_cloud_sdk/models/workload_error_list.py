@@ -13,10 +13,11 @@ class WorkloadErrorList(BaseModel):
     :type items: List[WorkloadError]
     """
 
-    def __init__(self, items: List[WorkloadError]):
+    def __init__(self, items: List[WorkloadError], **kwargs):
         """Represents a list of workload errors
 
         :param items: items
         :type items: List[WorkloadError]
         """
         self.items = self._define_list(items, WorkloadError)
+        self._kwargs = kwargs

@@ -12,7 +12,7 @@ class ContainerGroupProbeGrpc(BaseModel):
     :type port: int
     """
 
-    def __init__(self, service: str, port: int):
+    def __init__(self, service: str, port: int, **kwargs):
         """ContainerGroupProbeGrpc
 
         :param service: service
@@ -22,3 +22,4 @@ class ContainerGroupProbeGrpc(BaseModel):
         """
         self.service = service
         self.port = self._define_number("port", port, ge=0, le=65536)
+        self._kwargs = kwargs

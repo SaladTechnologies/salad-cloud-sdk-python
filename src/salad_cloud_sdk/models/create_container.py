@@ -19,7 +19,7 @@ class LoggingAxiom2(BaseModel):
     :type dataset: str
     """
 
-    def __init__(self, host: str, api_token: str, dataset: str):
+    def __init__(self, host: str, api_token: str, dataset: str, **kwargs):
         """LoggingAxiom2
 
         :param host: host
@@ -36,6 +36,7 @@ class LoggingAxiom2(BaseModel):
         self.dataset = self._define_str(
             "dataset", dataset, min_length=1, max_length=1000
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -48,7 +49,7 @@ class DatadogTags2(BaseModel):
     :type value: str
     """
 
-    def __init__(self, name: str, value: str):
+    def __init__(self, name: str, value: str, **kwargs):
         """DatadogTags2
 
         :param name: name
@@ -58,6 +59,7 @@ class DatadogTags2(BaseModel):
         """
         self.name = name
         self.value = value
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -72,7 +74,9 @@ class LoggingDatadog2(BaseModel):
     :type tags: List[DatadogTags2], optional
     """
 
-    def __init__(self, host: str, api_key: str, tags: List[DatadogTags2] = None):
+    def __init__(
+        self, host: str, api_key: str, tags: List[DatadogTags2] = None, **kwargs
+    ):
         """LoggingDatadog2
 
         :param host: host
@@ -88,6 +92,7 @@ class LoggingDatadog2(BaseModel):
         )
         if tags is not None:
             self.tags = self._define_list(tags, DatadogTags2)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -100,7 +105,7 @@ class LoggingNewRelic2(BaseModel):
     :type ingestion_key: str
     """
 
-    def __init__(self, host: str, ingestion_key: str):
+    def __init__(self, host: str, ingestion_key: str, **kwargs):
         """LoggingNewRelic2
 
         :param host: host
@@ -112,6 +117,7 @@ class LoggingNewRelic2(BaseModel):
         self.ingestion_key = self._define_str(
             "ingestion_key", ingestion_key, min_length=1, max_length=1000
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -124,7 +130,7 @@ class LoggingSplunk2(BaseModel):
     :type token: str
     """
 
-    def __init__(self, host: str, token: str):
+    def __init__(self, host: str, token: str, **kwargs):
         """LoggingSplunk2
 
         :param host: host
@@ -134,6 +140,7 @@ class LoggingSplunk2(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.token = self._define_str("token", token, min_length=1, max_length=1000)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -146,7 +153,7 @@ class LoggingTcp2(BaseModel):
     :type port: int
     """
 
-    def __init__(self, host: str, port: int):
+    def __init__(self, host: str, port: int, **kwargs):
         """LoggingTcp2
 
         :param host: host
@@ -156,6 +163,7 @@ class LoggingTcp2(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
+        self._kwargs = kwargs
 
 
 class HttpFormat2(Enum):
@@ -189,7 +197,7 @@ class HttpHeaders3(BaseModel):
     :type value: str
     """
 
-    def __init__(self, name: str, value: str):
+    def __init__(self, name: str, value: str, **kwargs):
         """HttpHeaders3
 
         :param name: name
@@ -199,6 +207,7 @@ class HttpHeaders3(BaseModel):
         """
         self.name = name
         self.value = value
+        self._kwargs = kwargs
 
 
 class HttpCompression2(Enum):
@@ -254,6 +263,7 @@ class LoggingHttp2(BaseModel):
         password: str = None,
         path: str = None,
         headers: List[HttpHeaders3] = None,
+        **kwargs,
     ):
         """LoggingHttp2
 
@@ -288,6 +298,7 @@ class LoggingHttp2(BaseModel):
         self.compression = self._enum_matching(
             compression, HttpCompression2.list(), "compression"
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -316,6 +327,7 @@ class CreateContainerLogging(BaseModel):
         splunk: LoggingSplunk2 = None,
         tcp: LoggingTcp2 = None,
         http: LoggingHttp2 = None,
+        **kwargs,
     ):
         """CreateContainerLogging
 
@@ -344,6 +356,7 @@ class CreateContainerLogging(BaseModel):
             self.tcp = self._define_object(tcp, LoggingTcp2)
         if http is not None:
             self.http = self._define_object(http, LoggingHttp2)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -356,7 +369,7 @@ class RegistryAuthenticationBasic1(BaseModel):
     :type password: str
     """
 
-    def __init__(self, username: str, password: str):
+    def __init__(self, username: str, password: str, **kwargs):
         """RegistryAuthenticationBasic1
 
         :param username: username
@@ -366,6 +379,7 @@ class RegistryAuthenticationBasic1(BaseModel):
         """
         self.username = username
         self.password = password
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -376,13 +390,14 @@ class RegistryAuthenticationGcpGcr1(BaseModel):
     :type service_key: str
     """
 
-    def __init__(self, service_key: str):
+    def __init__(self, service_key: str, **kwargs):
         """RegistryAuthenticationGcpGcr1
 
         :param service_key: service_key
         :type service_key: str
         """
         self.service_key = service_key
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -395,7 +410,7 @@ class RegistryAuthenticationAwsEcr1(BaseModel):
     :type secret_access_key: str
     """
 
-    def __init__(self, access_key_id: str, secret_access_key: str):
+    def __init__(self, access_key_id: str, secret_access_key: str, **kwargs):
         """RegistryAuthenticationAwsEcr1
 
         :param access_key_id: access_key_id
@@ -405,6 +420,7 @@ class RegistryAuthenticationAwsEcr1(BaseModel):
         """
         self.access_key_id = access_key_id
         self.secret_access_key = secret_access_key
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -417,7 +433,7 @@ class RegistryAuthenticationDockerHub1(BaseModel):
     :type personal_access_token: str
     """
 
-    def __init__(self, username: str, personal_access_token: str):
+    def __init__(self, username: str, personal_access_token: str, **kwargs):
         """RegistryAuthenticationDockerHub1
 
         :param username: username
@@ -427,6 +443,7 @@ class RegistryAuthenticationDockerHub1(BaseModel):
         """
         self.username = username
         self.personal_access_token = personal_access_token
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -437,13 +454,14 @@ class RegistryAuthenticationGcpGar1(BaseModel):
     :type service_key: str
     """
 
-    def __init__(self, service_key: str):
+    def __init__(self, service_key: str, **kwargs):
         """RegistryAuthenticationGcpGar1
 
         :param service_key: service_key
         :type service_key: str
         """
         self.service_key = service_key
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -469,6 +487,7 @@ class CreateContainerRegistryAuthentication(BaseModel):
         aws_ecr: RegistryAuthenticationAwsEcr1 = None,
         docker_hub: RegistryAuthenticationDockerHub1 = None,
         gcp_gar: RegistryAuthenticationGcpGar1 = None,
+        **kwargs,
     ):
         """CreateContainerRegistryAuthentication
 
@@ -495,6 +514,7 @@ class CreateContainerRegistryAuthentication(BaseModel):
             )
         if gcp_gar is not None:
             self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar1)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -526,6 +546,7 @@ class CreateContainer(BaseModel):
         environment_variables: dict = None,
         logging: CreateContainerLogging = None,
         registry_authentication: CreateContainerRegistryAuthentication = None,
+        **kwargs,
     ):
         """Represents a container
 
@@ -560,3 +581,4 @@ class CreateContainer(BaseModel):
             self.registry_authentication = self._define_object(
                 registry_authentication, CreateContainerRegistryAuthentication
             )
+        self._kwargs = kwargs

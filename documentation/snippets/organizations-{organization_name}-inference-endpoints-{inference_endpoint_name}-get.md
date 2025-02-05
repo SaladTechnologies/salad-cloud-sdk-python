@@ -1,16 +1,15 @@
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="u5ke3wy-5gl1809s8so",
-    inference_endpoint_name="et tempor sint"
+    organization_name="z8llajq25o",
+    inference_endpoint_name="inference_endpoint_name"
 )
 
 print(result)

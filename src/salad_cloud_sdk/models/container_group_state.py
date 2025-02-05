@@ -28,6 +28,7 @@ class ContainerGroupState(BaseModel):
         finish_time: str,
         instance_status_counts: ContainerGroupInstanceStatusCount,
         description: str = None,
+        **kwargs,
     ):
         """Represents a container group state
 
@@ -52,3 +53,4 @@ class ContainerGroupState(BaseModel):
         self.instance_status_counts = self._define_object(
             instance_status_counts, ContainerGroupInstanceStatusCount
         )
+        self._kwargs = kwargs

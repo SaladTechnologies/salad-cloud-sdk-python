@@ -16,7 +16,7 @@ class WebhookSecretKeyService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: WebhookSecretKey
         """
 
@@ -34,7 +34,7 @@ class WebhookSecretKeyService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return WebhookSecretKey._unmap(response)
 
     @cast_models
@@ -46,7 +46,7 @@ class WebhookSecretKeyService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: WebhookSecretKey
         """
 
@@ -64,5 +64,5 @@ class WebhookSecretKeyService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return WebhookSecretKey._unmap(response)

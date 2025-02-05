@@ -25,6 +25,7 @@ class ContainerGroupsQuotas(BaseModel):
         max_container_group_reallocations_per_minute: int = None,
         max_container_group_recreates_per_minute: int = None,
         max_container_group_restarts_per_minute: int = None,
+        **kwargs
     ):
         """ContainerGroupsQuotas
 
@@ -59,3 +60,4 @@ class ContainerGroupsQuotas(BaseModel):
                 max_container_group_restarts_per_minute,
                 ge=0,
             )
+        self._kwargs = kwargs

@@ -63,6 +63,7 @@ class ContainerGroupNetworking(BaseModel):
         single_connection_limit: bool = None,
         client_request_timeout: int = None,
         server_response_timeout: int = None,
+        **kwargs,
     ):
         """Represents container group networking parameters
 
@@ -105,3 +106,4 @@ class ContainerGroupNetworking(BaseModel):
             self.server_response_timeout = self._define_number(
                 "server_response_timeout", server_response_timeout, ge=1, le=100000
             )
+        self._kwargs = kwargs

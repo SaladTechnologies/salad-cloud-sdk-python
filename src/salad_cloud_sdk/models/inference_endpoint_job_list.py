@@ -13,10 +13,11 @@ class InferenceEndpointJobList(BaseModel):
     :type items: List[InferenceEndpointJob]
     """
 
-    def __init__(self, items: List[InferenceEndpointJob]):
+    def __init__(self, items: List[InferenceEndpointJob], **kwargs):
         """Represents a list of inference endpoint jobs
 
         :param items: The list of items
         :type items: List[InferenceEndpointJob]
         """
         self.items = self._define_list(items, InferenceEndpointJob)
+        self._kwargs = kwargs

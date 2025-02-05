@@ -31,6 +31,7 @@ class WorkloadError(BaseModel):
         allocated_at: str,
         version: int,
         started_at: str = None,
+        **kwargs
     ):
         """Represents a workload error
 
@@ -57,3 +58,4 @@ class WorkloadError(BaseModel):
         if started_at is not None:
             self.started_at = self._define_str("started_at", started_at, nullable=True)
         self.version = self._define_number("version", version, ge=1)
+        self._kwargs = kwargs

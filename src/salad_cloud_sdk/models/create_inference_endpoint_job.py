@@ -14,7 +14,9 @@ class CreateInferenceEndpointJob(BaseModel):
     :type webhook: str, optional
     """
 
-    def __init__(self, input: any, metadata: dict = None, webhook: str = None):
+    def __init__(
+        self, input: any, metadata: dict = None, webhook: str = None, **kwargs
+    ):
         """Represents a request to create a inference endpoint job
 
         :param input: The job input. May be any valid JSON.
@@ -28,4 +30,7 @@ class CreateInferenceEndpointJob(BaseModel):
         if metadata is not None:
             self.metadata = metadata
         if webhook is not None:
-            self.webhook = self._define_str("webhook", webhook, nullable=True)
+            self.webhook = self._define_str(
+                "webhook", webhook, nullable=True, max_length=2000
+            )
+        self._kwargs = kwargs

@@ -26,6 +26,7 @@ class ContainerGroupProbeHttp(BaseModel):
         port: int,
         scheme: ContainerProbeHttpScheme = None,
         headers: List[ContainerGroupProbeHttpHeaders2] = None,
+        **kwargs,
     ):
         """ContainerGroupProbeHttp
 
@@ -46,3 +47,4 @@ class ContainerGroupProbeHttp(BaseModel):
             )
         if headers is not None:
             self.headers = self._define_list(headers, ContainerGroupProbeHttpHeaders2)
+        self._kwargs = kwargs

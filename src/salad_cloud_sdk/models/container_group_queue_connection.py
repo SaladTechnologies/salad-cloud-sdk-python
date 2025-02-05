@@ -14,7 +14,7 @@ class ContainerGroupQueueConnection(BaseModel):
     :type queue_name: str
     """
 
-    def __init__(self, path: str, port: int, queue_name: str):
+    def __init__(self, path: str, port: int, queue_name: str, **kwargs):
         """Represents container group queue connection
 
         :param path: path
@@ -33,3 +33,4 @@ class ContainerGroupQueueConnection(BaseModel):
             min_length=2,
             max_length=63,
         )
+        self._kwargs = kwargs

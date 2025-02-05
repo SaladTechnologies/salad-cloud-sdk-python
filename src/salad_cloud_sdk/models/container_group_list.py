@@ -13,10 +13,11 @@ class ContainerGroupList(BaseModel):
     :type items: List[ContainerGroup]
     """
 
-    def __init__(self, items: List[ContainerGroup]):
+    def __init__(self, items: List[ContainerGroup], **kwargs):
         """Represents a list of container groups
 
         :param items: items
         :type items: List[ContainerGroup]
         """
         self.items = self._define_list(items, ContainerGroup)
+        self._kwargs = kwargs

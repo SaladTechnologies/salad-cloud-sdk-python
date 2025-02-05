@@ -60,6 +60,7 @@ class CreateContainerGroup(BaseModel):
         startup_probe: ContainerGroupStartupProbe = None,
         queue_connection: ContainerGroupQueueConnection = None,
         queue_autoscaler: QueueAutoscaler = None,
+        **kwargs,
     ):
         """Represents a request to create a container group
 
@@ -138,3 +139,4 @@ class CreateContainerGroup(BaseModel):
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )
+        self._kwargs = kwargs

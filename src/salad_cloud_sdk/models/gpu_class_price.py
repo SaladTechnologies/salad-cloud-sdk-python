@@ -14,7 +14,7 @@ class GpuClassPrice(BaseModel):
     :type price: str
     """
 
-    def __init__(self, priority: ContainerGroupPriority, price: str):
+    def __init__(self, priority: ContainerGroupPriority, price: str, **kwargs):
         """Represents the price of a GPU class for a given container group priority
 
         :param priority: priority
@@ -26,3 +26,4 @@ class GpuClassPrice(BaseModel):
             priority, ContainerGroupPriority.list(), "priority"
         )
         self.price = self._define_str("price", price, min_length=1, max_length=20)
+        self._kwargs = kwargs

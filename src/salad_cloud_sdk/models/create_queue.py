@@ -14,7 +14,9 @@ class CreateQueue(BaseModel):
     :type description: str, optional
     """
 
-    def __init__(self, name: str, display_name: str = None, description: str = None):
+    def __init__(
+        self, name: str, display_name: str = None, description: str = None, **kwargs
+    ):
         """Represents a request to create a new queue.
 
         :param name: The queue name. This must be unique within the project.
@@ -44,3 +46,4 @@ class CreateQueue(BaseModel):
             self.description = self._define_str(
                 "description", description, nullable=True, max_length=500
             )
+        self._kwargs = kwargs

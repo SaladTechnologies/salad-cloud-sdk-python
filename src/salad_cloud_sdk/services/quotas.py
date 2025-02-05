@@ -16,7 +16,7 @@ class QuotasService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: Quotas
         """
 
@@ -34,5 +34,5 @@ class QuotasService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Quotas._unmap(response)

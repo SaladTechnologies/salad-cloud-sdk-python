@@ -10,10 +10,11 @@ class ContainerGroupProbeTcp(BaseModel):
     :type port: int
     """
 
-    def __init__(self, port: int):
+    def __init__(self, port: int, **kwargs):
         """ContainerGroupProbeTcp
 
         :param port: port
         :type port: int
         """
         self.port = self._define_number("port", port, ge=0, le=65536)
+        self._kwargs = kwargs

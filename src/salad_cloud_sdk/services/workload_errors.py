@@ -11,7 +11,7 @@ class WorkloadErrorsService(BaseService):
     def get_workload_errors(
         self, organization_name: str, project_name: str, container_group_name: str
     ) -> WorkloadErrorList:
-        """Gets the workload errors
+        """Gets the workload errors. This has been deprecated and will be replaced by the new System Logs endpoint. See `/system-logs`.
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
@@ -22,7 +22,7 @@ class WorkloadErrorsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: WorkloadErrorList
         """
 
@@ -48,5 +48,5 @@ class WorkloadErrorsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return WorkloadErrorList._unmap(response)

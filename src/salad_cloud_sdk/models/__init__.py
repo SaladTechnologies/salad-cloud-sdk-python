@@ -5,6 +5,7 @@ from .update_container_group import UpdateContainerGroup
 from .container_group_instances import ContainerGroupInstances
 from .container_group_instance import ContainerGroupInstance, State
 from .workload_error_list import WorkloadErrorList
+from .system_log_list import SystemLogList
 from .queue_list import QueueList
 from .create_queue import CreateQueue
 from .queue import Queue
@@ -61,6 +62,7 @@ from .update_container import (
 )
 from .update_container_group_networking import UpdateContainerGroupNetworking
 from .workload_error import WorkloadError
+from .system_log import SystemLog
 from .queue_job_event import QueueJobEvent, QueueJobEventAction
 from .container_groups_quotas import ContainerGroupsQuotas
 from .inference_endpoint_job_event import (

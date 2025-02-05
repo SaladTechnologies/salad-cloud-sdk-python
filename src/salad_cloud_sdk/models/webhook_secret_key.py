@@ -10,10 +10,11 @@ class WebhookSecretKey(BaseModel):
     :type secret_key: str
     """
 
-    def __init__(self, secret_key: str):
+    def __init__(self, secret_key: str, **kwargs):
         """Represents a webhook secret key
 
         :param secret_key: The webhook secret key
         :type secret_key: str
         """
         self.secret_key = secret_key
+        self._kwargs = kwargs
