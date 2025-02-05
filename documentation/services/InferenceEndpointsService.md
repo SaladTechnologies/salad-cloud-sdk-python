@@ -33,19 +33,18 @@ Gets the list of inference endpoints
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4",
-    page=121822981,
-    page_size=37
+    organization_name="cy1l6xj-5vzihwp4ho850l3faynnuq71ru6y",
+    page=1029360820,
+    page_size=40
 )
 
 print(result)
@@ -72,18 +71,17 @@ Gets an inference endpoint
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="u5ke3wy-5gl1809s8so",
-    inference_endpoint_name="et tempor sint"
+    organization_name="z8llajq25o",
+    inference_endpoint_name="inference_endpoint_name"
 )
 
 print(result)
@@ -112,20 +110,19 @@ Retrieves a list of an inference endpoint jobs
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="yg0u13rmnwb7eyumc25lm4prwopvwr-1961f",
-    inference_endpoint_name="consectetur occaecat",
-    page=355955712,
-    page_size=39
+    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
+    inference_endpoint_name="inference_endpoint_name",
+    page=508294663,
+    page_size=31
 )
 
 print(result)
@@ -153,13 +150,12 @@ Creates a new job
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import CreateInferenceEndpointJob
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -171,8 +167,8 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="yg0u13rmnwb7eyumc25lm4prwopvwr-1961f",
-    inference_endpoint_name="consectetur occaecat"
+    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
+    inference_endpoint_name="inference_endpoint_name"
 )
 
 print(result)
@@ -200,18 +196,17 @@ Retrieves a job in an inference endpoint
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="kdhvnhwadaqzuh18",
-    inference_endpoint_name="eiusmod dolore do",
+    organization_name="uploo4d78",
+    inference_endpoint_name="inference_endpoint_name",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 
@@ -236,18 +231,17 @@ Deletes an inference endpoint job
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="kdhvnhwadaqzuh18",
-    inference_endpoint_name="eiusmod dolore do",
+    organization_name="uploo4d78",
+    inference_endpoint_name="inference_endpoint_name",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
 

@@ -12,7 +12,7 @@ class UpdateQueue(BaseModel):
     :type description: str, optional
     """
 
-    def __init__(self, display_name: str = None, description: str = None):
+    def __init__(self, display_name: str = None, description: str = None, **kwargs):
         """Represents a request to update an existing queue.
 
         :param display_name: The display name. This may be used as a more human-readable name., defaults to None
@@ -33,3 +33,4 @@ class UpdateQueue(BaseModel):
             self.description = self._define_str(
                 "description", description, nullable=True, max_length=500
             )
+        self._kwargs = kwargs

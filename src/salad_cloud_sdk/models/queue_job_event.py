@@ -43,7 +43,7 @@ class QueueJobEvent(BaseModel):
     :type time: str
     """
 
-    def __init__(self, action: QueueJobEventAction, time: str):
+    def __init__(self, action: QueueJobEventAction, time: str, **kwargs):
         """Represents an event for queue job
 
         :param action: action
@@ -53,3 +53,4 @@ class QueueJobEvent(BaseModel):
         """
         self.action = self._enum_matching(action, QueueJobEventAction.list(), "action")
         self.time = time
+        self._kwargs = kwargs

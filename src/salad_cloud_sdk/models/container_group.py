@@ -79,6 +79,7 @@ class ContainerGroup(BaseModel):
         startup_probe: ContainerGroupStartupProbe = None,
         queue_connection: ContainerGroupQueueConnection = None,
         queue_autoscaler: QueueAutoscaler = None,
+        **kwargs,
     ):
         """Represents a container group
 
@@ -171,3 +172,4 @@ class ContainerGroup(BaseModel):
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )
+        self._kwargs = kwargs

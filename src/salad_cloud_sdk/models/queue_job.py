@@ -71,6 +71,7 @@ class QueueJob(BaseModel):
         metadata: dict = None,
         webhook: str = None,
         output: any = None,
+        **kwargs,
     ):
         """Represents a queue job
 
@@ -105,3 +106,4 @@ class QueueJob(BaseModel):
             self.output = output
         self.create_time = create_time
         self.update_time = update_time
+        self._kwargs = kwargs

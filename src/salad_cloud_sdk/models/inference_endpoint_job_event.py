@@ -47,7 +47,7 @@ class InferenceEndpointJobEvent(BaseModel):
     :type time: str
     """
 
-    def __init__(self, action: InferenceEndpointJobEventAction, time: str):
+    def __init__(self, action: InferenceEndpointJobEventAction, time: str, **kwargs):
         """Represents an event for inference endpoint job
 
         :param action: action
@@ -59,3 +59,4 @@ class InferenceEndpointJobEvent(BaseModel):
             action, InferenceEndpointJobEventAction.list(), "action"
         )
         self.time = time
+        self._kwargs = kwargs

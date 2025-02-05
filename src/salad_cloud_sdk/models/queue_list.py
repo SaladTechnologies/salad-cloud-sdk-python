@@ -13,10 +13,11 @@ class QueueList(BaseModel):
     :type items: List[Queue]
     """
 
-    def __init__(self, items: List[Queue]):
+    def __init__(self, items: List[Queue], **kwargs):
         """Represents a list of queues
 
         :param items: The list of queues.
         :type items: List[Queue]
         """
         self.items = self._define_list(items, Queue)
+        self._kwargs = kwargs

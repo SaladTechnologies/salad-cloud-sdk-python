@@ -25,6 +25,7 @@ class GpuClass(BaseModel):
         name: str,
         prices: List[GpuClassPrice],
         is_high_demand: bool = None,
+        **kwargs,
     ):
         """Represents a GPU Class
 
@@ -42,3 +43,4 @@ class GpuClass(BaseModel):
         self.prices = self._define_list(prices, GpuClassPrice)
         if is_high_demand is not None:
             self.is_high_demand = is_high_demand
+        self._kwargs = kwargs

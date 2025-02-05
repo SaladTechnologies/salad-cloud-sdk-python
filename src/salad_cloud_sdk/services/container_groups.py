@@ -1,4 +1,3 @@
-from typing import Any
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -28,7 +27,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: ContainerGroupList
         """
 
@@ -50,7 +49,7 @@ class ContainerGroupsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroupList._unmap(response)
 
     @cast_models
@@ -71,7 +70,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Created
+        :return: The parsed response data.
         :rtype: ContainerGroup
         """
 
@@ -95,7 +94,7 @@ class ContainerGroupsService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
@@ -113,7 +112,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: ContainerGroup
         """
 
@@ -139,7 +138,7 @@ class ContainerGroupsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
@@ -163,7 +162,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: ContainerGroup
         """
 
@@ -191,13 +190,13 @@ class ContainerGroupsService(BaseService):
             .set_body(request_body, "application/merge-patch+json")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
     def delete_container_group(
         self, organization_name: str, project_name: str, container_group_name: str
-    ) -> Any:
+    ) -> None:
         """Deletes a container group
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -233,13 +232,12 @@ class ContainerGroupsService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def start_container_group(
         self, organization_name: str, project_name: str, container_group_name: str
-    ) -> Any:
+    ) -> None:
         """Starts a container group
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -275,13 +273,12 @@ class ContainerGroupsService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def stop_container_group(
         self, organization_name: str, project_name: str, container_group_name: str
-    ) -> Any:
+    ) -> None:
         """Stops a container group
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -317,8 +314,7 @@ class ContainerGroupsService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def list_container_group_instances(
@@ -335,7 +331,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: ContainerGroupInstances
         """
 
@@ -361,7 +357,7 @@ class ContainerGroupsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroupInstances._unmap(response)
 
     @cast_models
@@ -385,7 +381,7 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: ContainerGroupInstance
         """
 
@@ -413,7 +409,7 @@ class ContainerGroupsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ContainerGroupInstance._unmap(response)
 
     @cast_models
@@ -423,7 +419,7 @@ class ContainerGroupsService(BaseService):
         project_name: str,
         container_group_name: str,
         container_group_instance_id: str,
-    ) -> Any:
+    ) -> None:
         """Reallocates a container group instance to run on a different Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -463,8 +459,7 @@ class ContainerGroupsService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def recreate_container_group_instance(
@@ -473,7 +468,7 @@ class ContainerGroupsService(BaseService):
         project_name: str,
         container_group_name: str,
         container_group_instance_id: str,
-    ) -> Any:
+    ) -> None:
         """Stops a container, destroys it, and starts a new one without requiring the image to be downloaded again on a new Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -513,8 +508,7 @@ class ContainerGroupsService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def restart_container_group_instance(
@@ -523,7 +517,7 @@ class ContainerGroupsService(BaseService):
         project_name: str,
         container_group_name: str,
         container_group_instance_id: str,
-    ) -> Any:
+    ) -> None:
         """Stops a container and restarts it on the same Salad Node
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -563,5 +557,4 @@ class ContainerGroupsService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)

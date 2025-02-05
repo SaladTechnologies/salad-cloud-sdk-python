@@ -19,7 +19,7 @@ class LoggingAxiom1(BaseModel):
     :type dataset: str
     """
 
-    def __init__(self, host: str, api_token: str, dataset: str):
+    def __init__(self, host: str, api_token: str, dataset: str, **kwargs):
         """LoggingAxiom1
 
         :param host: host
@@ -36,6 +36,7 @@ class LoggingAxiom1(BaseModel):
         self.dataset = self._define_str(
             "dataset", dataset, min_length=1, max_length=1000
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -48,7 +49,7 @@ class DatadogTags1(BaseModel):
     :type value: str
     """
 
-    def __init__(self, name: str, value: str):
+    def __init__(self, name: str, value: str, **kwargs):
         """DatadogTags1
 
         :param name: name
@@ -58,6 +59,7 @@ class DatadogTags1(BaseModel):
         """
         self.name = name
         self.value = value
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -72,7 +74,9 @@ class LoggingDatadog1(BaseModel):
     :type tags: List[DatadogTags1], optional
     """
 
-    def __init__(self, host: str, api_key: str, tags: List[DatadogTags1] = None):
+    def __init__(
+        self, host: str, api_key: str, tags: List[DatadogTags1] = None, **kwargs
+    ):
         """LoggingDatadog1
 
         :param host: host
@@ -88,6 +92,7 @@ class LoggingDatadog1(BaseModel):
         )
         if tags is not None:
             self.tags = self._define_list(tags, DatadogTags1)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -100,7 +105,7 @@ class LoggingNewRelic1(BaseModel):
     :type ingestion_key: str
     """
 
-    def __init__(self, host: str, ingestion_key: str):
+    def __init__(self, host: str, ingestion_key: str, **kwargs):
         """LoggingNewRelic1
 
         :param host: host
@@ -112,6 +117,7 @@ class LoggingNewRelic1(BaseModel):
         self.ingestion_key = self._define_str(
             "ingestion_key", ingestion_key, min_length=1, max_length=1000
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -124,7 +130,7 @@ class LoggingSplunk1(BaseModel):
     :type token: str
     """
 
-    def __init__(self, host: str, token: str):
+    def __init__(self, host: str, token: str, **kwargs):
         """LoggingSplunk1
 
         :param host: host
@@ -134,6 +140,7 @@ class LoggingSplunk1(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.token = self._define_str("token", token, min_length=1, max_length=1000)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -146,7 +153,7 @@ class LoggingTcp1(BaseModel):
     :type port: int
     """
 
-    def __init__(self, host: str, port: int):
+    def __init__(self, host: str, port: int, **kwargs):
         """LoggingTcp1
 
         :param host: host
@@ -156,6 +163,7 @@ class LoggingTcp1(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
+        self._kwargs = kwargs
 
 
 class HttpFormat1(Enum):
@@ -189,7 +197,7 @@ class HttpHeaders1(BaseModel):
     :type value: str
     """
 
-    def __init__(self, name: str, value: str):
+    def __init__(self, name: str, value: str, **kwargs):
         """HttpHeaders1
 
         :param name: name
@@ -199,6 +207,7 @@ class HttpHeaders1(BaseModel):
         """
         self.name = name
         self.value = value
+        self._kwargs = kwargs
 
 
 class HttpCompression1(Enum):
@@ -254,6 +263,7 @@ class LoggingHttp1(BaseModel):
         password: str = None,
         path: str = None,
         headers: List[HttpHeaders1] = None,
+        **kwargs,
     ):
         """LoggingHttp1
 
@@ -288,6 +298,7 @@ class LoggingHttp1(BaseModel):
         self.compression = self._enum_matching(
             compression, HttpCompression1.list(), "compression"
         )
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -316,6 +327,7 @@ class ContainerLogging(BaseModel):
         splunk: LoggingSplunk1 = None,
         tcp: LoggingTcp1 = None,
         http: LoggingHttp1 = None,
+        **kwargs,
     ):
         """ContainerLogging
 
@@ -344,6 +356,7 @@ class ContainerLogging(BaseModel):
             self.tcp = self._define_object(tcp, LoggingTcp1)
         if http is not None:
             self.http = self._define_object(http, LoggingHttp1)
+        self._kwargs = kwargs
 
 
 @JsonMap({})
@@ -378,6 +391,7 @@ class Container(BaseModel):
         hash: str = None,
         environment_variables: dict = None,
         logging: ContainerLogging = None,
+        **kwargs,
     ):
         """Represents a container
 
@@ -413,3 +427,4 @@ class Container(BaseModel):
             self.environment_variables = environment_variables
         if logging is not None:
             self.logging = self._define_object(logging, ContainerLogging)
+        self._kwargs = kwargs

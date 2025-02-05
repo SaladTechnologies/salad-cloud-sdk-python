@@ -1,4 +1,3 @@
-from typing import Any
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -29,7 +28,7 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: InferenceEndpointsList
         """
 
@@ -51,7 +50,7 @@ class InferenceEndpointsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return InferenceEndpointsList._unmap(response)
 
     @cast_models
@@ -67,7 +66,7 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: InferenceEndpoint
         """
 
@@ -87,7 +86,7 @@ class InferenceEndpointsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return InferenceEndpoint._unmap(response)
 
     @cast_models
@@ -111,7 +110,7 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: OK
+        :return: The parsed response data.
         :rtype: InferenceEndpointJobList
         """
 
@@ -135,7 +134,7 @@ class InferenceEndpointsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return InferenceEndpointJobList._unmap(response)
 
     @cast_models
@@ -156,7 +155,7 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Created
+        :return: The parsed response data.
         :rtype: InferenceEndpointJob
         """
 
@@ -178,7 +177,7 @@ class InferenceEndpointsService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return InferenceEndpointJob._unmap(response)
 
     @cast_models
@@ -199,7 +198,7 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Ok
+        :return: The parsed response data.
         :rtype: InferenceEndpointJob
         """
 
@@ -221,7 +220,7 @@ class InferenceEndpointsService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return InferenceEndpointJob._unmap(response)
 
     @cast_models
@@ -230,7 +229,7 @@ class InferenceEndpointsService(BaseService):
         organization_name: str,
         inference_endpoint_name: str,
         inference_endpoint_job_id: str,
-    ) -> Any:
+    ) -> None:
         """Deletes an inference endpoint job
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -262,5 +261,4 @@ class InferenceEndpointsService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)

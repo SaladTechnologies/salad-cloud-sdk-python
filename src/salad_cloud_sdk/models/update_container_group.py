@@ -46,6 +46,7 @@ class UpdateContainerGroup(BaseModel):
         readiness_probe: ContainerGroupReadinessProbe = None,
         startup_probe: ContainerGroupStartupProbe = None,
         queue_autoscaler: QueueAutoscaler = None,
+        **kwargs,
     ):
         """Represents a request to update a container group
 
@@ -105,3 +106,4 @@ class UpdateContainerGroup(BaseModel):
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )
+        self._kwargs = kwargs

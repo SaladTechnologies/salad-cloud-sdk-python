@@ -79,6 +79,7 @@ class InferenceEndpointJob(BaseModel):
         metadata: dict = None,
         webhook: str = None,
         output: any = None,
+        **kwargs,
     ):
         """Represents a inference endpoint job
 
@@ -121,3 +122,4 @@ class InferenceEndpointJob(BaseModel):
             self.output = output
         self.create_time = create_time
         self.update_time = update_time
+        self._kwargs = kwargs

@@ -22,6 +22,7 @@ class ContainerGroupInstanceStatusCount(BaseModel):
         creating_count: int,
         running_count: int,
         stopping_count: int,
+        **kwargs
     ):
         """Represents a container group instance status count
 
@@ -44,3 +45,4 @@ class ContainerGroupInstanceStatusCount(BaseModel):
         self.stopping_count = self._define_number(
             "stopping_count", stopping_count, ge=0
         )
+        self._kwargs = kwargs

@@ -34,6 +34,7 @@ class InferenceEndpoint(BaseModel):
         readme: str,
         price_description: str,
         icon_image: str,
+        **kwargs
     ):
         """Represents an inference endpoint
 
@@ -68,3 +69,4 @@ class InferenceEndpoint(BaseModel):
         self.readme = readme
         self.price_description = price_description
         self.icon_image = icon_image
+        self._kwargs = kwargs

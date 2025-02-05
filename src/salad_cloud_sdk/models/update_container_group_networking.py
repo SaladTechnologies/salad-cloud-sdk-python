@@ -10,7 +10,7 @@ class UpdateContainerGroupNetworking(BaseModel):
     :type port: int, optional
     """
 
-    def __init__(self, port: int = None):
+    def __init__(self, port: int = None, **kwargs):
         """Represents update container group networking parameters
 
         :param port: port, defaults to None
@@ -18,3 +18,4 @@ class UpdateContainerGroupNetworking(BaseModel):
         """
         if port is not None:
             self.port = self._define_number("port", port, nullable=True, ge=1, le=65535)
+        self._kwargs = kwargs

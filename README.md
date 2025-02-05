@@ -1,11 +1,11 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.5
+# SaladCloudSdk Python SDK 0.9.0-alpha.6
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions
 
-- API version: `0.9.0-alpha.5`
-- SDK version: `0.9.0-alpha.5`
+- API version: `0.9.0-alpha.6`
+- SDK version: `0.9.0-alpha.6`
 
 ## About the API
 
@@ -21,8 +21,8 @@ The SaladCloud REST API. Please refer to the [SaladCloud API Documentation](http
 - [Setting a Custom Timeout](#setting-a-custom-timeout)
 - [Sample Usage](#sample-usage)
 - [Services](#services)
-- [Models](#models)
-- [License](#license)
+  - [Models](#models)
+  - [License](#license)
 
 ## Setup & Configuration
 
@@ -77,16 +77,15 @@ sdk = SaladCloudSdk(timeout=10000)
 Below is a comprehensive example demonstrating how to authenticate and call a simple endpoint:
 
 ```py
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="oecson4k2eclxr")
+result = sdk.quotas.get_quotas(organization_name="zk4uj")
 
 print(result)
 
@@ -96,13 +95,14 @@ print(result)
 
 The SDK provides various services to interact with the API.
 
-<details> 
+<details>
 <summary>Below is a list of all available services with links to their detailed documentation:</summary>
 
 | Name                                                                             |
 | :------------------------------------------------------------------------------- |
 | [ContainerGroupsService](documentation/services/ContainerGroupsService.md)       |
 | [WorkloadErrorsService](documentation/services/WorkloadErrorsService.md)         |
+| [SystemLogsService](documentation/services/SystemLogsService.md)                 |
 | [QueuesService](documentation/services/QueuesService.md)                         |
 | [QuotasService](documentation/services/QuotasService.md)                         |
 | [InferenceEndpointsService](documentation/services/InferenceEndpointsService.md) |
@@ -115,7 +115,7 @@ The SDK provides various services to interact with the API.
 
 The SDK includes several models that represent the data structures used in API requests and responses. These models help in organizing and managing the data efficiently.
 
-<details> 
+<details>
 <summary>Below is a list of all available models with links to their detailed documentation:</summary>
 
 | Name                                                                                           | Description                                                              |
@@ -127,6 +127,7 @@ The SDK includes several models that represent the data structures used in API r
 | [ContainerGroupInstances](documentation/models/ContainerGroupInstances.md)                     | Represents a list of container group instances                           |
 | [ContainerGroupInstance](documentation/models/ContainerGroupInstance.md)                       | Represents the details of a single container group instance              |
 | [WorkloadErrorList](documentation/models/WorkloadErrorList.md)                                 | Represents a list of workload errors                                     |
+| [SystemLogList](documentation/models/SystemLogList.md)                                         | Represents a list of system logs                                         |
 | [QueueList](documentation/models/QueueList.md)                                                 | Represents a list of queues                                              |
 | [CreateQueue](documentation/models/CreateQueue.md)                                             | Represents a request to create a new queue.                              |
 | [Queue](documentation/models/Queue.md)                                                         | Represents a queue.                                                      |
@@ -168,6 +169,7 @@ The SDK includes several models that represent the data structures used in API r
 | [UpdateContainer](documentation/models/UpdateContainer.md)                                     | Represents an update container object                                    |
 | [UpdateContainerGroupNetworking](documentation/models/UpdateContainerGroupNetworking.md)       | Represents update container group networking parameters                  |
 | [WorkloadError](documentation/models/WorkloadError.md)                                         | Represents a workload error                                              |
+| [SystemLog](documentation/models/SystemLog.md)                                                 | Represents a system log                                                  |
 | [QueueJobEvent](documentation/models/QueueJobEvent.md)                                         | Represents an event for queue job                                        |
 | [ContainerGroupsQuotas](documentation/models/ContainerGroupsQuotas.md)                         |                                                                          |
 | [InferenceEndpointJobEvent](documentation/models/InferenceEndpointJobEvent.md)                 | Represents an event for inference endpoint job                           |

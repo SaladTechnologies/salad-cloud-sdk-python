@@ -1,17 +1,16 @@
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.get_container_group_instance(
-    organization_name="a09xnu6-fkv3",
-    project_name="ca4ydy-pi16e4ddle58fi8u9w2qgnsgj7cn",
-    container_group_name="b4p90a72aagy0fz",
+    organization_name="anydcnlz73jmjvonbkspbimao7ket3x337pq2ik7t3po81gf",
+    project_name="y5oxeppfjrdtivc0588wz3z920dm3uvrx5hqx52s2sk49-8xwul52o126l",
+    container_group_name="k-1--kq611igeuz3",
     container_group_instance_id="container_group_instance_id"
 )
 

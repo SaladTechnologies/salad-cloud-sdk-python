@@ -62,6 +62,7 @@ class ContainerGroupInstance(BaseModel):
         version: int,
         ready: bool = None,
         started: bool = None,
+        **kwargs
     ):
         """Represents the details of a single container group instance
 
@@ -89,3 +90,4 @@ class ContainerGroupInstance(BaseModel):
             self.ready = ready
         if started is not None:
             self.started = started
+        self._kwargs = kwargs

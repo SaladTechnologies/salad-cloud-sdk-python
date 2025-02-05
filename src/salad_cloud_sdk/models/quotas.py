@@ -21,6 +21,7 @@ class Quotas(BaseModel):
         container_groups_quotas: ContainerGroupsQuotas,
         create_time: str = None,
         update_time: str = None,
+        **kwargs,
     ):
         """Represents the organization quotas
 
@@ -38,3 +39,4 @@ class Quotas(BaseModel):
             self.create_time = create_time
         if update_time is not None:
             self.update_time = update_time
+        self._kwargs = kwargs

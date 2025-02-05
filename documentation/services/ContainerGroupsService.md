@@ -38,18 +38,17 @@ Gets the list of container groups
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.list_container_groups(
-    organization_name="v50imwzgi4em4q035",
-    project_name="m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1"
+    organization_name="dj0q7z7dvdopv2czf",
+    project_name="c1zrufxgh"
 )
 
 print(result)
@@ -77,28 +76,27 @@ Creates a new container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import CreateContainerGroup
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = CreateContainerGroup(
-    name="xvih",
-    display_name="INce5LCTy",
+    name="name",
+    display_name=".x9,4l5Qs6",
     container={
-        "image": "reprehenderit",
+        "image": "image",
         "resources": {
-            "cpu": 10,
-            "memory": 35273,
+            "cpu": 2,
+            "memory": 50123,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 32391110488
+            "storage_amount": 10520457433
         },
         "command": [
             "command"
@@ -107,13 +105,13 @@ request_body = CreateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "irure ut eiusmod velit incididunt",
-                "api_token": "deserunt aute cillum dolor occaecat",
-                "dataset": "exercitation sit"
+                "host": "host",
+                "api_token": "api_token",
+                "dataset": "dataset"
             },
             "datadog": {
-                "host": "sunt consequat irure fugiat",
-                "api_key": "magna",
+                "host": "host",
+                "api_key": "api_key",
                 "tags": [
                     {
                         "name": "name",
@@ -122,20 +120,20 @@ request_body = CreateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "quis aute in id proident",
-                "ingestion_key": "aliqua enim pariatur"
+                "host": "host",
+                "ingestion_key": "ingestion_key"
             },
             "splunk": {
-                "host": "ad",
-                "token": "irure velit labore nostrud elit"
+                "host": "host",
+                "token": "token"
             },
             "tcp": {
-                "host": "fugiat do",
-                "port": 1272
+                "host": "host",
+                "port": 54933
             },
             "http": {
-                "host": "cillum",
-                "port": 21241,
+                "host": "host",
+                "port": 34196,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -170,15 +168,15 @@ request_body = CreateContainerGroup(
             }
         }
     },
-    autostart_policy=False,
+    autostart_policy=True,
     restart_policy="always",
-    replicas=12,
+    replicas=65,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 43901,
+        "port": 47917,
         "auth": False,
         "load_balancer": "round_robin",
         "single_connection_limit": True,
@@ -187,11 +185,11 @@ request_body = CreateContainerGroup(
     },
     liveness_probe={
         "tcp": {
-            "port": 61900
+            "port": 5853
         },
         "http": {
             "path": "path",
-            "port": 58759,
+            "port": 64861,
             "scheme": "http",
             "headers": [
                 {
@@ -202,14 +200,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 32748
+            "port": 15336
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "initial_delay_seconds": 1,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -217,11 +215,11 @@ request_body = CreateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 61900
+            "port": 5853
         },
         "http": {
             "path": "path",
-            "port": 58759,
+            "port": 64861,
             "scheme": "http",
             "headers": [
                 {
@@ -232,37 +230,7 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 32748
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 4,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    startup_probe={
-        "tcp": {
-            "port": 61900
-        },
-        "http": {
-            "path": "path",
-            "port": 58759,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 32748
+            "port": 15336
         },
         "exec_": {
             "command": [
@@ -270,30 +238,60 @@ request_body = CreateContainerGroup(
             ]
         },
         "initial_delay_seconds": 10,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 5853
+        },
+        "http": {
+            "path": "path",
+            "port": 64861,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 15336
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 0,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_connection={
-        "path": "pariatur Ut aliqua irure",
-        "port": 34903,
-        "queue_name": "nz26lyemw7nednorlqjlsihb3"
+        "path": "path",
+        "port": 48169,
+        "queue_name": "rozs9trd4v0bll7qwslfehyhnfadnjp2w52gw"
     },
     queue_autoscaler={
-        "min_replicas": 96,
-        "max_replicas": 190,
-        "desired_queue_length": 42,
-        "polling_period": 684,
-        "max_upscale_per_minute": 95,
-        "max_downscale_per_minute": 10
+        "min_replicas": 72,
+        "max_replicas": 136,
+        "desired_queue_length": 49,
+        "polling_period": 497,
+        "max_upscale_per_minute": 27,
+        "max_downscale_per_minute": 25
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="v50imwzgi4em4q035",
-    project_name="m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1"
+    organization_name="dj0q7z7dvdopv2czf",
+    project_name="c1zrufxgh"
 )
 
 print(result)
@@ -321,19 +319,18 @@ Gets a container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.get_container_group(
-    organization_name="oji7lyvxb3ca5hc",
-    project_name="olb1uzytbhhukf1u0-ahl0b9oqfjj",
-    container_group_name="s7z7dvdopv2czgde1zrufxgiv5tp-j"
+    organization_name="gv",
+    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
+    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
 )
 
 print(result)
@@ -362,27 +359,26 @@ Updates a container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import UpdateContainerGroup
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = UpdateContainerGroup(
-    display_name="01n75",
+    display_name="eiOpcr",
     container={
-        "image": "labore",
+        "image": "image",
         "resources": {
-            "cpu": 3,
-            "memory": 14678,
+            "cpu": 12,
+            "memory": 8517,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 47984533464
+            "storage_amount": 36332206985
         },
         "command": [
             "command"
@@ -391,13 +387,13 @@ request_body = UpdateContainerGroup(
         "environment_variables": {},
         "logging": {
             "axiom": {
-                "host": "aute veniam exercitation eiusmod et",
-                "api_token": "mollit",
-                "dataset": "nisi in Lorem"
+                "host": "host",
+                "api_token": "api_token",
+                "dataset": "dataset"
             },
             "datadog": {
-                "host": "velit officia consequat",
-                "api_key": "sit in veniam",
+                "host": "host",
+                "api_key": "api_key",
                 "tags": [
                     {
                         "name": "name",
@@ -406,20 +402,20 @@ request_body = UpdateContainerGroup(
                 ]
             },
             "new_relic": {
-                "host": "consequat sed",
-                "ingestion_key": "tempor exercitation"
+                "host": "host",
+                "ingestion_key": "ingestion_key"
             },
             "splunk": {
-                "host": "qui enim Ut nostrud deserunt",
-                "token": "cillum sint ullamco veniam occaecat"
+                "host": "host",
+                "token": "token"
             },
             "tcp": {
-                "host": "Ut amet",
-                "port": 30110
+                "host": "host",
+                "port": 11542
             },
             "http": {
-                "host": "eiusmod labore proident sit ut",
-                "port": 17490,
+                "host": "host",
+                "port": 43747,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -454,20 +450,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=232,
+    replicas=172,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 35022
+        "port": 14025
     },
     liveness_probe={
         "tcp": {
-            "port": 61900
+            "port": 5853
         },
         "http": {
             "path": "path",
-            "port": 58759,
+            "port": 64861,
             "scheme": "http",
             "headers": [
                 {
@@ -478,14 +474,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 32748
+            "port": 15336
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "initial_delay_seconds": 1,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -493,11 +489,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 61900
+            "port": 5853
         },
         "http": {
             "path": "path",
-            "port": 58759,
+            "port": 64861,
             "scheme": "http",
             "headers": [
                 {
@@ -508,37 +504,7 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 32748
-        },
-        "exec_": {
-            "command": [
-                "command"
-            ]
-        },
-        "initial_delay_seconds": 4,
-        "period_seconds": 1,
-        "timeout_seconds": 1,
-        "success_threshold": 1,
-        "failure_threshold": 3
-    },
-    startup_probe={
-        "tcp": {
-            "port": 61900
-        },
-        "http": {
-            "path": "path",
-            "port": 58759,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 32748
+            "port": 15336
         },
         "exec_": {
             "command": [
@@ -546,26 +512,56 @@ request_body = UpdateContainerGroup(
             ]
         },
         "initial_delay_seconds": 10,
+        "period_seconds": 1,
+        "timeout_seconds": 1,
+        "success_threshold": 1,
+        "failure_threshold": 3
+    },
+    startup_probe={
+        "tcp": {
+            "port": 5853
+        },
+        "http": {
+            "path": "path",
+            "port": 64861,
+            "scheme": "http",
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ]
+        },
+        "grpc": {
+            "service": "service",
+            "port": 15336
+        },
+        "exec_": {
+            "command": [
+                "command"
+            ]
+        },
+        "initial_delay_seconds": 0,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_autoscaler={
-        "min_replicas": 96,
-        "max_replicas": 190,
-        "desired_queue_length": 42,
-        "polling_period": 684,
-        "max_upscale_per_minute": 95,
-        "max_downscale_per_minute": 10
+        "min_replicas": 72,
+        "max_replicas": 136,
+        "desired_queue_length": 49,
+        "polling_period": 497,
+        "max_upscale_per_minute": 27,
+        "max_downscale_per_minute": 25
     }
 )
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="oji7lyvxb3ca5hc",
-    project_name="olb1uzytbhhukf1u0-ahl0b9oqfjj",
-    container_group_name="s7z7dvdopv2czgde1zrufxgiv5tp-j"
+    organization_name="gv",
+    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
+    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
 )
 
 print(result)
@@ -589,19 +585,18 @@ Deletes a container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.delete_container_group(
-    organization_name="oji7lyvxb3ca5hc",
-    project_name="olb1uzytbhhukf1u0-ahl0b9oqfjj",
-    container_group_name="s7z7dvdopv2czgde1zrufxgiv5tp-j"
+    organization_name="gv",
+    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
+    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
 )
 
 print(result)
@@ -625,19 +620,18 @@ Starts a container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.start_container_group(
-    organization_name="jfybnugpd6",
-    project_name="jngr",
-    container_group_name="vjne2vq5j0d2m4f21ex5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844mz"
+    organization_name="on6upv4ibz",
+    project_name="bp3skoan866qk08-4",
+    container_group_name="vmvb7kyluk2iobnx9by712swz71xj38i4"
 )
 
 print(result)
@@ -661,19 +655,18 @@ Stops a container group
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.stop_container_group(
-    organization_name="jpqhlkkgd",
-    project_name="a9h5upyur493wxwbxrj4xt9wfx07sgyz1fs97sfhtue78-54vd",
-    container_group_name="jp2qrcnt-8a3"
+    organization_name="q4wd2h8lvferfwvgjb47jpkwvr5-fbn",
+    project_name="q-ie00beo1z3udfmoy56",
+    container_group_name="lu5x4bztq-9mobin7qc1t3yiqpbz9g"
 )
 
 print(result)
@@ -701,19 +694,18 @@ Gets the list of container group instances
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.list_container_group_instances(
-    organization_name="kjhy3jn2rdf012fi7ouno3mk-ax4d0ajj5ajjquzeg-z3kvqxtnoxnlzhi",
-    project_name="ft-8nawc40o0gqev-m",
-    container_group_name="jpy8af-s7rq68p2lenu"
+    organization_name="uc-y08qjw2plboeezjs7bj1g04wskczv4ux-1drauitzdwr9qeggqavmvwbn",
+    project_name="ffvu3ece9yhhnzdc345revreliict4850bfesqznhccmp",
+    container_group_name="v4osb2nms0izyhne-3b96ou31bnuzrpa533bnuvidlz4opbb766b"
 )
 
 print(result)
@@ -742,19 +734,18 @@ Gets a container group instance
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.get_container_group_instance(
-    organization_name="a09xnu6-fkv3",
-    project_name="ca4ydy-pi16e4ddle58fi8u9w2qgnsgj7cn",
-    container_group_name="b4p90a72aagy0fz",
+    organization_name="anydcnlz73jmjvonbkspbimao7ket3x337pq2ik7t3po81gf",
+    project_name="y5oxeppfjrdtivc0588wz3z920dm3uvrx5hqx52s2sk49-8xwul52o126l",
+    container_group_name="k-1--kq611igeuz3",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -780,19 +771,18 @@ Reallocates a container group instance to run on a different Salad Node
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.reallocate_container_group_instance(
-    organization_name="sws1rwna83a3asu0izd6ugn07m5xpcp89lefemdke05z4s9d",
-    project_name="ed2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k49vviu53s5",
-    container_group_name="xkwwnw",
+    organization_name="olgldd4a3qa6dqdktbd1fxt2p5a6kl1j8t7v4hd7xmy4",
+    project_name="vgq8mpuy5k2wfbbzlhws5edt3sjekvug6abtk-e",
+    container_group_name="pq1594j27m6u1whmq",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -818,19 +808,18 @@ Stops a container, destroys it, and starts a new one without requiring the image
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.recreate_container_group_instance(
-    organization_name="m-gfjsmt",
-    project_name="qljdg4",
-    container_group_name="nzzyoj4pl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr6",
+    organization_name="fj9f18pdqxq52i317o1",
+    project_name="mpje-v4-ccp8q-329szw31h4fee237cnffybnugpd7nbngs47jne2vq5j0d1",
+    container_group_name="if21ex5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844m0nepqhlkk",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -856,19 +845,18 @@ Stops a container and restarts it on the same Salad Node
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.container_groups.restart_container_group_instance(
-    organization_name="pb",
-    project_name="dvb96iwcvlvvm1n",
-    container_group_name="ngljb",
+    organization_name="ea39h5t",
+    project_name="kur493wxwbxrj4xt9wfx07sgyz1fs97sfhtue78-54",
+    container_group_name="oogp2qrc",
     container_group_instance_id="container_group_instance_id"
 )
 

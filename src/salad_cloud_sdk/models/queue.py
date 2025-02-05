@@ -34,6 +34,7 @@ class Queue(BaseModel):
         create_time: str,
         update_time: str,
         description: str = None,
+        **kwargs,
     ):
         """Represents a queue.
 
@@ -74,3 +75,4 @@ class Queue(BaseModel):
         self.container_groups = self._define_list(container_groups, ContainerGroup)
         self.create_time = create_time
         self.update_time = update_time
+        self._kwargs = kwargs

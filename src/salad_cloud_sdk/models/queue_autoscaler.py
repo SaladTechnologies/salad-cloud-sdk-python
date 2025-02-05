@@ -6,17 +6,17 @@ from .utils.base_model import BaseModel
 class QueueAutoscaler(BaseModel):
     """Represents the autoscaling rules for a queue
 
-    :param min_replicas: min_replicas
+    :param min_replicas: The minimum number of instances the container can scale down to
     :type min_replicas: int
-    :param max_replicas: max_replicas
+    :param max_replicas: The maximum number of instances the container can scale up to
     :type max_replicas: int
     :param desired_queue_length: desired_queue_length
     :type desired_queue_length: int
-    :param polling_period: polling_period, defaults to None
+    :param polling_period: The period (in seconds) in which the queue checks the formula, defaults to None
     :type polling_period: int, optional
-    :param max_upscale_per_minute: max_upscale_per_minute, defaults to None
+    :param max_upscale_per_minute: The maximum number of instances that can be added per minute, defaults to None
     :type max_upscale_per_minute: int, optional
-    :param max_downscale_per_minute: max_downscale_per_minute, defaults to None
+    :param max_downscale_per_minute: The maximum number of instances that can be removed per minute, defaults to None
     :type max_downscale_per_minute: int, optional
     """
 
@@ -28,20 +28,21 @@ class QueueAutoscaler(BaseModel):
         polling_period: int = None,
         max_upscale_per_minute: int = None,
         max_downscale_per_minute: int = None,
+        **kwargs
     ):
         """Represents the autoscaling rules for a queue
 
-        :param min_replicas: min_replicas
+        :param min_replicas: The minimum number of instances the container can scale down to
         :type min_replicas: int
-        :param max_replicas: max_replicas
+        :param max_replicas: The maximum number of instances the container can scale up to
         :type max_replicas: int
         :param desired_queue_length: desired_queue_length
         :type desired_queue_length: int
-        :param polling_period: polling_period, defaults to None
+        :param polling_period: The period (in seconds) in which the queue checks the formula, defaults to None
         :type polling_period: int, optional
-        :param max_upscale_per_minute: max_upscale_per_minute, defaults to None
+        :param max_upscale_per_minute: The maximum number of instances that can be added per minute, defaults to None
         :type max_upscale_per_minute: int, optional
-        :param max_downscale_per_minute: max_downscale_per_minute, defaults to None
+        :param max_downscale_per_minute: The maximum number of instances that can be removed per minute, defaults to None
         :type max_downscale_per_minute: int, optional
         """
         self.min_replicas = self._define_number(
@@ -65,3 +66,4 @@ class QueueAutoscaler(BaseModel):
             self.max_downscale_per_minute = self._define_number(
                 "max_downscale_per_minute", max_downscale_per_minute, ge=1, le=100
             )
+        self._kwargs = kwargs

@@ -1,11 +1,11 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.5<a id="saladcloudsdk-python-sdk-090-alpha5"></a>
+# SaladCloudSdk Python SDK 0.9.0-alpha.6<a id="saladcloudsdk-python-sdk-090-alpha6"></a>
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.5`
-- SDK version: `0.9.0-alpha.5`
+- API version: `0.9.0-alpha.6`
+- SDK version: `0.9.0-alpha.6`
 
 ## About the API<a id="about-the-api"></a>
 
@@ -77,16 +77,15 @@ sdk = SaladCloudSdk(timeout=10000)
 Below is a comprehensive example demonstrating how to authenticate and call a simple endpoint:
 
 ```py
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-result = sdk.quotas.get_quotas(organization_name="oecson4k2eclxr")
+result = sdk.quotas.get_quotas(organization_name="zk4uj")
 
 print(result)
 
@@ -103,6 +102,7 @@ The SDK provides various services to interact with the API.
 | :------------------ |
 | container_groups    |
 | workload_errors     |
+| system_logs         |
 | queues              |
 | quotas              |
 | inference_endpoints |
@@ -127,6 +127,7 @@ The SDK includes several models that represent the data structures used in API r
 | ContainerGroupInstances           | Represents a list of container group instances                           |
 | ContainerGroupInstance            | Represents the details of a single container group instance              |
 | WorkloadErrorList                 | Represents a list of workload errors                                     |
+| SystemLogList                     | Represents a list of system logs                                         |
 | QueueList                         | Represents a list of queues                                              |
 | CreateQueue                       | Represents a request to create a new queue.                              |
 | Queue                             | Represents a queue.                                                      |
@@ -168,6 +169,7 @@ The SDK includes several models that represent the data structures used in API r
 | UpdateContainer                   | Represents an update container object                                    |
 | UpdateContainerGroupNetworking    | Represents update container group networking parameters                  |
 | WorkloadError                     | Represents a workload error                                              |
+| SystemLog                         | Represents a system log                                                  |
 | QueueJobEvent                     | Represents an event for queue job                                        |
 | ContainerGroupsQuotas             |                                                                          |
 | InferenceEndpointJobEvent         | Represents an event for inference endpoint job                           |

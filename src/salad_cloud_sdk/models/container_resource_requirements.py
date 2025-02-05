@@ -23,6 +23,7 @@ class ContainerResourceRequirements(BaseModel):
         memory: int,
         gpu_classes: List[str] = None,
         storage_amount: int = None,
+        **kwargs
     ):
         """Represents a container resource requirements
 
@@ -47,3 +48,4 @@ class ContainerResourceRequirements(BaseModel):
                 ge=1073741824,
                 le=53687091200,
             )
+        self._kwargs = kwargs

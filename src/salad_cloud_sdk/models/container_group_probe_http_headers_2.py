@@ -12,7 +12,7 @@ class ContainerGroupProbeHttpHeaders2(BaseModel):
     :type value: str
     """
 
-    def __init__(self, name: str, value: str):
+    def __init__(self, name: str, value: str, **kwargs):
         """ContainerGroupProbeHttpHeaders2
 
         :param name: name
@@ -22,3 +22,4 @@ class ContainerGroupProbeHttpHeaders2(BaseModel):
         """
         self.name = name
         self.value = value
+        self._kwargs = kwargs

@@ -35,18 +35,17 @@ Gets the list of queues in the given project.
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.list_queues(
-    organization_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
-    project_name="xk27gbnpmwk5xor49bk4ujk7"
+    organization_name="j-8a4o7jhy3jn2rdf012fi7ouno3mk-ax3",
+    project_name="cajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8nawc40o0gqev9"
 )
 
 print(result)
@@ -74,26 +73,25 @@ Creates a new queue in the given project.
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import CreateQueue
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = CreateQueue(
-    name="ho4d79h7bg0vpngqc8hz5pxjwi",
-    display_name="IWPKHVWPTc",
-    description="aliqua id nostrud"
+    name="name",
+    display_name=" 6zTtRPsvOk",
+    description="description"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e",
-    project_name="xk27gbnpmwk5xor49bk4ujk7"
+    organization_name="j-8a4o7jhy3jn2rdf012fi7ouno3mk-ax3",
+    project_name="cajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8nawc40o0gqev9"
 )
 
 print(result)
@@ -121,19 +119,18 @@ Gets an existing queue in the given project.
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.get_queue(
-    organization_name="bb5wprcvb9628akhug9lnd2",
-    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
-    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
+    organization_name="inu8izbgz",
+    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
+    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
 )
 
 print(result)
@@ -162,26 +159,25 @@ Updates an existing queue in the given project.
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import UpdateQueue
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = UpdateQueue(
-    display_name="O5Yf2",
-    description="cupidatat"
+    display_name="2E4g",
+    description="description"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="bb5wprcvb9628akhug9lnd2",
-    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
-    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
+    organization_name="inu8izbgz",
+    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
+    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
 )
 
 print(result)
@@ -205,19 +201,18 @@ Deletes an existing queue in the given project.
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="bb5wprcvb9628akhug9lnd2",
-    project_name="bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy",
-    queue_name="wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l"
+    organization_name="inu8izbgz",
+    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
+    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
 )
 
 print(result)
@@ -247,21 +242,20 @@ Gets the list of jobs in a queue
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="wcaz2jbu5pfmpygxffsf4bh4e6",
-    project_name="dzh9lv6afpamv8cx0x6",
-    queue_name="s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2",
-    page=706148771,
-    page_size=45
+    organization_name="w4s9eg1d2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k4",
+    project_name="yviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyn",
+    queue_name="gpl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr7vabeivb96iw",
+    page=124963738,
+    page_size=59
 )
 
 print(result)
@@ -290,13 +284,12 @@ Creates a new job
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 from salad_cloud_sdk.models import CreateQueueJob
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -308,9 +301,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="wcaz2jbu5pfmpygxffsf4bh4e6",
-    project_name="dzh9lv6afpamv8cx0x6",
-    queue_name="s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2"
+    organization_name="w4s9eg1d2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k4",
+    project_name="yviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyn",
+    queue_name="gpl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr7vabeivb96iw"
 )
 
 print(result)
@@ -339,19 +332,18 @@ Gets a job in a queue
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="zm-jv",
-    project_name="tq26",
-    queue_name="je5dpzbgsk8gvp",
+    organization_name="hvm1ntcgljb71tp82b9jzwqov1insghigvfq0d",
+    project_name="kadhrrdqx-2redu46g7e7nk1",
+    queue_name="xbnpmwk5xor3",
     queue_job_id="queue_job_id"
 )
 
@@ -377,19 +369,18 @@ Cancels a job in a queue
 **Example Usage Code Snippet**
 
 ```python
-from salad_cloud_sdk import SaladCloudSdk, Environment
+from salad_cloud_sdk import SaladCloudSdk
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="zm-jv",
-    project_name="tq26",
-    queue_name="je5dpzbgsk8gvp",
+    organization_name="hvm1ntcgljb71tp82b9jzwqov1insghigvfq0d",
+    project_name="kadhrrdqx-2redu46g7e7nk1",
+    queue_name="xbnpmwk5xor3",
     queue_job_id="queue_job_id"
 )
 
