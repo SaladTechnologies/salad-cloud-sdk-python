@@ -47,8 +47,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_groups(
-    organization_name="dj0q7z7dvdopv2czf",
-    project_name="c1zrufxgh"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)
@@ -87,16 +87,16 @@ sdk = SaladCloudSdk(
 
 request_body = CreateContainerGroup(
     name="name",
-    display_name=".x9,4l5Qs6",
+    display_name="ny",
     container={
         "image": "image",
         "resources": {
-            "cpu": 2,
-            "memory": 50123,
+            "cpu": 3,
+            "memory": 16094,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 10520457433
+            "storage_amount": 50473301867
         },
         "command": [
             "command"
@@ -129,11 +129,11 @@ request_body = CreateContainerGroup(
             },
             "tcp": {
                 "host": "host",
-                "port": 54933
+                "port": 52754
             },
             "http": {
                 "host": "host",
-                "port": 34196,
+                "port": 58619,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -170,14 +170,14 @@ request_body = CreateContainerGroup(
     },
     autostart_policy=True,
     restart_policy="always",
-    replicas=65,
+    replicas=47,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 47917,
-        "auth": False,
+        "port": 64929,
+        "auth": True,
         "load_balancer": "round_robin",
         "single_connection_limit": True,
         "client_request_timeout": 100000,
@@ -185,11 +185,11 @@ request_body = CreateContainerGroup(
     },
     liveness_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -200,7 +200,7 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
@@ -215,11 +215,11 @@ request_body = CreateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -230,14 +230,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 10,
+        "initial_delay_seconds": 8,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -245,11 +245,11 @@ request_body = CreateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -260,14 +260,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 2,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -275,23 +275,23 @@ request_body = CreateContainerGroup(
     },
     queue_connection={
         "path": "path",
-        "port": 48169,
-        "queue_name": "rozs9trd4v0bll7qwslfehyhnfadnjp2w52gw"
+        "port": 34806,
+        "queue_name": "r3qna2yfhck403bsaqbf6nweyawtm7q4ohr"
     },
     queue_autoscaler={
-        "min_replicas": 72,
-        "max_replicas": 136,
-        "desired_queue_length": 49,
-        "polling_period": 497,
-        "max_upscale_per_minute": 27,
-        "max_downscale_per_minute": 25
+        "min_replicas": 88,
+        "max_replicas": 197,
+        "desired_queue_length": 57,
+        "polling_period": 1449,
+        "max_upscale_per_minute": 85,
+        "max_downscale_per_minute": 33
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="dj0q7z7dvdopv2czf",
-    project_name="c1zrufxgh"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)
@@ -328,9 +328,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group(
-    organization_name="gv",
-    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
-    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="n6eqezp9"
 )
 
 print(result)
@@ -369,16 +369,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="eiOpcr",
+    display_name="iMQ",
     container={
         "image": "image",
         "resources": {
             "cpu": 12,
-            "memory": 8517,
+            "memory": 29058,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 36332206985
+            "storage_amount": 13215929602
         },
         "command": [
             "command"
@@ -411,11 +411,11 @@ request_body = UpdateContainerGroup(
             },
             "tcp": {
                 "host": "host",
-                "port": 11542
+                "port": 26319
             },
             "http": {
                 "host": "host",
-                "port": 43747,
+                "port": 16494,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -450,20 +450,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=172,
+    replicas=97,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 14025
+        "port": 59913
     },
     liveness_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -474,7 +474,7 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
@@ -489,11 +489,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -504,14 +504,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 10,
+        "initial_delay_seconds": 8,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -519,11 +519,11 @@ request_body = UpdateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 5853
+            "port": 9366
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 398,
             "scheme": "http",
             "headers": [
                 {
@@ -534,34 +534,34 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 23866
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 2,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_autoscaler={
-        "min_replicas": 72,
-        "max_replicas": 136,
-        "desired_queue_length": 49,
-        "polling_period": 497,
-        "max_upscale_per_minute": 27,
-        "max_downscale_per_minute": 25
+        "min_replicas": 88,
+        "max_replicas": 197,
+        "desired_queue_length": 57,
+        "polling_period": 1449,
+        "max_upscale_per_minute": 85,
+        "max_downscale_per_minute": 33
     }
 )
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="gv",
-    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
-    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="n6eqezp9"
 )
 
 print(result)
@@ -594,9 +594,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.delete_container_group(
-    organization_name="gv",
-    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
-    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="n6eqezp9"
 )
 
 print(result)
@@ -629,9 +629,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.start_container_group(
-    organization_name="on6upv4ibz",
-    project_name="bp3skoan866qk08-4",
-    container_group_name="vmvb7kyluk2iobnx9by712swz71xj38i4"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="thlsybcgrlw5vvch4r1nbkygjtd6c-o-5jwj2ocq-dvad"
 )
 
 print(result)
@@ -664,9 +664,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.stop_container_group(
-    organization_name="q4wd2h8lvferfwvgjb47jpkwvr5-fbn",
-    project_name="q-ie00beo1z3udfmoy56",
-    container_group_name="lu5x4bztq-9mobin7qc1t3yiqpbz9g"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="ecp1l-tkh9w1nv5mu1-9nad5ncpxu9ccs7p0whu98gpr-228"
 )
 
 print(result)
@@ -703,9 +703,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_group_instances(
-    organization_name="uc-y08qjw2plboeezjs7bj1g04wskczv4ux-1drauitzdwr9qeggqavmvwbn",
-    project_name="ffvu3ece9yhhnzdc345revreliict4850bfesqznhccmp",
-    container_group_name="v4osb2nms0izyhne-3b96ou31bnuzrpa533bnuvidlz4opbb766b"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="znynn9io8wrozbled"
 )
 
 print(result)
@@ -743,9 +743,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.get_container_group_instance(
-    organization_name="anydcnlz73jmjvonbkspbimao7ket3x337pq2ik7t3po81gf",
-    project_name="y5oxeppfjrdtivc0588wz3z920dm3uvrx5hqx52s2sk49-8xwul52o126l",
-    container_group_name="k-1--kq611igeuz3",
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="oxeoh8avj5fo61fav-9q13ml41n",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -780,9 +780,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.reallocate_container_group_instance(
-    organization_name="olgldd4a3qa6dqdktbd1fxt2p5a6kl1j8t7v4hd7xmy4",
-    project_name="vgq8mpuy5k2wfbbzlhws5edt3sjekvug6abtk-e",
-    container_group_name="pq1594j27m6u1whmq",
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="r1iikkkwnv9cb7ost0zds",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -817,9 +817,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.recreate_container_group_instance(
-    organization_name="fj9f18pdqxq52i317o1",
-    project_name="mpje-v4-ccp8q-329szw31h4fee237cnffybnugpd7nbngs47jne2vq5j0d1",
-    container_group_name="if21ex5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844m0nepqhlkk",
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="ej-k54cvkw1mdc165omi3xku5rq3320mp4-mov2ar3q6lb3-iauy",
     container_group_instance_id="container_group_instance_id"
 )
 
@@ -854,9 +854,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.restart_container_group_instance(
-    organization_name="ea39h5t",
-    project_name="kur493wxwbxrj4xt9wfx07sgyz1fs97sfhtue78-54",
-    container_group_name="oogp2qrc",
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="elwyv8cc9z7auxq8gmm5tqiz3fh3lty-n963c-nzs6rcc8qglueef-fdu",
     container_group_instance_id="container_group_instance_id"
 )
 

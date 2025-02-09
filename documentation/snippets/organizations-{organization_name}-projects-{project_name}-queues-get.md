@@ -8,8 +8,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="j-8a4o7jhy3jn2rdf012fi7ouno3mk-ax3",
-    project_name="cajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8nawc40o0gqev9"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)

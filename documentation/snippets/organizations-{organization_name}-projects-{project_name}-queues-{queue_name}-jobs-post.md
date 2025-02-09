@@ -16,9 +16,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="w4s9eg1d2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k4",
-    project_name="yviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyn",
-    queue_name="gpl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr7vabeivb96iw"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
