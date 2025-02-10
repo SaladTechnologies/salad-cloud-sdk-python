@@ -44,8 +44,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queues(
-    organization_name="j-8a4o7jhy3jn2rdf012fi7ouno3mk-ax3",
-    project_name="cajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8nawc40o0gqev9"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)
@@ -84,14 +84,14 @@ sdk = SaladCloudSdk(
 
 request_body = CreateQueue(
     name="name",
-    display_name=" 6zTtRPsvOk",
+    display_name="w2a2zXGUh",
     description="description"
 )
 
 result = sdk.queues.create_queue(
     request_body=request_body,
-    organization_name="j-8a4o7jhy3jn2rdf012fi7ouno3mk-ax3",
-    project_name="cajj5ajjquzeg-z3kvqxtnoxnlzhjhjt-8nawc40o0gqev9"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)
@@ -128,9 +128,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue(
-    organization_name="inu8izbgz",
-    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
-    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
@@ -169,15 +169,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateQueue(
-    display_name="2E4g",
+    display_name="DA9d",
     description="description"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="inu8izbgz",
-    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
-    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
@@ -210,9 +210,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="inu8izbgz",
-    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
-    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
@@ -251,11 +251,11 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.list_queue_jobs(
-    organization_name="w4s9eg1d2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k4",
-    project_name="yviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyn",
-    queue_name="gpl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr7vabeivb96iw",
-    page=124963738,
-    page_size=59
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue",
+    page=1428211638,
+    page_size=55
 )
 
 print(result)
@@ -301,9 +301,9 @@ request_body = CreateQueueJob(
 
 result = sdk.queues.create_queue_job(
     request_body=request_body,
-    organization_name="w4s9eg1d2caksvlhpzmfccbh2v7dcapp3enb9gd2f4k4",
-    project_name="yviu53s67ckwwnxsd-gfjsmuxcljdg4t1zzyn",
-    queue_name="gpl2kuh4c67m3ae7qwlwipkdye-ad90-cq0up7kyr7vabeivb96iw"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
@@ -341,10 +341,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.get_queue_job(
-    organization_name="hvm1ntcgljb71tp82b9jzwqov1insghigvfq0d",
-    project_name="kadhrrdqx-2redu46g7e7nk1",
-    queue_name="xbnpmwk5xor3",
-    queue_job_id="queue_job_id"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue",
+    queue_job_id="7dcd6922-50e9-4d56-89b5-91cde26f0211"
 )
 
 print(result)
@@ -378,10 +378,10 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue_job(
-    organization_name="hvm1ntcgljb71tp82b9jzwqov1insghigvfq0d",
-    project_name="kadhrrdqx-2redu46g7e7nk1",
-    queue_name="xbnpmwk5xor3",
-    queue_job_id="queue_job_id"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue",
+    queue_job_id="7dcd6922-50e9-4d56-89b5-91cde26f0211"
 )
 
 print(result)

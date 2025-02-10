@@ -42,27 +42,27 @@ class InferenceEndpointJobStatus(Enum):
 class InferenceEndpointJob(BaseModel):
     """Represents a inference endpoint job
 
-    :param id_: id_
+    :param id_: The unique identifier.
     :type id_: str
     :param input: The job input. May be any valid JSON.
     :type input: any
-    :param inference_endpoint_name: The inference endpoint name
+    :param inference_endpoint_name: The inference endpoint name.
     :type inference_endpoint_name: str
-    :param metadata: metadata, defaults to None
+    :param metadata: The job metadata. May be any valid JSON., defaults to None
     :type metadata: dict, optional
-    :param webhook: webhook, defaults to None
+    :param webhook: The webhook URL called when the job completes., defaults to None
     :type webhook: str, optional
-    :param status: status
+    :param status: The current status.
     :type status: InferenceEndpointJobStatus
-    :param events: events
+    :param events: The list of events.
     :type events: List[InferenceEndpointJobEvent]
-    :param organization_name: The organization name
+    :param organization_name: The organization name.
     :type organization_name: str
     :param output: The job output. May be any valid JSON., defaults to None
     :type output: any, optional
-    :param create_time: create_time
+    :param create_time: The time the job was created.
     :type create_time: str
-    :param update_time: update_time
+    :param update_time: The time the job was last updated.
     :type update_time: str
     """
 
@@ -83,27 +83,27 @@ class InferenceEndpointJob(BaseModel):
     ):
         """Represents a inference endpoint job
 
-        :param id_: id_
+        :param id_: The unique identifier.
         :type id_: str
         :param input: The job input. May be any valid JSON.
         :type input: any
-        :param inference_endpoint_name: The inference endpoint name
+        :param inference_endpoint_name: The inference endpoint name.
         :type inference_endpoint_name: str
-        :param metadata: metadata, defaults to None
+        :param metadata: The job metadata. May be any valid JSON., defaults to None
         :type metadata: dict, optional
-        :param webhook: webhook, defaults to None
+        :param webhook: The webhook URL called when the job completes., defaults to None
         :type webhook: str, optional
-        :param status: status
+        :param status: The current status.
         :type status: InferenceEndpointJobStatus
-        :param events: events
+        :param events: The list of events.
         :type events: List[InferenceEndpointJobEvent]
-        :param organization_name: The organization name
+        :param organization_name: The organization name.
         :type organization_name: str
         :param output: The job output. May be any valid JSON., defaults to None
         :type output: any, optional
-        :param create_time: create_time
+        :param create_time: The time the job was created.
         :type create_time: str
-        :param update_time: update_time
+        :param update_time: The time the job was last updated.
         :type update_time: str
         """
         self.id_ = id_
@@ -117,7 +117,13 @@ class InferenceEndpointJob(BaseModel):
             status, InferenceEndpointJobStatus.list(), "status"
         )
         self.events = self._define_list(events, InferenceEndpointJobEvent)
-        self.organization_name = organization_name
+        self.organization_name = self._define_str(
+            "organization_name",
+            organization_name,
+            pattern="^[a-z][a-z0-9-]{0,61}[a-z0-9]$",
+            min_length=2,
+            max_length=63,
+        )
         if output is not None:
             self.output = output
         self.create_time = create_time

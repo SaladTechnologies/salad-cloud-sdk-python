@@ -9,16 +9,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="eiOpcr",
+    display_name="B9lINce",
     container={
         "image": "image",
         "resources": {
-            "cpu": 12,
-            "memory": 8517,
+            "cpu": 6,
+            "memory": 32135,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 36332206985
+            "storage_amount": 46738030912
         },
         "command": [
             "command"
@@ -51,11 +51,11 @@ request_body = UpdateContainerGroup(
             },
             "tcp": {
                 "host": "host",
-                "port": 11542
+                "port": 3757
             },
             "http": {
                 "host": "host",
-                "port": 43747,
+                "port": 4255,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -90,20 +90,20 @@ request_body = UpdateContainerGroup(
             }
         }
     },
-    replicas=172,
+    replicas=57,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 14025
+        "port": 53904
     },
     liveness_probe={
         "tcp": {
-            "port": 5853
+            "port": 55801
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 15919,
             "scheme": "http",
             "headers": [
                 {
@@ -114,14 +114,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 58232
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 1,
+        "initial_delay_seconds": 3,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -129,11 +129,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 5853
+            "port": 55801
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 15919,
             "scheme": "http",
             "headers": [
                 {
@@ -144,7 +144,7 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 58232
         },
         "exec_": {
             "command": [
@@ -159,11 +159,11 @@ request_body = UpdateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 5853
+            "port": 55801
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 15919,
             "scheme": "http",
             "headers": [
                 {
@@ -174,34 +174,34 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 58232
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 2,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_autoscaler={
-        "min_replicas": 72,
-        "max_replicas": 136,
-        "desired_queue_length": 49,
-        "polling_period": 497,
-        "max_upscale_per_minute": 27,
-        "max_downscale_per_minute": 25
+        "min_replicas": 68,
+        "max_replicas": 62,
+        "desired_queue_length": 38,
+        "polling_period": 711,
+        "max_upscale_per_minute": 41,
+        "max_downscale_per_minute": 89
     }
 )
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="gv",
-    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
-    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="j2i7s81kn7vit2ttnz26lyemw7nednorlqjlsihb42092pn8d6"
 )
 
 print(result)

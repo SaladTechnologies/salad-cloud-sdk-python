@@ -16,7 +16,7 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name"
 )
 

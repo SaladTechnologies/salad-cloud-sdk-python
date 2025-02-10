@@ -6,7 +6,7 @@ A list of all methods in the `InferenceEndpointsService` service. Click on the m
 | :-------------------------------------------------------------- | :--------------------------------------------- |
 | [list_inference_endpoints](#list_inference_endpoints)           | Gets the list of inference endpoints           |
 | [get_inference_endpoint](#get_inference_endpoint)               | Gets an inference endpoint                     |
-| [get_inference_endpoint_jobs](#get_inference_endpoint_jobs)     | Retrieves a list of an inference endpoint jobs |
+| [list_inference_endpoint_jobs](#list_inference_endpoint_jobs)   | Retrieves a list of an inference endpoint jobs |
 | [create_inference_endpoint_job](#create_inference_endpoint_job) | Creates a new job                              |
 | [get_inference_endpoint_job](#get_inference_endpoint_job)       | Retrieves a job in an inference endpoint       |
 | [delete_inference_endpoint_job](#delete_inference_endpoint_job) | Deletes an inference endpoint job              |
@@ -42,9 +42,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="cy1l6xj-5vzihwp4ho850l3faynnuq71ru6y",
-    page=1029360820,
-    page_size=40
+    organization_name="acme-corp",
+    page=1262183958,
+    page_size=66
 )
 
 print(result)
@@ -80,14 +80,14 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="z8llajq25o",
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name"
 )
 
 print(result)
 ```
 
-## get_inference_endpoint_jobs
+## list_inference_endpoint_jobs
 
 Retrieves a list of an inference endpoint jobs
 
@@ -118,11 +118,11 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
+result = sdk.inference_endpoints.list_inference_endpoint_jobs(
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name",
-    page=508294663,
-    page_size=31
+    page=1119094713,
+    page_size=16
 )
 
 print(result)
@@ -167,7 +167,7 @@ request_body = CreateInferenceEndpointJob(
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name"
 )
 
@@ -205,7 +205,7 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="uploo4d78",
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )
@@ -240,7 +240,7 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="uploo4d78",
+    organization_name="acme-corp",
     inference_endpoint_name="inference_endpoint_name",
     inference_endpoint_job_id="inference_endpoint_job_id"
 )

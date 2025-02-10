@@ -9,15 +9,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateQueue(
-    display_name="2E4g",
+    display_name="DA9d",
     description="description"
 )
 
 result = sdk.queues.update_queue(
     request_body=request_body,
-    organization_name="inu8izbgz",
-    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
-    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)

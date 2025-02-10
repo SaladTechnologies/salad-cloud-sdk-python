@@ -90,7 +90,7 @@ class InferenceEndpointsService(BaseService):
         return InferenceEndpoint._unmap(response)
 
     @cast_models
-    def get_inference_endpoint_jobs(
+    def list_inference_endpoint_jobs(
         self,
         organization_name: str,
         inference_endpoint_name: str,

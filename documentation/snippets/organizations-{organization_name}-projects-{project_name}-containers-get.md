@@ -8,8 +8,8 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.container_groups.list_container_groups(
-    organization_name="dj0q7z7dvdopv2czf",
-    project_name="c1zrufxgh"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)

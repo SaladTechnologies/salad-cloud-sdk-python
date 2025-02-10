@@ -8,9 +8,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.queues.delete_queue(
-    organization_name="inu8izbgz",
-    project_name="ynu6-fkv4dta4ydy-pi16e4ddle58fi8u9w2qgnsg",
-    queue_name="gcnci4p90a72aagy0f001ws1rwna83a3asu0izd6ugn07m5xpcp89lefe"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    queue_name="fifo-queue"
 )
 
 print(result)
