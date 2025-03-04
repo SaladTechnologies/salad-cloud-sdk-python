@@ -1,6 +1,8 @@
 from __future__ import annotations
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_group_status import ContainerGroupStatus
 from .container_group_instance_status_count import ContainerGroupInstanceStatusCount
 
@@ -27,7 +29,7 @@ class ContainerGroupState(BaseModel):
         start_time: str,
         finish_time: str,
         instance_status_counts: ContainerGroupInstanceStatusCount,
-        description: str = None,
+        description: Union[str, None] = SENTINEL,
         **kwargs,
     ):
         """Represents a container group state
@@ -44,7 +46,7 @@ class ContainerGroupState(BaseModel):
         :type instance_status_counts: ContainerGroupInstanceStatusCount
         """
         self.status = self._enum_matching(status, ContainerGroupStatus.list(), "status")
-        if description is not None:
+        if description is not SENTINEL:
             self.description = self._define_str(
                 "description", description, nullable=True
             )

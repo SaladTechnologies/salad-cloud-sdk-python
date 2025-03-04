@@ -1,7 +1,9 @@
 from __future__ import annotations
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container import Container
 from .container_restart_policy import ContainerRestartPolicy
 from .container_group_state import ContainerGroupState
@@ -72,13 +74,13 @@ class ContainerGroup(BaseModel):
         update_time: str,
         pending_change: bool,
         version: int,
-        country_codes: List[CountryCode] = None,
-        networking: ContainerGroupNetworking = None,
-        liveness_probe: ContainerGroupLivenessProbe = None,
-        readiness_probe: ContainerGroupReadinessProbe = None,
-        startup_probe: ContainerGroupStartupProbe = None,
-        queue_connection: ContainerGroupQueueConnection = None,
-        queue_autoscaler: QueueAutoscaler = None,
+        country_codes: List[CountryCode] = SENTINEL,
+        networking: Union[ContainerGroupNetworking, None] = SENTINEL,
+        liveness_probe: Union[ContainerGroupLivenessProbe, None] = SENTINEL,
+        readiness_probe: Union[ContainerGroupReadinessProbe, None] = SENTINEL,
+        startup_probe: Union[ContainerGroupStartupProbe, None] = SENTINEL,
+        queue_connection: Union[ContainerGroupQueueConnection, None] = SENTINEL,
+        queue_autoscaler: Union[QueueAutoscaler, None] = SENTINEL,
         **kwargs,
     ):
         """Represents a container group
@@ -144,23 +146,23 @@ class ContainerGroup(BaseModel):
         )
         self.replicas = self._define_number("replicas", replicas, ge=0, le=100)
         self.current_state = self._define_object(current_state, ContainerGroupState)
-        if country_codes is not None:
+        if country_codes is not SENTINEL:
             self.country_codes = self._define_list(country_codes, CountryCode)
-        if networking is not None:
+        if networking is not SENTINEL:
             self.networking = self._define_object(networking, ContainerGroupNetworking)
-        if liveness_probe is not None:
+        if liveness_probe is not SENTINEL:
             self.liveness_probe = self._define_object(
                 liveness_probe, ContainerGroupLivenessProbe
             )
-        if readiness_probe is not None:
+        if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
                 readiness_probe, ContainerGroupReadinessProbe
             )
-        if startup_probe is not None:
+        if startup_probe is not SENTINEL:
             self.startup_probe = self._define_object(
                 startup_probe, ContainerGroupStartupProbe
             )
-        if queue_connection is not None:
+        if queue_connection is not SENTINEL:
             self.queue_connection = self._define_object(
                 queue_connection, ContainerGroupQueueConnection
             )
@@ -168,7 +170,7 @@ class ContainerGroup(BaseModel):
         self.update_time = update_time
         self.pending_change = pending_change
         self.version = self._define_number("version", version, ge=1)
-        if queue_autoscaler is not None:
+        if queue_autoscaler is not SENTINEL:
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )

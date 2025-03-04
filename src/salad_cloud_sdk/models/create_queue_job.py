@@ -1,5 +1,7 @@
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -15,7 +17,11 @@ class CreateQueueJob(BaseModel):
     """
 
     def __init__(
-        self, input: any, metadata: dict = None, webhook: str = None, **kwargs
+        self,
+        input: any,
+        metadata: Union[dict, None] = SENTINEL,
+        webhook: Union[str, None] = SENTINEL,
+        **kwargs
     ):
         """Represents a request to create a queue job
 
@@ -27,8 +33,8 @@ class CreateQueueJob(BaseModel):
         :type webhook: str, optional
         """
         self.input = input
-        if metadata is not None:
+        if metadata is not SENTINEL:
             self.metadata = metadata
-        if webhook is not None:
+        if webhook is not SENTINEL:
             self.webhook = self._define_str("webhook", webhook, nullable=True)
         self._kwargs = kwargs

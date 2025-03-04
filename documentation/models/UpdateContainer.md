@@ -13,6 +13,7 @@ Represents an update container object
 | environment_variables   | dict                                  | ❌       |                                                                                                  |
 | logging                 | UpdateContainerLogging                | ❌       |                                                                                                  |
 | registry_authentication | UpdateContainerRegistryAuthentication | ❌       |                                                                                                  |
+| image_caching           | bool                                  | ❌       |                                                                                                  |
 
 # Resources
 

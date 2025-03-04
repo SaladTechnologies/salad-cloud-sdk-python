@@ -3,7 +3,7 @@ from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 
 
-class QueueJobEventAction(Enum):
+class Action(Enum):
     """An enumeration representing different categories.
 
     :cvar CREATED: "created"
@@ -30,7 +30,7 @@ class QueueJobEventAction(Enum):
         :return: A list of all category values.
         :rtype: list
         """
-        return list(map(lambda x: x.value, QueueJobEventAction._member_map_.values()))
+        return list(map(lambda x: x.value, Action._member_map_.values()))
 
 
 @JsonMap({})
@@ -38,19 +38,19 @@ class QueueJobEvent(BaseModel):
     """Represents an event for queue job
 
     :param action: action
-    :type action: QueueJobEventAction
+    :type action: Action
     :param time: time
     :type time: str
     """
 
-    def __init__(self, action: QueueJobEventAction, time: str, **kwargs):
+    def __init__(self, action: Action, time: str, **kwargs):
         """Represents an event for queue job
 
         :param action: action
-        :type action: QueueJobEventAction
+        :type action: Action
         :param time: time
         :type time: str
         """
-        self.action = self._enum_matching(action, QueueJobEventAction.list(), "action")
+        self.action = self._enum_matching(action, Action.list(), "action")
         self.time = time
         self._kwargs = kwargs

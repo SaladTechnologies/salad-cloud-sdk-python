@@ -1,6 +1,7 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
+from ..models.utils.sentinel import SENTINEL
 from ..models.utils.cast_models import cast_models
 from ..models import (
     CreateQueue,
@@ -40,7 +41,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -81,7 +82,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -125,7 +126,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -176,7 +177,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -219,7 +220,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -236,8 +237,8 @@ class QueuesService(BaseService):
         organization_name: str,
         project_name: str,
         queue_name: str,
-        page: int = None,
-        page_size: int = None,
+        page: int = SENTINEL,
+        page_size: int = SENTINEL,
     ) -> QueueJobList:
         """Gets the list of jobs in a queue
 
@@ -247,9 +248,9 @@ class QueuesService(BaseService):
         :type project_name: str
         :param queue_name: The queue name.
         :type queue_name: str
-        :param page: The page number, defaults to None
+        :param page: page, defaults to None
         :type page: int, optional
-        :param page_size: The number of items per page, defaults to None
+        :param page_size: page_size, defaults to None
         :type page_size: int, optional
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -273,13 +274,13 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}/jobs",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
-            .add_query("page", page, nullable=True)
-            .add_query("page_size", page_size, nullable=True)
+            .add_query("page", page)
+            .add_query("page_size", page_size)
             .serialize()
             .set_method("GET")
         )
@@ -326,7 +327,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}/jobs",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -378,7 +379,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}/jobs/{{queue_job_id}}",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
@@ -428,7 +429,7 @@ class QueuesService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/queues/{{queue_name}}/jobs/{{queue_job_id}}",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)

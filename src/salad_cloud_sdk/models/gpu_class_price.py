@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .container_group_priority import ContainerGroupPriority
@@ -14,7 +15,9 @@ class GpuClassPrice(BaseModel):
     :type price: str
     """
 
-    def __init__(self, priority: ContainerGroupPriority, price: str, **kwargs):
+    def __init__(
+        self, priority: Union[ContainerGroupPriority, None], price: str, **kwargs
+    ):
         """Represents the price of a GPU class for a given container group priority
 
         :param priority: priority

@@ -1,124 +1,110 @@
 from __future__ import annotations
-from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
+from .status import Status
 from .inference_endpoint_job_event import InferenceEndpointJobEvent
-
-
-class InferenceEndpointJobStatus(Enum):
-    """An enumeration representing different categories.
-
-    :cvar PENDING: "pending"
-    :vartype PENDING: str
-    :cvar RUNNING: "running"
-    :vartype RUNNING: str
-    :cvar SUCCEEDED: "succeeded"
-    :vartype SUCCEEDED: str
-    :cvar CANCELLED: "cancelled"
-    :vartype CANCELLED: str
-    :cvar FAILED: "failed"
-    :vartype FAILED: str
-    """
-
-    PENDING = "pending"
-    RUNNING = "running"
-    SUCCEEDED = "succeeded"
-    CANCELLED = "cancelled"
-    FAILED = "failed"
-
-    def list():
-        """Lists all category values.
-
-        :return: A list of all category values.
-        :rtype: list
-        """
-        return list(
-            map(lambda x: x.value, InferenceEndpointJobStatus._member_map_.values())
-        )
 
 
 @JsonMap({"id_": "id"})
 class InferenceEndpointJob(BaseModel):
     """Represents a inference endpoint job
 
-    :param id_: id_
+    :param id_: The inference endpoint job identifier.
     :type id_: str
+    :param inference_endpoint_name: The inference endpoint name.
+    :type inference_endpoint_name: str
+    :param organization_name: The organization name.
+    :type organization_name: str
     :param input: The job input. May be any valid JSON.
     :type input: any
-    :param inference_endpoint_name: The inference endpoint name
-    :type inference_endpoint_name: str
-    :param metadata: metadata, defaults to None
+    :param metadata: The job metadata. May be any valid JSON., defaults to None
     :type metadata: dict, optional
-    :param webhook: webhook, defaults to None
+    :param webhook: The webhook URL called when the job completes., defaults to None
     :type webhook: str, optional
-    :param status: status
-    :type status: InferenceEndpointJobStatus
-    :param events: events
+    :param webhook_url: The webhook URL called when the job completes., defaults to None
+    :type webhook_url: str, optional
+    :param status: The current status.
+    :type status: Status
+    :param events: The list of events.
     :type events: List[InferenceEndpointJobEvent]
-    :param organization_name: The organization name
-    :type organization_name: str
     :param output: The job output. May be any valid JSON., defaults to None
     :type output: any, optional
-    :param create_time: create_time
+    :param create_time: The time the job was created.
     :type create_time: str
-    :param update_time: update_time
+    :param update_time: The time the job was last updated.
     :type update_time: str
     """
 
     def __init__(
         self,
         id_: str,
-        input: any,
         inference_endpoint_name: str,
-        status: InferenceEndpointJobStatus,
-        events: List[InferenceEndpointJobEvent],
         organization_name: str,
+        input: any,
+        status: Status,
+        events: List[InferenceEndpointJobEvent],
         create_time: str,
         update_time: str,
-        metadata: dict = None,
-        webhook: str = None,
-        output: any = None,
+        metadata: dict = SENTINEL,
+        webhook: str = SENTINEL,
+        webhook_url: str = SENTINEL,
+        output: any = SENTINEL,
         **kwargs,
     ):
         """Represents a inference endpoint job
 
-        :param id_: id_
+        :param id_: The inference endpoint job identifier.
         :type id_: str
+        :param inference_endpoint_name: The inference endpoint name.
+        :type inference_endpoint_name: str
+        :param organization_name: The organization name.
+        :type organization_name: str
         :param input: The job input. May be any valid JSON.
         :type input: any
-        :param inference_endpoint_name: The inference endpoint name
-        :type inference_endpoint_name: str
-        :param metadata: metadata, defaults to None
+        :param metadata: The job metadata. May be any valid JSON., defaults to None
         :type metadata: dict, optional
-        :param webhook: webhook, defaults to None
+        :param webhook: The webhook URL called when the job completes., defaults to None
         :type webhook: str, optional
-        :param status: status
-        :type status: InferenceEndpointJobStatus
-        :param events: events
+        :param webhook_url: The webhook URL called when the job completes., defaults to None
+        :type webhook_url: str, optional
+        :param status: The current status.
+        :type status: Status
+        :param events: The list of events.
         :type events: List[InferenceEndpointJobEvent]
-        :param organization_name: The organization name
-        :type organization_name: str
         :param output: The job output. May be any valid JSON., defaults to None
         :type output: any, optional
-        :param create_time: create_time
+        :param create_time: The time the job was created.
         :type create_time: str
-        :param update_time: update_time
+        :param update_time: The time the job was last updated.
         :type update_time: str
         """
         self.id_ = id_
-        self.input = input
-        self.inference_endpoint_name = inference_endpoint_name
-        if metadata is not None:
-            self.metadata = metadata
-        if webhook is not None:
-            self.webhook = self._define_str("webhook", webhook, nullable=True)
-        self.status = self._enum_matching(
-            status, InferenceEndpointJobStatus.list(), "status"
+        self.inference_endpoint_name = self._define_str(
+            "inference_endpoint_name",
+            inference_endpoint_name,
+            pattern="^[a-z][a-z0-9-]{0,61}[a-z0-9]$",
+            min_length=2,
+            max_length=63,
         )
+        self.organization_name = self._define_str(
+            "organization_name",
+            organization_name,
+            pattern="^[a-z][a-z0-9-]{0,61}[a-z0-9]$",
+            min_length=2,
+            max_length=63,
+        )
+        self.input = input
+        if metadata is not SENTINEL:
+            self.metadata = metadata
+        if webhook is not SENTINEL:
+            self.webhook = webhook
+        if webhook_url is not SENTINEL:
+            self.webhook_url = webhook_url
+        self.status = self._enum_matching(status, Status.list(), "status")
         self.events = self._define_list(events, InferenceEndpointJobEvent)
-        self.organization_name = organization_name
-        if output is not None:
+        if output is not SENTINEL:
             self.output = output
         self.create_time = create_time
         self.update_time = update_time

@@ -1,7 +1,9 @@
 from __future__ import annotations
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .create_container import CreateContainer
 from .container_restart_policy import ContainerRestartPolicy
 from .country_code import CountryCode
@@ -52,14 +54,14 @@ class CreateContainerGroup(BaseModel):
         autostart_policy: bool,
         restart_policy: ContainerRestartPolicy,
         replicas: int,
-        display_name: str = None,
-        country_codes: List[CountryCode] = None,
-        networking: CreateContainerGroupNetworking = None,
-        liveness_probe: ContainerGroupLivenessProbe = None,
-        readiness_probe: ContainerGroupReadinessProbe = None,
-        startup_probe: ContainerGroupStartupProbe = None,
-        queue_connection: ContainerGroupQueueConnection = None,
-        queue_autoscaler: QueueAutoscaler = None,
+        display_name: Union[str, None] = SENTINEL,
+        country_codes: List[CountryCode] = SENTINEL,
+        networking: Union[CreateContainerGroupNetworking, None] = SENTINEL,
+        liveness_probe: Union[ContainerGroupLivenessProbe, None] = SENTINEL,
+        readiness_probe: Union[ContainerGroupReadinessProbe, None] = SENTINEL,
+        startup_probe: Union[ContainerGroupStartupProbe, None] = SENTINEL,
+        queue_connection: Union[ContainerGroupQueueConnection, None] = SENTINEL,
+        queue_autoscaler: Union[QueueAutoscaler, None] = SENTINEL,
         **kwargs,
     ):
         """Represents a request to create a container group
@@ -98,7 +100,7 @@ class CreateContainerGroup(BaseModel):
             min_length=2,
             max_length=63,
         )
-        if display_name is not None:
+        if display_name is not SENTINEL:
             self.display_name = self._define_str(
                 "display_name",
                 display_name,
@@ -112,30 +114,30 @@ class CreateContainerGroup(BaseModel):
         self.restart_policy = self._enum_matching(
             restart_policy, ContainerRestartPolicy.list(), "restart_policy"
         )
-        self.replicas = self._define_number("replicas", replicas, ge=0, le=250)
-        if country_codes is not None:
+        self.replicas = self._define_number("replicas", replicas, ge=0, le=500)
+        if country_codes is not SENTINEL:
             self.country_codes = self._define_list(country_codes, CountryCode)
-        if networking is not None:
+        if networking is not SENTINEL:
             self.networking = self._define_object(
                 networking, CreateContainerGroupNetworking
             )
-        if liveness_probe is not None:
+        if liveness_probe is not SENTINEL:
             self.liveness_probe = self._define_object(
                 liveness_probe, ContainerGroupLivenessProbe
             )
-        if readiness_probe is not None:
+        if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
                 readiness_probe, ContainerGroupReadinessProbe
             )
-        if startup_probe is not None:
+        if startup_probe is not SENTINEL:
             self.startup_probe = self._define_object(
                 startup_probe, ContainerGroupStartupProbe
             )
-        if queue_connection is not None:
+        if queue_connection is not SENTINEL:
             self.queue_connection = self._define_object(
                 queue_connection, ContainerGroupQueueConnection
             )
-        if queue_autoscaler is not None:
+        if queue_autoscaler is not SENTINEL:
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )

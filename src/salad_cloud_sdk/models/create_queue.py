@@ -1,5 +1,7 @@
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -15,7 +17,11 @@ class CreateQueue(BaseModel):
     """
 
     def __init__(
-        self, name: str, display_name: str = None, description: str = None, **kwargs
+        self,
+        name: str,
+        display_name: Union[str, None] = SENTINEL,
+        description: Union[str, None] = SENTINEL,
+        **kwargs
     ):
         """Represents a request to create a new queue.
 
@@ -33,7 +39,7 @@ class CreateQueue(BaseModel):
             min_length=2,
             max_length=63,
         )
-        if display_name is not None:
+        if display_name is not SENTINEL:
             self.display_name = self._define_str(
                 "display_name",
                 display_name,
@@ -42,7 +48,7 @@ class CreateQueue(BaseModel):
                 min_length=2,
                 max_length=63,
             )
-        if description is not None:
+        if description is not SENTINEL:
             self.description = self._define_str(
                 "description", description, nullable=True, max_length=500
             )

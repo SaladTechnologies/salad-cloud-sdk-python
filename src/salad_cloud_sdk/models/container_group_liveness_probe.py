@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_group_probe_tcp import ContainerGroupProbeTcp
 from .container_group_probe_http import ContainerGroupProbeHttp
 from .container_group_probe_grpc import ContainerGroupProbeGrpc
@@ -38,10 +39,10 @@ class ContainerGroupLivenessProbe(BaseModel):
         timeout_seconds: int,
         success_threshold: int,
         failure_threshold: int,
-        tcp: ContainerGroupProbeTcp = None,
-        http: ContainerGroupProbeHttp = None,
-        grpc: ContainerGroupProbeGrpc = None,
-        exec_: ContainerGroupProbeExec = None,
+        tcp: ContainerGroupProbeTcp = SENTINEL,
+        http: ContainerGroupProbeHttp = SENTINEL,
+        grpc: ContainerGroupProbeGrpc = SENTINEL,
+        exec_: ContainerGroupProbeExec = SENTINEL,
         **kwargs,
     ):
         """Represents the container group liveness probe
@@ -65,13 +66,13 @@ class ContainerGroupLivenessProbe(BaseModel):
         :param failure_threshold: failure_threshold
         :type failure_threshold: int
         """
-        if tcp is not None:
+        if tcp is not SENTINEL:
             self.tcp = self._define_object(tcp, ContainerGroupProbeTcp)
-        if http is not None:
+        if http is not SENTINEL:
             self.http = self._define_object(http, ContainerGroupProbeHttp)
-        if grpc is not None:
+        if grpc is not SENTINEL:
             self.grpc = self._define_object(grpc, ContainerGroupProbeGrpc)
-        if exec_ is not None:
+        if exec_ is not SENTINEL:
             self.exec_ = self._define_object(exec_, ContainerGroupProbeExec)
         self.initial_delay_seconds = self._define_number(
             "initial_delay_seconds", initial_delay_seconds, ge=0

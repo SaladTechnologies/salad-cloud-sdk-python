@@ -7,11 +7,11 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
-    inference_endpoint_name="inference_endpoint_name",
-    page=508294663,
-    page_size=31
+result = sdk.inference_endpoints.list_inference_endpoint_jobs(
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe",
+    page=1,
+    page_size=1
 )
 
 print(result)

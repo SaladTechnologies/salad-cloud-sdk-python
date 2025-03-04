@@ -1,8 +1,10 @@
 from __future__ import annotations
 from enum import Enum
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_group_priority import ContainerGroupPriority
 
 
@@ -22,10 +24,10 @@ class Resources(BaseModel):
 
     def __init__(
         self,
-        cpu: int = None,
-        memory: int = None,
-        gpu_classes: List[str] = None,
-        storage_amount: int = None,
+        cpu: Union[int, None] = SENTINEL,
+        memory: Union[int, None] = SENTINEL,
+        gpu_classes: Union[List[str], None] = SENTINEL,
+        storage_amount: Union[int, None] = SENTINEL,
         **kwargs,
     ):
         """Resources
@@ -39,15 +41,15 @@ class Resources(BaseModel):
         :param storage_amount: storage_amount, defaults to None
         :type storage_amount: int, optional
         """
-        if cpu is not None:
+        if cpu is not SENTINEL:
             self.cpu = self._define_number("cpu", cpu, nullable=True, ge=1, le=16)
-        if memory is not None:
+        if memory is not SENTINEL:
             self.memory = self._define_number(
                 "memory", memory, nullable=True, ge=1024, le=61440
             )
-        if gpu_classes is not None:
+        if gpu_classes is not SENTINEL:
             self.gpu_classes = gpu_classes
-        if storage_amount is not None:
+        if storage_amount is not SENTINEL:
             self.storage_amount = self._define_number(
                 "storage_amount",
                 storage_amount,
@@ -126,7 +128,11 @@ class LoggingDatadog3(BaseModel):
     """
 
     def __init__(
-        self, host: str, api_key: str, tags: List[DatadogTags3] = None, **kwargs
+        self,
+        host: str,
+        api_key: str,
+        tags: Union[List[DatadogTags3], None] = SENTINEL,
+        **kwargs,
     ):
         """LoggingDatadog3
 
@@ -141,7 +147,7 @@ class LoggingDatadog3(BaseModel):
         self.api_key = self._define_str(
             "api_key", api_key, min_length=1, max_length=1000
         )
-        if tags is not None:
+        if tags is not SENTINEL:
             self.tags = self._define_list(tags, DatadogTags3)
         self._kwargs = kwargs
 
@@ -310,10 +316,10 @@ class LoggingHttp3(BaseModel):
         port: int,
         format: HttpFormat3,
         compression: HttpCompression3,
-        user: str = None,
-        password: str = None,
-        path: str = None,
-        headers: List[HttpHeaders4] = None,
+        user: Union[str, None] = SENTINEL,
+        password: Union[str, None] = SENTINEL,
+        path: Union[str, None] = SENTINEL,
+        headers: Union[List[HttpHeaders4], None] = SENTINEL,
         **kwargs,
     ):
         """LoggingHttp3
@@ -337,14 +343,14 @@ class LoggingHttp3(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
-        if user is not None:
+        if user is not SENTINEL:
             self.user = self._define_str("user", user, nullable=True)
-        if password is not None:
+        if password is not SENTINEL:
             self.password = self._define_str("password", password, nullable=True)
-        if path is not None:
+        if path is not SENTINEL:
             self.path = self._define_str("path", path, nullable=True)
         self.format = self._enum_matching(format, HttpFormat3.list(), "format")
-        if headers is not None:
+        if headers is not SENTINEL:
             self.headers = self._define_list(headers, HttpHeaders4)
         self.compression = self._enum_matching(
             compression, HttpCompression3.list(), "compression"
@@ -372,12 +378,12 @@ class UpdateContainerLogging(BaseModel):
 
     def __init__(
         self,
-        axiom: LoggingAxiom3 = None,
-        datadog: LoggingDatadog3 = None,
-        new_relic: LoggingNewRelic3 = None,
-        splunk: LoggingSplunk3 = None,
-        tcp: LoggingTcp3 = None,
-        http: LoggingHttp3 = None,
+        axiom: Union[LoggingAxiom3, None] = SENTINEL,
+        datadog: Union[LoggingDatadog3, None] = SENTINEL,
+        new_relic: Union[LoggingNewRelic3, None] = SENTINEL,
+        splunk: Union[LoggingSplunk3, None] = SENTINEL,
+        tcp: Union[LoggingTcp3, None] = SENTINEL,
+        http: Union[LoggingHttp3, None] = SENTINEL,
         **kwargs,
     ):
         """UpdateContainerLogging
@@ -395,17 +401,17 @@ class UpdateContainerLogging(BaseModel):
         :param http: http, defaults to None
         :type http: LoggingHttp3, optional
         """
-        if axiom is not None:
+        if axiom is not SENTINEL:
             self.axiom = self._define_object(axiom, LoggingAxiom3)
-        if datadog is not None:
+        if datadog is not SENTINEL:
             self.datadog = self._define_object(datadog, LoggingDatadog3)
-        if new_relic is not None:
+        if new_relic is not SENTINEL:
             self.new_relic = self._define_object(new_relic, LoggingNewRelic3)
-        if splunk is not None:
+        if splunk is not SENTINEL:
             self.splunk = self._define_object(splunk, LoggingSplunk3)
-        if tcp is not None:
+        if tcp is not SENTINEL:
             self.tcp = self._define_object(tcp, LoggingTcp3)
-        if http is not None:
+        if http is not SENTINEL:
             self.http = self._define_object(http, LoggingHttp3)
         self._kwargs = kwargs
 
@@ -533,11 +539,11 @@ class UpdateContainerRegistryAuthentication(BaseModel):
 
     def __init__(
         self,
-        basic: RegistryAuthenticationBasic2 = None,
-        gcp_gcr: RegistryAuthenticationGcpGcr2 = None,
-        aws_ecr: RegistryAuthenticationAwsEcr2 = None,
-        docker_hub: RegistryAuthenticationDockerHub2 = None,
-        gcp_gar: RegistryAuthenticationGcpGar2 = None,
+        basic: Union[RegistryAuthenticationBasic2, None] = SENTINEL,
+        gcp_gcr: Union[RegistryAuthenticationGcpGcr2, None] = SENTINEL,
+        aws_ecr: Union[RegistryAuthenticationAwsEcr2, None] = SENTINEL,
+        docker_hub: Union[RegistryAuthenticationDockerHub2, None] = SENTINEL,
+        gcp_gar: Union[RegistryAuthenticationGcpGar2, None] = SENTINEL,
         **kwargs,
     ):
         """UpdateContainerRegistryAuthentication
@@ -553,17 +559,17 @@ class UpdateContainerRegistryAuthentication(BaseModel):
         :param gcp_gar: gcp_gar, defaults to None
         :type gcp_gar: RegistryAuthenticationGcpGar2, optional
         """
-        if basic is not None:
+        if basic is not SENTINEL:
             self.basic = self._define_object(basic, RegistryAuthenticationBasic2)
-        if gcp_gcr is not None:
+        if gcp_gcr is not SENTINEL:
             self.gcp_gcr = self._define_object(gcp_gcr, RegistryAuthenticationGcpGcr2)
-        if aws_ecr is not None:
+        if aws_ecr is not SENTINEL:
             self.aws_ecr = self._define_object(aws_ecr, RegistryAuthenticationAwsEcr2)
-        if docker_hub is not None:
+        if docker_hub is not SENTINEL:
             self.docker_hub = self._define_object(
                 docker_hub, RegistryAuthenticationDockerHub2
             )
-        if gcp_gar is not None:
+        if gcp_gar is not SENTINEL:
             self.gcp_gar = self._define_object(gcp_gar, RegistryAuthenticationGcpGar2)
         self._kwargs = kwargs
 
@@ -586,17 +592,22 @@ class UpdateContainer(BaseModel):
     :type logging: UpdateContainerLogging, optional
     :param registry_authentication: registry_authentication, defaults to None
     :type registry_authentication: UpdateContainerRegistryAuthentication, optional
+    :param image_caching: image_caching, defaults to None
+    :type image_caching: bool, optional
     """
 
     def __init__(
         self,
-        image: str = None,
-        resources: Resources = None,
-        command: List[str] = None,
-        priority: ContainerGroupPriority = None,
-        environment_variables: dict = None,
-        logging: UpdateContainerLogging = None,
-        registry_authentication: UpdateContainerRegistryAuthentication = None,
+        image: Union[str, None] = SENTINEL,
+        resources: Union[Resources, None] = SENTINEL,
+        command: Union[List[str], None] = SENTINEL,
+        priority: Union[ContainerGroupPriority, None] = SENTINEL,
+        environment_variables: dict = SENTINEL,
+        logging: Union[UpdateContainerLogging, None] = SENTINEL,
+        registry_authentication: Union[
+            UpdateContainerRegistryAuthentication, None
+        ] = SENTINEL,
+        image_caching: bool = SENTINEL,
         **kwargs,
     ):
         """Represents an update container object
@@ -615,25 +626,29 @@ class UpdateContainer(BaseModel):
         :type logging: UpdateContainerLogging, optional
         :param registry_authentication: registry_authentication, defaults to None
         :type registry_authentication: UpdateContainerRegistryAuthentication, optional
+        :param image_caching: image_caching, defaults to None
+        :type image_caching: bool, optional
         """
-        if image is not None:
+        if image is not SENTINEL:
             self.image = self._define_str(
                 "image", image, nullable=True, min_length=1, max_length=1024
             )
-        if resources is not None:
+        if resources is not SENTINEL:
             self.resources = self._define_object(resources, Resources)
-        if command is not None:
+        if command is not SENTINEL:
             self.command = command
-        if priority is not None:
+        if priority is not SENTINEL:
             self.priority = self._enum_matching(
                 priority, ContainerGroupPriority.list(), "priority"
             )
-        if environment_variables is not None:
+        if environment_variables is not SENTINEL:
             self.environment_variables = environment_variables
-        if logging is not None:
+        if logging is not SENTINEL:
             self.logging = self._define_object(logging, UpdateContainerLogging)
-        if registry_authentication is not None:
+        if registry_authentication is not SENTINEL:
             self.registry_authentication = self._define_object(
                 registry_authentication, UpdateContainerRegistryAuthentication
             )
+        if image_caching is not SENTINEL:
+            self.image_caching = image_caching
         self._kwargs = kwargs

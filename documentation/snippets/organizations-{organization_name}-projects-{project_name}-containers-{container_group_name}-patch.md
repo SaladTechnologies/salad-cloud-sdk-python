@@ -9,16 +9,16 @@ sdk = SaladCloudSdk(
 )
 
 request_body = UpdateContainerGroup(
-    display_name="eiOpcr",
+    display_name="iMQ",
     container={
         "image": "image",
         "resources": {
-            "cpu": 12,
-            "memory": 8517,
+            "cpu": 1,
+            "memory": 45763,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 36332206985
+            "storage_amount": 11277160494
         },
         "command": [
             "command"
@@ -51,11 +51,11 @@ request_body = UpdateContainerGroup(
             },
             "tcp": {
                 "host": "host",
-                "port": 11542
+                "port": 30411
             },
             "http": {
                 "host": "host",
-                "port": 43747,
+                "port": 32913,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -88,22 +88,23 @@ request_body = UpdateContainerGroup(
             "gcp_gar": {
                 "service_key": "service_key"
             }
-        }
+        },
+        "image_caching": False
     },
-    replicas=172,
+    replicas=201,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 14025
+        "port": 16494
     },
     liveness_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -114,14 +115,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 1,
+        "initial_delay_seconds": 2,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -129,11 +130,11 @@ request_body = UpdateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -144,14 +145,14 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 10,
+        "initial_delay_seconds": 6,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -159,11 +160,11 @@ request_body = UpdateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -174,34 +175,34 @@ request_body = UpdateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 7,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
         "failure_threshold": 1200
     },
     queue_autoscaler={
-        "min_replicas": 72,
-        "max_replicas": 136,
-        "desired_queue_length": 49,
-        "polling_period": 497,
-        "max_upscale_per_minute": 27,
-        "max_downscale_per_minute": 25
+        "min_replicas": 60,
+        "max_replicas": 62,
+        "desired_queue_length": 67,
+        "polling_period": 39,
+        "max_upscale_per_minute": 62,
+        "max_downscale_per_minute": 52
     }
 )
 
 result = sdk.container_groups.update_container_group(
     request_body=request_body,
-    organization_name="gv",
-    project_name="mzx3s9b9-97wub7dm-r26ufpa46ncdw1l9j53dkso8adlnp",
-    container_group_name="h1wsrgnjh8izdjsr6ircjk6xa1-pd"
+    organization_name="acme-corp",
+    project_name="dev-env",
+    container_group_name="vpg4-370h--6se6eqezp-g"
 )
 
 print(result)

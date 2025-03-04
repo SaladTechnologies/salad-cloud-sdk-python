@@ -1,5 +1,6 @@
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -25,9 +26,9 @@ class QueueAutoscaler(BaseModel):
         min_replicas: int,
         max_replicas: int,
         desired_queue_length: int,
-        polling_period: int = None,
-        max_upscale_per_minute: int = None,
-        max_downscale_per_minute: int = None,
+        polling_period: int = SENTINEL,
+        max_upscale_per_minute: int = SENTINEL,
+        max_downscale_per_minute: int = SENTINEL,
         **kwargs
     ):
         """Represents the autoscaling rules for a queue
@@ -49,20 +50,20 @@ class QueueAutoscaler(BaseModel):
             "min_replicas", min_replicas, ge=0, le=100
         )
         self.max_replicas = self._define_number(
-            "max_replicas", max_replicas, ge=1, le=250
+            "max_replicas", max_replicas, ge=1, le=500
         )
         self.desired_queue_length = self._define_number(
             "desired_queue_length", desired_queue_length, ge=1, le=100
         )
-        if polling_period is not None:
+        if polling_period is not SENTINEL:
             self.polling_period = self._define_number(
                 "polling_period", polling_period, ge=15, le=1800
             )
-        if max_upscale_per_minute is not None:
+        if max_upscale_per_minute is not SENTINEL:
             self.max_upscale_per_minute = self._define_number(
                 "max_upscale_per_minute", max_upscale_per_minute, ge=1, le=100
             )
-        if max_downscale_per_minute is not None:
+        if max_downscale_per_minute is not SENTINEL:
             self.max_downscale_per_minute = self._define_number(
                 "max_downscale_per_minute", max_downscale_per_minute, ge=1, le=100
             )

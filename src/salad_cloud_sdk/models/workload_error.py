@@ -1,5 +1,7 @@
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -30,7 +32,7 @@ class WorkloadError(BaseModel):
         machine_id: str,
         allocated_at: str,
         version: int,
-        started_at: str = None,
+        started_at: Union[str, None] = SENTINEL,
         **kwargs
     ):
         """Represents a workload error
@@ -55,7 +57,7 @@ class WorkloadError(BaseModel):
         self.instance_id = instance_id
         self.machine_id = machine_id
         self.allocated_at = allocated_at
-        if started_at is not None:
+        if started_at is not SENTINEL:
             self.started_at = self._define_str("started_at", started_at, nullable=True)
         self.version = self._define_number("version", version, ge=1)
         self._kwargs = kwargs

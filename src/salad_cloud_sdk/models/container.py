@@ -1,8 +1,10 @@
 from __future__ import annotations
 from enum import Enum
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_resource_requirements import ContainerResourceRequirements
 from .container_group_priority import ContainerGroupPriority
 
@@ -75,7 +77,11 @@ class LoggingDatadog1(BaseModel):
     """
 
     def __init__(
-        self, host: str, api_key: str, tags: List[DatadogTags1] = None, **kwargs
+        self,
+        host: str,
+        api_key: str,
+        tags: Union[List[DatadogTags1], None] = SENTINEL,
+        **kwargs,
     ):
         """LoggingDatadog1
 
@@ -90,7 +96,7 @@ class LoggingDatadog1(BaseModel):
         self.api_key = self._define_str(
             "api_key", api_key, min_length=1, max_length=1000
         )
-        if tags is not None:
+        if tags is not SENTINEL:
             self.tags = self._define_list(tags, DatadogTags1)
         self._kwargs = kwargs
 
@@ -259,10 +265,10 @@ class LoggingHttp1(BaseModel):
         port: int,
         format: HttpFormat1,
         compression: HttpCompression1,
-        user: str = None,
-        password: str = None,
-        path: str = None,
-        headers: List[HttpHeaders1] = None,
+        user: Union[str, None] = SENTINEL,
+        password: Union[str, None] = SENTINEL,
+        path: Union[str, None] = SENTINEL,
+        headers: Union[List[HttpHeaders1], None] = SENTINEL,
         **kwargs,
     ):
         """LoggingHttp1
@@ -286,14 +292,14 @@ class LoggingHttp1(BaseModel):
         """
         self.host = self._define_str("host", host, min_length=1, max_length=1000)
         self.port = self._define_number("port", port, ge=1, le=65535)
-        if user is not None:
+        if user is not SENTINEL:
             self.user = self._define_str("user", user, nullable=True)
-        if password is not None:
+        if password is not SENTINEL:
             self.password = self._define_str("password", password, nullable=True)
-        if path is not None:
+        if path is not SENTINEL:
             self.path = self._define_str("path", path, nullable=True)
         self.format = self._enum_matching(format, HttpFormat1.list(), "format")
-        if headers is not None:
+        if headers is not SENTINEL:
             self.headers = self._define_list(headers, HttpHeaders1)
         self.compression = self._enum_matching(
             compression, HttpCompression1.list(), "compression"
@@ -321,12 +327,12 @@ class ContainerLogging(BaseModel):
 
     def __init__(
         self,
-        axiom: LoggingAxiom1 = None,
-        datadog: LoggingDatadog1 = None,
-        new_relic: LoggingNewRelic1 = None,
-        splunk: LoggingSplunk1 = None,
-        tcp: LoggingTcp1 = None,
-        http: LoggingHttp1 = None,
+        axiom: Union[LoggingAxiom1, None] = SENTINEL,
+        datadog: Union[LoggingDatadog1, None] = SENTINEL,
+        new_relic: Union[LoggingNewRelic1, None] = SENTINEL,
+        splunk: Union[LoggingSplunk1, None] = SENTINEL,
+        tcp: Union[LoggingTcp1, None] = SENTINEL,
+        http: Union[LoggingHttp1, None] = SENTINEL,
         **kwargs,
     ):
         """ContainerLogging
@@ -344,17 +350,17 @@ class ContainerLogging(BaseModel):
         :param http: http, defaults to None
         :type http: LoggingHttp1, optional
         """
-        if axiom is not None:
+        if axiom is not SENTINEL:
             self.axiom = self._define_object(axiom, LoggingAxiom1)
-        if datadog is not None:
+        if datadog is not SENTINEL:
             self.datadog = self._define_object(datadog, LoggingDatadog1)
-        if new_relic is not None:
+        if new_relic is not SENTINEL:
             self.new_relic = self._define_object(new_relic, LoggingNewRelic1)
-        if splunk is not None:
+        if splunk is not SENTINEL:
             self.splunk = self._define_object(splunk, LoggingSplunk1)
-        if tcp is not None:
+        if tcp is not SENTINEL:
             self.tcp = self._define_object(tcp, LoggingTcp1)
-        if http is not None:
+        if http is not SENTINEL:
             self.http = self._define_object(http, LoggingHttp1)
         self._kwargs = kwargs
 
@@ -379,6 +385,8 @@ class Container(BaseModel):
     :type environment_variables: dict, optional
     :param logging: logging, defaults to None
     :type logging: ContainerLogging, optional
+    :param image_caching: image_caching, defaults to None
+    :type image_caching: bool, optional
     """
 
     def __init__(
@@ -386,11 +394,12 @@ class Container(BaseModel):
         image: str,
         resources: ContainerResourceRequirements,
         command: List[str],
-        priority: ContainerGroupPriority = None,
-        size: int = None,
-        hash: str = None,
-        environment_variables: dict = None,
-        logging: ContainerLogging = None,
+        priority: Union[ContainerGroupPriority, None] = SENTINEL,
+        size: int = SENTINEL,
+        hash: str = SENTINEL,
+        environment_variables: dict = SENTINEL,
+        logging: Union[ContainerLogging, None] = SENTINEL,
+        image_caching: bool = SENTINEL,
         **kwargs,
     ):
         """Represents a container
@@ -411,20 +420,24 @@ class Container(BaseModel):
         :type environment_variables: dict, optional
         :param logging: logging, defaults to None
         :type logging: ContainerLogging, optional
+        :param image_caching: image_caching, defaults to None
+        :type image_caching: bool, optional
         """
         self.image = self._define_str("image", image, min_length=1, max_length=1024)
         self.resources = self._define_object(resources, ContainerResourceRequirements)
         self.command = command
-        if priority is not None:
+        if priority is not SENTINEL:
             self.priority = self._enum_matching(
                 priority, ContainerGroupPriority.list(), "priority"
             )
-        if size is not None:
+        if size is not SENTINEL:
             self.size = size
-        if hash is not None:
+        if hash is not SENTINEL:
             self.hash = hash
-        if environment_variables is not None:
+        if environment_variables is not SENTINEL:
             self.environment_variables = environment_variables
-        if logging is not None:
+        if logging is not SENTINEL:
             self.logging = self._define_object(logging, ContainerLogging)
+        if image_caching is not SENTINEL:
+            self.image_caching = image_caching
         self._kwargs = kwargs

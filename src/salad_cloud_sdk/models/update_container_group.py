@@ -1,7 +1,9 @@
 from __future__ import annotations
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .update_container import UpdateContainer
 from .country_code import CountryCode
 from .update_container_group_networking import UpdateContainerGroupNetworking
@@ -37,15 +39,15 @@ class UpdateContainerGroup(BaseModel):
 
     def __init__(
         self,
-        display_name: str = None,
-        container: UpdateContainer = None,
-        replicas: int = None,
-        country_codes: List[CountryCode] = None,
-        networking: UpdateContainerGroupNetworking = None,
-        liveness_probe: ContainerGroupLivenessProbe = None,
-        readiness_probe: ContainerGroupReadinessProbe = None,
-        startup_probe: ContainerGroupStartupProbe = None,
-        queue_autoscaler: QueueAutoscaler = None,
+        display_name: Union[str, None] = SENTINEL,
+        container: Union[UpdateContainer, None] = SENTINEL,
+        replicas: Union[int, None] = SENTINEL,
+        country_codes: Union[List[CountryCode], None] = SENTINEL,
+        networking: UpdateContainerGroupNetworking = SENTINEL,
+        liveness_probe: Union[ContainerGroupLivenessProbe, None] = SENTINEL,
+        readiness_probe: Union[ContainerGroupReadinessProbe, None] = SENTINEL,
+        startup_probe: Union[ContainerGroupStartupProbe, None] = SENTINEL,
+        queue_autoscaler: Union[QueueAutoscaler, None] = SENTINEL,
         **kwargs,
     ):
         """Represents a request to update a container group
@@ -69,7 +71,7 @@ class UpdateContainerGroup(BaseModel):
         :param queue_autoscaler: Represents the autoscaling rules for a queue, defaults to None
         :type queue_autoscaler: QueueAutoscaler, optional
         """
-        if display_name is not None:
+        if display_name is not SENTINEL:
             self.display_name = self._define_str(
                 "display_name",
                 display_name,
@@ -78,31 +80,31 @@ class UpdateContainerGroup(BaseModel):
                 min_length=2,
                 max_length=63,
             )
-        if container is not None:
+        if container is not SENTINEL:
             self.container = self._define_object(container, UpdateContainer)
-        if replicas is not None:
+        if replicas is not SENTINEL:
             self.replicas = self._define_number(
-                "replicas", replicas, nullable=True, ge=0, le=250
+                "replicas", replicas, nullable=True, ge=0, le=500
             )
-        if country_codes is not None:
+        if country_codes is not SENTINEL:
             self.country_codes = self._define_list(country_codes, CountryCode)
-        if networking is not None:
+        if networking is not SENTINEL:
             self.networking = self._define_object(
                 networking, UpdateContainerGroupNetworking
             )
-        if liveness_probe is not None:
+        if liveness_probe is not SENTINEL:
             self.liveness_probe = self._define_object(
                 liveness_probe, ContainerGroupLivenessProbe
             )
-        if readiness_probe is not None:
+        if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
                 readiness_probe, ContainerGroupReadinessProbe
             )
-        if startup_probe is not None:
+        if startup_probe is not SENTINEL:
             self.startup_probe = self._define_object(
                 startup_probe, ContainerGroupStartupProbe
             )
-        if queue_autoscaler is not None:
+        if queue_autoscaler is not SENTINEL:
             self.queue_autoscaler = self._define_object(
                 queue_autoscaler, QueueAutoscaler
             )

@@ -27,7 +27,7 @@ class QuotasService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/quotas",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .serialize()

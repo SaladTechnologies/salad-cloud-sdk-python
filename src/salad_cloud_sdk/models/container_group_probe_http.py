@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_probe_http_scheme import ContainerProbeHttpScheme
 from .container_group_probe_http_headers_2 import ContainerGroupProbeHttpHeaders2
 
@@ -24,8 +25,8 @@ class ContainerGroupProbeHttp(BaseModel):
         self,
         path: str,
         port: int,
-        scheme: ContainerProbeHttpScheme = None,
-        headers: List[ContainerGroupProbeHttpHeaders2] = None,
+        scheme: ContainerProbeHttpScheme = SENTINEL,
+        headers: List[ContainerGroupProbeHttpHeaders2] = SENTINEL,
         **kwargs,
     ):
         """ContainerGroupProbeHttp
@@ -41,10 +42,10 @@ class ContainerGroupProbeHttp(BaseModel):
         """
         self.path = path
         self.port = self._define_number("port", port, ge=0, le=65536)
-        if scheme is not None:
+        if scheme is not SENTINEL:
             self.scheme = self._enum_matching(
                 scheme, ContainerProbeHttpScheme.list(), "scheme"
             )
-        if headers is not None:
+        if headers is not SENTINEL:
             self.headers = self._define_list(headers, ContainerGroupProbeHttpHeaders2)
         self._kwargs = kwargs

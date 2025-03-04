@@ -1,8 +1,10 @@
 from __future__ import annotations
 from enum import Enum
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .queue_job_event import QueueJobEvent
 
 
@@ -68,9 +70,9 @@ class QueueJob(BaseModel):
         events: List[QueueJobEvent],
         create_time: str,
         update_time: str,
-        metadata: dict = None,
-        webhook: str = None,
-        output: any = None,
+        metadata: Union[dict, None] = SENTINEL,
+        webhook: Union[str, None] = SENTINEL,
+        output: any = SENTINEL,
         **kwargs,
     ):
         """Represents a queue job
@@ -96,13 +98,13 @@ class QueueJob(BaseModel):
         """
         self.id_ = id_
         self.input = input
-        if metadata is not None:
+        if metadata is not SENTINEL:
             self.metadata = metadata
-        if webhook is not None:
+        if webhook is not SENTINEL:
             self.webhook = self._define_str("webhook", webhook, nullable=True)
         self.status = self._enum_matching(status, QueueJobStatus.list(), "status")
         self.events = self._define_list(events, QueueJobEvent)
-        if output is not None:
+        if output is not SENTINEL:
             self.output = output
         self.create_time = create_time
         self.update_time = update_time

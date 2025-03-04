@@ -7,10 +7,10 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="uploo4d78",
-    inference_endpoint_name="inference_endpoint_name",
-    inference_endpoint_job_id="inference_endpoint_job_id"
+result = sdk.inference_endpoints.cancel_inference_endpoint_job(
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe",
+    inference_endpoint_job_id="2fc459a1-1c09-4a34-ade7-54d03fc51d6a"
 )
 
 print(result)
