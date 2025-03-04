@@ -2,18 +2,18 @@
 
 A list of all methods in the `InferenceEndpointsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                                         | Description                                    |
-| :-------------------------------------------------------------- | :--------------------------------------------- |
-| [list_inference_endpoints](#list_inference_endpoints)           | Gets the list of inference endpoints           |
-| [get_inference_endpoint](#get_inference_endpoint)               | Gets an inference endpoint                     |
-| [get_inference_endpoint_jobs](#get_inference_endpoint_jobs)     | Retrieves a list of an inference endpoint jobs |
-| [create_inference_endpoint_job](#create_inference_endpoint_job) | Creates a new job                              |
-| [get_inference_endpoint_job](#get_inference_endpoint_job)       | Retrieves a job in an inference endpoint       |
-| [delete_inference_endpoint_job](#delete_inference_endpoint_job) | Deletes an inference endpoint job              |
+| Methods                                                         | Description                           |
+| :-------------------------------------------------------------- | :------------------------------------ |
+| [list_inference_endpoints](#list_inference_endpoints)           | Lists inference endpoints.            |
+| [get_inference_endpoint](#get_inference_endpoint)               | Gets an inference endpoint.           |
+| [list_inference_endpoint_jobs](#list_inference_endpoint_jobs)   | Lists inference endpoint jobs.        |
+| [create_inference_endpoint_job](#create_inference_endpoint_job) | Creates a new inference endpoint job. |
+| [get_inference_endpoint_job](#get_inference_endpoint_job)       | Gets an inference endpoint job.       |
+| [cancel_inference_endpoint_job](#cancel_inference_endpoint_job) | Cancels an inference endpoint job.    |
 
 ## list_inference_endpoints
 
-Gets the list of inference endpoints
+Lists inference endpoints.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints`
@@ -23,12 +23,12 @@ Gets the list of inference endpoints
 | Name              | Type | Required | Description                                                                                                                                                                                                                                         |
 | :---------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| page              | int  | ❌       | The page number                                                                                                                                                                                                                                     |
-| page_size         | int  | ❌       | The number of items per page                                                                                                                                                                                                                        |
+| page              | int  | ❌       | The page number.                                                                                                                                                                                                                                    |
+| page_size         | int  | ❌       | The maximum number of items per page.                                                                                                                                                                                                               |
 
 **Return Type**
 
-`InferenceEndpointsList`
+`InferenceEndpointList`
 
 **Example Usage Code Snippet**
 
@@ -42,9 +42,9 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.list_inference_endpoints(
-    organization_name="cy1l6xj-5vzihwp4ho850l3faynnuq71ru6y",
-    page=1029360820,
-    page_size=40
+    organization_name="acme-corp",
+    page=1,
+    page_size=1
 )
 
 print(result)
@@ -52,7 +52,7 @@ print(result)
 
 ## get_inference_endpoint
 
-Gets an inference endpoint
+Gets an inference endpoint.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints/{inference_endpoint_name}`
@@ -62,7 +62,7 @@ Gets an inference endpoint
 | Name                    | Type | Required | Description                                                                                                                                                                                                                                         |
 | :---------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | organization_name       | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inference_endpoint_name | str  | ✅       | The unique inference endpoint name                                                                                                                                                                                                                  |
+| inference_endpoint_name | str  | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
 
 **Return Type**
 
@@ -80,16 +80,16 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint(
-    organization_name="z8llajq25o",
-    inference_endpoint_name="inference_endpoint_name"
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe"
 )
 
 print(result)
 ```
 
-## get_inference_endpoint_jobs
+## list_inference_endpoint_jobs
 
-Retrieves a list of an inference endpoint jobs
+Lists inference endpoint jobs.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints/{inference_endpoint_name}/jobs`
@@ -99,9 +99,9 @@ Retrieves a list of an inference endpoint jobs
 | Name                    | Type | Required | Description                                                                                                                                                                                                                                         |
 | :---------------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | organization_name       | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inference_endpoint_name | str  | ✅       | The unique inference endpoint name                                                                                                                                                                                                                  |
-| page                    | int  | ❌       | The page number                                                                                                                                                                                                                                     |
-| page_size               | int  | ❌       | The number of items per page                                                                                                                                                                                                                        |
+| inference_endpoint_name | str  | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
+| page                    | int  | ❌       | The page number.                                                                                                                                                                                                                                    |
+| page_size               | int  | ❌       | The maximum number of items per page.                                                                                                                                                                                                               |
 
 **Return Type**
 
@@ -118,11 +118,11 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.inference_endpoints.get_inference_endpoint_jobs(
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
-    inference_endpoint_name="inference_endpoint_name",
-    page=508294663,
-    page_size=31
+result = sdk.inference_endpoints.list_inference_endpoint_jobs(
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe",
+    page=1,
+    page_size=1
 )
 
 print(result)
@@ -130,7 +130,7 @@ print(result)
 
 ## create_inference_endpoint_job
 
-Creates a new job
+Creates a new inference endpoint job.
 
 - HTTP Method: `POST`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints/{inference_endpoint_name}/jobs`
@@ -141,7 +141,7 @@ Creates a new job
 | :---------------------- | :-------------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | request_body            | [CreateInferenceEndpointJob](../models/CreateInferenceEndpointJob.md) | ✅       | The request body.                                                                                                                                                                                                                                   |
 | organization_name       | str                                                                   | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inference_endpoint_name | str                                                                   | ✅       | The unique inference endpoint name                                                                                                                                                                                                                  |
+| inference_endpoint_name | str                                                                   | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
 
 **Return Type**
 
@@ -162,13 +162,13 @@ sdk = SaladCloudSdk(
 request_body = CreateInferenceEndpointJob(
     input="",
     metadata={},
-    webhook="webhook"
+    webhook_url="webhook_url"
 )
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(
     request_body=request_body,
-    organization_name="ux8b-38phiwjkfh3rhnvt4x30k5tue7r3q30x0anq7hd1fjfxgtq8ueh",
-    inference_endpoint_name="inference_endpoint_name"
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe"
 )
 
 print(result)
@@ -176,7 +176,7 @@ print(result)
 
 ## get_inference_endpoint_job
 
-Retrieves a job in an inference endpoint
+Gets an inference endpoint job.
 
 - HTTP Method: `GET`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints/{inference_endpoint_name}/jobs/{inference_endpoint_job_id}`
@@ -186,8 +186,8 @@ Retrieves a job in an inference endpoint
 | Name                      | Type | Required | Description                                                                                                                                                                                                                                         |
 | :------------------------ | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | organization_name         | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inference_endpoint_name   | str  | ✅       | The unique inference endpoint name                                                                                                                                                                                                                  |
-| inference_endpoint_job_id | str  | ✅       | The unique job id                                                                                                                                                                                                                                   |
+| inference_endpoint_name   | str  | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
+| inference_endpoint_job_id | str  | ✅       | The inference endpoint job identifier.                                                                                                                                                                                                              |
 
 **Return Type**
 
@@ -205,17 +205,17 @@ sdk = SaladCloudSdk(
 )
 
 result = sdk.inference_endpoints.get_inference_endpoint_job(
-    organization_name="uploo4d78",
-    inference_endpoint_name="inference_endpoint_name",
-    inference_endpoint_job_id="inference_endpoint_job_id"
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe",
+    inference_endpoint_job_id="2fc459a1-1c09-4a34-ade7-54d03fc51d6a"
 )
 
 print(result)
 ```
 
-## delete_inference_endpoint_job
+## cancel_inference_endpoint_job
 
-Deletes an inference endpoint job
+Cancels an inference endpoint job.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/organizations/{organization_name}/inference-endpoints/{inference_endpoint_name}/jobs/{inference_endpoint_job_id}`
@@ -225,8 +225,8 @@ Deletes an inference endpoint job
 | Name                      | Type | Required | Description                                                                                                                                                                                                                                         |
 | :------------------------ | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | organization_name         | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inference_endpoint_name   | str  | ✅       | The unique inference endpoint name                                                                                                                                                                                                                  |
-| inference_endpoint_job_id | str  | ✅       | The unique job id                                                                                                                                                                                                                                   |
+| inference_endpoint_name   | str  | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
+| inference_endpoint_job_id | str  | ✅       | The inference endpoint job identifier.                                                                                                                                                                                                              |
 
 **Example Usage Code Snippet**
 
@@ -239,10 +239,10 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-result = sdk.inference_endpoints.delete_inference_endpoint_job(
-    organization_name="uploo4d78",
-    inference_endpoint_name="inference_endpoint_name",
-    inference_endpoint_job_id="inference_endpoint_job_id"
+result = sdk.inference_endpoints.cancel_inference_endpoint_job(
+    organization_name="acme-corp",
+    inference_endpoint_name="transcribe",
+    inference_endpoint_job_id="2fc459a1-1c09-4a34-ade7-54d03fc51d6a"
 )
 
 print(result)

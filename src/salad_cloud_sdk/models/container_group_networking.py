@@ -2,6 +2,7 @@ from __future__ import annotations
 from enum import Enum
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_networking_protocol import ContainerNetworkingProtocol
 
 
@@ -59,10 +60,10 @@ class ContainerGroupNetworking(BaseModel):
         port: int,
         auth: bool,
         dns: str,
-        load_balancer: ContainerGroupNetworkingLoadBalancer = None,
-        single_connection_limit: bool = None,
-        client_request_timeout: int = None,
-        server_response_timeout: int = None,
+        load_balancer: ContainerGroupNetworkingLoadBalancer = SENTINEL,
+        single_connection_limit: bool = SENTINEL,
+        client_request_timeout: int = SENTINEL,
+        server_response_timeout: int = SENTINEL,
         **kwargs,
     ):
         """Represents container group networking parameters
@@ -90,19 +91,19 @@ class ContainerGroupNetworking(BaseModel):
         self.port = self._define_number("port", port, ge=1, le=65535)
         self.auth = auth
         self.dns = dns
-        if load_balancer is not None:
+        if load_balancer is not SENTINEL:
             self.load_balancer = self._enum_matching(
                 load_balancer,
                 ContainerGroupNetworkingLoadBalancer.list(),
                 "load_balancer",
             )
-        if single_connection_limit is not None:
+        if single_connection_limit is not SENTINEL:
             self.single_connection_limit = single_connection_limit
-        if client_request_timeout is not None:
+        if client_request_timeout is not SENTINEL:
             self.client_request_timeout = self._define_number(
                 "client_request_timeout", client_request_timeout, ge=1, le=100000
             )
-        if server_response_timeout is not None:
+        if server_response_timeout is not SENTINEL:
             self.server_response_timeout = self._define_number(
                 "server_response_timeout", server_response_timeout, ge=1, le=100000
             )

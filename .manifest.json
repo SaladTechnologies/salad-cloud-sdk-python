@@ -1,13 +1,13 @@
 {
-  "liblabVersion": "2.13.0",
-  "date": "2025-02-05T02:35:44.335Z",
+  "liblabVersion": "2.17.0",
+  "date": "2025-03-03T23:59:55.566Z",
   "config": {
-    "apiId": 1737,
+    "apiId": 1851,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.6",
+    "sdkVersion": "0.9.0-alpha.7",
     "languages": ["python"],
     "auth": ["apikey"],
-    "docs": ["snippets"],
+    "docs": ["enhancedApiSpec", "snippets"],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "rawConfig": {
@@ -15,11 +15,22 @@
       "specFilePath": "spec.yaml",
       "languages": ["csharp", "go", "java", "python", "typescript"],
       "auth": ["apikey"],
-      "docs": ["snippets"],
+      "docs": ["enhancedApiSpec"],
       "customizations": {
         "authentication": {
           "apiKey": {
             "header": "Salad-Api-Key"
+          }
+        },
+        "documentation": {
+          "enhancedApiSpec": {
+            "customOutputName": "salad-cloud.yaml",
+            "provider": "mintlify",
+            "githubRepoName": "salad-cloud-docs",
+            "targetBranch": "main",
+            "mintlify": {
+              "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+            }
           }
         },
         "license": {
@@ -38,7 +49,7 @@
           "githubRepoName": "salad-cloud-sdk-dotnet",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.6",
+          "sdkVersion": "0.9.0-alpha.7",
           "authors": [
             {
               "name": "salad"
@@ -55,7 +66,7 @@
           "githubRepoName": "salad-cloud-sdk-go",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.6",
+          "sdkVersion": "0.9.0-alpha.7",
           "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go"
         },
         "java": {
@@ -63,7 +74,7 @@
           "githubRepoName": "salad-cloud-sdk-java",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.7",
+          "sdkVersion": "0.9.0-alpha.8",
           "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
           "groupId": "com.salad.cloud",
           "artifactId": "sdk",
@@ -87,7 +98,7 @@
           "githubRepoName": "salad-cloud-sdk-python",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.6",
+          "sdkVersion": "0.9.0-alpha.7",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -142,7 +153,7 @@
           "githubRepoName": "salad-cloud-sdk-javascript",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.7",
+          "sdkVersion": "0.9.0-alpha.8",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -267,7 +278,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.6",
+        "sdkVersion": "0.9.0-alpha.7",
         "targetBranch": "main"
       },
       "go": {
@@ -275,12 +286,13 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.6",
+        "sdkVersion": "0.9.0-alpha.7",
         "targetBranch": "main"
       },
       "java": {
         "groupId": "com.salad.cloud",
         "artifactId": "sdk",
+        "includeKotlinSnippets": true,
         "developers": [
           {
             "name": "SaladCloud Developers",
@@ -299,7 +311,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.7",
+        "sdkVersion": "0.9.0-alpha.8",
         "targetBranch": "main"
       },
       "python": {
@@ -342,7 +354,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.6",
+        "sdkVersion": "0.9.0-alpha.7",
         "targetBranch": "main"
       },
       "terraform": {
@@ -379,7 +391,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.7",
+        "sdkVersion": "0.9.0-alpha.8",
         "targetBranch": "main",
         "generateEnumAs": "enum"
       }
@@ -474,10 +486,15 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.6",
+    "apiVersion": "0.9.0-alpha.7",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
+      }
+    },
+    "documentation": {
+      "enhancedApiSpec": {
+        "customOutputName": "salad-cloud.yaml"
       }
     },
     "devContainer": true,
@@ -580,6 +597,8 @@
     "src/salad_cloud_sdk/net/request_chain/__init__.py",
     "src/salad_cloud_sdk/net/request_chain/handlers/__init__.py",
     "src/salad_cloud_sdk/models/utils/__init__.py",
+    "src/salad_cloud_sdk/services/async_/__init__.py",
+    "src/salad_cloud_sdk/services/async_/utils/__init__.py",
     "src/salad_cloud_sdk/net/transport/request.py",
     "src/salad_cloud_sdk/net/transport/response.py",
     "src/salad_cloud_sdk/net/transport/request_error.py",
@@ -654,10 +673,11 @@
     "documentation/models/QueueJobList.md",
     "documentation/models/CreateQueueJob.md",
     "documentation/models/Quotas.md",
-    "documentation/models/InferenceEndpointsList.md",
+    "documentation/models/InferenceEndpointList.md",
     "documentation/models/InferenceEndpoint.md",
     "documentation/models/InferenceEndpointJobList.md",
     "documentation/models/CreateInferenceEndpointJob.md",
+    "documentation/models/InferenceEndpointJob.md",
     "documentation/models/GpuClassesList.md",
     "documentation/models/WebhookSecretKey.md",
     "documentation/models/ContainerRestartPolicy.md",
@@ -683,10 +703,23 @@
     "documentation/models/WorkloadError.md",
     "documentation/models/SystemLog.md",
     "documentation/models/ContainerGroupsQuotas.md",
+    "documentation/models/Status.md",
+    "documentation/models/InferenceEndpointJobEvent.md",
+    "documentation/models/InferenceEndpointJobEventAction.md",
     "documentation/models/GpuClass.md",
     "documentation/models/GpuClassPrice.md",
     "src/salad_cloud_sdk/models/utils/one_of_base_model.py",
     "src/salad_cloud_sdk/services/async_/utils/to_async.py",
+    "src/salad_cloud_sdk/services/async_/container_groups.py",
+    "src/salad_cloud_sdk/services/async_/workload_errors.py",
+    "src/salad_cloud_sdk/services/async_/system_logs.py",
+    "src/salad_cloud_sdk/services/async_/queues.py",
+    "src/salad_cloud_sdk/services/async_/quotas.py",
+    "src/salad_cloud_sdk/services/async_/inference_endpoints.py",
+    "src/salad_cloud_sdk/services/async_/organization_data.py",
+    "src/salad_cloud_sdk/services/async_/webhook_secret_key.py",
+    "src/salad_cloud_sdk/sdk_async.py",
+    "src/salad_cloud_sdk/models/utils/sentinel.py",
     "src/salad_cloud_sdk/services/workload_errors.py",
     "src/salad_cloud_sdk/services/system_logs.py",
     "src/salad_cloud_sdk/services/quotas.py",
@@ -694,17 +727,17 @@
     "documentation/services/WorkloadErrorsService.md",
     "documentation/models/ContainerGroupInstance.md",
     "documentation/models/QueueJob.md",
-    "documentation/models/InferenceEndpointJob.md",
     "documentation/models/ContainerGroupNetworking.md",
     "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/QueueJobEvent.md",
-    "documentation/models/InferenceEndpointJobEvent.md",
     "src/salad_cloud_sdk/models/container_restart_policy.py",
     "src/salad_cloud_sdk/models/country_code.py",
     "src/salad_cloud_sdk/models/container_group_priority.py",
     "src/salad_cloud_sdk/models/container_group_status.py",
     "src/salad_cloud_sdk/models/container_networking_protocol.py",
     "src/salad_cloud_sdk/models/container_probe_http_scheme.py",
+    "src/salad_cloud_sdk/models/status.py",
+    "src/salad_cloud_sdk/models/inference_endpoint_job_event_action.py",
     "documentation/services/SystemLogsService.md",
     "documentation/services/QuotasService.md",
     "documentation/services/OrganizationDataService.md",
@@ -722,10 +755,11 @@
     "src/salad_cloud_sdk/models/queue_job_list.py",
     "src/salad_cloud_sdk/models/create_queue_job.py",
     "src/salad_cloud_sdk/models/quotas.py",
-    "src/salad_cloud_sdk/models/inference_endpoints_list.py",
+    "src/salad_cloud_sdk/models/inference_endpoint_list.py",
     "src/salad_cloud_sdk/models/inference_endpoint.py",
     "src/salad_cloud_sdk/models/inference_endpoint_job_list.py",
     "src/salad_cloud_sdk/models/create_inference_endpoint_job.py",
+    "src/salad_cloud_sdk/models/inference_endpoint_job.py",
     "src/salad_cloud_sdk/models/gpu_classes_list.py",
     "src/salad_cloud_sdk/models/webhook_secret_key.py",
     "src/salad_cloud_sdk/models/container_group_state.py",
@@ -745,23 +779,22 @@
     "src/salad_cloud_sdk/models/workload_error.py",
     "src/salad_cloud_sdk/models/system_log.py",
     "src/salad_cloud_sdk/models/container_groups_quotas.py",
+    "src/salad_cloud_sdk/models/inference_endpoint_job_event.py",
     "src/salad_cloud_sdk/models/gpu_class.py",
     "src/salad_cloud_sdk/models/gpu_class_price.py",
     "src/salad_cloud_sdk/services/webhook_secret_key.py",
     "documentation/services/WebhookSecretKeyService.md",
     "src/salad_cloud_sdk/models/container_group_instance.py",
     "src/salad_cloud_sdk/models/queue_job.py",
-    "src/salad_cloud_sdk/models/inference_endpoint_job.py",
     "src/salad_cloud_sdk/models/container_group_networking.py",
     "src/salad_cloud_sdk/models/create_container_group_networking.py",
     "src/salad_cloud_sdk/models/queue_job_event.py",
-    "src/salad_cloud_sdk/models/inference_endpoint_job_event.py",
     "documentation/services/InferenceEndpointsService.md",
-    "README.md",
     "documentation/services/QueuesService.md",
-    "PyPI_README.md",
     "src/salad_cloud_sdk/services/inference_endpoints.py",
+    "README.md",
     "documentation/models/Container.md",
+    "PyPI_README.md",
     "documentation/services/ContainerGroupsService.md",
     "src/salad_cloud_sdk/services/queues.py",
     "documentation/models/CreateContainer.md",

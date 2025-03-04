@@ -1,5 +1,7 @@
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -31,12 +33,12 @@ class SystemLog(BaseModel):
         event_name: str,
         event_time: str,
         version: str,
-        resource_cpu: int,
-        resource_memory: int,
+        resource_cpu: Union[int, None],
+        resource_memory: Union[int, None],
         resource_gpu_class: str,
-        resource_storage_amount: int,
-        instance_id: str = None,
-        machine_id: str = None,
+        resource_storage_amount: Union[int, None],
+        instance_id: str = SENTINEL,
+        machine_id: str = SENTINEL,
         **kwargs
     ):
         """Represents a system log
@@ -62,9 +64,9 @@ class SystemLog(BaseModel):
         """
         self.event_name = event_name
         self.event_time = event_time
-        if instance_id is not None:
+        if instance_id is not SENTINEL:
             self.instance_id = instance_id
-        if machine_id is not None:
+        if machine_id is not SENTINEL:
             self.machine_id = machine_id
         self.version = version
         self.resource_cpu = self._define_number(

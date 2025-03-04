@@ -14,11 +14,11 @@ from .queue_job_list import QueueJobList
 from .create_queue_job import CreateQueueJob
 from .queue_job import QueueJob, QueueJobStatus
 from .quotas import Quotas
-from .inference_endpoints_list import InferenceEndpointsList
+from .inference_endpoint_list import InferenceEndpointList
 from .inference_endpoint import InferenceEndpoint
 from .inference_endpoint_job_list import InferenceEndpointJobList
 from .create_inference_endpoint_job import CreateInferenceEndpointJob
-from .inference_endpoint_job import InferenceEndpointJob, InferenceEndpointJobStatus
+from .inference_endpoint_job import InferenceEndpointJob
 from .gpu_classes_list import GpuClassesList
 from .webhook_secret_key import WebhookSecretKey
 from .container import Container, ContainerLogging
@@ -63,11 +63,10 @@ from .update_container import (
 from .update_container_group_networking import UpdateContainerGroupNetworking
 from .workload_error import WorkloadError
 from .system_log import SystemLog
-from .queue_job_event import QueueJobEvent, QueueJobEventAction
+from .queue_job_event import QueueJobEvent, Action
 from .container_groups_quotas import ContainerGroupsQuotas
-from .inference_endpoint_job_event import (
-    InferenceEndpointJobEvent,
-    InferenceEndpointJobEventAction,
-)
+from .status import Status
+from .inference_endpoint_job_event import InferenceEndpointJobEvent
+from .inference_endpoint_job_event_action import InferenceEndpointJobEventAction
 from .gpu_class import GpuClass
 from .gpu_class_price import GpuClassPrice

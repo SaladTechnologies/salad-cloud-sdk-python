@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_groups_quotas import ContainerGroupsQuotas
 
 
@@ -19,8 +20,8 @@ class Quotas(BaseModel):
     def __init__(
         self,
         container_groups_quotas: ContainerGroupsQuotas,
-        create_time: str = None,
-        update_time: str = None,
+        create_time: str = SENTINEL,
+        update_time: str = SENTINEL,
         **kwargs,
     ):
         """Represents the organization quotas
@@ -35,8 +36,8 @@ class Quotas(BaseModel):
         self.container_groups_quotas = self._define_object(
             container_groups_quotas, ContainerGroupsQuotas
         )
-        if create_time is not None:
+        if create_time is not SENTINEL:
             self.create_time = create_time
-        if update_time is not None:
+        if update_time is not SENTINEL:
             self.update_time = update_time
         self._kwargs = kwargs

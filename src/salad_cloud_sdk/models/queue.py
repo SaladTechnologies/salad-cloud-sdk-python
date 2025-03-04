@@ -1,7 +1,9 @@
 from __future__ import annotations
 from typing import List
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .container_group import ContainerGroup
 
 
@@ -33,7 +35,7 @@ class Queue(BaseModel):
         container_groups: List[ContainerGroup],
         create_time: str,
         update_time: str,
-        description: str = None,
+        description: Union[str, None] = SENTINEL,
         **kwargs,
     ):
         """Represents a queue.
@@ -68,7 +70,7 @@ class Queue(BaseModel):
             min_length=2,
             max_length=63,
         )
-        if description is not None:
+        if description is not SENTINEL:
             self.description = self._define_str(
                 "description", description, nullable=True, max_length=500
             )

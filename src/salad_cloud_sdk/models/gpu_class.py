@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .gpu_class_price import GpuClassPrice
 
 
@@ -24,7 +25,7 @@ class GpuClass(BaseModel):
         id_: str,
         name: str,
         prices: List[GpuClassPrice],
-        is_high_demand: bool = None,
+        is_high_demand: bool = SENTINEL,
         **kwargs,
     ):
         """Represents a GPU Class
@@ -39,8 +40,10 @@ class GpuClass(BaseModel):
         :type is_high_demand: bool, optional
         """
         self.id_ = id_
-        self.name = self._define_str("name", name, min_length=2, max_length=63)
+        self.name = self._define_str(
+            "name", name, pattern="^[ -~]{2,63}$", min_length=2, max_length=63
+        )
         self.prices = self._define_list(prices, GpuClassPrice)
-        if is_high_demand is not None:
+        if is_high_demand is not SENTINEL:
             self.is_high_demand = is_high_demand
         self._kwargs = kwargs

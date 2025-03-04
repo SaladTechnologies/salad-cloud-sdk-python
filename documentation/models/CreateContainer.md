@@ -13,6 +13,7 @@ Represents a container
 | environment_variables   | dict                                  | ❌       |                                                                                                  |
 | logging                 | CreateContainerLogging                | ❌       |                                                                                                  |
 | registry_authentication | CreateContainerRegistryAuthentication | ❌       |                                                                                                  |
+| image_caching           | bool                                  | ❌       |                                                                                                  |
 
 # CreateContainerLogging
 

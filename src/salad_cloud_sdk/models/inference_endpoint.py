@@ -6,57 +6,80 @@ from .utils.base_model import BaseModel
 class InferenceEndpoint(BaseModel):
     """Represents an inference endpoint
 
-    :param id_: The unique identifier
+    :param id_: The inference endpoint identifier.
     :type id_: str
-    :param name: The inference endpoint name
+    :param name: The inference endpoint name.
     :type name: str
-    :param display_name: The inference endpoint display name
+    :param organization_name: The organization name.
+    :type organization_name: str
+    :param display_name: The display-friendly name of the resource.
     :type display_name: str
-    :param description: a brief description of the inference endpoint
+    :param description: The detailed description of the resource.
     :type description: str
-    :param endpoint_url: The URL of the inference endpoint
-    :type endpoint_url: str
     :param readme: A markdown file containing a detailed description of the inference endpoint
     :type readme: str
     :param price_description: A description of the price
     :type price_description: str
-    :param icon_image: The URL of the icon image
-    :type icon_image: str
+    :param icon_url: The URL of the icon image
+    :type icon_url: str
+    :param input_schema: The input schema
+    :type input_schema: str
+    :param output_schema: The output schema
+    :type output_schema: str
     """
 
     def __init__(
         self,
         id_: str,
         name: str,
+        organization_name: str,
         display_name: str,
         description: str,
-        endpoint_url: str,
         readme: str,
         price_description: str,
-        icon_image: str,
+        icon_url: str,
+        input_schema: str,
+        output_schema: str,
         **kwargs
     ):
         """Represents an inference endpoint
 
-        :param id_: The unique identifier
+        :param id_: The inference endpoint identifier.
         :type id_: str
-        :param name: The inference endpoint name
+        :param name: The inference endpoint name.
         :type name: str
-        :param display_name: The inference endpoint display name
+        :param organization_name: The organization name.
+        :type organization_name: str
+        :param display_name: The display-friendly name of the resource.
         :type display_name: str
-        :param description: a brief description of the inference endpoint
+        :param description: The detailed description of the resource.
         :type description: str
-        :param endpoint_url: The URL of the inference endpoint
-        :type endpoint_url: str
         :param readme: A markdown file containing a detailed description of the inference endpoint
         :type readme: str
         :param price_description: A description of the price
         :type price_description: str
-        :param icon_image: The URL of the icon image
-        :type icon_image: str
+        :param icon_url: The URL of the icon image
+        :type icon_url: str
+        :param input_schema: The input schema
+        :type input_schema: str
+        :param output_schema: The output schema
+        :type output_schema: str
         """
         self.id_ = id_
-        self.name = name
+        self.name = self._define_str(
+            "name",
+            name,
+            pattern="^[a-z][a-z0-9-]{0,61}[a-z0-9]$",
+            min_length=2,
+            max_length=63,
+        )
+        self.organization_name = self._define_str(
+            "organization_name",
+            organization_name,
+            pattern="^[a-z][a-z0-9-]{0,61}[a-z0-9]$",
+            min_length=2,
+            max_length=63,
+        )
         self.display_name = self._define_str(
             "display_name",
             display_name,
@@ -64,9 +87,15 @@ class InferenceEndpoint(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.description = description
-        self.endpoint_url = endpoint_url
+        self.description = self._define_str(
+            "description",
+            description,
+            pattern="^[\P{Cc}\P{Cn}\P{Cs}]*$",
+            max_length=1000,
+        )
         self.readme = readme
         self.price_description = price_description
-        self.icon_image = icon_image
+        self.icon_url = icon_url
+        self.input_schema = input_schema
+        self.output_schema = output_schema
         self._kwargs = kwargs

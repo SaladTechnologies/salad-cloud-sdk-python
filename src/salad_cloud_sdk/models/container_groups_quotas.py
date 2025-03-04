@@ -1,5 +1,6 @@
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -22,9 +23,9 @@ class ContainerGroupsQuotas(BaseModel):
         self,
         max_created_container_groups: int,
         container_instance_quota: int,
-        max_container_group_reallocations_per_minute: int = None,
-        max_container_group_recreates_per_minute: int = None,
-        max_container_group_restarts_per_minute: int = None,
+        max_container_group_reallocations_per_minute: int = SENTINEL,
+        max_container_group_recreates_per_minute: int = SENTINEL,
+        max_container_group_restarts_per_minute: int = SENTINEL,
         **kwargs
     ):
         """ContainerGroupsQuotas
@@ -42,19 +43,19 @@ class ContainerGroupsQuotas(BaseModel):
         """
         self.max_created_container_groups = max_created_container_groups
         self.container_instance_quota = container_instance_quota
-        if max_container_group_reallocations_per_minute is not None:
+        if max_container_group_reallocations_per_minute is not SENTINEL:
             self.max_container_group_reallocations_per_minute = self._define_number(
                 "max_container_group_reallocations_per_minute",
                 max_container_group_reallocations_per_minute,
                 ge=0,
             )
-        if max_container_group_recreates_per_minute is not None:
+        if max_container_group_recreates_per_minute is not SENTINEL:
             self.max_container_group_recreates_per_minute = self._define_number(
                 "max_container_group_recreates_per_minute",
                 max_container_group_recreates_per_minute,
                 ge=0,
             )
-        if max_container_group_restarts_per_minute is not None:
+        if max_container_group_restarts_per_minute is not SENTINEL:
             self.max_container_group_restarts_per_minute = self._define_number(
                 "max_container_group_restarts_per_minute",
                 max_container_group_restarts_per_minute,

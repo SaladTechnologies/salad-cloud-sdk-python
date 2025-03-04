@@ -10,16 +10,16 @@ sdk = SaladCloudSdk(
 
 request_body = CreateContainerGroup(
     name="name",
-    display_name=".x9,4l5Qs6",
+    display_name="uPpL",
     container={
         "image": "image",
         "resources": {
-            "cpu": 2,
-            "memory": 50123,
+            "cpu": 7,
+            "memory": 51618,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 10520457433
+            "storage_amount": 23627499788
         },
         "command": [
             "command"
@@ -52,11 +52,11 @@ request_body = CreateContainerGroup(
             },
             "tcp": {
                 "host": "host",
-                "port": 54933
+                "port": 14084
             },
             "http": {
                 "host": "host",
-                "port": 34196,
+                "port": 31838,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -89,18 +89,19 @@ request_body = CreateContainerGroup(
             "gcp_gar": {
                 "service_key": "service_key"
             }
-        }
+        },
+        "image_caching": False
     },
-    autostart_policy=True,
+    autostart_policy=False,
     restart_policy="always",
-    replicas=65,
+    replicas=437,
     country_codes=[
         "af"
     ],
     networking={
         "protocol": "http",
-        "port": 47917,
-        "auth": False,
+        "port": 51618,
+        "auth": True,
         "load_balancer": "round_robin",
         "single_connection_limit": True,
         "client_request_timeout": 100000,
@@ -108,11 +109,11 @@ request_body = CreateContainerGroup(
     },
     liveness_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -123,14 +124,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 1,
+        "initial_delay_seconds": 2,
         "period_seconds": 10,
         "timeout_seconds": 30,
         "success_threshold": 1,
@@ -138,11 +139,11 @@ request_body = CreateContainerGroup(
     },
     readiness_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -153,14 +154,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 10,
+        "initial_delay_seconds": 6,
         "period_seconds": 1,
         "timeout_seconds": 1,
         "success_threshold": 1,
@@ -168,11 +169,11 @@ request_body = CreateContainerGroup(
     },
     startup_probe={
         "tcp": {
-            "port": 5853
+            "port": 63625
         },
         "http": {
             "path": "path",
-            "port": 64861,
+            "port": 28190,
             "scheme": "http",
             "headers": [
                 {
@@ -183,14 +184,14 @@ request_body = CreateContainerGroup(
         },
         "grpc": {
             "service": "service",
-            "port": 15336
+            "port": 43451
         },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 0,
+        "initial_delay_seconds": 7,
         "period_seconds": 3,
         "timeout_seconds": 10,
         "success_threshold": 2,
@@ -198,23 +199,23 @@ request_body = CreateContainerGroup(
     },
     queue_connection={
         "path": "path",
-        "port": 48169,
-        "queue_name": "rozs9trd4v0bll7qwslfehyhnfadnjp2w52gw"
+        "port": 33046,
+        "queue_name": "dbfand1htyt3qna2yfhck403bsaqbf"
     },
     queue_autoscaler={
-        "min_replicas": 72,
-        "max_replicas": 136,
-        "desired_queue_length": 49,
-        "polling_period": 497,
-        "max_upscale_per_minute": 27,
-        "max_downscale_per_minute": 25
+        "min_replicas": 60,
+        "max_replicas": 62,
+        "desired_queue_length": 67,
+        "polling_period": 39,
+        "max_upscale_per_minute": 62,
+        "max_downscale_per_minute": 52
     }
 )
 
 result = sdk.container_groups.create_container_group(
     request_body=request_body,
-    organization_name="dj0q7z7dvdopv2czf",
-    project_name="c1zrufxgh"
+    organization_name="acme-corp",
+    project_name="dev-env"
 )
 
 print(result)

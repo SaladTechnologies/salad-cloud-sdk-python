@@ -39,7 +39,7 @@ class SystemLogsService(BaseService):
         serialized_request = (
             Serializer(
                 f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/system-logs",
-                self.get_default_headers(),
+                [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)

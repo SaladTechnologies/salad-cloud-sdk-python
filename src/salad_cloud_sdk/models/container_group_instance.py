@@ -1,6 +1,7 @@
 from enum import Enum
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 class State(Enum):
@@ -60,8 +61,8 @@ class ContainerGroupInstance(BaseModel):
         state: State,
         update_time: str,
         version: int,
-        ready: bool = None,
-        started: bool = None,
+        ready: bool = SENTINEL,
+        started: bool = SENTINEL,
         **kwargs
     ):
         """Represents the details of a single container group instance
@@ -86,8 +87,8 @@ class ContainerGroupInstance(BaseModel):
         self.state = self._enum_matching(state, State.list(), "state")
         self.update_time = update_time
         self.version = self._define_number("version", version, ge=1)
-        if ready is not None:
+        if ready is not SENTINEL:
             self.ready = ready
-        if started is not None:
+        if started is not SENTINEL:
             self.started = started
         self._kwargs = kwargs
