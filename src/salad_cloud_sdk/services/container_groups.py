@@ -4,11 +4,12 @@ from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
 from ..models import (
     ContainerGroup,
+    ContainerGroupCollection,
+    ContainerGroupCreationRequest,
     ContainerGroupInstance,
-    ContainerGroupInstances,
-    ContainerGroupList,
-    CreateContainerGroup,
-    UpdateContainerGroup,
+    ContainerGroupInstanceCollection,
+    ContainerGroupInstancePatch,
+    ContainerGroupPatch,
 )
 
 
@@ -17,7 +18,7 @@ class ContainerGroupsService(BaseService):
     @cast_models
     def list_container_groups(
         self, organization_name: str, project_name: str
-    ) -> ContainerGroupList:
+    ) -> ContainerGroupCollection:
         """Gets the list of container groups
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -28,7 +29,7 @@ class ContainerGroupsService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The parsed response data.
-        :rtype: ContainerGroupList
+        :rtype: ContainerGroupCollection
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -50,19 +51,19 @@ class ContainerGroupsService(BaseService):
         )
 
         response, _, _ = self.send_request(serialized_request)
-        return ContainerGroupList._unmap(response)
+        return ContainerGroupCollection._unmap(response)
 
     @cast_models
     def create_container_group(
         self,
-        request_body: CreateContainerGroup,
+        request_body: ContainerGroupCreationRequest,
         organization_name: str,
         project_name: str,
     ) -> ContainerGroup:
         """Creates a new container group
 
         :param request_body: The request body.
-        :type request_body: CreateContainerGroup
+        :type request_body: ContainerGroupCreationRequest
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
@@ -74,7 +75,7 @@ class ContainerGroupsService(BaseService):
         :rtype: ContainerGroup
         """
 
-        Validator(CreateContainerGroup).validate(request_body)
+        Validator(ContainerGroupCreationRequest).validate(request_body)
         Validator(str).min_length(2).max_length(63).pattern(
             "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         ).validate(organization_name)
@@ -144,7 +145,7 @@ class ContainerGroupsService(BaseService):
     @cast_models
     def update_container_group(
         self,
-        request_body: UpdateContainerGroup,
+        request_body: ContainerGroupPatch,
         organization_name: str,
         project_name: str,
         container_group_name: str,
@@ -152,7 +153,7 @@ class ContainerGroupsService(BaseService):
         """Updates a container group
 
         :param request_body: The request body.
-        :type request_body: UpdateContainerGroup
+        :type request_body: ContainerGroupPatch
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
@@ -166,7 +167,7 @@ class ContainerGroupsService(BaseService):
         :rtype: ContainerGroup
         """
 
-        Validator(UpdateContainerGroup).validate(request_body)
+        Validator(ContainerGroupPatch).validate(request_body)
         Validator(str).min_length(2).max_length(63).pattern(
             "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         ).validate(organization_name)
@@ -319,7 +320,7 @@ class ContainerGroupsService(BaseService):
     @cast_models
     def list_container_group_instances(
         self, organization_name: str, project_name: str, container_group_name: str
-    ) -> ContainerGroupInstances:
+    ) -> ContainerGroupInstanceCollection:
         """Gets the list of container group instances
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -332,7 +333,7 @@ class ContainerGroupsService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The parsed response data.
-        :rtype: ContainerGroupInstances
+        :rtype: ContainerGroupInstanceCollection
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -358,7 +359,7 @@ class ContainerGroupsService(BaseService):
         )
 
         response, _, _ = self.send_request(serialized_request)
-        return ContainerGroupInstances._unmap(response)
+        return ContainerGroupInstanceCollection._unmap(response)
 
     @cast_models
     def get_container_group_instance(
@@ -376,7 +377,7 @@ class ContainerGroupsService(BaseService):
         :type project_name: str
         :param container_group_name: The unique container group name
         :type container_group_name: str
-        :param container_group_instance_id: The unique instance identifier
+        :param container_group_instance_id: The unique container group instance identifier
         :type container_group_instance_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -413,6 +414,63 @@ class ContainerGroupsService(BaseService):
         return ContainerGroupInstance._unmap(response)
 
     @cast_models
+    def update_container_group_instance(
+        self,
+        request_body: ContainerGroupInstancePatch,
+        organization_name: str,
+        project_name: str,
+        container_group_name: str,
+        container_group_instance_id: str,
+    ) -> ContainerGroupInstance:
+        """Updates a container group instance
+
+        :param request_body: The request body.
+        :type request_body: ContainerGroupInstancePatch
+        :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
+        :type organization_name: str
+        :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
+        :type project_name: str
+        :param container_group_name: The unique container group name
+        :type container_group_name: str
+        :param container_group_instance_id: The unique container group instance identifier
+        :type container_group_instance_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: ContainerGroupInstance
+        """
+
+        Validator(ContainerGroupInstancePatch).validate(request_body)
+        Validator(str).min_length(2).max_length(63).pattern(
+            "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
+        ).validate(organization_name)
+        Validator(str).min_length(2).max_length(63).pattern(
+            "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
+        ).validate(project_name)
+        Validator(str).min_length(2).max_length(63).pattern(
+            "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
+        ).validate(container_group_name)
+        Validator(str).validate(container_group_instance_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}",
+                [self.get_api_key()],
+            )
+            .add_path("organization_name", organization_name)
+            .add_path("project_name", project_name)
+            .add_path("container_group_name", container_group_name)
+            .add_path("container_group_instance_id", container_group_instance_id)
+            .serialize()
+            .set_method("PATCH")
+            .set_body(request_body, "application/merge-patch+json")
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return ContainerGroupInstance._unmap(response)
+
+    @cast_models
     def reallocate_container_group_instance(
         self,
         organization_name: str,
@@ -428,7 +486,7 @@ class ContainerGroupsService(BaseService):
         :type project_name: str
         :param container_group_name: The unique container group name
         :type container_group_name: str
-        :param container_group_instance_id: The unique instance identifier
+        :param container_group_instance_id: The unique container group instance identifier
         :type container_group_instance_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -477,7 +535,7 @@ class ContainerGroupsService(BaseService):
         :type project_name: str
         :param container_group_name: The unique container group name
         :type container_group_name: str
-        :param container_group_instance_id: The unique instance identifier
+        :param container_group_instance_id: The unique container group instance identifier
         :type container_group_instance_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -526,7 +584,7 @@ class ContainerGroupsService(BaseService):
         :type project_name: str
         :param container_group_name: The unique container group name
         :type container_group_name: str
-        :param container_group_instance_id: The unique instance identifier
+        :param container_group_instance_id: The unique container group instance identifier
         :type container_group_instance_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.

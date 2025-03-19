@@ -9,7 +9,7 @@ from .container_groups_quotas import ContainerGroupsQuotas
 class Quotas(BaseModel):
     """Represents the organization quotas
 
-    :param container_groups_quotas: container_groups_quotas
+    :param container_groups_quotas: Represents the organization quotas for container groups
     :type container_groups_quotas: ContainerGroupsQuotas
     :param create_time: The time the resource was created, defaults to None
     :type create_time: str, optional
@@ -26,7 +26,7 @@ class Quotas(BaseModel):
     ):
         """Represents the organization quotas
 
-        :param container_groups_quotas: container_groups_quotas
+        :param container_groups_quotas: Represents the organization quotas for container groups
         :type container_groups_quotas: ContainerGroupsQuotas
         :param create_time: The time the resource was created, defaults to None
         :type create_time: str, optional

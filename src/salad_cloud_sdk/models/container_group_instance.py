@@ -1,94 +1,76 @@
-from enum import Enum
+from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
+from .the_container_group_instance_state import TheContainerGroupInstanceState
 
 
-class State(Enum):
-    """An enumeration representing different categories.
-
-    :cvar ALLOCATING: "allocating"
-    :vartype ALLOCATING: str
-    :cvar DOWNLOADING: "downloading"
-    :vartype DOWNLOADING: str
-    :cvar CREATING: "creating"
-    :vartype CREATING: str
-    :cvar RUNNING: "running"
-    :vartype RUNNING: str
-    :cvar STOPPING: "stopping"
-    :vartype STOPPING: str
-    """
-
-    ALLOCATING = "allocating"
-    DOWNLOADING = "downloading"
-    CREATING = "creating"
-    RUNNING = "running"
-    STOPPING = "stopping"
-
-    def list():
-        """Lists all category values.
-
-        :return: A list of all category values.
-        :rtype: list
-        """
-        return list(map(lambda x: x.value, State._member_map_.values()))
-
-
-@JsonMap({})
+@JsonMap({"id_": "id"})
 class ContainerGroupInstance(BaseModel):
-    """Represents the details of a single container group instance
+    """A Container Group Instance represents a running instance of a container group on a specific machine. It provides information about the execution state, readiness, and version of the deployed container group.
 
-    :param instance_id: The unique instance ID
-    :type instance_id: str
-    :param machine_id: The machine ID
+    :param id_: The container group instance identifier.
+    :type id_: str
+    :param machine_id: The container group machine identifier.
     :type machine_id: str
     :param state: The state of the container group instance
-    :type state: State
-    :param update_time: The UTC date & time when the workload on this machine transitioned to the current state
+    :type state: TheContainerGroupInstanceState
+    :param update_time: The UTC timestamp when the container group instance last changed its state. This helps track the lifecycle and state transitions of the instance.
     :type update_time: str
-    :param version: The version of the running container group
+    :param version: The version of the container group definition currently running on this instance. Used to track deployment and update progress across the container group fleet.
     :type version: int
-    :param ready: Specifies whether the container group instance is currently passing its readiness check. If no readiness probe is defined, is true once fully started., defaults to None
+    :param ready: Indicates whether the container group instance is currently passing its readiness checks and is able to receive traffic or perform its intended function. If no readiness probe is defined, this will be true once the instance is fully started., defaults to None
     :type ready: bool, optional
-    :param started: Specifies whether the container group instance passed its startup probe. Is always true when no startup probe is defined., defaults to None
+    :param started: Indicates whether the container group instance has successfully completed its startup sequence and passed any configured startup probes. This will always be true when no startup probe is defined for the container group., defaults to None
     :type started: bool, optional
+    :param deletion_cost: The cost of deleting the container group instance, defaults to None
+    :type deletion_cost: int, optional
     """
 
     def __init__(
         self,
-        instance_id: str,
+        id_: str,
         machine_id: str,
-        state: State,
+        state: TheContainerGroupInstanceState,
         update_time: str,
         version: int,
         ready: bool = SENTINEL,
         started: bool = SENTINEL,
-        **kwargs
+        deletion_cost: int = SENTINEL,
+        **kwargs,
     ):
-        """Represents the details of a single container group instance
+        """A Container Group Instance represents a running instance of a container group on a specific machine. It provides information about the execution state, readiness, and version of the deployed container group.
 
-        :param instance_id: The unique instance ID
-        :type instance_id: str
-        :param machine_id: The machine ID
+        :param id_: The container group instance identifier.
+        :type id_: str
+        :param machine_id: The container group machine identifier.
         :type machine_id: str
         :param state: The state of the container group instance
-        :type state: State
-        :param update_time: The UTC date & time when the workload on this machine transitioned to the current state
+        :type state: TheContainerGroupInstanceState
+        :param update_time: The UTC timestamp when the container group instance last changed its state. This helps track the lifecycle and state transitions of the instance.
         :type update_time: str
-        :param version: The version of the running container group
+        :param version: The version of the container group definition currently running on this instance. Used to track deployment and update progress across the container group fleet.
         :type version: int
-        :param ready: Specifies whether the container group instance is currently passing its readiness check. If no readiness probe is defined, is true once fully started., defaults to None
+        :param ready: Indicates whether the container group instance is currently passing its readiness checks and is able to receive traffic or perform its intended function. If no readiness probe is defined, this will be true once the instance is fully started., defaults to None
         :type ready: bool, optional
-        :param started: Specifies whether the container group instance passed its startup probe. Is always true when no startup probe is defined., defaults to None
+        :param started: Indicates whether the container group instance has successfully completed its startup sequence and passed any configured startup probes. This will always be true when no startup probe is defined for the container group., defaults to None
         :type started: bool, optional
+        :param deletion_cost: The cost of deleting the container group instance, defaults to None
+        :type deletion_cost: int, optional
         """
-        self.instance_id = instance_id
+        self.id_ = id_
         self.machine_id = machine_id
-        self.state = self._enum_matching(state, State.list(), "state")
+        self.state = self._enum_matching(
+            state, TheContainerGroupInstanceState.list(), "state"
+        )
         self.update_time = update_time
-        self.version = self._define_number("version", version, ge=1)
+        self.version = self._define_number("version", version, ge=1, le=2147483647)
         if ready is not SENTINEL:
             self.ready = ready
         if started is not SENTINEL:
             self.started = started
+        if deletion_cost is not SENTINEL:
+            self.deletion_cost = self._define_number(
+                "deletion_cost", deletion_cost, ge=0, le=100000
+            )
         self._kwargs = kwargs

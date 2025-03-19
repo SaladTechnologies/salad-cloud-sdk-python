@@ -1,6 +1,6 @@
 ```python
 from salad_cloud_sdk import SaladCloudSdk
-from salad_cloud_sdk.models import UpdateContainerGroup
+from salad_cloud_sdk.models import ContainerGroupPatch
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
@@ -8,23 +8,15 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-request_body = UpdateContainerGroup(
-    display_name="iMQ",
+request_body = ContainerGroupPatch(
+    display_name="rukYe",
     container={
-        "image": "image",
-        "resources": {
-            "cpu": 1,
-            "memory": 45763,
-            "gpu_classes": [
-                "gpu_classes"
-            ],
-            "storage_amount": 11277160494
-        },
         "command": [
             "command"
         ],
-        "priority": "high",
         "environment_variables": {},
+        "image": "image",
+        "image_caching": True,
         "logging": {
             "axiom": {
                 "host": "host",
@@ -41,21 +33,9 @@ request_body = UpdateContainerGroup(
                     }
                 ]
             },
-            "new_relic": {
-                "host": "host",
-                "ingestion_key": "ingestion_key"
-            },
-            "splunk": {
-                "host": "host",
-                "token": "token"
-            },
-            "tcp": {
-                "host": "host",
-                "port": 30411
-            },
             "http": {
                 "host": "host",
-                "port": 32913,
+                "port": 43509,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -67,19 +47,29 @@ request_body = UpdateContainerGroup(
                     }
                 ],
                 "compression": "none"
+            },
+            "new_relic": {
+                "host": "host",
+                "ingestion_key": "ingestion_key"
+            },
+            "splunk": {
+                "host": "host",
+                "token": "token"
+            },
+            "tcp": {
+                "host": "host",
+                "port": 35405
             }
         },
+        "priority": "high",
         "registry_authentication": {
-            "basic": {
-                "username": "username",
-                "password": "password"
-            },
-            "gcp_gcr": {
-                "service_key": "service_key"
-            },
             "aws_ecr": {
                 "access_key_id": "access_key_id",
                 "secret_access_key": "secret_access_key"
+            },
+            "basic": {
+                "username": "username",
+                "password": "password"
             },
             "docker_hub": {
                 "username": "username",
@@ -87,114 +77,124 @@ request_body = UpdateContainerGroup(
             },
             "gcp_gar": {
                 "service_key": "service_key"
+            },
+            "gcp_gcr": {
+                "service_key": "service_key"
             }
         },
-        "image_caching": False
+        "resources": {
+            "cpu": 4,
+            "memory": 50175,
+            "gpu_classes": [
+                "gpu_classes"
+            ],
+            "storage_amount": 27536827537
+        }
     },
-    replicas=201,
+    replicas=476,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 16494
+        "port": 27606
     },
     liveness_probe={
-        "tcp": {
-            "port": 63625
-        },
-        "http": {
-            "path": "path",
-            "port": 28190,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 43451
-        },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 2,
+        "failure_threshold": 3,
+        "grpc": {
+            "port": 4792,
+            "service": "service"
+        },
+        "http": {
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ],
+            "path": "path",
+            "port": 18942,
+            "scheme": "http"
+        },
+        "initial_delay_seconds": 987,
         "period_seconds": 10,
-        "timeout_seconds": 30,
         "success_threshold": 1,
-        "failure_threshold": 3
+        "tcp": {
+            "port": 47377
+        },
+        "timeout_seconds": 30
     },
     readiness_probe={
-        "tcp": {
-            "port": 63625
-        },
-        "http": {
-            "path": "path",
-            "port": 28190,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 43451
-        },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 6,
+        "failure_threshold": 3,
+        "grpc": {
+            "port": 4792,
+            "service": "service"
+        },
+        "http": {
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ],
+            "path": "path",
+            "port": 18942,
+            "scheme": "http"
+        },
+        "initial_delay_seconds": 479,
         "period_seconds": 1,
-        "timeout_seconds": 1,
         "success_threshold": 1,
-        "failure_threshold": 3
+        "tcp": {
+            "port": 47377
+        },
+        "timeout_seconds": 1
     },
     startup_probe={
-        "tcp": {
-            "port": 63625
-        },
-        "http": {
-            "path": "path",
-            "port": 28190,
-            "scheme": "http",
-            "headers": [
-                {
-                    "name": "name",
-                    "value": "value"
-                }
-            ]
-        },
-        "grpc": {
-            "service": "service",
-            "port": 43451
-        },
         "exec_": {
             "command": [
                 "command"
             ]
         },
-        "initial_delay_seconds": 7,
+        "failure_threshold": 15,
+        "grpc": {
+            "port": 4792,
+            "service": "service"
+        },
+        "http": {
+            "headers": [
+                {
+                    "name": "name",
+                    "value": "value"
+                }
+            ],
+            "path": "path",
+            "port": 18942,
+            "scheme": "http"
+        },
+        "initial_delay_seconds": 563,
+        "tcp": {
+            "port": 47377
+        },
         "period_seconds": 3,
-        "timeout_seconds": 10,
         "success_threshold": 2,
-        "failure_threshold": 1200
+        "timeout_seconds": 10
     },
     queue_autoscaler={
-        "min_replicas": 60,
-        "max_replicas": 62,
-        "desired_queue_length": 67,
-        "polling_period": 39,
-        "max_upscale_per_minute": 62,
-        "max_downscale_per_minute": 52
+        "desired_queue_length": 2,
+        "max_replicas": 219,
+        "max_downscale_per_minute": 5,
+        "max_upscale_per_minute": 16,
+        "min_replicas": 88,
+        "polling_period": 680
     }
 )
 
@@ -202,7 +202,7 @@ result = sdk.container_groups.update_container_group(
     request_body=request_body,
     organization_name="acme-corp",
     project_name="dev-env",
-    container_group_name="vpg4-370h--6se6eqezp-g"
+    container_group_name="mandlebrot"
 )
 
 print(result)

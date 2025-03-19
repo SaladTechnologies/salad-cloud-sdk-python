@@ -1,6 +1,6 @@
 ```python
 from salad_cloud_sdk import SaladCloudSdk
-from salad_cloud_sdk.models import CreateInferenceEndpointJob
+from salad_cloud_sdk.models import InferenceEndpointJobPrototype
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
@@ -8,10 +8,10 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-request_body = CreateInferenceEndpointJob(
+request_body = InferenceEndpointJobPrototype(
     input="",
     metadata={},
-    webhook_url="webhook_url"
+    webhook_url="https://webhook.example.com/events"
 )
 
 result = sdk.inference_endpoints.create_inference_endpoint_job(

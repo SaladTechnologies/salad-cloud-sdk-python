@@ -1,443 +1,81 @@
 from __future__ import annotations
-from enum import Enum
 from typing import List
 from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
+from .container_logging_configuration import ContainerLoggingConfiguration
 from .container_resource_requirements import ContainerResourceRequirements
-from .container_group_priority import ContainerGroupPriority
-
-
-@JsonMap({})
-class LoggingAxiom1(BaseModel):
-    """LoggingAxiom1
-
-    :param host: host
-    :type host: str
-    :param api_token: api_token
-    :type api_token: str
-    :param dataset: dataset
-    :type dataset: str
-    """
-
-    def __init__(self, host: str, api_token: str, dataset: str, **kwargs):
-        """LoggingAxiom1
-
-        :param host: host
-        :type host: str
-        :param api_token: api_token
-        :type api_token: str
-        :param dataset: dataset
-        :type dataset: str
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.api_token = self._define_str(
-            "api_token", api_token, min_length=1, max_length=1000
-        )
-        self.dataset = self._define_str(
-            "dataset", dataset, min_length=1, max_length=1000
-        )
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class DatadogTags1(BaseModel):
-    """DatadogTags1
-
-    :param name: name
-    :type name: str
-    :param value: value
-    :type value: str
-    """
-
-    def __init__(self, name: str, value: str, **kwargs):
-        """DatadogTags1
-
-        :param name: name
-        :type name: str
-        :param value: value
-        :type value: str
-        """
-        self.name = name
-        self.value = value
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class LoggingDatadog1(BaseModel):
-    """LoggingDatadog1
-
-    :param host: host
-    :type host: str
-    :param api_key: api_key
-    :type api_key: str
-    :param tags: tags, defaults to None
-    :type tags: List[DatadogTags1], optional
-    """
-
-    def __init__(
-        self,
-        host: str,
-        api_key: str,
-        tags: Union[List[DatadogTags1], None] = SENTINEL,
-        **kwargs,
-    ):
-        """LoggingDatadog1
-
-        :param host: host
-        :type host: str
-        :param api_key: api_key
-        :type api_key: str
-        :param tags: tags, defaults to None
-        :type tags: List[DatadogTags1], optional
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.api_key = self._define_str(
-            "api_key", api_key, min_length=1, max_length=1000
-        )
-        if tags is not SENTINEL:
-            self.tags = self._define_list(tags, DatadogTags1)
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class LoggingNewRelic1(BaseModel):
-    """LoggingNewRelic1
-
-    :param host: host
-    :type host: str
-    :param ingestion_key: ingestion_key
-    :type ingestion_key: str
-    """
-
-    def __init__(self, host: str, ingestion_key: str, **kwargs):
-        """LoggingNewRelic1
-
-        :param host: host
-        :type host: str
-        :param ingestion_key: ingestion_key
-        :type ingestion_key: str
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.ingestion_key = self._define_str(
-            "ingestion_key", ingestion_key, min_length=1, max_length=1000
-        )
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class LoggingSplunk1(BaseModel):
-    """LoggingSplunk1
-
-    :param host: host
-    :type host: str
-    :param token: token
-    :type token: str
-    """
-
-    def __init__(self, host: str, token: str, **kwargs):
-        """LoggingSplunk1
-
-        :param host: host
-        :type host: str
-        :param token: token
-        :type token: str
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.token = self._define_str("token", token, min_length=1, max_length=1000)
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class LoggingTcp1(BaseModel):
-    """LoggingTcp1
-
-    :param host: host
-    :type host: str
-    :param port: port
-    :type port: int
-    """
-
-    def __init__(self, host: str, port: int, **kwargs):
-        """LoggingTcp1
-
-        :param host: host
-        :type host: str
-        :param port: port
-        :type port: int
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.port = self._define_number("port", port, ge=1, le=65535)
-        self._kwargs = kwargs
-
-
-class HttpFormat1(Enum):
-    """An enumeration representing different categories.
-
-    :cvar JSON: "json"
-    :vartype JSON: str
-    :cvar JSONLINES: "json_lines"
-    :vartype JSONLINES: str
-    """
-
-    JSON = "json"
-    JSONLINES = "json_lines"
-
-    def list():
-        """Lists all category values.
-
-        :return: A list of all category values.
-        :rtype: list
-        """
-        return list(map(lambda x: x.value, HttpFormat1._member_map_.values()))
-
-
-@JsonMap({})
-class HttpHeaders1(BaseModel):
-    """HttpHeaders1
-
-    :param name: name
-    :type name: str
-    :param value: value
-    :type value: str
-    """
-
-    def __init__(self, name: str, value: str, **kwargs):
-        """HttpHeaders1
-
-        :param name: name
-        :type name: str
-        :param value: value
-        :type value: str
-        """
-        self.name = name
-        self.value = value
-        self._kwargs = kwargs
-
-
-class HttpCompression1(Enum):
-    """An enumeration representing different categories.
-
-    :cvar NONE: "none"
-    :vartype NONE: str
-    :cvar GZIP: "gzip"
-    :vartype GZIP: str
-    """
-
-    NONE = "none"
-    GZIP = "gzip"
-
-    def list():
-        """Lists all category values.
-
-        :return: A list of all category values.
-        :rtype: list
-        """
-        return list(map(lambda x: x.value, HttpCompression1._member_map_.values()))
-
-
-@JsonMap({})
-class LoggingHttp1(BaseModel):
-    """LoggingHttp1
-
-    :param host: host
-    :type host: str
-    :param port: port
-    :type port: int
-    :param user: user, defaults to None
-    :type user: str, optional
-    :param password: password, defaults to None
-    :type password: str, optional
-    :param path: path, defaults to None
-    :type path: str, optional
-    :param format: format
-    :type format: HttpFormat1
-    :param headers: headers, defaults to None
-    :type headers: List[HttpHeaders1], optional
-    :param compression: compression
-    :type compression: HttpCompression1
-    """
-
-    def __init__(
-        self,
-        host: str,
-        port: int,
-        format: HttpFormat1,
-        compression: HttpCompression1,
-        user: Union[str, None] = SENTINEL,
-        password: Union[str, None] = SENTINEL,
-        path: Union[str, None] = SENTINEL,
-        headers: Union[List[HttpHeaders1], None] = SENTINEL,
-        **kwargs,
-    ):
-        """LoggingHttp1
-
-        :param host: host
-        :type host: str
-        :param port: port
-        :type port: int
-        :param user: user, defaults to None
-        :type user: str, optional
-        :param password: password, defaults to None
-        :type password: str, optional
-        :param path: path, defaults to None
-        :type path: str, optional
-        :param format: format
-        :type format: HttpFormat1
-        :param headers: headers, defaults to None
-        :type headers: List[HttpHeaders1], optional
-        :param compression: compression
-        :type compression: HttpCompression1
-        """
-        self.host = self._define_str("host", host, min_length=1, max_length=1000)
-        self.port = self._define_number("port", port, ge=1, le=65535)
-        if user is not SENTINEL:
-            self.user = self._define_str("user", user, nullable=True)
-        if password is not SENTINEL:
-            self.password = self._define_str("password", password, nullable=True)
-        if path is not SENTINEL:
-            self.path = self._define_str("path", path, nullable=True)
-        self.format = self._enum_matching(format, HttpFormat1.list(), "format")
-        if headers is not SENTINEL:
-            self.headers = self._define_list(headers, HttpHeaders1)
-        self.compression = self._enum_matching(
-            compression, HttpCompression1.list(), "compression"
-        )
-        self._kwargs = kwargs
-
-
-@JsonMap({})
-class ContainerLogging(BaseModel):
-    """ContainerLogging
-
-    :param axiom: axiom, defaults to None
-    :type axiom: LoggingAxiom1, optional
-    :param datadog: datadog, defaults to None
-    :type datadog: LoggingDatadog1, optional
-    :param new_relic: new_relic, defaults to None
-    :type new_relic: LoggingNewRelic1, optional
-    :param splunk: splunk, defaults to None
-    :type splunk: LoggingSplunk1, optional
-    :param tcp: tcp, defaults to None
-    :type tcp: LoggingTcp1, optional
-    :param http: http, defaults to None
-    :type http: LoggingHttp1, optional
-    """
-
-    def __init__(
-        self,
-        axiom: Union[LoggingAxiom1, None] = SENTINEL,
-        datadog: Union[LoggingDatadog1, None] = SENTINEL,
-        new_relic: Union[LoggingNewRelic1, None] = SENTINEL,
-        splunk: Union[LoggingSplunk1, None] = SENTINEL,
-        tcp: Union[LoggingTcp1, None] = SENTINEL,
-        http: Union[LoggingHttp1, None] = SENTINEL,
-        **kwargs,
-    ):
-        """ContainerLogging
-
-        :param axiom: axiom, defaults to None
-        :type axiom: LoggingAxiom1, optional
-        :param datadog: datadog, defaults to None
-        :type datadog: LoggingDatadog1, optional
-        :param new_relic: new_relic, defaults to None
-        :type new_relic: LoggingNewRelic1, optional
-        :param splunk: splunk, defaults to None
-        :type splunk: LoggingSplunk1, optional
-        :param tcp: tcp, defaults to None
-        :type tcp: LoggingTcp1, optional
-        :param http: http, defaults to None
-        :type http: LoggingHttp1, optional
-        """
-        if axiom is not SENTINEL:
-            self.axiom = self._define_object(axiom, LoggingAxiom1)
-        if datadog is not SENTINEL:
-            self.datadog = self._define_object(datadog, LoggingDatadog1)
-        if new_relic is not SENTINEL:
-            self.new_relic = self._define_object(new_relic, LoggingNewRelic1)
-        if splunk is not SENTINEL:
-            self.splunk = self._define_object(splunk, LoggingSplunk1)
-        if tcp is not SENTINEL:
-            self.tcp = self._define_object(tcp, LoggingTcp1)
-        if http is not SENTINEL:
-            self.http = self._define_object(http, LoggingHttp1)
-        self._kwargs = kwargs
 
 
 @JsonMap({})
 class Container(BaseModel):
-    """Represents a container
+    """Represents a container with its configuration and resource requirements.
 
-    :param image: image
-    :type image: str
-    :param resources: Represents a container resource requirements
-    :type resources: ContainerResourceRequirements
-    :param command: command
+    :param command: List of commands to run inside the container. Each command is a string representing a command-line instruction.
     :type command: List[str]
-    :param priority: priority, defaults to None
-    :type priority: ContainerGroupPriority, optional
-    :param size: size, defaults to None
-    :type size: int, optional
-    :param hash: hash, defaults to None
-    :type hash: str, optional
-    :param environment_variables: environment_variables, defaults to None
+    :param environment_variables: Environment variables to set in the container., defaults to None
     :type environment_variables: dict, optional
-    :param logging: logging, defaults to None
-    :type logging: ContainerLogging, optional
-    :param image_caching: image_caching, defaults to None
+    :param hash: SHA-256 hash (64-character hexadecimal string), defaults to None
+    :type hash: str, optional
+    :param image: The container image.
+    :type image: str
+    :param image_caching: The container image caching., defaults to None
     :type image_caching: bool, optional
+    :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
+    :type logging: ContainerLoggingConfiguration, optional
+    :param resources: Specifies the resource requirements for a container.
+    :type resources: ContainerResourceRequirements
+    :param size: Size of the container in bytes., defaults to None
+    :type size: int, optional
     """
 
     def __init__(
         self,
+        command: Union[List[str], None],
         image: str,
         resources: ContainerResourceRequirements,
-        command: List[str],
-        priority: Union[ContainerGroupPriority, None] = SENTINEL,
-        size: int = SENTINEL,
-        hash: str = SENTINEL,
         environment_variables: dict = SENTINEL,
-        logging: Union[ContainerLogging, None] = SENTINEL,
+        hash: str = SENTINEL,
         image_caching: bool = SENTINEL,
+        logging: ContainerLoggingConfiguration = SENTINEL,
+        size: int = SENTINEL,
         **kwargs,
     ):
-        """Represents a container
+        """Represents a container with its configuration and resource requirements.
 
-        :param image: image
-        :type image: str
-        :param resources: Represents a container resource requirements
-        :type resources: ContainerResourceRequirements
-        :param command: command
+        :param command: List of commands to run inside the container. Each command is a string representing a command-line instruction.
         :type command: List[str]
-        :param priority: priority, defaults to None
-        :type priority: ContainerGroupPriority, optional
-        :param size: size, defaults to None
-        :type size: int, optional
-        :param hash: hash, defaults to None
-        :type hash: str, optional
-        :param environment_variables: environment_variables, defaults to None
+        :param environment_variables: Environment variables to set in the container., defaults to None
         :type environment_variables: dict, optional
-        :param logging: logging, defaults to None
-        :type logging: ContainerLogging, optional
-        :param image_caching: image_caching, defaults to None
+        :param hash: SHA-256 hash (64-character hexadecimal string), defaults to None
+        :type hash: str, optional
+        :param image: The container image.
+        :type image: str
+        :param image_caching: The container image caching., defaults to None
         :type image_caching: bool, optional
+        :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
+        :type logging: ContainerLoggingConfiguration, optional
+        :param resources: Specifies the resource requirements for a container.
+        :type resources: ContainerResourceRequirements
+        :param size: Size of the container in bytes., defaults to None
+        :type size: int, optional
         """
-        self.image = self._define_str("image", image, min_length=1, max_length=1024)
-        self.resources = self._define_object(resources, ContainerResourceRequirements)
         self.command = command
-        if priority is not SENTINEL:
-            self.priority = self._enum_matching(
-                priority, ContainerGroupPriority.list(), "priority"
-            )
-        if size is not SENTINEL:
-            self.size = size
-        if hash is not SENTINEL:
-            self.hash = hash
         if environment_variables is not SENTINEL:
             self.environment_variables = environment_variables
-        if logging is not SENTINEL:
-            self.logging = self._define_object(logging, ContainerLogging)
+        if hash is not SENTINEL:
+            self.hash = self._define_str(
+                "hash", hash, pattern="^[a-fA-F0-9]{64}$", min_length=64, max_length=64
+            )
+        self.image = self._define_str(
+            "image", image, pattern="^.*$", min_length=1, max_length=2048
+        )
         if image_caching is not SENTINEL:
             self.image_caching = image_caching
+        if logging is not SENTINEL:
+            self.logging = self._define_object(logging, ContainerLoggingConfiguration)
+        self.resources = self._define_object(resources, ContainerResourceRequirements)
+        if size is not SENTINEL:
+            self.size = self._define_number("size", size, ge=0, le=9223372036854776000)
         self._kwargs = kwargs

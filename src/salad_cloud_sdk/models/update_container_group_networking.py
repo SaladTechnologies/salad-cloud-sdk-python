@@ -8,14 +8,14 @@ from .utils.sentinel import SENTINEL
 class UpdateContainerGroupNetworking(BaseModel):
     """Represents update container group networking parameters
 
-    :param port: port, defaults to None
+    :param port: The port number to expose on the container group, defaults to None
     :type port: int, optional
     """
 
     def __init__(self, port: Union[int, None] = SENTINEL, **kwargs):
         """Represents update container group networking parameters
 
-        :param port: port, defaults to None
+        :param port: The port number to expose on the container group, defaults to None
         :type port: int, optional
         """
         if port is not SENTINEL:

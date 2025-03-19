@@ -10,7 +10,7 @@ sdk = SaladCloudSdk(
 result = sdk.container_groups.start_container_group(
     organization_name="acme-corp",
     project_name="dev-env",
-    container_group_name="brlw5vvch4r0"
+    container_group_name="mandlebrot"
 )
 
 print(result)
