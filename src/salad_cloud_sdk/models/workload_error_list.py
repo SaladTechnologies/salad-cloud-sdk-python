@@ -9,14 +9,14 @@ from .workload_error import WorkloadError
 class WorkloadErrorList(BaseModel):
     """Represents a list of workload errors
 
-    :param items: items
+    :param items: A list of workload errors
     :type items: List[WorkloadError]
     """
 
     def __init__(self, items: List[WorkloadError], **kwargs):
         """Represents a list of workload errors
 
-        :param items: items
+        :param items: A list of workload errors
         :type items: List[WorkloadError]
         """
         self.items = self._define_list(items, WorkloadError)

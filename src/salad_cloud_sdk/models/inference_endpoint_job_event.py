@@ -8,18 +8,18 @@ from .inference_endpoint_job_event_action import InferenceEndpointJobEventAction
 class InferenceEndpointJobEvent(BaseModel):
     """Represents an event for inference endpoint job
 
-    :param action: action
+    :param action: The action that was taken on the inference endpoint job.
     :type action: InferenceEndpointJobEventAction
-    :param time: time
+    :param time: The time the event occurred.
     :type time: str
     """
 
     def __init__(self, action: InferenceEndpointJobEventAction, time: str, **kwargs):
         """Represents an event for inference endpoint job
 
-        :param action: action
+        :param action: The action that was taken on the inference endpoint job.
         :type action: InferenceEndpointJobEventAction
-        :param time: time
+        :param time: The time the event occurred.
         :type time: str
         """
         self.action = self._enum_matching(

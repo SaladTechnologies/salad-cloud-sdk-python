@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import List
-from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
@@ -19,7 +18,7 @@ class Queue(BaseModel):
     :type display_name: str
     :param description: The description. This may be used as a space for notes or other information about the queue., defaults to None
     :type description: str, optional
-    :param container_groups: container_groups
+    :param container_groups: The container groups that are part of this queue. Each container group represents a scalable set of identical containers running as a distributed service.
     :type container_groups: List[ContainerGroup]
     :param create_time: The date and time the queue was created.
     :type create_time: str
@@ -35,7 +34,7 @@ class Queue(BaseModel):
         container_groups: List[ContainerGroup],
         create_time: str,
         update_time: str,
-        description: Union[str, None] = SENTINEL,
+        description: str = SENTINEL,
         **kwargs,
     ):
         """Represents a queue.
@@ -48,7 +47,7 @@ class Queue(BaseModel):
         :type display_name: str
         :param description: The description. This may be used as a space for notes or other information about the queue., defaults to None
         :type description: str, optional
-        :param container_groups: container_groups
+        :param container_groups: The container groups that are part of this queue. Each container group represents a scalable set of identical containers running as a distributed service.
         :type container_groups: List[ContainerGroup]
         :param create_time: The date and time the queue was created.
         :type create_time: str
@@ -72,7 +71,7 @@ class Queue(BaseModel):
         )
         if description is not SENTINEL:
             self.description = self._define_str(
-                "description", description, nullable=True, max_length=500
+                "description", description, pattern="^.*$", max_length=500
             )
         self.container_groups = self._define_list(container_groups, ContainerGroup)
         self.create_time = create_time

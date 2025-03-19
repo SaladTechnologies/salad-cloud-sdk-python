@@ -88,14 +88,33 @@ class InferenceEndpoint(BaseModel):
             max_length=63,
         )
         self.description = self._define_str(
-            "description",
-            description,
-            pattern="^[\P{Cc}\P{Cn}\P{Cs}]*$",
-            max_length=1000,
+            "description", description, pattern="^.*$", max_length=1000
         )
-        self.readme = readme
-        self.price_description = price_description
-        self.icon_url = icon_url
-        self.input_schema = input_schema
-        self.output_schema = output_schema
+        self.readme = self._define_str(
+            "readme", readme, pattern="^.*$", min_length=1, max_length=100000
+        )
+        self.price_description = self._define_str(
+            "price_description",
+            price_description,
+            pattern="^.*$",
+            min_length=1,
+            max_length=100,
+        )
+        self.icon_url = self._define_str(
+            "icon_url", icon_url, pattern="^.*$", min_length=1, max_length=2048
+        )
+        self.input_schema = self._define_str(
+            "input_schema",
+            input_schema,
+            pattern="^.*$",
+            min_length=1,
+            max_length=100000,
+        )
+        self.output_schema = self._define_str(
+            "output_schema",
+            output_schema,
+            pattern="^.*$",
+            min_length=1,
+            max_length=100000,
+        )
         self._kwargs = kwargs

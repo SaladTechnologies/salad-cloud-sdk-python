@@ -2,12 +2,13 @@ from typing import Awaitable
 from .utils.to_async import to_async
 from ..container_groups import ContainerGroupsService
 from ...models import (
-    ContainerGroupList,
+    ContainerGroupCollection,
     ContainerGroup,
-    CreateContainerGroup,
-    UpdateContainerGroup,
-    ContainerGroupInstances,
+    ContainerGroupCreationRequest,
+    ContainerGroupPatch,
+    ContainerGroupInstanceCollection,
     ContainerGroupInstance,
+    ContainerGroupInstancePatch,
 )
 
 
@@ -18,12 +19,12 @@ class ContainerGroupsServiceAsync(ContainerGroupsService):
 
     def list_container_groups(
         self, organization_name: str, project_name: str
-    ) -> Awaitable[ContainerGroupList]:
+    ) -> Awaitable[ContainerGroupCollection]:
         return to_async(super().list_container_groups)(organization_name, project_name)
 
     def create_container_group(
         self,
-        request_body: CreateContainerGroup,
+        request_body: ContainerGroupCreationRequest,
         organization_name: str,
         project_name: str,
     ) -> Awaitable[ContainerGroup]:
@@ -40,7 +41,7 @@ class ContainerGroupsServiceAsync(ContainerGroupsService):
 
     def update_container_group(
         self,
-        request_body: UpdateContainerGroup,
+        request_body: ContainerGroupPatch,
         organization_name: str,
         project_name: str,
         container_group_name: str,
@@ -72,7 +73,7 @@ class ContainerGroupsServiceAsync(ContainerGroupsService):
 
     def list_container_group_instances(
         self, organization_name: str, project_name: str, container_group_name: str
-    ) -> Awaitable[ContainerGroupInstances]:
+    ) -> Awaitable[ContainerGroupInstanceCollection]:
         return to_async(super().list_container_group_instances)(
             organization_name, project_name, container_group_name
         )
@@ -85,6 +86,22 @@ class ContainerGroupsServiceAsync(ContainerGroupsService):
         container_group_instance_id: str,
     ) -> Awaitable[ContainerGroupInstance]:
         return to_async(super().get_container_group_instance)(
+            organization_name,
+            project_name,
+            container_group_name,
+            container_group_instance_id,
+        )
+
+    def update_container_group_instance(
+        self,
+        request_body: ContainerGroupInstancePatch,
+        organization_name: str,
+        project_name: str,
+        container_group_name: str,
+        container_group_instance_id: str,
+    ) -> Awaitable[ContainerGroupInstance]:
+        return to_async(super().update_container_group_instance)(
+            request_body,
             organization_name,
             project_name,
             container_group_name,

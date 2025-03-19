@@ -16,5 +16,7 @@ class WebhookSecretKey(BaseModel):
         :param secret_key: The webhook secret key
         :type secret_key: str
         """
-        self.secret_key = secret_key
+        self.secret_key = self._define_str(
+            "secret_key", secret_key, pattern="^.*$", min_length=8, max_length=64
+        )
         self._kwargs = kwargs

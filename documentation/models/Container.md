@@ -1,128 +1,16 @@
 # Container
 
-Represents a container
+Represents a container with its configuration and resource requirements.
 
 **Properties**
 
-| Name                  | Type                          | Required | Description                                  |
-| :-------------------- | :---------------------------- | :------- | :------------------------------------------- |
-| image                 | str                           | ✅       |                                              |
-| resources             | ContainerResourceRequirements | ✅       | Represents a container resource requirements |
-| command               | List[str]                     | ✅       |                                              |
-| priority              | ContainerGroupPriority        | ❌       |                                              |
-| size                  | int                           | ❌       |                                              |
-| hash                  | str                           | ❌       |                                              |
-| environment_variables | dict                          | ❌       |                                              |
-| logging               | ContainerLogging              | ❌       |                                              |
-| image_caching         | bool                          | ❌       |                                              |
-
-# ContainerLogging
-
-**Properties**
-
-| Name      | Type             | Required | Description |
-| :-------- | :--------------- | :------- | :---------- |
-| axiom     | LoggingAxiom1    | ❌       |             |
-| datadog   | LoggingDatadog1  | ❌       |             |
-| new_relic | LoggingNewRelic1 | ❌       |             |
-| splunk    | LoggingSplunk1   | ❌       |             |
-| tcp       | LoggingTcp1      | ❌       |             |
-| http      | LoggingHttp1     | ❌       |             |
-
-# LoggingAxiom_1
-
-**Properties**
-
-| Name      | Type | Required | Description |
-| :-------- | :--- | :------- | :---------- |
-| host      | str  | ✅       |             |
-| api_token | str  | ✅       |             |
-| dataset   | str  | ✅       |             |
-
-# LoggingDatadog_1
-
-**Properties**
-
-| Name    | Type               | Required | Description |
-| :------ | :----------------- | :------- | :---------- |
-| host    | str                | ✅       |             |
-| api_key | str                | ✅       |             |
-| tags    | List[DatadogTags1] | ❌       |             |
-
-# DatadogTags_1
-
-**Properties**
-
-| Name  | Type | Required | Description |
-| :---- | :--- | :------- | :---------- |
-| name  | str  | ✅       |             |
-| value | str  | ✅       |             |
-
-# LoggingNewRelic_1
-
-**Properties**
-
-| Name          | Type | Required | Description |
-| :------------ | :--- | :------- | :---------- |
-| host          | str  | ✅       |             |
-| ingestion_key | str  | ✅       |             |
-
-# LoggingSplunk_1
-
-**Properties**
-
-| Name  | Type | Required | Description |
-| :---- | :--- | :------- | :---------- |
-| host  | str  | ✅       |             |
-| token | str  | ✅       |             |
-
-# LoggingTcp_1
-
-**Properties**
-
-| Name | Type | Required | Description |
-| :--- | :--- | :------- | :---------- |
-| host | str  | ✅       |             |
-| port | int  | ✅       |             |
-
-# LoggingHttp_1
-
-**Properties**
-
-| Name        | Type               | Required | Description |
-| :---------- | :----------------- | :------- | :---------- |
-| host        | str                | ✅       |             |
-| port        | int                | ✅       |             |
-| format      | HttpFormat1        | ✅       |             |
-| compression | HttpCompression1   | ✅       |             |
-| user        | str                | ❌       |             |
-| password    | str                | ❌       |             |
-| path        | str                | ❌       |             |
-| headers     | List[HttpHeaders1] | ❌       |             |
-
-# HttpFormat_1
-
-**Properties**
-
-| Name      | Type | Required | Description  |
-| :-------- | :--- | :------- | :----------- |
-| JSON      | str  | ✅       | "json"       |
-| JSONLINES | str  | ✅       | "json_lines" |
-
-# HttpHeaders_1
-
-**Properties**
-
-| Name  | Type | Required | Description |
-| :---- | :--- | :------- | :---------- |
-| name  | str  | ✅       |             |
-| value | str  | ✅       |             |
-
-# HttpCompression_1
-
-**Properties**
-
-| Name | Type | Required | Description |
-| :--- | :--- | :------- | :---------- |
-| NONE | str  | ✅       | "none"      |
-| GZIP | str  | ✅       | "gzip"      |
+| Name                  | Type                          | Required | Description                                                                                                                                                                                                                                                                                                                                                           |
+| :-------------------- | :---------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| command               | List[str]                     | ✅       | List of commands to run inside the container. Each command is a string representing a command-line instruction.                                                                                                                                                                                                                                                       |
+| image                 | str                           | ✅       | The container image.                                                                                                                                                                                                                                                                                                                                                  |
+| resources             | ContainerResourceRequirements | ✅       | Specifies the resource requirements for a container.                                                                                                                                                                                                                                                                                                                  |
+| environment_variables | dict                          | ❌       | Environment variables to set in the container.                                                                                                                                                                                                                                                                                                                        |
+| hash                  | str                           | ❌       | SHA-256 hash (64-character hexadecimal string)                                                                                                                                                                                                                                                                                                                        |
+| image_caching         | bool                          | ❌       | The container image caching.                                                                                                                                                                                                                                                                                                                                          |
+| logging               | ContainerLoggingConfiguration | ❌       | Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time. |
+| size                  | int                           | ❌       | Size of the container in bytes.                                                                                                                                                                                                                                                                                                                                       |

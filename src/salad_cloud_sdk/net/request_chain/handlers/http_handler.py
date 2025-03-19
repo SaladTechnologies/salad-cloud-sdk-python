@@ -118,4 +118,13 @@ class HttpHandler(BaseHandler):
                     form_data[key] = value
             return {"files": files, "data": form_data}
 
+        if "application/x-www-form-urlencoded" in content_type:
+            form_data = {}
+            for key, value in data.items():
+                if isinstance(value, list):
+                    form_data[key] = ",".join(value)
+                else:
+                    form_data[key] = value
+            return {"data": form_data}
+
         return {"data": data}

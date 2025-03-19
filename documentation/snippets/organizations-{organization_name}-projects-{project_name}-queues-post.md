@@ -1,6 +1,6 @@
 ```python
 from salad_cloud_sdk import SaladCloudSdk
-from salad_cloud_sdk.models import CreateQueue
+from salad_cloud_sdk.models import QueuePrototype
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
@@ -8,9 +8,9 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-request_body = CreateQueue(
+request_body = QueuePrototype(
     name="name",
-    display_name="QPrF.myB W",
+    display_name="Qskie",
     description="description"
 )
 

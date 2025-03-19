@@ -3,11 +3,11 @@ from .utils.to_async import to_async
 from ..inference_endpoints import InferenceEndpointsService
 from ...models.utils.sentinel import SENTINEL
 from ...models import (
-    InferenceEndpointList,
+    InferenceEndpointCollection,
     InferenceEndpoint,
-    InferenceEndpointJobList,
+    InferenceEndpointJobCollection,
     InferenceEndpointJob,
-    CreateInferenceEndpointJob,
+    InferenceEndpointJobPrototype,
 )
 
 
@@ -18,7 +18,7 @@ class InferenceEndpointsServiceAsync(InferenceEndpointsService):
 
     def list_inference_endpoints(
         self, organization_name: str, page: int = SENTINEL, page_size: int = SENTINEL
-    ) -> Awaitable[InferenceEndpointList]:
+    ) -> Awaitable[InferenceEndpointCollection]:
         return to_async(super().list_inference_endpoints)(
             organization_name, page, page_size
         )
@@ -36,14 +36,14 @@ class InferenceEndpointsServiceAsync(InferenceEndpointsService):
         inference_endpoint_name: str,
         page: int = SENTINEL,
         page_size: int = SENTINEL,
-    ) -> Awaitable[InferenceEndpointJobList]:
+    ) -> Awaitable[InferenceEndpointJobCollection]:
         return to_async(super().list_inference_endpoint_jobs)(
             organization_name, inference_endpoint_name, page, page_size
         )
 
     def create_inference_endpoint_job(
         self,
-        request_body: CreateInferenceEndpointJob,
+        request_body: InferenceEndpointJobPrototype,
         organization_name: str,
         inference_endpoint_name: str,
     ) -> Awaitable[InferenceEndpointJob]:
@@ -61,12 +61,12 @@ class InferenceEndpointsServiceAsync(InferenceEndpointsService):
             organization_name, inference_endpoint_name, inference_endpoint_job_id
         )
 
-    def cancel_inference_endpoint_job(
+    def delete_inference_endpoint_job(
         self,
         organization_name: str,
         inference_endpoint_name: str,
         inference_endpoint_job_id: str,
     ) -> Awaitable[None]:
-        return to_async(super().cancel_inference_endpoint_job)(
+        return to_async(super().delete_inference_endpoint_job)(
             organization_name, inference_endpoint_name, inference_endpoint_job_id
         )

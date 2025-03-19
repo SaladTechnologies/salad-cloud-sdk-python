@@ -37,18 +37,18 @@ class Action(Enum):
 class QueueJobEvent(BaseModel):
     """Represents an event for queue job
 
-    :param action: action
+    :param action: The action that was taken on the queue job
     :type action: Action
-    :param time: time
+    :param time: The time the action was taken on the queue job
     :type time: str
     """
 
     def __init__(self, action: Action, time: str, **kwargs):
         """Represents an event for queue job
 
-        :param action: action
+        :param action: The action that was taken on the queue job
         :type action: Action
-        :param time: time
+        :param time: The time the action was taken on the queue job
         :type time: str
         """
         self.action = self._enum_matching(action, Action.list(), "action")

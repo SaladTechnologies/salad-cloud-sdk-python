@@ -99,9 +99,13 @@ class InferenceEndpointJob(BaseModel):
         if metadata is not SENTINEL:
             self.metadata = metadata
         if webhook is not SENTINEL:
-            self.webhook = webhook
+            self.webhook = self._define_str(
+                "webhook", webhook, min_length=1, max_length=2048
+            )
         if webhook_url is not SENTINEL:
-            self.webhook_url = webhook_url
+            self.webhook_url = self._define_str(
+                "webhook_url", webhook_url, min_length=1, max_length=2048
+            )
         self.status = self._enum_matching(status, Status.list(), "status")
         self.events = self._define_list(events, InferenceEndpointJobEvent)
         if output is not SENTINEL:

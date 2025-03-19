@@ -4,20 +4,20 @@ from ..net.transport.serializer import Serializer
 from ..models.utils.sentinel import SENTINEL
 from ..models.utils.cast_models import cast_models
 from ..models import (
-    CreateQueue,
-    CreateQueueJob,
     Queue,
+    QueueCollection,
     QueueJob,
-    QueueJobList,
-    QueueList,
-    UpdateQueue,
+    QueueJobCollection,
+    QueueJobPrototype,
+    QueuePatch,
+    QueuePrototype,
 )
 
 
 class QueuesService(BaseService):
 
     @cast_models
-    def list_queues(self, organization_name: str, project_name: str) -> QueueList:
+    def list_queues(self, organization_name: str, project_name: str) -> QueueCollection:
         """Gets the list of queues in the given project.
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -28,7 +28,7 @@ class QueuesService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The parsed response data.
-        :rtype: QueueList
+        :rtype: QueueCollection
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -50,16 +50,16 @@ class QueuesService(BaseService):
         )
 
         response, _, _ = self.send_request(serialized_request)
-        return QueueList._unmap(response)
+        return QueueCollection._unmap(response)
 
     @cast_models
     def create_queue(
-        self, request_body: CreateQueue, organization_name: str, project_name: str
+        self, request_body: QueuePrototype, organization_name: str, project_name: str
     ) -> Queue:
         """Creates a new queue in the given project.
 
         :param request_body: The request body.
-        :type request_body: CreateQueue
+        :type request_body: QueuePrototype
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
@@ -71,7 +71,7 @@ class QueuesService(BaseService):
         :rtype: Queue
         """
 
-        Validator(CreateQueue).validate(request_body)
+        Validator(QueuePrototype).validate(request_body)
         Validator(str).min_length(2).max_length(63).pattern(
             "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         ).validate(organization_name)
@@ -141,7 +141,7 @@ class QueuesService(BaseService):
     @cast_models
     def update_queue(
         self,
-        request_body: UpdateQueue,
+        request_body: QueuePatch,
         organization_name: str,
         project_name: str,
         queue_name: str,
@@ -149,7 +149,7 @@ class QueuesService(BaseService):
         """Updates an existing queue in the given project.
 
         :param request_body: The request body.
-        :type request_body: UpdateQueue
+        :type request_body: QueuePatch
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
@@ -163,7 +163,7 @@ class QueuesService(BaseService):
         :rtype: Queue
         """
 
-        Validator(UpdateQueue).validate(request_body)
+        Validator(QueuePatch).validate(request_body)
         Validator(str).min_length(2).max_length(63).pattern(
             "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         ).validate(organization_name)
@@ -239,7 +239,7 @@ class QueuesService(BaseService):
         queue_name: str,
         page: int = SENTINEL,
         page_size: int = SENTINEL,
-    ) -> QueueJobList:
+    ) -> QueueJobCollection:
         """Gets the list of jobs in a queue
 
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
@@ -248,15 +248,15 @@ class QueuesService(BaseService):
         :type project_name: str
         :param queue_name: The queue name.
         :type queue_name: str
-        :param page: page, defaults to None
+        :param page: The page number., defaults to None
         :type page: int, optional
-        :param page_size: page_size, defaults to None
+        :param page_size: The maximum number of items per page., defaults to None
         :type page_size: int, optional
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The parsed response data.
-        :rtype: QueueJobList
+        :rtype: QueueJobCollection
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -286,12 +286,12 @@ class QueuesService(BaseService):
         )
 
         response, _, _ = self.send_request(serialized_request)
-        return QueueJobList._unmap(response)
+        return QueueJobCollection._unmap(response)
 
     @cast_models
     def create_queue_job(
         self,
-        request_body: CreateQueueJob,
+        request_body: QueueJobPrototype,
         organization_name: str,
         project_name: str,
         queue_name: str,
@@ -299,7 +299,7 @@ class QueuesService(BaseService):
         """Creates a new job
 
         :param request_body: The request body.
-        :type request_body: CreateQueueJob
+        :type request_body: QueueJobPrototype
         :param organization_name: Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.
         :type organization_name: str
         :param project_name: Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.
@@ -313,7 +313,7 @@ class QueuesService(BaseService):
         :rtype: QueueJob
         """
 
-        Validator(CreateQueueJob).validate(request_body)
+        Validator(QueueJobPrototype).validate(request_body)
         Validator(str).min_length(2).max_length(63).pattern(
             "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         ).validate(organization_name)

@@ -9,7 +9,7 @@ from .container_group_priority import ContainerGroupPriority
 class GpuClassPrice(BaseModel):
     """Represents the price of a GPU class for a given container group priority
 
-    :param priority: priority
+    :param priority: Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence.
     :type priority: ContainerGroupPriority
     :param price: The price
     :type price: str
@@ -20,7 +20,7 @@ class GpuClassPrice(BaseModel):
     ):
         """Represents the price of a GPU class for a given container group priority
 
-        :param priority: priority
+        :param priority: Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence.
         :type priority: ContainerGroupPriority
         :param price: The price
         :type price: str
@@ -28,5 +28,7 @@ class GpuClassPrice(BaseModel):
         self.priority = self._enum_matching(
             priority, ContainerGroupPriority.list(), "priority"
         )
-        self.price = self._define_str("price", price, min_length=1, max_length=20)
+        self.price = self._define_str(
+            "price", price, pattern="^.*$", min_length=1, max_length=20
+        )
         self._kwargs = kwargs

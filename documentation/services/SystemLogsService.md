@@ -39,7 +39,7 @@ sdk = SaladCloudSdk(
 result = sdk.system_logs.get_system_logs(
     organization_name="acme-corp",
     project_name="dev-env",
-    container_group_name="fr621yu0dtx8pw-na73brexc2zhl"
+    container_group_name="mandlebrot"
 )
 
 print(result)

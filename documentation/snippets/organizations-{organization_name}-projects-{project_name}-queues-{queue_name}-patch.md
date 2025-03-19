@@ -1,6 +1,6 @@
 ```python
 from salad_cloud_sdk import SaladCloudSdk
-from salad_cloud_sdk.models import UpdateQueue
+from salad_cloud_sdk.models import QueuePatch
 
 sdk = SaladCloudSdk(
     api_key="YOUR_API_KEY",
@@ -8,8 +8,8 @@ sdk = SaladCloudSdk(
     timeout=10000
 )
 
-request_body = UpdateQueue(
-    display_name="8tGaeYu.",
+request_body = QueuePatch(
+    display_name="i2VcwOa",
     description="description"
 )
 

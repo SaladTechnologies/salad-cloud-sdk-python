@@ -9,14 +9,14 @@ from .system_log import SystemLog
 class SystemLogList(BaseModel):
     """Represents a list of system logs
 
-    :param items: items
+    :param items: A list of system logs
     :type items: List[SystemLog]
     """
 
     def __init__(self, items: List[SystemLog], **kwargs):
         """Represents a list of system logs
 
-        :param items: items
+        :param items: A list of system logs
         :type items: List[SystemLog]
         """
         self.items = self._define_list(items, SystemLog)

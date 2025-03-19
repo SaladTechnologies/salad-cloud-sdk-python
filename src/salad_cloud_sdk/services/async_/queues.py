@@ -3,13 +3,13 @@ from .utils.to_async import to_async
 from ..queues import QueuesService
 from ...models.utils.sentinel import SENTINEL
 from ...models import (
-    QueueList,
+    QueueCollection,
     Queue,
-    CreateQueue,
-    UpdateQueue,
-    QueueJobList,
+    QueuePrototype,
+    QueuePatch,
+    QueueJobCollection,
     QueueJob,
-    CreateQueueJob,
+    QueueJobPrototype,
 )
 
 
@@ -20,11 +20,11 @@ class QueuesServiceAsync(QueuesService):
 
     def list_queues(
         self, organization_name: str, project_name: str
-    ) -> Awaitable[QueueList]:
+    ) -> Awaitable[QueueCollection]:
         return to_async(super().list_queues)(organization_name, project_name)
 
     def create_queue(
-        self, request_body: CreateQueue, organization_name: str, project_name: str
+        self, request_body: QueuePrototype, organization_name: str, project_name: str
     ) -> Awaitable[Queue]:
         return to_async(super().create_queue)(
             request_body, organization_name, project_name
@@ -37,7 +37,7 @@ class QueuesServiceAsync(QueuesService):
 
     def update_queue(
         self,
-        request_body: UpdateQueue,
+        request_body: QueuePatch,
         organization_name: str,
         project_name: str,
         queue_name: str,
@@ -60,14 +60,14 @@ class QueuesServiceAsync(QueuesService):
         queue_name: str,
         page: int = SENTINEL,
         page_size: int = SENTINEL,
-    ) -> Awaitable[QueueJobList]:
+    ) -> Awaitable[QueueJobCollection]:
         return to_async(super().list_queue_jobs)(
             organization_name, project_name, queue_name, page, page_size
         )
 
     def create_queue_job(
         self,
-        request_body: CreateQueueJob,
+        request_body: QueueJobPrototype,
         organization_name: str,
         project_name: str,
         queue_name: str,

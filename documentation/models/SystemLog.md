@@ -8,10 +8,10 @@ Represents a system log
 | :---------------------- | :--- | :------- | :------------------------------------------------ |
 | event_name              | str  | ✅       | The name of the event                             |
 | event_time              | str  | ✅       | The UTC date & time when the log item was created |
-| version                 | str  | ✅       | The version instance ID                           |
 | resource_cpu            | int  | ✅       | The number of CPUs                                |
-| resource_memory         | int  | ✅       | The memory amount in MB                           |
 | resource_gpu_class      | str  | ✅       | The GPU class name                                |
+| resource_memory         | int  | ✅       | The memory amount in MB                           |
 | resource_storage_amount | int  | ✅       | The storage amount in bytes                       |
-| instance_id             | str  | ❌       | The unique instance ID                            |
-| machine_id              | str  | ❌       | The organization-specific machine ID              |
+| version                 | str  | ✅       | The version instance ID                           |
+| instance_id             | str  | ❌       | The container group instance identifier.          |
+| machine_id              | str  | ❌       | The container group machine identifier.           |
