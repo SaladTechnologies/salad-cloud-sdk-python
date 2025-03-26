@@ -17,6 +17,10 @@ class WebhookSecretKey(BaseModel):
         :type secret_key: str
         """
         self.secret_key = self._define_str(
-            "secret_key", secret_key, pattern="^.*$", min_length=8, max_length=64
+            "secret_key",
+            secret_key,
+            pattern="^[+/=0-9A-Za-z]{44,172}$",
+            min_length=44,
+            max_length=172,
         )
         self._kwargs = kwargs

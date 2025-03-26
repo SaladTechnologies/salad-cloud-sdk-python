@@ -4,7 +4,7 @@ from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
-from .container_logging_configuration import ContainerLoggingConfiguration
+from .container_logging import ContainerLogging
 from .container_resource_requirements import ContainerResourceRequirements
 
 
@@ -23,7 +23,7 @@ class Container(BaseModel):
     :param image_caching: The container image caching., defaults to None
     :type image_caching: bool, optional
     :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
-    :type logging: ContainerLoggingConfiguration, optional
+    :type logging: ContainerLogging, optional
     :param resources: Specifies the resource requirements for a container.
     :type resources: ContainerResourceRequirements
     :param size: Size of the container in bytes., defaults to None
@@ -38,7 +38,7 @@ class Container(BaseModel):
         environment_variables: dict = SENTINEL,
         hash: str = SENTINEL,
         image_caching: bool = SENTINEL,
-        logging: ContainerLoggingConfiguration = SENTINEL,
+        logging: ContainerLogging = SENTINEL,
         size: int = SENTINEL,
         **kwargs,
     ):
@@ -55,7 +55,7 @@ class Container(BaseModel):
         :param image_caching: The container image caching., defaults to None
         :type image_caching: bool, optional
         :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
-        :type logging: ContainerLoggingConfiguration, optional
+        :type logging: ContainerLogging, optional
         :param resources: Specifies the resource requirements for a container.
         :type resources: ContainerResourceRequirements
         :param size: Size of the container in bytes., defaults to None
@@ -66,7 +66,11 @@ class Container(BaseModel):
             self.environment_variables = environment_variables
         if hash is not SENTINEL:
             self.hash = self._define_str(
-                "hash", hash, pattern="^[a-fA-F0-9]{64}$", min_length=64, max_length=64
+                "hash",
+                hash,
+                pattern="^sha\d{1,3}:[a-fA-F0-9]{40,135}$",
+                min_length=47,
+                max_length=135,
             )
         self.image = self._define_str(
             "image", image, pattern="^.*$", min_length=1, max_length=2048
@@ -74,7 +78,7 @@ class Container(BaseModel):
         if image_caching is not SENTINEL:
             self.image_caching = image_caching
         if logging is not SENTINEL:
-            self.logging = self._define_object(logging, ContainerLoggingConfiguration)
+            self.logging = self._define_object(logging, ContainerLogging)
         self.resources = self._define_object(resources, ContainerResourceRequirements)
         if size is not SENTINEL:
             self.size = self._define_number("size", size, ge=0, le=9223372036854776000)

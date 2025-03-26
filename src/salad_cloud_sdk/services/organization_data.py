@@ -1,6 +1,7 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
+from ..net.environment.environment import Environment
 from ..models.utils.cast_models import cast_models
 from ..models import GpuClassesList
 
@@ -26,7 +27,7 @@ class OrganizationDataService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/gpu-classes",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/gpu-classes",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)

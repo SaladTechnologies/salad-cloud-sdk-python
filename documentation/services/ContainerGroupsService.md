@@ -87,7 +87,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupCreationRequest(
-    autostart_policy=True,
+    autostart_policy=False,
     container={
         "command": [
             "command"
@@ -113,7 +113,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "http": {
                 "host": "host",
-                "port": 43509,
+                "port": 46840,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -136,7 +136,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "tcp": {
                 "host": "host",
-                "port": 35405
+                "port": 44671
             }
         },
         "priority": "high",
@@ -161,18 +161,18 @@ request_body = ContainerGroupCreationRequest(
             }
         },
         "resources": {
-            "cpu": 13,
-            "memory": 28311,
+            "cpu": 2,
+            "memory": 57018,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 20719714697
+            "storage_amount": 10190895817
         }
     },
     country_codes=[
         "af"
     ],
-    display_name="QTB",
+    display_name="9 Q592CH6F",
     liveness_probe={
         "exec_": {
             "command": [
@@ -181,7 +181,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -192,14 +192,14 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 987,
+        "initial_delay_seconds": 670,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "timeout_seconds": 30
     },
@@ -211,20 +211,20 @@ request_body = ContainerGroupCreationRequest(
         "port": 60000,
         "protocol": "http",
         "server_response_timeout": 100000,
-        "single_connection_limit": False
+        "single_connection_limit": True
     },
     queue_autoscaler={
-        "desired_queue_length": 2,
-        "max_replicas": 219,
-        "max_downscale_per_minute": 5,
-        "max_upscale_per_minute": 16,
-        "min_replicas": 88,
-        "polling_period": 680
+        "desired_queue_length": 53,
+        "max_replicas": 291,
+        "max_downscale_per_minute": 65,
+        "max_upscale_per_minute": 100,
+        "min_replicas": 54,
+        "polling_period": 140
     },
     queue_connection={
         "path": "path",
-        "port": 39086,
-        "queue_name": "dawtm7q4ohrrc63u35mpg4-370h--6se6eqezp-gj0"
+        "port": 47568,
+        "queue_name": "z1h-3z01x9"
     },
     readiness_probe={
         "exec_": {
@@ -234,7 +234,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -245,18 +245,18 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 479,
+        "initial_delay_seconds": 262,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "timeout_seconds": 1
     },
-    replicas=257,
+    replicas=284,
     restart_policy="always",
     startup_probe={
         "exec_": {
@@ -266,7 +266,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -277,12 +277,12 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 563,
+        "initial_delay_seconds": 1106,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "period_seconds": 3,
         "success_threshold": 2,
@@ -371,7 +371,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupPatch(
-    display_name="rukYe",
+    display_name="Jjdnvuz",
     container={
         "command": [
             "command"
@@ -397,7 +397,7 @@ request_body = ContainerGroupPatch(
             },
             "http": {
                 "host": "host",
-                "port": 43509,
+                "port": 55354,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -420,7 +420,7 @@ request_body = ContainerGroupPatch(
             },
             "tcp": {
                 "host": "host",
-                "port": 35405
+                "port": 44671
             }
         },
         "priority": "high",
@@ -445,20 +445,20 @@ request_body = ContainerGroupPatch(
             }
         },
         "resources": {
-            "cpu": 4,
-            "memory": 50175,
+            "cpu": 6,
+            "memory": 56406,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 27536827537
+            "storage_amount": 7030693392
         }
     },
-    replicas=476,
+    replicas=100,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 27606
+        "port": 45473
     },
     liveness_probe={
         "exec_": {
@@ -468,7 +468,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -479,14 +479,14 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 987,
+        "initial_delay_seconds": 670,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "timeout_seconds": 30
     },
@@ -498,7 +498,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -509,14 +509,14 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 479,
+        "initial_delay_seconds": 262,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "timeout_seconds": 1
     },
@@ -528,7 +528,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 4792,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -539,24 +539,24 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 18942,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 563,
+        "initial_delay_seconds": 1106,
         "tcp": {
-            "port": 47377
+            "port": 13817
         },
         "period_seconds": 3,
         "success_threshold": 2,
         "timeout_seconds": 10
     },
     queue_autoscaler={
-        "desired_queue_length": 2,
-        "max_replicas": 219,
-        "max_downscale_per_minute": 5,
-        "max_upscale_per_minute": 16,
-        "min_replicas": 88,
-        "polling_period": 680
+        "desired_queue_length": 53,
+        "max_replicas": 291,
+        "max_downscale_per_minute": 65,
+        "max_upscale_per_minute": 100,
+        "min_replicas": 54,
+        "polling_period": 140
     }
 )
 
@@ -789,7 +789,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupInstancePatch(
-    deletion_cost=76724
+    deletion_cost=82294
 )
 
 result = sdk.container_groups.update_container_group_instance(

@@ -35,14 +35,14 @@ from .container_group_queue_connection import ContainerGroupQueueConnection
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_restart_policy import ContainerRestartPolicy
 from .container_group_startup_probe import ContainerGroupStartupProbe
-from .container_logging_configuration import ContainerLoggingConfiguration
+from .container_logging import ContainerLogging
 from .container_resource_requirements import ContainerResourceRequirements
 from .axiom_logging_configuration import AxiomLoggingConfiguration
 from .datadog_logging_configuration import DatadogLoggingConfiguration
-from .container_http_logging_configuration import (
-    ContainerHttpLoggingConfiguration,
-    Format,
-    Compression,
+from .container_logging_configuration_http_1 import (
+    ContainerLoggingConfigurationHttp1,
+    ContainerHttpLoggingConfigurationFormat1,
+    ContainerHttpLoggingConfigurationCompression1,
 )
 from .new_relic_logging_configuration import NewRelicLoggingConfiguration
 from .container_logging_splunk_configuration import ContainerLoggingSplunkConfiguration
@@ -65,7 +65,13 @@ from .the_container_group_networking_load_balancer import (
 from .container_networking_protocol import ContainerNetworkingProtocol
 from .container_configuration import ContainerConfiguration
 from .create_container_group_networking import CreateContainerGroupNetworking
+from .container_configuration_logging import ContainerConfigurationLogging
 from .container_registry_authentication import ContainerRegistryAuthentication
+from .container_logging_configuration_http_2 import (
+    ContainerLoggingConfigurationHttp2,
+    ContainerHttpLoggingConfigurationFormat2,
+    ContainerHttpLoggingConfigurationCompression2,
+)
 from .container_registry_authentication_aws_ecr import (
     ContainerRegistryAuthenticationAwsEcr,
 )
@@ -83,6 +89,7 @@ from .container_registry_authentication_gcp_gcr import (
 )
 from .update_container import UpdateContainer
 from .update_container_group_networking import UpdateContainerGroupNetworking
+from .update_container_logging import UpdateContainerLogging
 from .container_resource_update_schema import ContainerResourceUpdateSchema
 from .the_container_group_instance_state import TheContainerGroupInstanceState
 from .workload_error import WorkloadError

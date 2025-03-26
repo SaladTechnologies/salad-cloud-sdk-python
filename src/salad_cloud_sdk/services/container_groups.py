@@ -1,6 +1,7 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
+from ..net.environment.environment import Environment
 from ..models.utils.cast_models import cast_models
 from ..models import (
     ContainerGroup,
@@ -41,7 +42,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -85,7 +86,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -129,7 +130,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -180,7 +181,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -223,7 +224,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -264,7 +265,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/start",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/start",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -305,7 +306,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/stop",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/stop",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -348,7 +349,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -399,7 +400,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -455,7 +456,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -506,7 +507,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/reallocate",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/reallocate",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -555,7 +556,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/recreate",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/recreate",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
@@ -604,7 +605,7 @@ class ContainerGroupsService(BaseService):
 
         serialized_request = (
             Serializer(
-                f"{self.base_url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/restart",
+                f"{self.base_url or Environment.DEFAULT.url}/organizations/{{organization_name}}/projects/{{project_name}}/containers/{{container_group_name}}/instances/{{container_group_instance_id}}/restart",
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
