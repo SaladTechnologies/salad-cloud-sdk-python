@@ -8,7 +8,7 @@ from .utils.sentinel import SENTINEL
 from .container_logging_http_header import ContainerLoggingHttpHeader
 
 
-class Format(Enum):
+class ContainerHttpLoggingConfigurationFormat2(Enum):
     """An enumeration representing different categories.
 
     :cvar JSON: "json"
@@ -26,10 +26,15 @@ class Format(Enum):
         :return: A list of all category values.
         :rtype: list
         """
-        return list(map(lambda x: x.value, Format._member_map_.values()))
+        return list(
+            map(
+                lambda x: x.value,
+                ContainerHttpLoggingConfigurationFormat2._member_map_.values(),
+            )
+        )
 
 
-class Compression(Enum):
+class ContainerHttpLoggingConfigurationCompression2(Enum):
     """An enumeration representing different categories.
 
     :cvar NONE: "none"
@@ -47,11 +52,16 @@ class Compression(Enum):
         :return: A list of all category values.
         :rtype: list
         """
-        return list(map(lambda x: x.value, Compression._member_map_.values()))
+        return list(
+            map(
+                lambda x: x.value,
+                ContainerHttpLoggingConfigurationCompression2._member_map_.values(),
+            )
+        )
 
 
 @JsonMap({})
-class ContainerHttpLoggingConfiguration(BaseModel):
+class ContainerLoggingConfigurationHttp2(BaseModel):
     """Configuration for sending container logs to an HTTP endpoint. Defines how logs are formatted, compressed, and transmitted.
 
     :param host: The hostname or IP address of the HTTP logging endpoint
@@ -65,23 +75,23 @@ class ContainerHttpLoggingConfiguration(BaseModel):
     :param path: Optional URL path for the HTTP endpoint, defaults to None
     :type path: str, optional
     :param format: The format in which logs will be delivered
-    :type format: Format
-    :param headers: Optional HTTP headers to include in log transmission requests
-    :type headers: List[ContainerLoggingHttpHeader]
+    :type format: ContainerHttpLoggingConfigurationFormat2
+    :param headers: Optional HTTP headers to include in log transmission requests, defaults to None
+    :type headers: List[ContainerLoggingHttpHeader], optional
     :param compression: The compression algorithm to apply to logs before transmission
-    :type compression: Compression
+    :type compression: ContainerHttpLoggingConfigurationCompression2
     """
 
     def __init__(
         self,
         host: str,
         port: int,
-        format: Format,
-        headers: Union[List[ContainerLoggingHttpHeader], None],
-        compression: Compression,
+        format: ContainerHttpLoggingConfigurationFormat2,
+        compression: ContainerHttpLoggingConfigurationCompression2,
         user: Union[str, None] = SENTINEL,
         password: Union[str, None] = SENTINEL,
         path: Union[str, None] = SENTINEL,
+        headers: List[ContainerLoggingHttpHeader] = SENTINEL,
         **kwargs,
     ):
         """Configuration for sending container logs to an HTTP endpoint. Defines how logs are formatted, compressed, and transmitted.
@@ -97,11 +107,11 @@ class ContainerHttpLoggingConfiguration(BaseModel):
         :param path: Optional URL path for the HTTP endpoint, defaults to None
         :type path: str, optional
         :param format: The format in which logs will be delivered
-        :type format: Format
-        :param headers: Optional HTTP headers to include in log transmission requests
-        :type headers: List[ContainerLoggingHttpHeader]
+        :type format: ContainerHttpLoggingConfigurationFormat2
+        :param headers: Optional HTTP headers to include in log transmission requests, defaults to None
+        :type headers: List[ContainerLoggingHttpHeader], optional
         :param compression: The compression algorithm to apply to logs before transmission
-        :type compression: Compression
+        :type compression: ContainerHttpLoggingConfigurationCompression2
         """
         self.host = self._define_str(
             "host", host, pattern="^.*$", min_length=1, max_length=1000
@@ -134,9 +144,14 @@ class ContainerHttpLoggingConfiguration(BaseModel):
                 min_length=1,
                 max_length=1000,
             )
-        self.format = self._enum_matching(format, Format.list(), "format")
-        self.headers = self._define_list(headers, ContainerLoggingHttpHeader)
+        self.format = self._enum_matching(
+            format, ContainerHttpLoggingConfigurationFormat2.list(), "format"
+        )
+        if headers is not SENTINEL:
+            self.headers = self._define_list(headers, ContainerLoggingHttpHeader)
         self.compression = self._enum_matching(
-            compression, Compression.list(), "compression"
+            compression,
+            ContainerHttpLoggingConfigurationCompression2.list(),
+            "compression",
         )
         self._kwargs = kwargs

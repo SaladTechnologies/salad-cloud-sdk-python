@@ -15,7 +15,7 @@ class SaladCloudSdk:
         self,
         api_key: str = None,
         api_key_header: str = "Salad-Api-Key",
-        base_url: Union[Environment, str] = Environment.DEFAULT,
+        base_url: Union[Environment, str, None] = None,
         timeout: int = 60000,
     ):
         """

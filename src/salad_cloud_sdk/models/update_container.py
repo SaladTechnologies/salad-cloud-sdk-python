@@ -4,7 +4,7 @@ from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
-from .container_logging_configuration import ContainerLoggingConfiguration
+from .update_container_logging import UpdateContainerLogging
 from .container_group_priority import ContainerGroupPriority
 from .container_registry_authentication import ContainerRegistryAuthentication
 from .container_resource_update_schema import ContainerResourceUpdateSchema
@@ -23,7 +23,7 @@ class UpdateContainer(BaseModel):
     :param image_caching: The container image caching., defaults to None
     :type image_caching: bool, optional
     :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
-    :type logging: ContainerLoggingConfiguration, optional
+    :type logging: UpdateContainerLogging, optional
     :param priority: Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence., defaults to None
     :type priority: ContainerGroupPriority, optional
     :param registry_authentication: Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication., defaults to None
@@ -38,7 +38,7 @@ class UpdateContainer(BaseModel):
         environment_variables: dict = SENTINEL,
         image: Union[str, None] = SENTINEL,
         image_caching: bool = SENTINEL,
-        logging: ContainerLoggingConfiguration = SENTINEL,
+        logging: Union[UpdateContainerLogging, None] = SENTINEL,
         priority: Union[ContainerGroupPriority, None] = SENTINEL,
         registry_authentication: ContainerRegistryAuthentication = SENTINEL,
         resources: Union[ContainerResourceUpdateSchema, None] = SENTINEL,
@@ -55,7 +55,7 @@ class UpdateContainer(BaseModel):
         :param image_caching: The container image caching., defaults to None
         :type image_caching: bool, optional
         :param logging: Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time., defaults to None
-        :type logging: ContainerLoggingConfiguration, optional
+        :type logging: UpdateContainerLogging, optional
         :param priority: Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence., defaults to None
         :type priority: ContainerGroupPriority, optional
         :param registry_authentication: Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication., defaults to None
@@ -79,7 +79,7 @@ class UpdateContainer(BaseModel):
         if image_caching is not SENTINEL:
             self.image_caching = image_caching
         if logging is not SENTINEL:
-            self.logging = self._define_object(logging, ContainerLoggingConfiguration)
+            self.logging = self._define_object(logging, UpdateContainerLogging)
         if priority is not SENTINEL:
             self.priority = self._enum_matching(
                 priority, ContainerGroupPriority.list(), "priority"

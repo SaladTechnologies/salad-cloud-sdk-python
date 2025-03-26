@@ -84,7 +84,7 @@ sdk = SaladCloudSdk(
 
 request_body = QueuePrototype(
     name="name",
-    display_name="Qskie",
+    display_name="WYAV3y",
     description="description"
 )
 
@@ -169,7 +169,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePatch(
-    display_name="i2VcwOa",
+    display_name="QqN5Ecnfeq",
     description="description"
 )
 
