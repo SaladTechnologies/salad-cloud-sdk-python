@@ -39,15 +39,12 @@ from .container_logging import ContainerLogging
 from .container_resource_requirements import ContainerResourceRequirements
 from .axiom_logging_configuration import AxiomLoggingConfiguration
 from .datadog_logging_configuration import DatadogLoggingConfiguration
-from .container_logging_configuration_http_1 import (
-    ContainerLoggingConfigurationHttp1,
-    ContainerHttpLoggingConfigurationFormat1,
-    ContainerHttpLoggingConfigurationCompression1,
-)
+from .container_logging_configuration_http_1 import ContainerLoggingConfigurationHttp1
 from .new_relic_logging_configuration import NewRelicLoggingConfiguration
 from .container_logging_splunk_configuration import ContainerLoggingSplunkConfiguration
 from .tcp_logging_configuration import TcpLoggingConfiguration
 from .datadog_tag_for_container_logging import DatadogTagForContainerLogging
+from .container_logging_http_format import ContainerLoggingHttpFormat
 from .container_logging_http_header import ContainerLoggingHttpHeader
 from .container_group_instance_status_count import ContainerGroupInstanceStatusCount
 from .container_group_status import ContainerGroupStatus
@@ -67,11 +64,7 @@ from .container_configuration import ContainerConfiguration
 from .create_container_group_networking import CreateContainerGroupNetworking
 from .container_configuration_logging import ContainerConfigurationLogging
 from .container_registry_authentication import ContainerRegistryAuthentication
-from .container_logging_configuration_http_2 import (
-    ContainerLoggingConfigurationHttp2,
-    ContainerHttpLoggingConfigurationFormat2,
-    ContainerHttpLoggingConfigurationCompression2,
-)
+from .container_logging_configuration_http_2 import ContainerLoggingConfigurationHttp2
 from .container_registry_authentication_aws_ecr import (
     ContainerRegistryAuthenticationAwsEcr,
 )

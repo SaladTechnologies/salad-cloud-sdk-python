@@ -4,35 +4,13 @@ Configuration for sending container logs to an HTTP endpoint. Defines how logs a
 
 **Properties**
 
-| Name        | Type                                          | Required | Description                                                    |
-| :---------- | :-------------------------------------------- | :------- | :------------------------------------------------------------- |
-| host        | str                                           | ✅       | The hostname or IP address of the HTTP logging endpoint        |
-| port        | int                                           | ✅       | The port number of the HTTP logging endpoint (1-65535)         |
-| format      | ContainerHttpLoggingConfigurationFormat2      | ✅       | The format in which logs will be delivered                     |
-| compression | ContainerHttpLoggingConfigurationCompression2 | ✅       | The compression algorithm to apply to logs before transmission |
-| user        | str                                           | ❌       | Optional username for HTTP authentication                      |
-| password    | str                                           | ❌       | Optional password for HTTP authentication                      |
-| path        | str                                           | ❌       | Optional URL path for the HTTP endpoint                        |
-| headers     | List[ContainerLoggingHttpHeader]              | ❌       | Optional HTTP headers to include in log transmission requests  |
-
-# ContainerHttpLoggingConfigurationFormat_2
-
-The format in which logs will be delivered
-
-**Properties**
-
-| Name      | Type | Required | Description  |
-| :-------- | :--- | :------- | :----------- |
-| JSON      | str  | ✅       | "json"       |
-| JSONLINES | str  | ✅       | "json_lines" |
-
-# ContainerHttpLoggingConfigurationCompression_2
-
-The compression algorithm to apply to logs before transmission
-
-**Properties**
-
-| Name | Type | Required | Description |
-| :--- | :--- | :------- | :---------- |
-| NONE | str  | ✅       | "none"      |
-| GZIP | str  | ✅       | "gzip"      |
+| Name        | Type                             | Required | Description                                                   |
+| :---------- | :------------------------------- | :------- | :------------------------------------------------------------ |
+| host        | str                              | ✅       | The hostname or IP address of the HTTP logging endpoint       |
+| port        | int                              | ✅       | The port number of the HTTP logging endpoint (1-65535)        |
+| format      | ContainerLoggingHttpFormat       | ✅       | The format in which logs will be delivered                    |
+| compression | any                              | ✅       |                                                               |
+| user        | str                              | ❌       | Optional username for HTTP authentication                     |
+| password    | str                              | ❌       | Optional password for HTTP authentication                     |
+| path        | str                              | ❌       | Optional URL path for the HTTP endpoint                       |
+| headers     | List[ContainerLoggingHttpHeader] | ❌       | Optional HTTP headers to include in log transmission requests |
