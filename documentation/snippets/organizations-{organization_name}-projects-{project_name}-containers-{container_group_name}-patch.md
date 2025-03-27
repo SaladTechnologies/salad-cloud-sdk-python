@@ -46,7 +46,7 @@ request_body = ContainerGroupPatch(
                         "value": "value"
                     }
                 ],
-                "compression": "none"
+                "compression": ""
             },
             "new_relic": {
                 "host": "host",
