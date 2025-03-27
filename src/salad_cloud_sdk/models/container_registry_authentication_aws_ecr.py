@@ -25,13 +25,13 @@ class ContainerRegistryAuthenticationAwsEcr(BaseModel):
             access_key_id,
             pattern="^.*$",
             min_length=1,
-            max_length=1000,
+            max_length=10000,
         )
         self.secret_access_key = self._define_str(
             "secret_access_key",
             secret_access_key,
             pattern="^.*$",
             min_length=1,
-            max_length=1000,
+            max_length=10000,
         )
         self._kwargs = kwargs

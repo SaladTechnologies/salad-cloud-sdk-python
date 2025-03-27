@@ -46,7 +46,7 @@ request_body = ContainerGroupCreationRequest(
                         "value": "value"
                     }
                 ],
-                "compression": ""
+                "compression": "none"
             },
             "new_relic": {
                 "host": "host",
