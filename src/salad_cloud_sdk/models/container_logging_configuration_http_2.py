@@ -6,6 +6,7 @@ from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL
 from .container_logging_http_format import ContainerLoggingHttpFormat
 from .container_logging_http_header import ContainerLoggingHttpHeader
+from .container_logging_http_compression import ContainerLoggingHttpCompression
 
 
 @JsonMap({})
@@ -26,8 +27,8 @@ class ContainerLoggingConfigurationHttp2(BaseModel):
     :type format: ContainerLoggingHttpFormat
     :param headers: Optional HTTP headers to include in log transmission requests, defaults to None
     :type headers: List[ContainerLoggingHttpHeader], optional
-    :param compression: compression
-    :type compression: any
+    :param compression: The compression algorithm to apply to logs before transmission
+    :type compression: ContainerLoggingHttpCompression
     """
 
     def __init__(
@@ -35,7 +36,7 @@ class ContainerLoggingConfigurationHttp2(BaseModel):
         host: str,
         port: int,
         format: ContainerLoggingHttpFormat,
-        compression: any,
+        compression: ContainerLoggingHttpCompression,
         user: Union[str, None] = SENTINEL,
         password: Union[str, None] = SENTINEL,
         path: Union[str, None] = SENTINEL,
@@ -58,8 +59,8 @@ class ContainerLoggingConfigurationHttp2(BaseModel):
         :type format: ContainerLoggingHttpFormat
         :param headers: Optional HTTP headers to include in log transmission requests, defaults to None
         :type headers: List[ContainerLoggingHttpHeader], optional
-        :param compression: compression
-        :type compression: any
+        :param compression: The compression algorithm to apply to logs before transmission
+        :type compression: ContainerLoggingHttpCompression
         """
         self.host = self._define_str(
             "host", host, pattern="^.*$", min_length=1, max_length=1000
@@ -97,5 +98,7 @@ class ContainerLoggingConfigurationHttp2(BaseModel):
         )
         if headers is not SENTINEL:
             self.headers = self._define_list(headers, ContainerLoggingHttpHeader)
-        self.compression = compression
+        self.compression = self._enum_matching(
+            compression, ContainerLoggingHttpCompression.list(), "compression"
+        )
         self._kwargs = kwargs

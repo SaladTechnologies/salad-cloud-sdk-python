@@ -1,4 +1,4 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.10
+# SaladCloudSdk Python SDK 0.9.0-alpha.11
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
@@ -6,8 +6,8 @@ Welcome to the SaladCloudSdk SDK documentation. This guide will help you get sta
 
 ## Versions
 
-- API version: `0.9.0-alpha.10`
-- SDK version: `0.9.0-alpha.10`
+- API version: `0.9.0-alpha.11`
+- SDK version: `0.9.0-alpha.11`
 
 ## About the API
 
@@ -191,6 +191,7 @@ The SDK includes several models that represent the data structures used in API r
 | [DatadogTagForContainerLogging](documentation/models/DatadogTagForContainerLogging.md)                       | Represents a Datadog tag used for container logging metadata.                                                                                                                                                                                                                                                                                                         |
 | [ContainerLoggingHttpFormat](documentation/models/ContainerLoggingHttpFormat.md)                             | The format in which logs will be delivered                                                                                                                                                                                                                                                                                                                            |
 | [ContainerLoggingHttpHeader](documentation/models/ContainerLoggingHttpHeader.md)                             | Represents an HTTP header used for container logging configuration.                                                                                                                                                                                                                                                                                                   |
+| [ContainerLoggingHttpCompression](documentation/models/ContainerLoggingHttpCompression.md)                   | The compression algorithm to apply to logs before transmission                                                                                                                                                                                                                                                                                                        |
 | [ContainerGroupInstanceStatusCount](documentation/models/ContainerGroupInstanceStatusCount.md)               | A summary of container group instances categorized by their current lifecycle status                                                                                                                                                                                                                                                                                  |
 | [ContainerGroupStatus](documentation/models/ContainerGroupStatus.md)                                         | Represents the current operational state of a container group within the Salad platform.                                                                                                                                                                                                                                                                              |
 | [ContainerGroupProbeExec](documentation/models/ContainerGroupProbeExec.md)                                   | Defines the exec action for a probe in a container group. This is used to execute a command inside a container for health checks.                                                                                                                                                                                                                                     |

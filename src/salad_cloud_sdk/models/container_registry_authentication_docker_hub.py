@@ -21,13 +21,13 @@ class ContainerRegistryAuthenticationDockerHub(BaseModel):
         :type personal_access_token: str
         """
         self.username = self._define_str(
-            "username", username, pattern="^.*$", min_length=1, max_length=1000
+            "username", username, pattern="^.*$", min_length=1, max_length=10000
         )
         self.personal_access_token = self._define_str(
             "personal_access_token",
             personal_access_token,
             pattern="^.*$",
             min_length=1,
-            max_length=1000,
+            max_length=10000,
         )
         self._kwargs = kwargs

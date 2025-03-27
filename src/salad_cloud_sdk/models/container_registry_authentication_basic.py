@@ -21,9 +21,9 @@ class ContainerRegistryAuthenticationBasic(BaseModel):
         :type password: str
         """
         self.username = self._define_str(
-            "username", username, pattern="^.*$", min_length=1, max_length=1000
+            "username", username, pattern="^.*$", min_length=1, max_length=10000
         )
         self.password = self._define_str(
-            "password", password, pattern="^.*$", min_length=1, max_length=1000
+            "password", password, pattern="^.*$", min_length=1, max_length=10000
         )
         self._kwargs = kwargs

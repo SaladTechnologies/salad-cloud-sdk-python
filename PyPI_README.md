@@ -1,4 +1,4 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.10<a id="saladcloudsdk-python-sdk-090-alpha10"></a>
+# SaladCloudSdk Python SDK 0.9.0-alpha.11<a id="saladcloudsdk-python-sdk-090-alpha11"></a>
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
@@ -6,8 +6,8 @@ Welcome to the SaladCloudSdk SDK documentation. This guide will help you get sta
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.10`
-- SDK version: `0.9.0-alpha.10`
+- API version: `0.9.0-alpha.11`
+- SDK version: `0.9.0-alpha.11`
 
 ## About the API<a id="about-the-api"></a>
 
@@ -190,6 +190,7 @@ The SDK includes several models that represent the data structures used in API r
 | DatadogTagForContainerLogging            | Represents a Datadog tag used for container logging metadata.                                                                                                                                                                                                                                                                                                         |
 | ContainerLoggingHttpFormat               | The format in which logs will be delivered                                                                                                                                                                                                                                                                                                                            |
 | ContainerLoggingHttpHeader               | Represents an HTTP header used for container logging configuration.                                                                                                                                                                                                                                                                                                   |
+| ContainerLoggingHttpCompression          | The compression algorithm to apply to logs before transmission                                                                                                                                                                                                                                                                                                        |
 | ContainerGroupInstanceStatusCount        | A summary of container group instances categorized by their current lifecycle status                                                                                                                                                                                                                                                                                  |
 | ContainerGroupStatus                     | Represents the current operational state of a container group within the Salad platform.                                                                                                                                                                                                                                                                              |
 | ContainerGroupProbeExec                  | Defines the exec action for a probe in a container group. This is used to execute a command inside a container for health checks.                                                                                                                                                                                                                                     |
