@@ -1,4 +1,4 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.11
+# SaladCloudSdk Python SDK 0.9.0-alpha.12
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
@@ -6,8 +6,8 @@ Welcome to the SaladCloudSdk SDK documentation. This guide will help you get sta
 
 ## Versions
 
-- API version: `0.9.0-alpha.11`
-- SDK version: `0.9.0-alpha.11`
+- API version: `0.9.0-alpha.12`
+- SDK version: `0.9.0-alpha.12`
 
 ## About the API
 

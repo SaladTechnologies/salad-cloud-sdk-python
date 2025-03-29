@@ -9,7 +9,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupInstancePatch(
-    deletion_cost=82294
+    deletion_cost=76724
 )
 
 result = sdk.container_groups.update_container_group_instance(

@@ -9,7 +9,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePatch(
-    display_name="QqN5Ecnfeq",
+    display_name="i2VcwOa",
     description="description"
 )
 
