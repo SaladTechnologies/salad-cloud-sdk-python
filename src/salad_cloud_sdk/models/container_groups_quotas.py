@@ -42,30 +42,30 @@ class ContainerGroupsQuotas(BaseModel):
         :type max_container_group_restarts_per_minute: int, optional
         """
         self.container_replicas_quota = self._define_number(
-            "container_replicas_quota", container_replicas_quota, ge=0, le=500
+            "container_replicas_quota", container_replicas_quota, ge=0, le=2147483647
         )
         self.container_replicas_used = self._define_number(
-            "container_replicas_used", container_replicas_used, ge=0, le=500
+            "container_replicas_used", container_replicas_used, ge=0, le=2147483647
         )
         if max_container_group_reallocations_per_minute is not SENTINEL:
             self.max_container_group_reallocations_per_minute = self._define_number(
                 "max_container_group_reallocations_per_minute",
                 max_container_group_reallocations_per_minute,
                 ge=0,
-                le=100,
+                le=2147483647,
             )
         if max_container_group_recreates_per_minute is not SENTINEL:
             self.max_container_group_recreates_per_minute = self._define_number(
                 "max_container_group_recreates_per_minute",
                 max_container_group_recreates_per_minute,
                 ge=0,
-                le=100,
+                le=2147483647,
             )
         if max_container_group_restarts_per_minute is not SENTINEL:
             self.max_container_group_restarts_per_minute = self._define_number(
                 "max_container_group_restarts_per_minute",
                 max_container_group_restarts_per_minute,
                 ge=0,
-                le=100,
+                le=2147483647,
             )
         self._kwargs = kwargs

@@ -17,6 +17,6 @@ class ContainerRegistryAuthenticationGcpGcr(BaseModel):
         :type service_key: str
         """
         self.service_key = self._define_str(
-            "service_key", service_key, pattern="^.*$", min_length=1, max_length=10000
+            "service_key", service_key, min_length=1, max_length=10000
         )
         self._kwargs = kwargs
