@@ -65,6 +65,7 @@ from .container_configuration import ContainerConfiguration
 from .create_container_group_networking import CreateContainerGroupNetworking
 from .container_configuration_logging import ContainerConfigurationLogging
 from .container_registry_authentication import ContainerRegistryAuthentication
+from .create_container_resource_requirements import CreateContainerResourceRequirements
 from .container_logging_configuration_http_2 import ContainerLoggingConfigurationHttp2
 from .container_registry_authentication_aws_ecr import (
     ContainerRegistryAuthenticationAwsEcr,
@@ -95,3 +96,4 @@ from .inference_endpoint_job_event import InferenceEndpointJobEvent
 from .inference_endpoint_job_event_action import InferenceEndpointJobEventAction
 from .gpu_class import GpuClass
 from .gpu_class_price import GpuClassPrice
+from .problem_details import ProblemDetails

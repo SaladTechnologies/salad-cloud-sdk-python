@@ -1,8 +1,8 @@
 {
-  "liblabVersion": "2.25.1",
-  "date": "2025-03-29T05:58:55.514Z",
+  "liblabVersion": "2.25.14",
+  "date": "2025-05-10T22:51:23.911Z",
   "config": {
-    "apiId": 1950,
+    "apiId": 2164,
     "sdkName": "salad-cloud-sdk",
     "sdkVersion": "0.9.0-alpha.12",
     "languages": ["python"],
@@ -370,6 +370,7 @@
         "generateEnumAs": "enum"
       }
     },
+    "mcpServer": false,
     "publishing": {
       "githubOrg": "SaladTechnologies"
     },
@@ -460,7 +461,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.12",
+    "apiVersion": "0.9.0-alpha.13",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -554,7 +555,8 @@
       "rawQueries": [],
       "queriesData": []
     },
-    "ai": false
+    "ai": false,
+    "specType": "openapi"
   },
   "files": [
     "src/salad_cloud_sdk/models/utils/base_model.py",
@@ -575,6 +577,7 @@
     "src/salad_cloud_sdk/services/async_/utils/__init__.py",
     "src/salad_cloud_sdk/net/transport/request.py",
     "src/salad_cloud_sdk/net/transport/response.py",
+    "src/salad_cloud_sdk/net/transport/api_error.py",
     "src/salad_cloud_sdk/net/transport/request_error.py",
     "src/salad_cloud_sdk/sdk.py",
     "src/salad_cloud_sdk/net/transport/serializer.py",
@@ -694,6 +697,7 @@
     "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/ContainerConfigurationLogging.md",
     "documentation/models/ContainerRegistryAuthentication.md",
+    "documentation/models/CreateContainerResourceRequirements.md",
     "documentation/models/ContainerLoggingConfigurationHttp2.md",
     "documentation/models/ContainerRegistryAuthenticationAwsEcr.md",
     "documentation/models/ContainerRegistryAuthenticationBasic.md",
@@ -713,6 +717,7 @@
     "documentation/models/InferenceEndpointJobEventAction.md",
     "documentation/models/GpuClass.md",
     "documentation/models/GpuClassPrice.md",
+    "documentation/models/ProblemDetails.md",
     "src/salad_cloud_sdk/models/utils/one_of_base_model.py",
     "src/salad_cloud_sdk/services/async_/utils/to_async.py",
     "src/salad_cloud_sdk/services/async_/container_groups.py",
@@ -798,6 +803,7 @@
     "src/salad_cloud_sdk/models/create_container_group_networking.py",
     "src/salad_cloud_sdk/models/container_configuration_logging.py",
     "src/salad_cloud_sdk/models/container_registry_authentication.py",
+    "src/salad_cloud_sdk/models/create_container_resource_requirements.py",
     "src/salad_cloud_sdk/models/container_logging_configuration_http_2.py",
     "src/salad_cloud_sdk/models/container_registry_authentication_aws_ecr.py",
     "src/salad_cloud_sdk/models/container_registry_authentication_basic.py",
@@ -816,6 +822,7 @@
     "src/salad_cloud_sdk/models/gpu_class_price.py",
     "src/salad_cloud_sdk/services/webhook_secret_key.py",
     "documentation/services/WebhookSecretKeyService.md",
+    "src/salad_cloud_sdk/models/problem_details.py",
     "src/salad_cloud_sdk/models/queue_job.py",
     "src/salad_cloud_sdk/models/queue_job_event.py",
     "documentation/services/InferenceEndpointsService.md",

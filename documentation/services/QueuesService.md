@@ -84,7 +84,7 @@ sdk = SaladCloudSdk(
 
 request_body = QueuePrototype(
     name="name",
-    display_name="Qskie",
+    display_name="YAV3ysQ",
     description="description"
 )
 
@@ -169,7 +169,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePatch(
-    display_name="i2VcwOa",
+    display_name="N5EcnfeqKM",
     description="description"
 )
 
@@ -197,6 +197,10 @@ Deletes an existing queue in the given project.
 | organization_name | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 | project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 
@@ -365,6 +369,10 @@ Cancels a job in a queue
 | project_name      | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | queue_name        | str  | ✅       | The queue name.                                                                                                                                                                                                                                     |
 | queue_job_id      | str  | ✅       | The job identifier. This is automatically generated and assigned when the job is created.                                                                                                                                                           |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 

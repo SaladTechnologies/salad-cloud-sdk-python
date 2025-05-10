@@ -1,4 +1,4 @@
-from typing import Awaitable
+from typing import Awaitable, Union
 from .utils.to_async import to_async
 from ..inference_endpoints import InferenceEndpointsService
 from ...models.utils.sentinel import SENTINEL

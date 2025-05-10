@@ -1,9 +1,10 @@
+from typing import Union
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..net.environment.environment import Environment
 from ..models.utils.cast_models import cast_models
-from ..models import WebhookSecretKey
+from ..models import ProblemDetails, WebhookSecretKey
 
 
 class WebhookSecretKeyService(BaseService):
@@ -31,11 +32,13 @@ class WebhookSecretKeyService(BaseService):
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return WebhookSecretKey._unmap(response)
 
     @cast_models
@@ -61,9 +64,11 @@ class WebhookSecretKeyService(BaseService):
                 [self.get_api_key()],
             )
             .add_path("organization_name", organization_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return WebhookSecretKey._unmap(response)

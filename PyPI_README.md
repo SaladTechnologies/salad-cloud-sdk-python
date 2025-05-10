@@ -6,7 +6,7 @@ Welcome to the SaladCloudSdk SDK documentation. This guide will help you get sta
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.12`
+- API version: `0.9.0-alpha.13`
 - SDK version: `0.9.0-alpha.12`
 
 ## About the API<a id="about-the-api"></a>
@@ -205,6 +205,7 @@ The SDK includes several models that represent the data structures used in API r
 | CreateContainerGroupNetworking           | Network configuration for container groups specifying connectivity parameters, including authentication, protocol, and timeout settings                                                                                                                                                                                                                               |
 | ContainerConfigurationLogging            | Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time. |
 | ContainerRegistryAuthentication          | Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication.                                                                                                                                                                                                                         |
+| CreateContainerResourceRequirements      | Specifies the resource requirements for creating a container.                                                                                                                                                                                                                                                                                                         |
 | ContainerLoggingConfigurationHttp2       | Configuration for sending container logs to an HTTP endpoint. Defines how logs are formatted, compressed, and transmitted.                                                                                                                                                                                                                                            |
 | ContainerRegistryAuthenticationAwsEcr    | Authentication details for AWS Elastic Container Registry (ECR)                                                                                                                                                                                                                                                                                                       |
 | ContainerRegistryAuthenticationBasic     | Basic username and password authentication for generic container registries                                                                                                                                                                                                                                                                                           |
@@ -225,6 +226,7 @@ The SDK includes several models that represent the data structures used in API r
 | InferenceEndpointJobEventAction          | The action that was taken on the inference endpoint job.                                                                                                                                                                                                                                                                                                              |
 | GpuClass                                 | Represents a GPU Class                                                                                                                                                                                                                                                                                                                                                |
 | GpuClassPrice                            | Represents the price of a GPU class for a given container group priority                                                                                                                                                                                                                                                                                              |
+| ProblemDetails                           | Represents an API error                                                                                                                                                                                                                                                                                                                                               |
 
 </details>
 

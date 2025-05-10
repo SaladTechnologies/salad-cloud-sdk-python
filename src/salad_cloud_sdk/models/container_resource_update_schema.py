@@ -15,7 +15,7 @@ class ContainerResourceUpdateSchema(BaseModel):
     :type memory: int, optional
     :param gpu_classes: List of GPU class identifiers that the container can use, specified as UUIDs., defaults to None
     :type gpu_classes: List[str], optional
-    :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 50GB)., defaults to None
+    :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 250GB)., defaults to None
     :type storage_amount: int, optional
     """
 
@@ -35,7 +35,7 @@ class ContainerResourceUpdateSchema(BaseModel):
         :type memory: int, optional
         :param gpu_classes: List of GPU class identifiers that the container can use, specified as UUIDs., defaults to None
         :type gpu_classes: List[str], optional
-        :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 50GB)., defaults to None
+        :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 250GB)., defaults to None
         :type storage_amount: int, optional
         """
         if cpu is not SENTINEL:
@@ -52,6 +52,6 @@ class ContainerResourceUpdateSchema(BaseModel):
                 storage_amount,
                 nullable=True,
                 ge=1073741824,
-                le=53687091200,
+                le=268435456000,
             )
         self._kwargs = kwargs

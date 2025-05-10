@@ -1,6 +1,6 @@
-# ContainerResourceRequirements
+# CreateContainerResourceRequirements
 
-Specifies the resource requirements for a container.
+Specifies the resource requirements for creating a container.
 
 **Properties**
 
@@ -8,5 +8,5 @@ Specifies the resource requirements for a container.
 | :------------- | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | cpu            | int       | ✅       | The number of CPU cores required by the container. Must be between 1 and 16.                                                         |
 | memory         | int       | ✅       | The amount of memory (in MB) required by the container. Must be between 1024 MB and 61440 MB.                                        |
-| gpu_classes    | List[str] | ✅       | A list of GPU class UUIDs required by the container. Can be null if no GPU is required.                                              |
+| gpu_classes    | List[str] | ❌       | A list of GPU class UUIDs required by the container. Can be null if no GPU is required.                                              |
 | storage_amount | int       | ❌       | The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 250 GB (268435456000 bytes). |

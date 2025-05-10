@@ -35,7 +35,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "http": {
                 "host": "host",
-                "port": 30730,
+                "port": 46840,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -58,7 +58,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "tcp": {
                 "host": "host",
-                "port": 54633
+                "port": 44671
             }
         },
         "priority": "high",
@@ -83,18 +83,18 @@ request_body = ContainerGroupCreationRequest(
             }
         },
         "resources": {
-            "cpu": 7,
-            "memory": 14008,
+            "cpu": 15,
+            "memory": 13768,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 26633666886
+            "storage_amount": 1922820514
         }
     },
     country_codes=[
         "af"
     ],
-    display_name="iQTB",
+    display_name="592CH6",
     liveness_probe={
         "exec_": {
             "command": [
@@ -103,7 +103,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -114,14 +114,14 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 392,
+        "initial_delay_seconds": 670,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 13817
         },
         "timeout_seconds": 30
     },
@@ -136,17 +136,17 @@ request_body = ContainerGroupCreationRequest(
         "single_connection_limit": False
     },
     queue_autoscaler={
-        "desired_queue_length": 81,
-        "max_replicas": 448,
-        "max_downscale_per_minute": 72,
-        "max_upscale_per_minute": 19,
-        "min_replicas": 100,
-        "polling_period": 1772
+        "desired_queue_length": 53,
+        "max_replicas": 291,
+        "max_downscale_per_minute": 65,
+        "max_upscale_per_minute": 100,
+        "min_replicas": 54,
+        "polling_period": 140
     },
     queue_connection={
         "path": "path",
-        "port": 58174,
-        "queue_name": "n6eqezp9"
+        "port": 47568,
+        "queue_name": "z1h-3z01x9"
     },
     readiness_probe={
         "exec_": {
@@ -156,7 +156,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -167,18 +167,18 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 202,
+        "initial_delay_seconds": 262,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 13817
         },
         "timeout_seconds": 1
     },
-    replicas=257,
+    replicas=309,
     restart_policy="always",
     startup_probe={
         "exec_": {
@@ -188,7 +188,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 52641,
+            "port": 37648,
             "service": "service"
         },
         "http": {
@@ -199,12 +199,12 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 312,
+        "initial_delay_seconds": 1106,
         "tcp": {
-            "port": 27294
+            "port": 13817
         },
         "period_seconds": 3,
         "success_threshold": 2,

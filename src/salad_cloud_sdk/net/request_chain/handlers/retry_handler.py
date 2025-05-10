@@ -5,6 +5,7 @@ from time import sleep
 from .base_handler import BaseHandler
 from ...transport.request import Request
 from ...transport.response import Response
+from ...transport.api_error import ApiError
 from ...transport.request_error import RequestError
 
 
@@ -86,12 +87,12 @@ class RetryHandler(BaseHandler):
         delay = self._delay_in_milliseconds * (2**try_count) * jitter / 1000
         sleep(delay)
 
-    def _should_retry(self, error: Optional[RequestError]) -> bool:
+    def _should_retry(self, error: Optional[ApiError]) -> bool:
         """
         Determine whether the request should be retried.
 
         :param Optional[Response] response: The response from the previous handler.
-        :param Optional[RequestError] error: The error from the previous handler.
+        :param Optional[ApiError] error: The error from the previous handler.
         :return: True if the request should be retried, False otherwise.
         :rtype: bool
         """

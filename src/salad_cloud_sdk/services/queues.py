@@ -1,3 +1,4 @@
+from typing import Union
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -5,6 +6,7 @@ from ..net.environment.environment import Environment
 from ..models.utils.sentinel import SENTINEL
 from ..models.utils.cast_models import cast_models
 from ..models import (
+    ProblemDetails,
     Queue,
     QueueCollection,
     QueueJob,
@@ -46,11 +48,13 @@ class QueuesService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return QueueCollection._unmap(response)
 
     @cast_models
@@ -87,12 +91,15 @@ class QueuesService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
+            .add_error(400, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
             .set_body(request_body)
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
@@ -132,11 +139,13 @@ class QueuesService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
@@ -183,12 +192,15 @@ class QueuesService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
+            .add_error(400, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("PATCH")
             .set_body(request_body, "application/merge-patch+json")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return Queue._unmap(response)
 
     @cast_models
@@ -206,6 +218,8 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -226,11 +240,13 @@ class QueuesService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("DELETE")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def list_queue_jobs(
@@ -282,11 +298,13 @@ class QueuesService(BaseService):
             .add_path("queue_name", queue_name)
             .add_query("page", page)
             .add_query("page_size", page_size)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return QueueJobCollection._unmap(response)
 
     @cast_models
@@ -333,12 +351,15 @@ class QueuesService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
+            .add_error(400, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
             .set_body(request_body)
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return QueueJob._unmap(response)
 
     @cast_models
@@ -386,11 +407,13 @@ class QueuesService(BaseService):
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
             .add_path("queue_job_id", queue_job_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return QueueJob._unmap(response)
 
     @cast_models
@@ -414,6 +437,8 @@ class QueuesService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -436,8 +461,10 @@ class QueuesService(BaseService):
             .add_path("project_name", project_name)
             .add_path("queue_name", queue_name)
             .add_path("queue_job_id", queue_job_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("DELETE")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)

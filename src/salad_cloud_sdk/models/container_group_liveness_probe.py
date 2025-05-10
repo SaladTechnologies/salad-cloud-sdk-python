@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.sentinel import SENTINEL

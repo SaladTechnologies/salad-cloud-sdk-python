@@ -1,4 +1,4 @@
-from typing import Awaitable
+from typing import Awaitable, Union
 from .utils.to_async import to_async
 from ..webhook_secret_key import WebhookSecretKeyService
 from ...models import WebhookSecretKey
