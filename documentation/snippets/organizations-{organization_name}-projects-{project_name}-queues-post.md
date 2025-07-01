@@ -10,7 +10,7 @@ sdk = SaladCloudSdk(
 
 request_body = QueuePrototype(
     name="name",
-    display_name="Qskie",
+    display_name="5h",
     description="description"
 )
 

@@ -1,4 +1,4 @@
-# SaladCloudSdk Python SDK 0.9.0-alpha.12<a id="saladcloudsdk-python-sdk-090-alpha12"></a>
+# SaladCloudSdk Python SDK 0.9.0-alpha.13<a id="saladcloudsdk-python-sdk-090-alpha13"></a>
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
@@ -6,8 +6,8 @@ Welcome to the SaladCloudSdk SDK documentation. This guide will help you get sta
 
 ## Versions<a id="versions"></a>
 
-- API version: `0.9.0-alpha.12`
-- SDK version: `0.9.0-alpha.12`
+- API version: `0.9.0-alpha.14`
+- SDK version: `0.9.0-alpha.13`
 
 ## About the API<a id="about-the-api"></a>
 
@@ -132,6 +132,7 @@ The SDK provides various services to interact with the API.
 | inference_endpoints |
 | organization_data   |
 | webhook_secret_key  |
+| logs                |
 
 </details>
 
@@ -168,6 +169,8 @@ The SDK includes several models that represent the data structures used in API r
 | InferenceEndpointJob                     | Represents a inference endpoint job                                                                                                                                                                                                                                                                                                                                   |
 | GpuClassesList                           | Represents a list of GPU classes                                                                                                                                                                                                                                                                                                                                      |
 | WebhookSecretKey                         | Represents a webhook secret key                                                                                                                                                                                                                                                                                                                                       |
+| LogEntryQuery                            | Represents a query for logs                                                                                                                                                                                                                                                                                                                                           |
+| LogEntryCollection                       | Represents a page of organization logs                                                                                                                                                                                                                                                                                                                                |
 | Container                                | Represents a container with its configuration and resource requirements.                                                                                                                                                                                                                                                                                              |
 | CountryCode                              | ISO 3166-1 alpha-2 country codes                                                                                                                                                                                                                                                                                                                                      |
 | ContainerGroupState                      | Represents the operational state of a container group during its lifecycle, including timing information, status, and instance distribution metrics. This state captures the current execution status, start and finish times, and provides visibility into the operational health across instances.                                                                  |
@@ -205,6 +208,7 @@ The SDK includes several models that represent the data structures used in API r
 | CreateContainerGroupNetworking           | Network configuration for container groups specifying connectivity parameters, including authentication, protocol, and timeout settings                                                                                                                                                                                                                               |
 | ContainerConfigurationLogging            | Configuration options for directing container logs to a logging provider. This schema enables you to specify a single logging destination for container output, supporting monitoring, debugging, and analytics use cases. Each provider has its own configuration parameters defined in the referenced schemas. Only one logging provider can be selected at a time. |
 | ContainerRegistryAuthentication          | Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication.                                                                                                                                                                                                                         |
+| CreateContainerResourceRequirements      | Specifies the resource requirements for creating a container.                                                                                                                                                                                                                                                                                                         |
 | ContainerLoggingConfigurationHttp2       | Configuration for sending container logs to an HTTP endpoint. Defines how logs are formatted, compressed, and transmitted.                                                                                                                                                                                                                                            |
 | ContainerRegistryAuthenticationAwsEcr    | Authentication details for AWS Elastic Container Registry (ECR)                                                                                                                                                                                                                                                                                                       |
 | ContainerRegistryAuthenticationBasic     | Basic username and password authentication for generic container registries                                                                                                                                                                                                                                                                                           |
@@ -225,6 +229,11 @@ The SDK includes several models that represent the data structures used in API r
 | InferenceEndpointJobEventAction          | The action that was taken on the inference endpoint job.                                                                                                                                                                                                                                                                                                              |
 | GpuClass                                 | Represents a GPU Class                                                                                                                                                                                                                                                                                                                                                |
 | GpuClassPrice                            | Represents the price of a GPU class for a given container group priority                                                                                                                                                                                                                                                                                              |
+| LogEntryQuerySortOrder                   | The sort order of the log entries. `asc` will sort the log entries in chronological order. `desc` will sort the log entries in reverse chronological order.                                                                                                                                                                                                           |
+| LogEntry                                 |                                                                                                                                                                                                                                                                                                                                                                       |
+| LogEntryResource                         | The resource associated with the log entry                                                                                                                                                                                                                                                                                                                            |
+| LogEntrySeverity                         | The severity level of the log entry                                                                                                                                                                                                                                                                                                                                   |
+| ProblemDetails                           | Represents an API error                                                                                                                                                                                                                                                                                                                                               |
 
 </details>
 

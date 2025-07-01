@@ -7,7 +7,7 @@ from .utils.sentinel import SENTINEL
 from .container_configuration_logging import ContainerConfigurationLogging
 from .container_group_priority import ContainerGroupPriority
 from .container_registry_authentication import ContainerRegistryAuthentication
-from .container_resource_requirements import ContainerResourceRequirements
+from .create_container_resource_requirements import CreateContainerResourceRequirements
 
 
 @JsonMap({})
@@ -28,14 +28,14 @@ class ContainerConfiguration(BaseModel):
     :type priority: ContainerGroupPriority, optional
     :param registry_authentication: Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication., defaults to None
     :type registry_authentication: ContainerRegistryAuthentication, optional
-    :param resources: Specifies the resource requirements for a container.
-    :type resources: ContainerResourceRequirements
+    :param resources: Specifies the resource requirements for creating a container.
+    :type resources: CreateContainerResourceRequirements
     """
 
     def __init__(
         self,
         image: str,
-        resources: ContainerResourceRequirements,
+        resources: CreateContainerResourceRequirements,
         command: Union[List[str], None] = SENTINEL,
         environment_variables: dict = SENTINEL,
         image_caching: bool = SENTINEL,
@@ -60,8 +60,8 @@ class ContainerConfiguration(BaseModel):
         :type priority: ContainerGroupPriority, optional
         :param registry_authentication: Authentication configuration for various container registry types, including AWS ECR, Docker Hub, GCP GAR, GCP GCR, and basic authentication., defaults to None
         :type registry_authentication: ContainerRegistryAuthentication, optional
-        :param resources: Specifies the resource requirements for a container.
-        :type resources: ContainerResourceRequirements
+        :param resources: Specifies the resource requirements for creating a container.
+        :type resources: CreateContainerResourceRequirements
         """
         if command is not SENTINEL:
             self.command = command
@@ -82,5 +82,7 @@ class ContainerConfiguration(BaseModel):
             self.registry_authentication = self._define_object(
                 registry_authentication, ContainerRegistryAuthentication
             )
-        self.resources = self._define_object(resources, ContainerResourceRequirements)
+        self.resources = self._define_object(
+            resources, CreateContainerResourceRequirements
+        )
         self._kwargs = kwargs

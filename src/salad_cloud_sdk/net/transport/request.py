@@ -25,6 +25,8 @@ class Request:
     :ivar str method: The HTTP method for the request.
     :ivar dict headers: Dictionary of headers to include in the request.
     :ivar Any body: Request body.
+    :ivar Set[str] scopes: List of scopes to include in the request.
+    :ivar dict errors: Dictionary of HTTP status codes to error models.
     """
 
     def __init__(self):
@@ -33,6 +35,7 @@ class Request:
         self.headers = None
         self.body = None
         self.scopes = None
+        self.errors = None
 
     def set_url(self, url: str) -> "Request":
         """
@@ -89,6 +92,17 @@ class Request:
         :rtype: Request
         """
         self.scopes = scopes
+        return self
+
+    def set_errors(self, errors: dict) -> "Request":
+        """
+        Set the errors for the request.
+
+        :param dict errors: Dictionary of HTTP status codes to error models.
+        :return: The updated Request object.
+        :rtype: Request
+        """
+        self.errors = errors
         return self
 
     def __str__(self) -> str:

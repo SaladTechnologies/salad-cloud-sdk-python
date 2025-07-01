@@ -1,9 +1,10 @@
+from typing import Union
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..net.environment.environment import Environment
 from ..models.utils.cast_models import cast_models
-from ..models import WorkloadErrorList
+from ..models import ProblemDetails, WorkloadErrorList
 
 
 class WorkloadErrorsService(BaseService):
@@ -45,9 +46,11 @@ class WorkloadErrorsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return WorkloadErrorList._unmap(response)

@@ -1,4 +1,4 @@
-from typing import Awaitable
+from typing import Awaitable, Union
 from .utils.to_async import to_async
 from ..workload_errors import WorkloadErrorsService
 from ...models import WorkloadErrorList

@@ -228,6 +228,10 @@ Cancels an inference endpoint job.
 | inference_endpoint_name   | str  | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
 | inference_endpoint_job_id | str  | ✅       | The inference endpoint job identifier.                                                                                                                                                                                                              |
 
+**Return Type**
+
+`ProblemDetails`
+
 **Example Usage Code Snippet**
 
 ```python

@@ -35,7 +35,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "http": {
                 "host": "host",
-                "port": 30730,
+                "port": 29750,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -58,7 +58,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "tcp": {
                 "host": "host",
-                "port": 54633
+                "port": 21602
             }
         },
         "priority": "high",
@@ -83,18 +83,19 @@ request_body = ContainerGroupCreationRequest(
             }
         },
         "resources": {
-            "cpu": 7,
-            "memory": 14008,
+            "cpu": 9,
+            "memory": 61137,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 26633666886
+            "storage_amount": 50129523289,
+            "shm_size": 64
         }
     },
     country_codes=[
         "af"
     ],
-    display_name="iQTB",
+    display_name="R81hlLvCDU",
     liveness_probe={
         "exec_": {
             "command": [
@@ -103,7 +104,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -114,39 +115,39 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 392,
+        "initial_delay_seconds": 67,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 30
     },
     name="name",
     networking={
-        "auth": False,
+        "auth": True,
         "client_request_timeout": 100000,
         "load_balancer": "round_robin",
         "port": 60000,
         "protocol": "http",
         "server_response_timeout": 100000,
-        "single_connection_limit": False
+        "single_connection_limit": True
     },
     queue_autoscaler={
-        "desired_queue_length": 81,
-        "max_replicas": 448,
-        "max_downscale_per_minute": 72,
-        "max_upscale_per_minute": 19,
-        "min_replicas": 100,
-        "polling_period": 1772
+        "desired_queue_length": 22,
+        "max_replicas": 462,
+        "max_downscale_per_minute": 26,
+        "max_upscale_per_minute": 52,
+        "min_replicas": 82,
+        "polling_period": 509
     },
     queue_connection={
         "path": "path",
-        "port": 58174,
-        "queue_name": "n6eqezp9"
+        "port": 6006,
+        "queue_name": "oxniyomose4errderfez5m6znpd3zgutjsc-eeb9"
     },
     readiness_probe={
         "exec_": {
@@ -156,7 +157,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -167,18 +168,18 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 202,
+        "initial_delay_seconds": 226,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 1
     },
-    replicas=257,
+    replicas=490,
     restart_policy="always",
     startup_probe={
         "exec_": {
@@ -188,7 +189,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -199,12 +200,12 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 312,
+        "initial_delay_seconds": 1058,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "period_seconds": 3,
         "success_threshold": 2,

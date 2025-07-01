@@ -57,6 +57,8 @@ class ContainerGroup(BaseModel):
     :type queue_connection: ContainerGroupQueueConnection, optional
     :param readiness_probe: Defines how to check if a container is ready to serve traffic. The readiness probe determines whether the container's application is ready to accept traffic. If the readiness probe fails, the container is considered not ready and traffic will not be sent to it., defaults to None
     :type readiness_probe: ContainerGroupReadinessProbe, optional
+    :param readme: readme, defaults to None
+    :type readme: str, optional
     :param replicas: The container group replicas.
     :type replicas: int
     :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
@@ -92,6 +94,7 @@ class ContainerGroup(BaseModel):
         queue_autoscaler: QueueBasedAutoscalerConfiguration = SENTINEL,
         queue_connection: ContainerGroupQueueConnection = SENTINEL,
         readiness_probe: Union[ContainerGroupReadinessProbe, None] = SENTINEL,
+        readme: str = SENTINEL,
         startup_probe: Union[ContainerGroupStartupProbe, None] = SENTINEL,
         **kwargs,
     ):
@@ -131,6 +134,8 @@ class ContainerGroup(BaseModel):
         :type queue_connection: ContainerGroupQueueConnection, optional
         :param readiness_probe: Defines how to check if a container is ready to serve traffic. The readiness probe determines whether the container's application is ready to accept traffic. If the readiness probe fails, the container is considered not ready and traffic will not be sent to it., defaults to None
         :type readiness_probe: ContainerGroupReadinessProbe, optional
+        :param readme: readme, defaults to None
+        :type readme: str, optional
         :param replicas: The container group replicas.
         :type replicas: int
         :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
@@ -199,6 +204,10 @@ class ContainerGroup(BaseModel):
         if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
                 readiness_probe, ContainerGroupReadinessProbe
+            )
+        if readme is not SENTINEL:
+            self.readme = self._define_str(
+                "readme", readme, min_length=2, max_length=65000
             )
         self.replicas = self._define_number("replicas", replicas, ge=0, le=500)
         self.restart_policy = self._enum_matching(

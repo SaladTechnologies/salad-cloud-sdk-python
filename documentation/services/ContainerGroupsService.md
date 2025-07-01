@@ -113,7 +113,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "http": {
                 "host": "host",
-                "port": 30730,
+                "port": 29750,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -136,7 +136,7 @@ request_body = ContainerGroupCreationRequest(
             },
             "tcp": {
                 "host": "host",
-                "port": 54633
+                "port": 21602
             }
         },
         "priority": "high",
@@ -161,18 +161,19 @@ request_body = ContainerGroupCreationRequest(
             }
         },
         "resources": {
-            "cpu": 7,
-            "memory": 14008,
+            "cpu": 9,
+            "memory": 61137,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 26633666886
+            "storage_amount": 50129523289,
+            "shm_size": 64
         }
     },
     country_codes=[
         "af"
     ],
-    display_name="iQTB",
+    display_name="R81hlLvCDU",
     liveness_probe={
         "exec_": {
             "command": [
@@ -181,7 +182,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -192,39 +193,39 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 392,
+        "initial_delay_seconds": 67,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 30
     },
     name="name",
     networking={
-        "auth": False,
+        "auth": True,
         "client_request_timeout": 100000,
         "load_balancer": "round_robin",
         "port": 60000,
         "protocol": "http",
         "server_response_timeout": 100000,
-        "single_connection_limit": False
+        "single_connection_limit": True
     },
     queue_autoscaler={
-        "desired_queue_length": 81,
-        "max_replicas": 448,
-        "max_downscale_per_minute": 72,
-        "max_upscale_per_minute": 19,
-        "min_replicas": 100,
-        "polling_period": 1772
+        "desired_queue_length": 22,
+        "max_replicas": 462,
+        "max_downscale_per_minute": 26,
+        "max_upscale_per_minute": 52,
+        "min_replicas": 82,
+        "polling_period": 509
     },
     queue_connection={
         "path": "path",
-        "port": 58174,
-        "queue_name": "n6eqezp9"
+        "port": 6006,
+        "queue_name": "oxniyomose4errderfez5m6znpd3zgutjsc-eeb9"
     },
     readiness_probe={
         "exec_": {
@@ -234,7 +235,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -245,18 +246,18 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 202,
+        "initial_delay_seconds": 226,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 1
     },
-    replicas=257,
+    replicas=490,
     restart_policy="always",
     startup_probe={
         "exec_": {
@@ -266,7 +267,7 @@ request_body = ContainerGroupCreationRequest(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -277,12 +278,12 @@ request_body = ContainerGroupCreationRequest(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 312,
+        "initial_delay_seconds": 1058,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "period_seconds": 3,
         "success_threshold": 2,
@@ -371,7 +372,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupPatch(
-    display_name="rukYe",
+    display_name="e2ajyqqvL",
     container={
         "command": [
             "command"
@@ -397,7 +398,7 @@ request_body = ContainerGroupPatch(
             },
             "http": {
                 "host": "host",
-                "port": 29098,
+                "port": 34677,
                 "user": "user",
                 "password": "password",
                 "path": "path",
@@ -420,7 +421,7 @@ request_body = ContainerGroupPatch(
             },
             "tcp": {
                 "host": "host",
-                "port": 54633
+                "port": 21602
             }
         },
         "priority": "high",
@@ -445,20 +446,21 @@ request_body = ContainerGroupPatch(
             }
         },
         "resources": {
-            "cpu": 4,
-            "memory": 50175,
+            "cpu": 2,
+            "memory": 4272,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 27536827537
+            "storage_amount": 47962159632,
+            "shm_size": 64
         }
     },
-    replicas=476,
+    replicas=436,
     country_codes=[
         "af"
     ],
     networking={
-        "port": 27606
+        "port": 17663
     },
     liveness_probe={
         "exec_": {
@@ -468,7 +470,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -479,14 +481,14 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 392,
+        "initial_delay_seconds": 67,
         "period_seconds": 10,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 30
     },
@@ -498,7 +500,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 3,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -509,14 +511,14 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 202,
+        "initial_delay_seconds": 226,
         "period_seconds": 1,
         "success_threshold": 1,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "timeout_seconds": 1
     },
@@ -528,7 +530,7 @@ request_body = ContainerGroupPatch(
         },
         "failure_threshold": 15,
         "grpc": {
-            "port": 52641,
+            "port": 28667,
             "service": "service"
         },
         "http": {
@@ -539,24 +541,24 @@ request_body = ContainerGroupPatch(
                 }
             ],
             "path": "path",
-            "port": 55367,
+            "port": 53414,
             "scheme": "http"
         },
-        "initial_delay_seconds": 312,
+        "initial_delay_seconds": 1058,
         "tcp": {
-            "port": 27294
+            "port": 62611
         },
         "period_seconds": 3,
         "success_threshold": 2,
         "timeout_seconds": 10
     },
     queue_autoscaler={
-        "desired_queue_length": 81,
-        "max_replicas": 448,
-        "max_downscale_per_minute": 72,
-        "max_upscale_per_minute": 19,
-        "min_replicas": 100,
-        "polling_period": 1772
+        "desired_queue_length": 22,
+        "max_replicas": 462,
+        "max_downscale_per_minute": 26,
+        "max_upscale_per_minute": 52,
+        "min_replicas": 82,
+        "polling_period": 509
     }
 )
 
@@ -584,6 +586,10 @@ Deletes a container group
 | organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 | project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 
@@ -620,6 +626,10 @@ Starts a container group
 | project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
+**Return Type**
+
+`ProblemDetails`
+
 **Example Usage Code Snippet**
 
 ```python
@@ -654,6 +664,10 @@ Stops a container group
 | organization_name    | str  | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 | project_name         | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | container_group_name | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 
@@ -789,7 +803,7 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupInstancePatch(
-    deletion_cost=76724
+    deletion_cost=54318
 )
 
 result = sdk.container_groups.update_container_group_instance(
@@ -818,6 +832,10 @@ Reallocates a container group instance to run on a different Salad Node
 | project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 | container_group_instance_id | str  | ✅       | The unique container group instance identifier                                                                                                                                                                                                      |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 
@@ -856,6 +874,10 @@ Stops a container, destroys it, and starts a new one without requiring the image
 | container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 | container_group_instance_id | str  | ✅       | The unique container group instance identifier                                                                                                                                                                                                      |
 
+**Return Type**
+
+`ProblemDetails`
+
 **Example Usage Code Snippet**
 
 ```python
@@ -892,6 +914,10 @@ Stops a container and restarts it on the same Salad Node
 | project_name                | str  | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 | container_group_name        | str  | ✅       | The unique container group name                                                                                                                                                                                                                     |
 | container_group_instance_id | str  | ✅       | The unique container group instance identifier                                                                                                                                                                                                      |
+
+**Return Type**
+
+`ProblemDetails`
 
 **Example Usage Code Snippet**
 

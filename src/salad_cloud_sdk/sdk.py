@@ -7,6 +7,7 @@ from .services.quotas import QuotasService
 from .services.inference_endpoints import InferenceEndpointsService
 from .services.organization_data import OrganizationDataService
 from .services.webhook_secret_key import WebhookSecretKeyService
+from .services.logs import LogsService
 from .net.environment import Environment
 
 
@@ -33,6 +34,7 @@ class SaladCloudSdk:
         self.inference_endpoints = InferenceEndpointsService(base_url=self._base_url)
         self.organization_data = OrganizationDataService(base_url=self._base_url)
         self.webhook_secret_key = WebhookSecretKeyService(base_url=self._base_url)
+        self.logs = LogsService(base_url=self._base_url)
         self.set_api_key(api_key, api_key_header)
         self.set_timeout(timeout)
 
@@ -55,6 +57,7 @@ class SaladCloudSdk:
         self.inference_endpoints.set_base_url(self._base_url)
         self.organization_data.set_base_url(self._base_url)
         self.webhook_secret_key.set_base_url(self._base_url)
+        self.logs.set_base_url(self._base_url)
 
         return self
 
@@ -70,6 +73,7 @@ class SaladCloudSdk:
         self.inference_endpoints.set_api_key(api_key, api_key_header)
         self.organization_data.set_api_key(api_key, api_key_header)
         self.webhook_secret_key.set_api_key(api_key, api_key_header)
+        self.logs.set_api_key(api_key, api_key_header)
 
         return self
 
@@ -88,6 +92,7 @@ class SaladCloudSdk:
         self.inference_endpoints.set_timeout(timeout)
         self.organization_data.set_timeout(timeout)
         self.webhook_secret_key.set_timeout(timeout)
+        self.logs.set_timeout(timeout)
 
         return self
 
