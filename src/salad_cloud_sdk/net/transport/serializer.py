@@ -5,6 +5,7 @@ from .request import Request
 from .utils import extract_original_data
 from ...models.utils.sentinel import was_value_set
 from ...net.headers.base_header import BaseHeader
+from ...net.transport.api_error import ApiError
 
 
 class Serializer:
@@ -16,6 +17,7 @@ class Serializer:
     :ivar list[str] cookies: A list containing cookie strings for the request.
     :ivar dict[str, str] path: A dictionary containing path parameters for the request.
     :ivar list[str] query: A list containing query parameters for the request.
+    :ivar dict[int, ApiError] errors: A dictionary of HTTP status codes to error models.
     """
 
     def __init__(self, url: str, default_headers: List[BaseHeader] = []):
@@ -30,6 +32,7 @@ class Serializer:
         self.cookies: list[str] = []
         self.path: dict[str, str] = {}
         self.query: list[str] = []
+        self.errors: dict[int, ApiError] = {}
 
         for header in default_headers:
             for key, value in header.get_headers().items():
@@ -184,6 +187,21 @@ class Serializer:
         self.query.append(query_param)
         return self
 
+    def add_error(self, status: int, error: ApiError) -> "Serializer":
+        """
+        Adds an error to the request.
+
+        :param int status: The HTTP status code associated with the error.
+        :param ApiError error: The ApiError class representing the error.
+        :return: The Serializer instance for method chaining.
+        :rtype: Serializer
+        """
+        if not was_value_set(error):
+            return self
+
+        self.errors[status] = error
+        return self
+
     def serialize(self) -> Request:
         """
         Serializes the components and returns a Request object.
@@ -196,7 +214,12 @@ class Serializer:
         if len(self.cookies) > 0:
             self.headers["Cookie"] = ";".join(self.cookies)
 
-        return Request().set_url(final_url).set_headers(self.headers)
+        return (
+            Request()
+            .set_url(final_url)
+            .set_headers(self.headers)
+            .set_errors(self.errors)
+        )
 
     def _define_url(self) -> str:
         """

@@ -1,3 +1,4 @@
+from typing import Union
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -11,6 +12,7 @@ from ..models import (
     ContainerGroupInstanceCollection,
     ContainerGroupInstancePatch,
     ContainerGroupPatch,
+    ProblemDetails,
 )
 
 
@@ -47,11 +49,12 @@ class ContainerGroupsService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroupCollection._unmap(response)
 
     @cast_models
@@ -91,12 +94,15 @@ class ContainerGroupsService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
+            .add_error(400, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
             .set_body(request_body)
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
@@ -136,11 +142,13 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
@@ -187,12 +195,16 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(400, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("PATCH")
             .set_body(request_body, "application/merge-patch+json")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
         return ContainerGroup._unmap(response)
 
     @cast_models
@@ -210,6 +222,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -230,11 +244,14 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("DELETE")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def start_container_group(
@@ -251,6 +268,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -271,11 +290,14 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(400, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def stop_container_group(
@@ -292,6 +314,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -312,11 +336,14 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(400, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def list_container_group_instances(
@@ -355,11 +382,13 @@ class ContainerGroupsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroupInstanceCollection._unmap(response)
 
     @cast_models
@@ -407,11 +436,13 @@ class ContainerGroupsService(BaseService):
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
             .add_path("container_group_instance_id", container_group_instance_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroupInstance._unmap(response)
 
     @cast_models
@@ -463,12 +494,16 @@ class ContainerGroupsService(BaseService):
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
             .add_path("container_group_instance_id", container_group_instance_id)
+            .add_error(400, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("PATCH")
             .set_body(request_body, "application/merge-patch+json")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return ContainerGroupInstance._unmap(response)
 
     @cast_models
@@ -492,6 +527,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -514,11 +551,13 @@ class ContainerGroupsService(BaseService):
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
             .add_path("container_group_instance_id", container_group_instance_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def recreate_container_group_instance(
@@ -541,6 +580,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -563,11 +604,13 @@ class ContainerGroupsService(BaseService):
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
             .add_path("container_group_instance_id", container_group_instance_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)
 
     @cast_models
     def restart_container_group_instance(
@@ -590,6 +633,8 @@ class ContainerGroupsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -612,8 +657,10 @@ class ContainerGroupsService(BaseService):
             .add_path("project_name", project_name)
             .add_path("container_group_name", container_group_name)
             .add_path("container_group_instance_id", container_group_instance_id)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)

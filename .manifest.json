@@ -1,36 +1,27 @@
 {
-  "liblabVersion": "2.25.1",
-  "date": "2025-03-29T05:58:55.514Z",
+  "liblabVersion": "2.25.34",
+  "date": "2025-07-01T23:01:48.283Z",
   "config": {
-    "apiId": 1950,
+    "apiId": 2425,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.12",
+    "sdkVersion": "0.9.0-alpha.13",
     "languages": ["python"],
     "auth": ["apikey"],
-    "docs": ["enhancedApiSpec", "snippets"],
+    "docs": ["snippets", "enhancedApiSpec"],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "rawConfig": {
       "sdkName": "salad-cloud-sdk",
+      "apiName": "SaladCloud API",
+      "apiVersion": "0.9.0-alpha.14",
       "specFilePath": "spec.yaml",
       "languages": ["csharp", "go", "java", "python", "typescript"],
       "auth": ["apikey"],
-      "docs": ["enhancedApiSpec"],
+      "docs": ["snippets", "enhancedApiSpec"],
       "customizations": {
         "authentication": {
           "apiKey": {
             "header": "Salad-Api-Key"
-          }
-        },
-        "documentation": {
-          "enhancedApiSpec": {
-            "customOutputName": "salad-cloud.yaml",
-            "provider": "mintlify",
-            "githubRepoName": "salad-cloud-docs",
-            "targetBranch": "main",
-            "mintlify": {
-              "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
-            }
           }
         },
         "license": {
@@ -41,7 +32,8 @@
           "maxAttempts": 3,
           "retryDelay": 150
         },
-        "devContainer": true
+        "devContainer": true,
+        "buildAllModels": true
       },
       "languageOptions": {
         "csharp": {
@@ -49,7 +41,7 @@
           "githubRepoName": "salad-cloud-sdk-dotnet",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.12",
+          "sdkVersion": "0.9.0-alpha.13",
           "authors": [
             {
               "name": "salad"
@@ -66,7 +58,7 @@
           "githubRepoName": "salad-cloud-sdk-go",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.12",
+          "sdkVersion": "0.9.0-alpha.13",
           "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go"
         },
         "java": {
@@ -74,7 +66,7 @@
           "githubRepoName": "salad-cloud-sdk-java",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.13",
+          "sdkVersion": "0.9.0-alpha.14",
           "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
           "groupId": "com.salad.cloud",
           "artifactId": "sdk",
@@ -98,7 +90,7 @@
           "githubRepoName": "salad-cloud-sdk-python",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.12",
+          "sdkVersion": "0.9.0-alpha.13",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -141,7 +133,7 @@
           "githubRepoName": "salad-cloud-sdk-javascript",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.13",
+          "sdkVersion": "0.9.0-alpha.14",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -163,97 +155,25 @@
       "publishing": {
         "githubOrg": "SaladTechnologies"
       },
-      "validationsToIgnore": [
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "CreateQueueProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "UpdateQueueProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "CreateQueueJobProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "CreateContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "ListContainerGroupsProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "DeleteContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "GetContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "UpdateContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "StartContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "StopContainerGroupProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "ReallocateContainerGroupInstanceProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "RecreateContainerGroupInstanceProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "RestartContainerGroupInstanceProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "CreateInferenceEndpointJobProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "GetInferenceEndpointJobProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "GetInferenceEndpointJobsProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "DeleteInferenceEndpointJobProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "GetWebhookSecretKeyProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "UpdateWebhookSecretKeyProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "schemas", "ListGpuClassesProblemType"]
-        },
-        {
-          "code": "oas3-unused-component",
-          "path": ["components", "responses", "401"]
+      "integrations": {
+        "enhancedApiSpec": {
+          "customOutputName": "salad-cloud.yaml",
+          "provider": "mintlify",
+          "githubRepoName": "salad-cloud-docs",
+          "targetBranch": "main",
+          "mintlify": {
+            "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+          }
         }
-      ]
+      }
     },
+    "liblabConfigVersion": "1.0.0",
+    "apiVersion": "0.9.0-alpha.14",
+    "apiName": "SaladCloud API",
     "specFilePath": "spec.yaml",
+    "createDocs": false,
     "languageOptions": {
       "csharp": {
-        "packageId": "Salad.Cloud.SDK",
         "authors": [
           {
             "name": "salad"
@@ -266,18 +186,28 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.12",
-        "targetBranch": "main"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.13",
+        "targetBranch": "main",
+        "packageId": "Salad.Cloud.SDK"
       },
       "go": {
-        "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go",
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.12",
-        "targetBranch": "main"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.13",
+        "targetBranch": "main",
+        "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go"
       },
       "java": {
+        "githubRepoName": "salad-cloud-sdk-java",
+        "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
+        "ignoreFiles": [".gitignore", "./LICENSE"],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.14",
+        "targetBranch": "main",
         "groupId": "com.salad.cloud",
         "artifactId": "sdk",
         "includeKotlinSnippets": false,
@@ -294,15 +224,25 @@
             "organization": "Salad Technologies",
             "organizationUrl": "https://salad.com"
           }
-        ],
-        "githubRepoName": "salad-cloud-sdk-java",
-        "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
-        "ignoreFiles": [".gitignore", "./LICENSE"],
-        "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.13",
-        "targetBranch": "main"
+        ]
       },
       "python": {
+        "authors": [
+          {
+            "email": "dev@salad.com",
+            "name": "SaladCloud Developers"
+          },
+          {
+            "email": "kyle@salad.com",
+            "name": "Kyle Dodson"
+          }
+        ],
+        "githubRepoName": "salad-cloud-sdk-python",
+        "ignoreFiles": [".gitignore", "./LICENSE"],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.13",
+        "targetBranch": "main",
         "alwaysInitializeOptionals": false,
         "classifiers": [
           "Development Status :: 3 - Alpha",
@@ -328,29 +268,9 @@
           "Repository": "https://github.com/SaladTechnologies/salad-cloud-sdk-python.git",
           "Issues": "https://github.com/SaladTechnologies/salad-cloud-sdk-python/issues"
         },
-        "pypiPackageName": "salad-cloud-sdk",
-        "authors": [
-          {
-            "email": "dev@salad.com",
-            "name": "SaladCloud Developers"
-          },
-          {
-            "email": "kyle@salad.com",
-            "name": "Kyle Dodson"
-          }
-        ],
-        "githubRepoName": "salad-cloud-sdk-python",
-        "ignoreFiles": [".gitignore", "./LICENSE"],
-        "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.12",
-        "targetBranch": "main"
+        "pypiPackageName": "salad-cloud-sdk"
       },
       "typescript": {
-        "bundle": true,
-        "exportClassDefault": false,
-        "httpClient": "fetch",
-        "npmName": "salad-cloud-sdk",
-        "npmOrg": "saladtechnologies-oss",
         "authors": [
           {
             "email": "dev@salad.com",
@@ -365,116 +285,46 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.13",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "0.9.0-alpha.14",
         "targetBranch": "main",
-        "generateEnumAs": "enum"
+        "bundle": true,
+        "denoteCommon": false,
+        "exportClassDefault": false,
+        "generateEnumAs": "enum",
+        "httpClient": "fetch",
+        "npmName": "salad-cloud-sdk",
+        "npmOrg": "saladtechnologies-oss"
       }
     },
+    "validationsToIgnore": [],
     "publishing": {
-      "githubOrg": "SaladTechnologies"
+      "githubOrg": "SaladTechnologies",
+      "platform": "github"
     },
-    "validationsToIgnore": [
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "CreateQueueProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "UpdateQueueProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "CreateQueueJobProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "CreateContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "ListContainerGroupsProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "DeleteContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "GetContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "UpdateContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "StartContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "StopContainerGroupProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "ReallocateContainerGroupInstanceProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "RecreateContainerGroupInstanceProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "RestartContainerGroupInstanceProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "CreateInferenceEndpointJobProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "GetInferenceEndpointJobProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "GetInferenceEndpointJobsProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "DeleteInferenceEndpointJobProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "GetWebhookSecretKeyProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "UpdateWebhookSecretKeyProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "schemas", "ListGpuClassesProblemType"]
-      },
-      {
-        "code": "oas3-unused-component",
-        "path": ["components", "responses", "401"]
+    "integrations": {
+      "enhancedApiSpec": {
+        "githubRepoName": "salad-cloud-docs",
+        "targetBranch": "main",
+        "customOutputName": "salad-cloud.yaml",
+        "provider": "mintlify",
+        "mintlify": {
+          "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+        }
       }
-    ],
-    "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.12",
+    },
+    "analytics": {
+      "streaming": false,
+      "pagination": false
+    },
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
       }
     },
-    "documentation": {
-      "enhancedApiSpec": {
-        "customOutputName": "salad-cloud.yaml"
-      }
-    },
     "devContainer": true,
     "generateEnv": true,
     "includeOptionalSnippetParameters": true,
-    "inferServiceNames": false,
     "license": {
       "type": "MIT",
       "name": "MIT",
@@ -482,6 +332,7 @@
       "path": "MIT.ejs"
     },
     "responseHeaders": false,
+    "buildAllModels": true,
     "retry": {
       "enabled": true,
       "maxAttempts": 3,
@@ -494,6 +345,20 @@
     },
     "multiTenant": true,
     "includeWatermark": false,
+    "authors": [
+      {
+        "email": "dev@salad.com",
+        "name": "SaladCloud Developers"
+      },
+      {
+        "email": "kyle@salad.com",
+        "name": "Kyle Dodson"
+      }
+    ],
+    "githubRepoName": "salad-cloud-sdk-python",
+    "ignoreFiles": [".gitignore", "./LICENSE"],
+    "renameIllegalModelProperties": true,
+    "targetBranch": "main",
     "alwaysInitializeOptionals": false,
     "classifiers": [
       "Development Status :: 3 - Alpha",
@@ -520,19 +385,6 @@
       "Issues": "https://github.com/SaladTechnologies/salad-cloud-sdk-python/issues"
     },
     "pypiPackageName": "salad-cloud-sdk",
-    "authors": [
-      {
-        "email": "dev@salad.com",
-        "name": "SaladCloud Developers"
-      },
-      {
-        "email": "kyle@salad.com",
-        "name": "Kyle Dodson"
-      }
-    ],
-    "githubRepoName": "salad-cloud-sdk-python",
-    "ignoreFiles": [".gitignore", "./LICENSE"],
-    "targetBranch": "main",
     "language": "python",
     "deliveryMethod": "zip",
     "hooks": {
@@ -542,10 +394,11 @@
     "usesFormData": false,
     "environmentVariables": [],
     "fileOutput": "/tmp",
+    "inferServiceNames": false,
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.9"
+        "axios": "^1.9.0"
       },
       "languages": ["typescript"]
     },
@@ -554,7 +407,8 @@
       "rawQueries": [],
       "queriesData": []
     },
-    "ai": false
+    "ai": false,
+    "specType": "openapi"
   },
   "files": [
     "src/salad_cloud_sdk/models/utils/base_model.py",
@@ -575,6 +429,7 @@
     "src/salad_cloud_sdk/services/async_/utils/__init__.py",
     "src/salad_cloud_sdk/net/transport/request.py",
     "src/salad_cloud_sdk/net/transport/response.py",
+    "src/salad_cloud_sdk/net/transport/api_error.py",
     "src/salad_cloud_sdk/net/transport/request_error.py",
     "src/salad_cloud_sdk/sdk.py",
     "src/salad_cloud_sdk/net/transport/serializer.py",
@@ -597,8 +452,6 @@
     "src/salad_cloud_sdk/net/request_chain/handlers/hook_handler.py",
     "src/salad_cloud_sdk/net/request_chain/handlers/retry_handler.py",
     "examples/sample.py",
-    ".env.example",
-    "/examples/.env.example",
     "src/salad_cloud_sdk/services/utils/default_headers.py",
     ".devcontainer/devcontainer.json",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-get.md",
@@ -634,6 +487,7 @@
     "documentation/snippets/organizations-{organization_name}-gpu-classes-get.md",
     "documentation/snippets/organizations-{organization_name}-webhook-secret-key-get.md",
     "documentation/snippets/organizations-{organization_name}-webhook-secret-key-post.md",
+    "documentation/snippets/organizations-{organization_name}-log-entries-post.md",
     "documentation/models/ContainerGroupCollection.md",
     "documentation/models/ContainerGroupCreationRequest.md",
     "documentation/models/ContainerGroup.md",
@@ -657,6 +511,8 @@
     "documentation/models/InferenceEndpointJob.md",
     "documentation/models/GpuClassesList.md",
     "documentation/models/WebhookSecretKey.md",
+    "documentation/models/LogEntryQuery.md",
+    "documentation/models/LogEntryCollection.md",
     "documentation/models/Container.md",
     "documentation/models/CountryCode.md",
     "documentation/models/ContainerGroupState.md",
@@ -694,6 +550,7 @@
     "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/ContainerConfigurationLogging.md",
     "documentation/models/ContainerRegistryAuthentication.md",
+    "documentation/models/CreateContainerResourceRequirements.md",
     "documentation/models/ContainerLoggingConfigurationHttp2.md",
     "documentation/models/ContainerRegistryAuthenticationAwsEcr.md",
     "documentation/models/ContainerRegistryAuthenticationBasic.md",
@@ -711,8 +568,12 @@
     "documentation/models/Status.md",
     "documentation/models/InferenceEndpointJobEvent.md",
     "documentation/models/InferenceEndpointJobEventAction.md",
-    "documentation/models/GpuClass.md",
     "documentation/models/GpuClassPrice.md",
+    "documentation/models/LogEntryQuerySortOrder.md",
+    "documentation/models/LogEntry.md",
+    "documentation/models/LogEntryResource.md",
+    "documentation/models/LogEntrySeverity.md",
+    "documentation/models/ProblemDetails.md",
     "src/salad_cloud_sdk/models/utils/one_of_base_model.py",
     "src/salad_cloud_sdk/services/async_/utils/to_async.py",
     "src/salad_cloud_sdk/services/async_/container_groups.py",
@@ -723,15 +584,20 @@
     "src/salad_cloud_sdk/services/async_/inference_endpoints.py",
     "src/salad_cloud_sdk/services/async_/organization_data.py",
     "src/salad_cloud_sdk/services/async_/webhook_secret_key.py",
+    "src/salad_cloud_sdk/services/async_/logs.py",
     "src/salad_cloud_sdk/sdk_async.py",
     "src/salad_cloud_sdk/models/utils/sentinel.py",
+    ".env.example",
+    "examples/.env.example",
     "src/salad_cloud_sdk/services/workload_errors.py",
     "src/salad_cloud_sdk/services/system_logs.py",
     "src/salad_cloud_sdk/services/quotas.py",
     "src/salad_cloud_sdk/services/organization_data.py",
+    "src/salad_cloud_sdk/services/logs.py",
     "documentation/services/WorkloadErrorsService.md",
     "documentation/models/QueueJob.md",
     "documentation/models/QueueJobEvent.md",
+    "documentation/models/GpuClass.md",
     "src/salad_cloud_sdk/models/country_code.py",
     "src/salad_cloud_sdk/models/container_group_priority.py",
     "src/salad_cloud_sdk/models/container_restart_policy.py",
@@ -744,9 +610,12 @@
     "src/salad_cloud_sdk/models/the_container_group_instance_state.py",
     "src/salad_cloud_sdk/models/status.py",
     "src/salad_cloud_sdk/models/inference_endpoint_job_event_action.py",
+    "src/salad_cloud_sdk/models/log_entry_query_sort_order.py",
+    "src/salad_cloud_sdk/models/log_entry_severity.py",
     "documentation/services/SystemLogsService.md",
     "documentation/services/QuotasService.md",
     "documentation/services/OrganizationDataService.md",
+    "documentation/services/LogsService.md",
     "src/salad_cloud_sdk/models/container_group_collection.py",
     "src/salad_cloud_sdk/models/container_group_creation_request.py",
     "src/salad_cloud_sdk/models/container_group.py",
@@ -770,6 +639,8 @@
     "src/salad_cloud_sdk/models/inference_endpoint_job.py",
     "src/salad_cloud_sdk/models/gpu_classes_list.py",
     "src/salad_cloud_sdk/models/webhook_secret_key.py",
+    "src/salad_cloud_sdk/models/log_entry_query.py",
+    "src/salad_cloud_sdk/models/log_entry_collection.py",
     "src/salad_cloud_sdk/models/container.py",
     "src/salad_cloud_sdk/models/container_group_state.py",
     "src/salad_cloud_sdk/models/container_group_liveness_probe.py",
@@ -798,6 +669,7 @@
     "src/salad_cloud_sdk/models/create_container_group_networking.py",
     "src/salad_cloud_sdk/models/container_configuration_logging.py",
     "src/salad_cloud_sdk/models/container_registry_authentication.py",
+    "src/salad_cloud_sdk/models/create_container_resource_requirements.py",
     "src/salad_cloud_sdk/models/container_logging_configuration_http_2.py",
     "src/salad_cloud_sdk/models/container_registry_authentication_aws_ecr.py",
     "src/salad_cloud_sdk/models/container_registry_authentication_basic.py",
@@ -812,12 +684,15 @@
     "src/salad_cloud_sdk/models/system_log.py",
     "src/salad_cloud_sdk/models/container_groups_quotas.py",
     "src/salad_cloud_sdk/models/inference_endpoint_job_event.py",
-    "src/salad_cloud_sdk/models/gpu_class.py",
     "src/salad_cloud_sdk/models/gpu_class_price.py",
+    "src/salad_cloud_sdk/models/log_entry.py",
+    "src/salad_cloud_sdk/models/log_entry_resource.py",
     "src/salad_cloud_sdk/services/webhook_secret_key.py",
     "documentation/services/WebhookSecretKeyService.md",
+    "src/salad_cloud_sdk/models/problem_details.py",
     "src/salad_cloud_sdk/models/queue_job.py",
     "src/salad_cloud_sdk/models/queue_job_event.py",
+    "src/salad_cloud_sdk/models/gpu_class.py",
     "documentation/services/InferenceEndpointsService.md",
     "documentation/services/QueuesService.md",
     "src/salad_cloud_sdk/services/inference_endpoints.py",

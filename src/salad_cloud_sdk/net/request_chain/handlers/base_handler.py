@@ -1,7 +1,6 @@
 from typing import Generator, Optional, Tuple
 from ...transport.request import Request
 from ...transport.response import Response
-from ...transport.request_error import RequestError
 
 
 class BaseHandler:
@@ -19,27 +18,27 @@ class BaseHandler:
 
     def handle(
         self, request: Request
-    ) -> Tuple[Optional[Response], Optional[RequestError]]:
+    ) -> Tuple[Optional[Response], Optional[Exception]]:
         """
         Process the given request and return a response or an error.
         This method must be implemented by all subclasses.
 
         :param Request request: The request to handle.
         :return: The response and any error that occurred.
-        :rtype: Tuple[Optional[Response], Optional[RequestError]]
+        :rtype: Tuple[Optional[Response], Optional[Exception]]
         """
         raise NotImplementedError()
 
     def stream(
         self, request: Request
-    ) -> Generator[Tuple[Optional[Response], Optional[RequestError]], None, None]:
+    ) -> Generator[Tuple[Optional[Response], Optional[Exception]], None, None]:
         """
         Stream the given request and return a response or an error.
         This method must be implemented by all subclasses.
 
         :param Request request: The request to stream.
         :return: The response and any error that occurred.
-        :rtype: Generator[Tuple[Optional[Response], Optional[RequestError]], None, None]
+        :rtype: Generator[Tuple[Optional[Response], Optional[Exception]], None, None]
         """
         raise NotImplementedError()
 

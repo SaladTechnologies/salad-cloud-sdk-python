@@ -6,6 +6,7 @@ from ....hooks.hook import DefaultHook
 from ...transport.request import Request
 from ...transport.response import Response
 from ...transport.request_error import RequestError
+from ...transport.api_error import ApiError
 
 
 class HookHandler(BaseHandler):
@@ -24,7 +25,7 @@ class HookHandler(BaseHandler):
 
     def handle(
         self, request: Request
-    ) -> Tuple[Optional[Response], Optional[RequestError]]:
+    ) -> Tuple[Optional[Response], Optional[Exception]]:
         """
         Call the beforeRequest hook before passing the request to the next handler in the chain.
         Call the afterResponse hook after receiving a response from the next handler in the chain.
@@ -32,7 +33,7 @@ class HookHandler(BaseHandler):
 
         :param Request request: The request to handle.
         :return: The response and any error that occurred.
-        :rtype: Tuple[Optional[Response], Optional[RequestError]]
+        :rtype: Tuple[Optional[Response], Optional[Exception]]
         """
         if self._next_handler is None:
             raise RequestError("Handler chain is incomplete")
@@ -45,7 +46,7 @@ class HookHandler(BaseHandler):
 
     def stream(
         self, request: Request
-    ) -> Generator[Tuple[Optional[Response], Optional[RequestError]], None, None]:
+    ) -> Generator[Tuple[Optional[Response], Optional[Exception]], None, None]:
         """
         Call the beforeRequest hook before passing the request to the next handler in the chain.
         Call the afterResponse hook after receiving a response from the next handler in the chain.
@@ -53,7 +54,7 @@ class HookHandler(BaseHandler):
 
         :param Request request: The request to handle.
         :return: The response and any error that occurred.
-        :rtype: Generator[Tuple[Optional[Response], Optional[RequestError]], None, None]
+        :rtype: Generator[Tuple[Optional[Response], Optional[Excpetion]], None, None]
         """
         if self._next_handler is None:
             raise RequestError("Handler chain is incomplete")
@@ -63,10 +64,8 @@ class HookHandler(BaseHandler):
             self._handle_response(request, response, error)
             yield response, error
 
-    def _handle_response(
-        self, request: Request, response: Response, error: RequestError
-    ):
-        if error is not None and error.is_http_error:
+    def _handle_response(self, request: Request, response: Response, error: ApiError):
+        if error is not None and isinstance(error, ApiError):
             self._hook.on_error(error, request, error.response)
         else:
             self._hook.after_response(request, response)

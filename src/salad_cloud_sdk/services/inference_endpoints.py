@@ -1,3 +1,4 @@
+from typing import Union
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
@@ -10,6 +11,7 @@ from ..models import (
     InferenceEndpointJob,
     InferenceEndpointJobCollection,
     InferenceEndpointJobPrototype,
+    ProblemDetails,
 )
 
 
@@ -48,11 +50,16 @@ class InferenceEndpointsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_query("page", page)
             .add_query("page_size", page_size)
+            .add_error(400, ProblemDetails)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return InferenceEndpointCollection._unmap(response)
 
     @cast_models
@@ -86,11 +93,15 @@ class InferenceEndpointsService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("inference_endpoint_name", inference_endpoint_name)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return InferenceEndpoint._unmap(response)
 
     @cast_models
@@ -136,11 +147,16 @@ class InferenceEndpointsService(BaseService):
             .add_path("inference_endpoint_name", inference_endpoint_name)
             .add_query("page", page)
             .add_query("page_size", page_size)
+            .add_error(400, ProblemDetails)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return InferenceEndpointJobCollection._unmap(response)
 
     @cast_models
@@ -180,12 +196,17 @@ class InferenceEndpointsService(BaseService):
             )
             .add_path("organization_name", organization_name)
             .add_path("inference_endpoint_name", inference_endpoint_name)
+            .add_error(400, ProblemDetails)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("POST")
             .set_body(request_body)
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return InferenceEndpointJob._unmap(response)
 
     @cast_models
@@ -226,11 +247,15 @@ class InferenceEndpointsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("inference_endpoint_name", inference_endpoint_name)
             .add_path("inference_endpoint_job_id", inference_endpoint_job_id)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("GET")
         )
 
-        response, _, _ = self.send_request(serialized_request)
+        response, status, _ = self.send_request(serialized_request)
         return InferenceEndpointJob._unmap(response)
 
     @cast_models
@@ -251,6 +276,8 @@ class InferenceEndpointsService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
+        :return: The parsed response data.
+        :rtype: None
         """
 
         Validator(str).min_length(2).max_length(63).pattern(
@@ -269,8 +296,13 @@ class InferenceEndpointsService(BaseService):
             .add_path("organization_name", organization_name)
             .add_path("inference_endpoint_name", inference_endpoint_name)
             .add_path("inference_endpoint_job_id", inference_endpoint_job_id)
+            .add_error(400, ProblemDetails)
+            .add_error(401, ProblemDetails)
+            .add_error(403, ProblemDetails)
+            .add_error(404, ProblemDetails)
+            .add_error(429, ProblemDetails)
             .serialize()
             .set_method("DELETE")
         )
 
-        self.send_request(serialized_request)
+        response, status, content = self.send_request(serialized_request)

@@ -82,7 +82,7 @@ class SystemLog(BaseModel):
             resource_storage_amount,
             nullable=True,
             ge=1073741824,
-            le=53687091200,
+            le=268435456000,
         )
         self.version = version
         self._kwargs = kwargs

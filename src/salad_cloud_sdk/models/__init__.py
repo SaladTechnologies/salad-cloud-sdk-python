@@ -22,6 +22,8 @@ from .inference_endpoint_job_prototype import InferenceEndpointJobPrototype
 from .inference_endpoint_job import InferenceEndpointJob
 from .gpu_classes_list import GpuClassesList
 from .webhook_secret_key import WebhookSecretKey
+from .log_entry_query import LogEntryQuery
+from .log_entry_collection import LogEntryCollection
 from .container import Container
 from .country_code import CountryCode
 from .container_group_state import ContainerGroupState
@@ -65,6 +67,7 @@ from .container_configuration import ContainerConfiguration
 from .create_container_group_networking import CreateContainerGroupNetworking
 from .container_configuration_logging import ContainerConfigurationLogging
 from .container_registry_authentication import ContainerRegistryAuthentication
+from .create_container_resource_requirements import CreateContainerResourceRequirements
 from .container_logging_configuration_http_2 import ContainerLoggingConfigurationHttp2
 from .container_registry_authentication_aws_ecr import (
     ContainerRegistryAuthenticationAwsEcr,
@@ -93,5 +96,10 @@ from .container_groups_quotas import ContainerGroupsQuotas
 from .status import Status
 from .inference_endpoint_job_event import InferenceEndpointJobEvent
 from .inference_endpoint_job_event_action import InferenceEndpointJobEventAction
-from .gpu_class import GpuClass
+from .gpu_class import GpuClass, GpuClassType
 from .gpu_class_price import GpuClassPrice
+from .log_entry_query_sort_order import LogEntryQuerySortOrder
+from .log_entry import LogEntry
+from .log_entry_resource import LogEntryResource
+from .log_entry_severity import LogEntrySeverity
+from .problem_details import ProblemDetails

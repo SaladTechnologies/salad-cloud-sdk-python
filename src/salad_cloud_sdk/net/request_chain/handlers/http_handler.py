@@ -5,7 +5,7 @@ from typing import Generator, Optional, Tuple
 from .base_handler import BaseHandler
 from ...transport.request import Request
 from ...transport.response import Response
-from ...transport.request_error import RequestError
+from ...transport.api_error import ApiError
 
 
 class HttpHandler(BaseHandler):
@@ -25,13 +25,13 @@ class HttpHandler(BaseHandler):
 
     def handle(
         self, request: Request
-    ) -> Tuple[Optional[Response], Optional[RequestError]]:
+    ) -> Tuple[Optional[Response], Optional[Exception]]:
         """
         Send the request to the specified URL and return the response.
 
         :param Request request: The request to send.
         :return: The response and any error that occurred.
-        :rtype: Tuple[Optional[Response], Optional[RequestError]]
+        :rtype: Tuple[Optional[Response], Optional[Exception]]
         """
         try:
             request_args = self._get_request_data(request)
@@ -46,7 +46,21 @@ class HttpHandler(BaseHandler):
             response = Response(result)
 
             if response.status >= 400:
-                return None, RequestError(
+                if response.status in request.errors and isinstance(
+                    response.body, dict
+                ):
+                    error_model_class = request.errors[response.status]
+                    error = error_model_class(**response.body)
+                    if "message" not in response.body:
+                        error.message = (
+                            f"{response.status} error in request to: {request.url}"
+                        )
+                    error.status = response.status
+                    error.response = response
+
+                    return None, error
+
+                return None, ApiError(
                     message=f"{response.status} error in request to: {request.url}",
                     status=response.status,
                     response=response,
@@ -54,11 +68,11 @@ class HttpHandler(BaseHandler):
 
             return response, None
         except Timeout:
-            return None, RequestError("Request timed out")
+            return None, ApiError("Request timed out", status=408)
 
     def stream(
         self, request: Request
-    ) -> Generator[Tuple[Optional[Response], Optional[RequestError]], None, None]:
+    ) -> Generator[Tuple[Optional[Response], Optional[Exception]], None, None]:
         try:
             request_args = self._get_request_data(request)
 
@@ -75,7 +89,7 @@ class HttpHandler(BaseHandler):
                 response = Response(result)
                 yield (
                     None,
-                    RequestError(
+                    ApiError(
                         message=f"{response.status} error in request to: {request.url}",
                         status=response.status,
                         response=response,
@@ -88,7 +102,7 @@ class HttpHandler(BaseHandler):
                         yield response, None
 
         except Timeout:
-            yield None, RequestError("Request timed out")
+            yield None, ApiError("Request timed out", status=408)
 
     def _get_request_data(self, request: Request) -> dict:
         """
@@ -113,7 +127,7 @@ class HttpHandler(BaseHandler):
             files, form_data = {}, {}
             for key, value in data.items():
                 if isinstance(value, bytes):
-                    files[key] = value
+                    files[key] = (key, value, "application/octet-stream")
                 else:
                     form_data[key] = value
             return {"files": files, "data": form_data}
