@@ -71,18 +71,18 @@ class SystemLog(BaseModel):
         if machine_id is not SENTINEL:
             self.machine_id = machine_id
         self.resource_cpu = self._define_number(
-            "resource_cpu", resource_cpu, nullable=True, ge=1, le=16
+            "resource_cpu", resource_cpu, nullable=True, ge=1, le=1024
         )
         self.resource_gpu_class = resource_gpu_class
         self.resource_memory = self._define_number(
-            "resource_memory", resource_memory, nullable=True, ge=1024, le=61440
+            "resource_memory", resource_memory, nullable=True, ge=1024, le=1073741824
         )
         self.resource_storage_amount = self._define_number(
             "resource_storage_amount",
             resource_storage_amount,
             nullable=True,
             ge=1073741824,
-            le=268435456000,
+            le=1125899906842624,
         )
         self.version = version
         self._kwargs = kwargs

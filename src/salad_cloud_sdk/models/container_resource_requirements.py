@@ -8,13 +8,13 @@ from .utils.sentinel import SENTINEL
 class ContainerResourceRequirements(BaseModel):
     """Specifies the resource requirements for a container.
 
-    :param cpu: The number of CPU cores required by the container. Must be between 1 and 16.
+    :param cpu: The number of CPU cores required by the container. Must be between 1 and 1024.
     :type cpu: int
-    :param memory: The amount of memory (in MB) required by the container. Must be between 1024 MB and 61440 MB.
+    :param memory: The amount of memory (in MB) required by the container. Must be between 1024 MB and 1073741824 MB.
     :type memory: int
     :param gpu_classes: A list of GPU class UUIDs required by the container. Can be null if no GPU is required.
     :type gpu_classes: List[str]
-    :param storage_amount: The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 250 GB (268435456000 bytes)., defaults to None
+    :param storage_amount: The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 1 PB (1125899906842624 bytes)., defaults to None
     :type storage_amount: int, optional
     :param shm_size: The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB., defaults to None
     :type shm_size: int, optional
@@ -31,23 +31,26 @@ class ContainerResourceRequirements(BaseModel):
     ):
         """Specifies the resource requirements for a container.
 
-        :param cpu: The number of CPU cores required by the container. Must be between 1 and 16.
+        :param cpu: The number of CPU cores required by the container. Must be between 1 and 1024.
         :type cpu: int
-        :param memory: The amount of memory (in MB) required by the container. Must be between 1024 MB and 61440 MB.
+        :param memory: The amount of memory (in MB) required by the container. Must be between 1024 MB and 1073741824 MB.
         :type memory: int
         :param gpu_classes: A list of GPU class UUIDs required by the container. Can be null if no GPU is required.
         :type gpu_classes: List[str]
-        :param storage_amount: The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 250 GB (268435456000 bytes)., defaults to None
+        :param storage_amount: The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 1 PB (1125899906842624 bytes)., defaults to None
         :type storage_amount: int, optional
         :param shm_size: The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB., defaults to None
         :type shm_size: int, optional
         """
-        self.cpu = self._define_number("cpu", cpu, ge=1, le=16)
-        self.memory = self._define_number("memory", memory, ge=1024, le=61440)
+        self.cpu = self._define_number("cpu", cpu, ge=1, le=1024)
+        self.memory = self._define_number("memory", memory, ge=1024, le=1073741824)
         self.gpu_classes = gpu_classes
         if storage_amount is not SENTINEL:
             self.storage_amount = self._define_number(
-                "storage_amount", storage_amount, ge=1073741824, le=268435456000
+                "storage_amount",
+                storage_amount,
+                ge=1073741824,
+                le=1125899906842624,
             )
         if shm_size is not SENTINEL:
             self.shm_size = self._define_number(

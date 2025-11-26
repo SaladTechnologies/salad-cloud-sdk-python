@@ -9,13 +9,13 @@ from .utils.sentinel import SENTINEL
 class ContainerResourceUpdateSchema(BaseModel):
     """Defines the resource specifications that can be modified for a container group, including CPU, memory, GPU classes, and storage allocations.
 
-    :param cpu: The number of CPU cores to allocate to the container (between 1 and 16 cores)., defaults to None
+    :param cpu: The number of CPU cores to allocate to the container (between 1 and 1024 cores)., defaults to None
     :type cpu: int, optional
-    :param memory: The amount of memory to allocate to the container in megabytes (between 1024MB and 61440MB)., defaults to None
+    :param memory: The amount of memory to allocate to the container in megabytes (between 1024MB and 1073741824MB)., defaults to None
     :type memory: int, optional
     :param gpu_classes: List of GPU class identifiers that the container can use, specified as UUIDs., defaults to None
     :type gpu_classes: List[str], optional
-    :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 250GB)., defaults to None
+    :param storage_amount: The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB (1125899906842624 bytes))., defaults to None
     :type storage_amount: int, optional
     :param shm_size: The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB., defaults to None
     :type shm_size: int, optional
@@ -32,22 +32,22 @@ class ContainerResourceUpdateSchema(BaseModel):
     ):
         """Defines the resource specifications that can be modified for a container group, including CPU, memory, GPU classes, and storage allocations.
 
-        :param cpu: The number of CPU cores to allocate to the container (between 1 and 16 cores)., defaults to None
+        :param cpu: The number of CPU cores to allocate to the container (between 1 and 1024 cores)., defaults to None
         :type cpu: int, optional
-        :param memory: The amount of memory to allocate to the container in megabytes (between 1024MB and 61440MB)., defaults to None
+        :param memory: The amount of memory to allocate to the container in megabytes (between 1024MB and 1073741824MB)., defaults to None
         :type memory: int, optional
         :param gpu_classes: List of GPU class identifiers that the container can use, specified as UUIDs., defaults to None
         :type gpu_classes: List[str], optional
-        :param storage_amount: The amount of storage to allocate to the container in bytes (between 1GB and 250GB)., defaults to None
+        :param storage_amount: The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB (1125899906842624 bytes))., defaults to None
         :type storage_amount: int, optional
         :param shm_size: The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB., defaults to None
         :type shm_size: int, optional
         """
         if cpu is not SENTINEL:
-            self.cpu = self._define_number("cpu", cpu, nullable=True, ge=1, le=16)
+            self.cpu = self._define_number("cpu", cpu, nullable=True, ge=1, le=1024)
         if memory is not SENTINEL:
             self.memory = self._define_number(
-                "memory", memory, nullable=True, ge=1024, le=61440
+                "memory", memory, nullable=True, ge=1024, le=1073741824
             )
         if gpu_classes is not SENTINEL:
             self.gpu_classes = gpu_classes
@@ -57,7 +57,7 @@ class ContainerResourceUpdateSchema(BaseModel):
                 storage_amount,
                 nullable=True,
                 ge=1073741824,
-                le=268435456000,
+                le=1125899906842624,
             )
         if shm_size is not SENTINEL:
             self.shm_size = self._define_number(
