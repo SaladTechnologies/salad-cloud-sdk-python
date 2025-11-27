@@ -25,6 +25,8 @@ class Queue(BaseModel):
     :type create_time: str
     :param update_time: The date and time the queue was last updated.
     :type update_time: str
+    :param current_queue_length: The current length of the queue, defaults to None
+    :type current_queue_length: int, optional
     """
 
     def __init__(
@@ -36,6 +38,7 @@ class Queue(BaseModel):
         create_time: str,
         update_time: str,
         description: str = SENTINEL,
+        current_queue_length: int = SENTINEL,
         **kwargs,
     ):
         """Represents a queue.
@@ -54,6 +57,8 @@ class Queue(BaseModel):
         :type create_time: str
         :param update_time: The date and time the queue was last updated.
         :type update_time: str
+        :param current_queue_length: The current length of the queue, defaults to None
+        :type current_queue_length: int, optional
         """
         self.id_ = id_
         self.name = self._define_str(
@@ -77,4 +82,8 @@ class Queue(BaseModel):
         self.container_groups = self._define_list(container_groups, ContainerGroup)
         self.create_time = create_time
         self.update_time = update_time
+        if current_queue_length is not SENTINEL:
+            self.current_queue_length = self._define_number(
+                "current_queue_length", current_queue_length, ge=0, le=2147483647
+            )
         self._kwargs = kwargs

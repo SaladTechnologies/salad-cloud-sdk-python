@@ -4,6 +4,8 @@ from enum import Enum
 class LogEntrySeverity(Enum):
     """An enumeration representing different categories.
 
+    :cvar DEFAULT: "default"
+    :vartype DEFAULT: str
     :cvar DEBUG: "debug"
     :vartype DEBUG: str
     :cvar INFO: "info"
@@ -22,6 +24,7 @@ class LogEntrySeverity(Enum):
     :vartype EMERGENCY: str
     """
 
+    DEFAULT = "default"
     DEBUG = "debug"
     INFO = "info"
     NOTICE = "notice"

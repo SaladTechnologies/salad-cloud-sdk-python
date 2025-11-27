@@ -13,6 +13,12 @@ class ContainerGroupInstance(BaseModel):
     :type id_: str
     :param machine_id: The container group machine identifier.
     :type machine_id: str
+    :param ssh_ip: The SSH IP address of the container group instance, defaults to None
+    :type ssh_ip: str, optional
+    :param ssh_port: The SSH port of the container group instance, defaults to None
+    :type ssh_port: int, optional
+    :param ssh_host_key_fingerprint: The SSH host key fingerprint of the container group instance, defaults to None
+    :type ssh_host_key_fingerprint: str, optional
     :param state: The state of the container group instance
     :type state: TheContainerGroupInstanceState
     :param update_time: The UTC timestamp when the container group instance last changed its state. This helps track the lifecycle and state transitions of the instance.
@@ -34,6 +40,9 @@ class ContainerGroupInstance(BaseModel):
         state: TheContainerGroupInstanceState,
         update_time: str,
         version: int,
+        ssh_ip: str = SENTINEL,
+        ssh_port: int = SENTINEL,
+        ssh_host_key_fingerprint: str = SENTINEL,
         ready: bool = SENTINEL,
         started: bool = SENTINEL,
         deletion_cost: int = SENTINEL,
@@ -45,6 +54,12 @@ class ContainerGroupInstance(BaseModel):
         :type id_: str
         :param machine_id: The container group machine identifier.
         :type machine_id: str
+        :param ssh_ip: The SSH IP address of the container group instance, defaults to None
+        :type ssh_ip: str, optional
+        :param ssh_port: The SSH port of the container group instance, defaults to None
+        :type ssh_port: int, optional
+        :param ssh_host_key_fingerprint: The SSH host key fingerprint of the container group instance, defaults to None
+        :type ssh_host_key_fingerprint: str, optional
         :param state: The state of the container group instance
         :type state: TheContainerGroupInstanceState
         :param update_time: The UTC timestamp when the container group instance last changed its state. This helps track the lifecycle and state transitions of the instance.
@@ -60,6 +75,17 @@ class ContainerGroupInstance(BaseModel):
         """
         self.id_ = id_
         self.machine_id = machine_id
+        if ssh_ip is not SENTINEL:
+            self.ssh_ip = ssh_ip
+        if ssh_port is not SENTINEL:
+            self.ssh_port = self._define_number("ssh_port", ssh_port, ge=1, le=65535)
+        if ssh_host_key_fingerprint is not SENTINEL:
+            self.ssh_host_key_fingerprint = self._define_str(
+                "ssh_host_key_fingerprint",
+                ssh_host_key_fingerprint,
+                min_length=1,
+                max_length=256,
+            )
         self.state = self._enum_matching(
             state, TheContainerGroupInstanceState.list(), "state"
         )

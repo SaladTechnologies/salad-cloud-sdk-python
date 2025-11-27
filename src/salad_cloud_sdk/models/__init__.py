@@ -5,7 +5,6 @@ from .container_group_patch import ContainerGroupPatch
 from .container_group_instance_collection import ContainerGroupInstanceCollection
 from .container_group_instance import ContainerGroupInstance
 from .container_group_instance_patch import ContainerGroupInstancePatch
-from .workload_error_list import WorkloadErrorList
 from .system_log_list import SystemLogList
 from .queue_collection import QueueCollection
 from .queue_prototype import QueuePrototype
@@ -21,6 +20,10 @@ from .inference_endpoint_job_collection import InferenceEndpointJobCollection
 from .inference_endpoint_job_prototype import InferenceEndpointJobPrototype
 from .inference_endpoint_job import InferenceEndpointJob
 from .gpu_classes_list import GpuClassesList
+from .cpu_availability_prototype import CpuAvailabilityPrototype
+from .cpu_availability import CpuAvailability
+from .gpu_availability_prototype import GpuAvailabilityPrototype
+from .gpu_availability import GpuAvailability
 from .webhook_secret_key import WebhookSecretKey
 from .log_entry_query import LogEntryQuery
 from .log_entry_collection import LogEntryCollection
@@ -89,7 +92,6 @@ from .update_container_group_networking import UpdateContainerGroupNetworking
 from .update_container_logging import UpdateContainerLogging
 from .container_resource_update_schema import ContainerResourceUpdateSchema
 from .the_container_group_instance_state import TheContainerGroupInstanceState
-from .workload_error import WorkloadError
 from .system_log import SystemLog
 from .queue_job_event import QueueJobEvent, Action
 from .container_groups_quotas import ContainerGroupsQuotas

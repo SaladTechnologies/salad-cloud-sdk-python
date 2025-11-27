@@ -1,7 +1,7 @@
 import json
 import re
 from typing import Generator, Optional, Union
-from requests import Response as RequestsResponse
+from requests import Response
 from urllib.parse import parse_qs
 
 
@@ -13,19 +13,21 @@ class Response:
     :ivar dict headers: The headers of the HTTP response.
     :ivar str body: The body of the HTTP response.
     :var str chunk: The chunk of the HTTP response.
+    :property Response raw: The original requests.Response object.
     """
 
     def __init__(
         self,
-        response: RequestsResponse,
+        response: Response,
         chunk: Optional[str] = None,
         raw_chunk: Optional[bytes] = None,
     ) -> None:
         """
         Initializes a Response object.
 
-        :param RequestsResponse response: The requests.Response object.
+        :param Response response: The Response object.
         """
+        self._raw_response = response
         self.status = response.status_code
         self.headers = response.headers
 
@@ -37,12 +39,12 @@ class Response:
 
     @staticmethod
     def from_chunk(
-        response: RequestsResponse, raw_chunk: bytes
+        response: Response, raw_chunk: bytes
     ) -> Generator["Response", None, None]:
         """
         Create a Response object from a chunk of data.
 
-        :param RequestsResponse response: The requests.Response object.
+        :param Response response: The Response object.
         :param bytes chunk: The chunk of data.
         :return: A Response object.
         :rtype: Response
@@ -67,6 +69,16 @@ class Response:
             f"Response(status={self.status}, headers={self.headers}, body={self.body})"
         )
 
+    @property
+    def raw(self) -> Response:
+        """
+        Get the underlying requests.Response object.
+
+        :return: The original requests.Response object.
+        :rtype: Response
+        """
+        return self._raw_response
+
     def _parse_response_body(
         self, content_type: str, body: str, raw_body: bytes
     ) -> Union[str, dict, bytes]:
@@ -79,7 +91,9 @@ class Response:
         If the content type is 'application/x-www-form-urlencoded', it parses the body as a query string.
         For all other content types, it returns the raw binary content.
 
-        :param RequestsResponse response: The HTTP response received from a request.
+        :param str content_type: The content type of the response.
+        :param str body: The text body of the response.
+        :param bytes raw_body: The raw binary body of the response.
         :return: The parsed response body.
         :rtype: str or dict or bytes
         """
@@ -92,7 +106,11 @@ class Response:
                 # Note: this assumes that the content of data is a valid JSON string
                 return json.loads(json_body)
 
-            if "text/" in content_type or content_type == "application/xml":
+            if (
+                "text/" in content_type
+                or content_type == "application/xml"
+                or content_type == "application/javascript"
+            ):
                 return body
 
             if content_type == "application/x-www-form-urlencoded":

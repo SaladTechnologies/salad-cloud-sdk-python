@@ -2,7 +2,6 @@ from typing import Union
 from .net.environment import Environment
 from .sdk import SaladCloudSdk
 from .services.async_.container_groups import ContainerGroupsServiceAsync
-from .services.async_.workload_errors import WorkloadErrorsServiceAsync
 from .services.async_.system_logs import SystemLogsServiceAsync
 from .services.async_.queues import QueuesServiceAsync
 from .services.async_.quotas import QuotasServiceAsync
@@ -32,7 +31,6 @@ class SaladCloudSdkAsync(SaladCloudSdk):
         )
 
         self.container_groups = ContainerGroupsServiceAsync(base_url=self._base_url)
-        self.workload_errors = WorkloadErrorsServiceAsync(base_url=self._base_url)
         self.system_logs = SystemLogsServiceAsync(base_url=self._base_url)
         self.queues = QueuesServiceAsync(base_url=self._base_url)
         self.quotas = QuotasServiceAsync(base_url=self._base_url)

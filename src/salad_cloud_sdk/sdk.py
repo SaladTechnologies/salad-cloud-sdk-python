@@ -1,6 +1,5 @@
 from typing import Union
 from .services.container_groups import ContainerGroupsService
-from .services.workload_errors import WorkloadErrorsService
 from .services.system_logs import SystemLogsService
 from .services.queues import QueuesService
 from .services.quotas import QuotasService
@@ -27,7 +26,6 @@ class SaladCloudSdk:
             base_url.value if isinstance(base_url, Environment) else base_url
         )
         self.container_groups = ContainerGroupsService(base_url=self._base_url)
-        self.workload_errors = WorkloadErrorsService(base_url=self._base_url)
         self.system_logs = SystemLogsService(base_url=self._base_url)
         self.queues = QueuesService(base_url=self._base_url)
         self.quotas = QuotasService(base_url=self._base_url)
@@ -50,7 +48,6 @@ class SaladCloudSdk:
         )
 
         self.container_groups.set_base_url(self._base_url)
-        self.workload_errors.set_base_url(self._base_url)
         self.system_logs.set_base_url(self._base_url)
         self.queues.set_base_url(self._base_url)
         self.quotas.set_base_url(self._base_url)
@@ -66,7 +63,6 @@ class SaladCloudSdk:
         Sets the api key and the api key header for the entire SDK.
         """
         self.container_groups.set_api_key(api_key, api_key_header)
-        self.workload_errors.set_api_key(api_key, api_key_header)
         self.system_logs.set_api_key(api_key, api_key_header)
         self.queues.set_api_key(api_key, api_key_header)
         self.quotas.set_api_key(api_key, api_key_header)
@@ -85,7 +81,6 @@ class SaladCloudSdk:
         :return: The SDK instance.
         """
         self.container_groups.set_timeout(timeout)
-        self.workload_errors.set_timeout(timeout)
         self.system_logs.set_timeout(timeout)
         self.queues.set_timeout(timeout)
         self.quotas.set_timeout(timeout)
