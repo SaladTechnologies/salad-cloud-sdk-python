@@ -73,6 +73,13 @@ class HttpHandler(BaseHandler):
     def stream(
         self, request: Request
     ) -> Generator[Tuple[Optional[Response], Optional[Exception]], None, None]:
+        """
+        Stream the request to the specified URL and yield response chunks.
+        Useful for handling large responses or server-sent events.
+
+        :param request: The request to stream.
+        :return: A generator yielding response chunks and any errors that occurred.
+        """
         try:
             request_args = self._get_request_data(request)
 

@@ -11,35 +11,37 @@ from .country_code import CountryCode
 class CpuAvailabilityPrototype(BaseModel):
     """CpuAvailabilityPrototype
 
+    :param country_codes: A list of country codes where the resources are available, defaults to None
+    :type country_codes: List[CountryCode], optional
     :param cpu: The number of available CPU cores, defaults to None
     :type cpu: int, optional
     :param memory: The amount of available memory in MB, defaults to None
     :type memory: int, optional
     :param storage_amount: The amount of available storage in bytes, defaults to None
     :type storage_amount: int, optional
-    :param country_codes: A list of country codes where the resources are available, defaults to None
-    :type country_codes: List[CountryCode], optional
     """
 
     def __init__(
         self,
+        country_codes: List[CountryCode] = SENTINEL,
         cpu: Union[int, None] = SENTINEL,
         memory: Union[int, None] = SENTINEL,
         storage_amount: Union[int, None] = SENTINEL,
-        country_codes: List[CountryCode] = SENTINEL,
         **kwargs,
     ):
         """CpuAvailabilityPrototype
 
+        :param country_codes: A list of country codes where the resources are available, defaults to None
+        :type country_codes: List[CountryCode], optional
         :param cpu: The number of available CPU cores, defaults to None
         :type cpu: int, optional
         :param memory: The amount of available memory in MB, defaults to None
         :type memory: int, optional
         :param storage_amount: The amount of available storage in bytes, defaults to None
         :type storage_amount: int, optional
-        :param country_codes: A list of country codes where the resources are available, defaults to None
-        :type country_codes: List[CountryCode], optional
         """
+        if country_codes is not SENTINEL:
+            self.country_codes = self._define_list(country_codes, CountryCode)
         if cpu is not SENTINEL:
             self.cpu = self._define_number("cpu", cpu, nullable=True)
         if memory is not SENTINEL:
@@ -48,6 +50,4 @@ class CpuAvailabilityPrototype(BaseModel):
             self.storage_amount = self._define_number(
                 "storage_amount", storage_amount, nullable=True
             )
-        if country_codes is not SENTINEL:
-            self.country_codes = self._define_list(country_codes, CountryCode)
         self._kwargs = kwargs

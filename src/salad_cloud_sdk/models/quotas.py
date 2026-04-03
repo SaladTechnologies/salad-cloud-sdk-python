@@ -37,7 +37,7 @@ class Quotas(BaseModel):
             container_groups_quotas, ContainerGroupsQuotas
         )
         if create_time is not SENTINEL:
-            self.create_time = create_time
+            self.create_time = self._define_str("create_time", create_time)
         if update_time is not SENTINEL:
-            self.update_time = update_time
+            self.update_time = self._define_str("update_time", update_time)
         self._kwargs = kwargs

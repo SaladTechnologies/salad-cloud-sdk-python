@@ -43,7 +43,7 @@ class LogEntryQuery(BaseModel):
         :param start_time: The start time of the time range
         :type start_time: str
         """
-        self.end_time = end_time
+        self.end_time = self._define_str("end_time", end_time)
         if page_size is not SENTINEL:
             self.page_size = self._define_number("page_size", page_size, ge=1, le=100)
         self.query = self._define_str("query", query, max_length=20000)
@@ -51,5 +51,5 @@ class LogEntryQuery(BaseModel):
             self.sort_order = self._enum_matching(
                 sort_order, LogEntryQuerySortOrder.list(), "sort_order"
             )
-        self.start_time = start_time
+        self.start_time = self._define_str("start_time", start_time)
         self._kwargs = kwargs

@@ -24,7 +24,9 @@ class CpuAvailability(BaseModel):
         :type on_call_cpu: int, optional
         """
         if available_cpu_batch is not SENTINEL:
-            self.available_cpu_batch = available_cpu_batch
+            self.available_cpu_batch = self._define_number(
+                "available_cpu_batch", available_cpu_batch
+            )
         if on_call_cpu is not SENTINEL:
-            self.on_call_cpu = on_call_cpu
+            self.on_call_cpu = self._define_number("on_call_cpu", on_call_cpu)
         self._kwargs = kwargs

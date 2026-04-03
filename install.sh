@@ -28,7 +28,7 @@ fi
 
 $PYTHON_CMD -m pip install build
 $PYTHON_CMD -m build --outdir dist .
-$PYTHON_CMD -m pip install dist/salad_cloud_sdk-0.9.0a16-py3-none-any.whl --force-reinstall
+$PYTHON_CMD -m pip install dist/salad_cloud_sdk-0.9.0a17-py3-none-any.whl --force-reinstall
 
 if [ "$USE_VENV" -eq 1 ]; then
     deactivate

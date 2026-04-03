@@ -41,64 +41,70 @@ class QueueJobStatus(Enum):
 class QueueJob(BaseModel):
     """Represents a queue job
 
+    :param create_time: The job creation time
+    :type create_time: str
+    :param events: The job events
+    :type events: List[QueueJobEvent]
     :param id_: The job identifier
     :type id_: str
     :param input: The job input. May be any valid JSON.
     :type input: any
     :param metadata: Additional metadata for the job, defaults to None
     :type metadata: dict, optional
-    :param webhook: The webhook URL to notify when the job completes, defaults to None
-    :type webhook: str, optional
-    :param status: The job status
-    :type status: QueueJobStatus
-    :param events: The job events
-    :type events: List[QueueJobEvent]
     :param output: The job output. May be any valid JSON., defaults to None
     :type output: any, optional
-    :param create_time: The job creation time
-    :type create_time: str
+    :param status: The job status
+    :type status: QueueJobStatus
     :param update_time: The job update time
     :type update_time: str
+    :param webhook: The webhook URL to notify when the job completes, defaults to None
+    :type webhook: str, optional
     """
 
     def __init__(
         self,
+        create_time: str,
+        events: List[QueueJobEvent],
         id_: str,
         input: any,
         status: QueueJobStatus,
-        events: List[QueueJobEvent],
-        create_time: str,
         update_time: str,
         metadata: dict = SENTINEL,
-        webhook: str = SENTINEL,
         output: any = SENTINEL,
+        webhook: str = SENTINEL,
         **kwargs,
     ):
         """Represents a queue job
 
+        :param create_time: The job creation time
+        :type create_time: str
+        :param events: The job events
+        :type events: List[QueueJobEvent]
         :param id_: The job identifier
         :type id_: str
         :param input: The job input. May be any valid JSON.
         :type input: any
         :param metadata: Additional metadata for the job, defaults to None
         :type metadata: dict, optional
-        :param webhook: The webhook URL to notify when the job completes, defaults to None
-        :type webhook: str, optional
-        :param status: The job status
-        :type status: QueueJobStatus
-        :param events: The job events
-        :type events: List[QueueJobEvent]
         :param output: The job output. May be any valid JSON., defaults to None
         :type output: any, optional
-        :param create_time: The job creation time
-        :type create_time: str
+        :param status: The job status
+        :type status: QueueJobStatus
         :param update_time: The job update time
         :type update_time: str
+        :param webhook: The webhook URL to notify when the job completes, defaults to None
+        :type webhook: str, optional
         """
-        self.id_ = id_
+        self.create_time = self._define_str("create_time", create_time)
+        self.events = self._define_list(events, QueueJobEvent)
+        self.id_ = self._define_str("id_", id_)
         self.input = input
         if metadata is not SENTINEL:
             self.metadata = metadata
+        if output is not SENTINEL:
+            self.output = output
+        self.status = self._enum_matching(status, QueueJobStatus.list(), "status")
+        self.update_time = self._define_str("update_time", update_time)
         if webhook is not SENTINEL:
             self.webhook = self._define_str(
                 "webhook",
@@ -107,10 +113,4 @@ class QueueJob(BaseModel):
                 min_length=20,
                 max_length=27,
             )
-        self.status = self._enum_matching(status, QueueJobStatus.list(), "status")
-        self.events = self._define_list(events, QueueJobEvent)
-        if output is not SENTINEL:
-            self.output = output
-        self.create_time = create_time
-        self.update_time = update_time
         self._kwargs = kwargs

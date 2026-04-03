@@ -16,6 +16,11 @@ from ..models import (
 
 
 class InferenceEndpointsService(BaseService):
+    """
+    Service class for InferenceEndpointsService operations.
+    Provides methods to interact with InferenceEndpointsService-related API endpoints.
+    Inherits common functionality from BaseService including authentication and request handling.
+    """
 
     @cast_models
     def list_inference_endpoints(

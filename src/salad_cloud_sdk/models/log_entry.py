@@ -70,7 +70,7 @@ class LogEntry(BaseModel):
             self.parent_span_id = self._define_str(
                 "parent_span_id", parent_span_id, min_length=1, max_length=1000
             )
-        self.receive_time = receive_time
+        self.receive_time = self._define_str("receive_time", receive_time)
         self.resource = self._define_object(resource, LogEntryResource)
         self.severity = self._enum_matching(
             severity, LogEntrySeverity.list(), "severity"
@@ -81,7 +81,7 @@ class LogEntry(BaseModel):
             )
         if text_log is not SENTINEL:
             self.text_log = self._define_str("text_log", text_log, max_length=10000)
-        self.time = time
+        self.time = self._define_str("time", time)
         if trace_id is not SENTINEL:
             self.trace_id = self._define_str(
                 "trace_id", trace_id, min_length=1, max_length=1000

@@ -6,5 +6,5 @@ Authentication details for Docker Hub registry
 
 | Name                  | Type | Required | Description                            |
 | :-------------------- | :--- | :------- | :------------------------------------- |
-| username              | str  | ✅       | Docker Hub username                    |
 | personal_access_token | str  | ✅       | Docker Hub personal access token (PAT) |
+| username              | str  | ✅       | Docker Hub username                    |

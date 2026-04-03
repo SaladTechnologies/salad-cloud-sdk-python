@@ -60,7 +60,7 @@ class ContainerRegistryAuthentication(BaseModel):
         """
         if aws_ecr is not SENTINEL:
             self.aws_ecr = self._define_object(
-                aws_ecr, ContainerRegistryAuthenticationAwsEcr
+                aws_ecr, ContainerRegistryAuthenticationAwsEcr, nullable=True
             )
         if basic is not SENTINEL:
             self.basic = self._define_object(

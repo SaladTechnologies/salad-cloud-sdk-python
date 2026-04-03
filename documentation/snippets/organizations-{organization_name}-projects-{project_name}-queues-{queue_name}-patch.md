@@ -9,8 +9,8 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePatch(
-    display_name="5Ecnf",
-    description="description"
+    description="description",
+    display_name="hB13"
 )
 
 result = sdk.queues.update_queue(

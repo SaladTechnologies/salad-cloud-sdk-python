@@ -46,6 +46,6 @@ class LogEntryCollection(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.page_max_time = page_max_time
-        self.page_min_time = page_min_time
+        self.page_max_time = self._define_str("page_max_time", page_max_time)
+        self.page_min_time = self._define_str("page_min_time", page_min_time)
         self._kwargs = kwargs

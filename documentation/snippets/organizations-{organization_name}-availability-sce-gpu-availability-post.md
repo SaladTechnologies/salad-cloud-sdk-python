@@ -9,18 +9,18 @@ sdk = SaladCloudSdk(
 )
 
 request_body = GpuAvailabilityPrototype(
+    country_codes=[
+        "af"
+    ],
+    cpu=4,
     gpu_classes=[
         "gpu_classes"
     ],
-    cpu=4,
     memory=8192,
-    storage_amount=1000000000,
-    country_codes=[
-        "af"
-    ]
+    storage_amount=1000000000
 )
 
-result = sdk.organization_data.get_gpu_availability(
+result = sdk.organizations.get_gpu_availability(
     request_body=request_body,
     organization_name="acme-corp"
 )

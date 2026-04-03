@@ -53,10 +53,10 @@ class ContainerGroupState(BaseModel):
                 pattern="^.*$",
                 max_length=1000,
             )
-        self.finish_time = finish_time
+        self.finish_time = self._define_str("finish_time", finish_time)
         self.instance_status_counts = self._define_object(
             instance_status_counts, ContainerGroupInstanceStatusCount
         )
-        self.start_time = start_time
+        self.start_time = self._define_str("start_time", start_time)
         self.status = self._enum_matching(status, ContainerGroupStatus.list(), "status")
         self._kwargs = kwargs

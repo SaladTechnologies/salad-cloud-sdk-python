@@ -83,9 +83,9 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePrototype(
-    name="name",
-    display_name="AV3ysQq",
-    description="description"
+    description="description",
+    display_name="tLWSUinMUjM",
+    name="name"
 )
 
 result = sdk.queues.create_queue(
@@ -169,8 +169,8 @@ sdk = SaladCloudSdk(
 )
 
 request_body = QueuePatch(
-    display_name="5Ecnf",
-    description="description"
+    description="description",
+    display_name="hB13"
 )
 
 result = sdk.queues.update_queue(

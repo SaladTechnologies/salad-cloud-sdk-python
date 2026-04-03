@@ -9,15 +9,15 @@ sdk = SaladCloudSdk(
 )
 
 request_body = CpuAvailabilityPrototype(
-    cpu=4,
-    memory=8192,
-    storage_amount=1000000000,
     country_codes=[
         "af"
-    ]
+    ],
+    cpu=4,
+    memory=8192,
+    storage_amount=1000000000
 )
 
-result = sdk.organization_data.get_cpu_availability(
+result = sdk.organizations.get_cpu_availability(
     request_body=request_body,
     organization_name="acme-corp"
 )

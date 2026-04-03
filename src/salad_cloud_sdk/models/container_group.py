@@ -16,10 +16,17 @@ from .queue_based_autoscaler_configuration import QueueBasedAutoscalerConfigurat
 from .container_group_queue_connection import ContainerGroupQueueConnection
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_restart_policy import ContainerRestartPolicy
+from .container_group_scaling_action import ContainerGroupScalingAction
 from .container_group_startup_probe import ContainerGroupStartupProbe
 
 
-@JsonMap({"id_": "id"})
+@JsonMap(
+    {
+        "id_": "id",
+        "scaling_actions": "scaling-actions",
+        "scheduled_scaling_enabled": "scheduled-scaling-enabled",
+    }
+)
 class ContainerGroup(BaseModel):
     """A container group definition that represents a scalable set of identical containers running as a distributed service
 
@@ -63,6 +70,10 @@ class ContainerGroup(BaseModel):
     :type replicas: int
     :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
     :type restart_policy: ContainerRestartPolicy
+    :param scaling_actions: List of scaling actions configurations
+    :type scaling_actions: List[ContainerGroupScalingAction]
+    :param scheduled_scaling_enabled: Indicates if scheduled scaling is enabled
+    :type scheduled_scaling_enabled: bool
     :param startup_probe: Defines a probe that checks if a container application has started successfully. Startup probes help prevent applications from being prematurely marked as unhealthy during initialization. The probe can use HTTP requests, TCP connections, gRPC calls, or shell commands to determine startup status., defaults to None
     :type startup_probe: ContainerGroupStartupProbe, optional
     :param update_time: ISO 8601 timestamp when this container group was last updated
@@ -87,6 +98,8 @@ class ContainerGroup(BaseModel):
         project_name: str,
         replicas: int,
         restart_policy: ContainerRestartPolicy,
+        scaling_actions: List[ContainerGroupScalingAction],
+        scheduled_scaling_enabled: bool,
         update_time: str,
         version: int,
         liveness_probe: Union[ContainerGroupLivenessProbe, None] = SENTINEL,
@@ -140,6 +153,10 @@ class ContainerGroup(BaseModel):
         :type replicas: int
         :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
         :type restart_policy: ContainerRestartPolicy
+        :param scaling_actions: List of scaling actions configurations
+        :type scaling_actions: List[ContainerGroupScalingAction]
+        :param scheduled_scaling_enabled: Indicates if scheduled scaling is enabled
+        :type scheduled_scaling_enabled: bool
         :param startup_probe: Defines a probe that checks if a container application has started successfully. Startup probes help prevent applications from being prematurely marked as unhealthy during initialization. The probe can use HTTP requests, TCP connections, gRPC calls, or shell commands to determine startup status., defaults to None
         :type startup_probe: ContainerGroupStartupProbe, optional
         :param update_time: ISO 8601 timestamp when this container group was last updated
@@ -150,7 +167,7 @@ class ContainerGroup(BaseModel):
         self.autostart_policy = autostart_policy
         self.container = self._define_object(container, Container)
         self.country_codes = self._define_list(country_codes, CountryCode)
-        self.create_time = create_time
+        self.create_time = self._define_str("create_time", create_time)
         self.current_state = self._define_object(current_state, ContainerGroupState)
         self.display_name = self._define_str(
             "display_name",
@@ -159,10 +176,10 @@ class ContainerGroup(BaseModel):
             min_length=2,
             max_length=63,
         )
-        self.id_ = id_
+        self.id_ = self._define_str("id_", id_)
         if liveness_probe is not SENTINEL:
             self.liveness_probe = self._define_object(
-                liveness_probe, ContainerGroupLivenessProbe
+                liveness_probe, ContainerGroupLivenessProbe, nullable=True
             )
         self.name = self._define_str(
             "name",
@@ -184,7 +201,7 @@ class ContainerGroup(BaseModel):
         )
         self.pending_change = pending_change
         self.priority = self._enum_matching(
-            priority, ContainerGroupPriority.list(), "priority"
+            priority, ContainerGroupPriority.list(), "priority", nullable=True
         )
         self.project_name = self._define_str(
             "project_name",
@@ -203,7 +220,7 @@ class ContainerGroup(BaseModel):
             )
         if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
-                readiness_probe, ContainerGroupReadinessProbe
+                readiness_probe, ContainerGroupReadinessProbe, nullable=True
             )
         if readme is not SENTINEL:
             self.readme = self._define_str(
@@ -213,10 +230,14 @@ class ContainerGroup(BaseModel):
         self.restart_policy = self._enum_matching(
             restart_policy, ContainerRestartPolicy.list(), "restart_policy"
         )
+        self.scaling_actions = self._define_list(
+            scaling_actions, ContainerGroupScalingAction
+        )
+        self.scheduled_scaling_enabled = scheduled_scaling_enabled
         if startup_probe is not SENTINEL:
             self.startup_probe = self._define_object(
-                startup_probe, ContainerGroupStartupProbe
+                startup_probe, ContainerGroupStartupProbe, nullable=True
             )
-        self.update_time = update_time
+        self.update_time = self._define_str("update_time", update_time)
         self.version = self._define_number("version", version, ge=1, le=2147483647)
         self._kwargs = kwargs

@@ -8,6 +8,11 @@ from ..models import LogEntryCollection, LogEntryQuery, ProblemDetails
 
 
 class LogsService(BaseService):
+    """
+    Service class for LogsService operations.
+    Provides methods to interact with LogsService-related API endpoints.
+    Inherits common functionality from BaseService including authentication and request handling.
+    """
 
     @cast_models
     def query_log_entries(

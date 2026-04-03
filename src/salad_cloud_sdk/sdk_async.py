@@ -9,6 +9,7 @@ from .services.async_.inference_endpoints import InferenceEndpointsServiceAsync
 from .services.async_.organization_data import OrganizationDataServiceAsync
 from .services.async_.webhook_secret_key import WebhookSecretKeyServiceAsync
 from .services.async_.logs import LogsServiceAsync
+from .services.async_.organizations import OrganizationsServiceAsync
 
 
 class SaladCloudSdkAsync(SaladCloudSdk):
@@ -40,3 +41,4 @@ class SaladCloudSdkAsync(SaladCloudSdk):
         self.organization_data = OrganizationDataServiceAsync(base_url=self._base_url)
         self.webhook_secret_key = WebhookSecretKeyServiceAsync(base_url=self._base_url)
         self.logs = LogsServiceAsync(base_url=self._base_url)
+        self.organizations = OrganizationsServiceAsync(base_url=self._base_url)
