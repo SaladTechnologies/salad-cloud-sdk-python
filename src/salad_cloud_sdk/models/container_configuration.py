@@ -76,7 +76,7 @@ class ContainerConfiguration(BaseModel):
             self.logging = self._define_object(logging, ContainerConfigurationLogging)
         if priority is not SENTINEL:
             self.priority = self._enum_matching(
-                priority, ContainerGroupPriority.list(), "priority"
+                priority, ContainerGroupPriority.list(), "priority", nullable=True
             )
         if registry_authentication is not SENTINEL:
             self.registry_authentication = self._define_object(

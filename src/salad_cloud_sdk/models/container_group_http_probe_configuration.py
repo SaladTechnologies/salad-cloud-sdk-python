@@ -45,5 +45,7 @@ class ContainerGroupHttpProbeConfiguration(BaseModel):
             "path", path, pattern="^.*$", min_length=1, max_length=2048
         )
         self.port = self._define_number("port", port, ge=0, le=65536)
-        self.scheme = self._enum_matching(scheme, HttpScheme.list(), "scheme")
+        self.scheme = self._enum_matching(
+            scheme, HttpScheme.list(), "scheme", nullable=True
+        )
         self._kwargs = kwargs

@@ -25,5 +25,5 @@ class InferenceEndpointJobEvent(BaseModel):
         self.action = self._enum_matching(
             action, InferenceEndpointJobEventAction.list(), "action"
         )
-        self.time = time
+        self.time = self._define_str("time", time)
         self._kwargs = kwargs

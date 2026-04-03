@@ -9,10 +9,10 @@ class QueueBasedAutoscalerConfiguration(BaseModel):
 
     :param desired_queue_length: The target number of items in the queue that the autoscaler attempts to maintain by scaling the containers up or down
     :type desired_queue_length: int
-    :param max_replicas: The maximum number of instances the container can scale up to
-    :type max_replicas: int
     :param max_downscale_per_minute: The maximum number of instances that can be removed per minute to prevent rapid downscaling, defaults to None
     :type max_downscale_per_minute: int, optional
+    :param max_replicas: The maximum number of instances the container can scale up to
+    :type max_replicas: int
     :param max_upscale_per_minute: The maximum number of instances that can be added per minute to prevent rapid upscaling, defaults to None
     :type max_upscale_per_minute: int, optional
     :param min_replicas: The minimum number of instances the container can scale down to, ensuring baseline availability
@@ -35,10 +35,10 @@ class QueueBasedAutoscalerConfiguration(BaseModel):
 
         :param desired_queue_length: The target number of items in the queue that the autoscaler attempts to maintain by scaling the containers up or down
         :type desired_queue_length: int
-        :param max_replicas: The maximum number of instances the container can scale up to
-        :type max_replicas: int
         :param max_downscale_per_minute: The maximum number of instances that can be removed per minute to prevent rapid downscaling, defaults to None
         :type max_downscale_per_minute: int, optional
+        :param max_replicas: The maximum number of instances the container can scale up to
+        :type max_replicas: int
         :param max_upscale_per_minute: The maximum number of instances that can be added per minute to prevent rapid upscaling, defaults to None
         :type max_upscale_per_minute: int, optional
         :param min_replicas: The minimum number of instances the container can scale down to, ensuring baseline availability
@@ -49,13 +49,13 @@ class QueueBasedAutoscalerConfiguration(BaseModel):
         self.desired_queue_length = self._define_number(
             "desired_queue_length", desired_queue_length, ge=1, le=100
         )
-        self.max_replicas = self._define_number(
-            "max_replicas", max_replicas, ge=1, le=500
-        )
         if max_downscale_per_minute is not SENTINEL:
             self.max_downscale_per_minute = self._define_number(
                 "max_downscale_per_minute", max_downscale_per_minute, ge=1, le=100
             )
+        self.max_replicas = self._define_number(
+            "max_replicas", max_replicas, ge=1, le=500
+        )
         if max_upscale_per_minute is not SENTINEL:
             self.max_upscale_per_minute = self._define_number(
                 "max_upscale_per_minute", max_upscale_per_minute, ge=1, le=100

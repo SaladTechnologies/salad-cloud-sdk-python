@@ -25,12 +25,12 @@ class ContainerGroupStartupProbe(BaseModel):
     :type http: ContainerGroupHttpProbeConfiguration, optional
     :param initial_delay_seconds: Number of seconds to wait after container startup before the first probe is executed
     :type initial_delay_seconds: int
-    :param tcp: Configuration for a TCP probe used to check container health via network connectivity., defaults to None
-    :type tcp: ContainerGroupTcpProbe, optional
     :param period_seconds: How frequently (in seconds) to perform the probe
     :type period_seconds: int
     :param success_threshold: Minimum consecutive successes required for the probe to be considered successful
     :type success_threshold: int
+    :param tcp: Configuration for a TCP probe used to check container health via network connectivity., defaults to None
+    :type tcp: ContainerGroupTcpProbe, optional
     :param timeout_seconds: Maximum time (in seconds) to wait for a probe response before considering it failed
     :type timeout_seconds: int
     """
@@ -60,12 +60,12 @@ class ContainerGroupStartupProbe(BaseModel):
         :type http: ContainerGroupHttpProbeConfiguration, optional
         :param initial_delay_seconds: Number of seconds to wait after container startup before the first probe is executed
         :type initial_delay_seconds: int
-        :param tcp: Configuration for a TCP probe used to check container health via network connectivity., defaults to None
-        :type tcp: ContainerGroupTcpProbe, optional
         :param period_seconds: How frequently (in seconds) to perform the probe
         :type period_seconds: int
         :param success_threshold: Minimum consecutive successes required for the probe to be considered successful
         :type success_threshold: int
+        :param tcp: Configuration for a TCP probe used to check container health via network connectivity., defaults to None
+        :type tcp: ContainerGroupTcpProbe, optional
         :param timeout_seconds: Maximum time (in seconds) to wait for a probe response before considering it failed
         :type timeout_seconds: int
         """
@@ -81,14 +81,14 @@ class ContainerGroupStartupProbe(BaseModel):
         self.initial_delay_seconds = self._define_number(
             "initial_delay_seconds", initial_delay_seconds, ge=0, le=1200
         )
-        if tcp is not SENTINEL:
-            self.tcp = self._define_object(tcp, ContainerGroupTcpProbe)
         self.period_seconds = self._define_number(
             "period_seconds", period_seconds, ge=1, le=120
         )
         self.success_threshold = self._define_number(
             "success_threshold", success_threshold, ge=1, le=10
         )
+        if tcp is not SENTINEL:
+            self.tcp = self._define_object(tcp, ContainerGroupTcpProbe)
         self.timeout_seconds = self._define_number(
             "timeout_seconds", timeout_seconds, ge=1, le=60
         )

@@ -8,6 +8,11 @@ from ..models import ProblemDetails, Quotas
 
 
 class QuotasService(BaseService):
+    """
+    Service class for QuotasService operations.
+    Provides methods to interact with QuotasService-related API endpoints.
+    Inherits common functionality from BaseService including authentication and request handling.
+    """
 
     @cast_models
     def get_quotas(self, organization_name: str) -> Quotas:

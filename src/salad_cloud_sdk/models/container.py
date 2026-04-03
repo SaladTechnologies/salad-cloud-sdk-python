@@ -81,5 +81,5 @@ class Container(BaseModel):
             self.logging = self._define_object(logging, ContainerLogging)
         self.resources = self._define_object(resources, ContainerResourceRequirements)
         if size is not SENTINEL:
-            self.size = self._define_number("size", size, ge=0, le=9223372036854776000)
+            self.size = self._define_number("size", size, ge=0, le=9223372036854775807)
         self._kwargs = kwargs

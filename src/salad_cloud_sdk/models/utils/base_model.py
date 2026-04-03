@@ -16,17 +16,26 @@ class BaseModel:
     def __init__(self):
         pass
 
-    def _define_object(self, input_data: Any, input_class: Type[T]) -> Optional[T]:
+    def _define_object(
+        self, input_data: Any, input_class: Type[T], nullable: bool = False
+    ) -> Optional[T]:
         """
         Check if the input data is an instance of the input class and return the input data if it is.
         Otherwise, return an instance of the input class.
 
         :param input_data: The input data to be checked.
         :param input_class: The class that the input data should be an instance of.
+        :param nullable: Whether the value can be None.
         :return: The input data if it is an instance of input_class, otherwise an instance of input_class.
         :rtype: object
         """
-        if input_data is None or input_data is SENTINEL:
+        if input_data is None:
+            if not nullable:
+                raise ValueError(
+                    f"Object of type {input_class.__name__} cannot be null."
+                )
+            return None
+        if input_data is SENTINEL:
             return None
         elif isinstance(input_data, input_class):
             return input_data
@@ -34,17 +43,25 @@ class BaseModel:
             return input_class._unmap(input_data)
 
     def _define_list(
-        self, input_data: Optional[List[Any]], list_class: Type[T]
+        self,
+        input_data: Optional[List[Any]],
+        list_class: Type[T],
+        nullable: bool = False,
     ) -> Optional[List[T]]:
         """
         Create a list of instances of a specified class from input data.
         :param input_data: The input data to be transformed into a list of instances.
         :param list_class: The class that each instance in the list should be an instance of.
+        :param nullable: Whether the value can be None.
         :return: A list of instances of list_class.
         :rtype: list
         """
 
-        if input_data is None or input_data is SENTINEL:
+        if input_data is None:
+            if not nullable:
+                raise ValueError(f"List of type {list_class.__name__} cannot be null.")
+            return None
+        if input_data is SENTINEL:
             return None
 
         result: List[T] = []
@@ -236,7 +253,11 @@ class BaseModel:
             )
 
     def _enum_matching(
-        self, value: Union[str, Enum], enum_values: List[str], variable_name: str
+        self,
+        value: Union[str, Enum],
+        enum_values: List[str],
+        variable_name: str,
+        nullable: bool = False,
     ) -> Union[str, Enum]:
         """
         Checks if a value (str or enum) matches the required enum values and returns the value if there's a match.
@@ -247,11 +268,15 @@ class BaseModel:
         :type enum_values: List[str]
         :param variable_name: The variable name.
         :type variable_name: str
+        :param nullable: Whether the value can be None.
+        :type nullable: bool
         :return: The value if it matches one of the enum values.
         :rtype: Union[str, Enum]
         :raises ValueError: If the value does not match any of the enum values.
         """
         if value is None:
+            if not nullable:
+                raise ValueError(f"{variable_name} cannot be null.")
             return None
 
         str_value = value.value if isinstance(value, Enum) else value

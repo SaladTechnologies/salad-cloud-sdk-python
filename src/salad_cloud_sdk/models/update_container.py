@@ -79,10 +79,12 @@ class UpdateContainer(BaseModel):
         if image_caching is not SENTINEL:
             self.image_caching = image_caching
         if logging is not SENTINEL:
-            self.logging = self._define_object(logging, UpdateContainerLogging)
+            self.logging = self._define_object(
+                logging, UpdateContainerLogging, nullable=True
+            )
         if priority is not SENTINEL:
             self.priority = self._enum_matching(
-                priority, ContainerGroupPriority.list(), "priority"
+                priority, ContainerGroupPriority.list(), "priority", nullable=True
             )
         if registry_authentication is not SENTINEL:
             self.registry_authentication = self._define_object(
@@ -90,6 +92,6 @@ class UpdateContainer(BaseModel):
             )
         if resources is not SENTINEL:
             self.resources = self._define_object(
-                resources, ContainerResourceUpdateSchema
+                resources, ContainerResourceUpdateSchema, nullable=True
             )
         self._kwargs = kwargs

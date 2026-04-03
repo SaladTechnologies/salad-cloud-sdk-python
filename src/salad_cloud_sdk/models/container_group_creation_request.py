@@ -12,10 +12,16 @@ from .queue_based_autoscaler_configuration import QueueBasedAutoscalerConfigurat
 from .container_group_queue_connection import ContainerGroupQueueConnection
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_restart_policy import ContainerRestartPolicy
+from .container_group_scaling_action import ContainerGroupScalingAction
 from .container_group_startup_probe import ContainerGroupStartupProbe
 
 
-@JsonMap({})
+@JsonMap(
+    {
+        "scaling_actions": "scaling-actions",
+        "scheduled_scaling_enabled": "scheduled-scaling-enabled",
+    }
+)
 class ContainerGroupCreationRequest(BaseModel):
     """Represents a request to create a container group, which manages a collection of container instances with shared configuration and scaling policies
 
@@ -43,6 +49,10 @@ class ContainerGroupCreationRequest(BaseModel):
     :type replicas: int
     :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
     :type restart_policy: ContainerRestartPolicy
+    :param scaling_actions: List of scaling action configurations, defaults to None
+    :type scaling_actions: List[ContainerGroupScalingAction], optional
+    :param scheduled_scaling_enabled: Indicates if scheduled scaling is enabled, defaults to None
+    :type scheduled_scaling_enabled: bool, optional
     :param startup_probe: Defines a probe that checks if a container application has started successfully. Startup probes help prevent applications from being prematurely marked as unhealthy during initialization. The probe can use HTTP requests, TCP connections, gRPC calls, or shell commands to determine startup status., defaults to None
     :type startup_probe: ContainerGroupStartupProbe, optional
     """
@@ -61,6 +71,8 @@ class ContainerGroupCreationRequest(BaseModel):
         queue_autoscaler: QueueBasedAutoscalerConfiguration = SENTINEL,
         queue_connection: ContainerGroupQueueConnection = SENTINEL,
         readiness_probe: Union[ContainerGroupReadinessProbe, None] = SENTINEL,
+        scaling_actions: List[ContainerGroupScalingAction] = SENTINEL,
+        scheduled_scaling_enabled: bool = SENTINEL,
         startup_probe: Union[ContainerGroupStartupProbe, None] = SENTINEL,
         **kwargs,
     ):
@@ -90,6 +102,10 @@ class ContainerGroupCreationRequest(BaseModel):
         :type replicas: int
         :param restart_policy: Specifies the policy for restarting containers when they exit or fail.
         :type restart_policy: ContainerRestartPolicy
+        :param scaling_actions: List of scaling action configurations, defaults to None
+        :type scaling_actions: List[ContainerGroupScalingAction], optional
+        :param scheduled_scaling_enabled: Indicates if scheduled scaling is enabled, defaults to None
+        :type scheduled_scaling_enabled: bool, optional
         :param startup_probe: Defines a probe that checks if a container application has started successfully. Startup probes help prevent applications from being prematurely marked as unhealthy during initialization. The probe can use HTTP requests, TCP connections, gRPC calls, or shell commands to determine startup status., defaults to None
         :type startup_probe: ContainerGroupStartupProbe, optional
         """
@@ -107,7 +123,7 @@ class ContainerGroupCreationRequest(BaseModel):
             )
         if liveness_probe is not SENTINEL:
             self.liveness_probe = self._define_object(
-                liveness_probe, ContainerGroupLivenessProbe
+                liveness_probe, ContainerGroupLivenessProbe, nullable=True
             )
         self.name = self._define_str(
             "name",
@@ -130,14 +146,20 @@ class ContainerGroupCreationRequest(BaseModel):
             )
         if readiness_probe is not SENTINEL:
             self.readiness_probe = self._define_object(
-                readiness_probe, ContainerGroupReadinessProbe
+                readiness_probe, ContainerGroupReadinessProbe, nullable=True
             )
         self.replicas = self._define_number("replicas", replicas, ge=0, le=500)
         self.restart_policy = self._enum_matching(
             restart_policy, ContainerRestartPolicy.list(), "restart_policy"
         )
+        if scaling_actions is not SENTINEL:
+            self.scaling_actions = self._define_list(
+                scaling_actions, ContainerGroupScalingAction
+            )
+        if scheduled_scaling_enabled is not SENTINEL:
+            self.scheduled_scaling_enabled = scheduled_scaling_enabled
         if startup_probe is not SENTINEL:
             self.startup_probe = self._define_object(
-                startup_probe, ContainerGroupStartupProbe
+                startup_probe, ContainerGroupStartupProbe, nullable=True
             )
         self._kwargs = kwargs

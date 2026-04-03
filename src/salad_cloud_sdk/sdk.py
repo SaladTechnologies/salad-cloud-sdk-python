@@ -7,10 +7,17 @@ from .services.inference_endpoints import InferenceEndpointsService
 from .services.organization_data import OrganizationDataService
 from .services.webhook_secret_key import WebhookSecretKeyService
 from .services.logs import LogsService
+from .services.organizations import OrganizationsService
 from .net.environment import Environment
 
 
 class SaladCloudSdk:
+    """
+    Main SDK client class for SaladCloudSdk.
+    Provides centralized configuration and access to all service endpoints.
+    Supports authentication, environment management, and global timeout settings.
+    """
+
     def __init__(
         self,
         api_key: str = None,
@@ -33,6 +40,7 @@ class SaladCloudSdk:
         self.organization_data = OrganizationDataService(base_url=self._base_url)
         self.webhook_secret_key = WebhookSecretKeyService(base_url=self._base_url)
         self.logs = LogsService(base_url=self._base_url)
+        self.organizations = OrganizationsService(base_url=self._base_url)
         self.set_api_key(api_key, api_key_header)
         self.set_timeout(timeout)
 
@@ -55,6 +63,7 @@ class SaladCloudSdk:
         self.organization_data.set_base_url(self._base_url)
         self.webhook_secret_key.set_base_url(self._base_url)
         self.logs.set_base_url(self._base_url)
+        self.organizations.set_base_url(self._base_url)
 
         return self
 
@@ -70,6 +79,7 @@ class SaladCloudSdk:
         self.organization_data.set_api_key(api_key, api_key_header)
         self.webhook_secret_key.set_api_key(api_key, api_key_header)
         self.logs.set_api_key(api_key, api_key_header)
+        self.organizations.set_api_key(api_key, api_key_header)
 
         return self
 
@@ -88,6 +98,7 @@ class SaladCloudSdk:
         self.organization_data.set_timeout(timeout)
         self.webhook_secret_key.set_timeout(timeout)
         self.logs.set_timeout(timeout)
+        self.organizations.set_timeout(timeout)
 
         return self
 

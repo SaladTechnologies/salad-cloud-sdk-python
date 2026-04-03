@@ -65,15 +65,17 @@ class SystemLog(BaseModel):
         self.event_name = self._define_str(
             "event_name", event_name, pattern="^.*$", min_length=1, max_length=255
         )
-        self.event_time = event_time
+        self.event_time = self._define_str("event_time", event_time)
         if instance_id is not SENTINEL:
-            self.instance_id = instance_id
+            self.instance_id = self._define_str("instance_id", instance_id)
         if machine_id is not SENTINEL:
-            self.machine_id = machine_id
+            self.machine_id = self._define_str("machine_id", machine_id)
         self.resource_cpu = self._define_number(
             "resource_cpu", resource_cpu, nullable=True, ge=1, le=16
         )
-        self.resource_gpu_class = resource_gpu_class
+        self.resource_gpu_class = self._define_str(
+            "resource_gpu_class", resource_gpu_class
+        )
         self.resource_memory = self._define_number(
             "resource_memory", resource_memory, nullable=True, ge=1024, le=61440
         )
@@ -84,5 +86,5 @@ class SystemLog(BaseModel):
             ge=1073741824,
             le=268435456000,
         )
-        self.version = version
+        self.version = self._define_str("version", version)
         self._kwargs = kwargs

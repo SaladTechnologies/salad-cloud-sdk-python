@@ -20,13 +20,13 @@ from .inference_endpoint_job_collection import InferenceEndpointJobCollection
 from .inference_endpoint_job_prototype import InferenceEndpointJobPrototype
 from .inference_endpoint_job import InferenceEndpointJob
 from .gpu_classes_list import GpuClassesList
+from .webhook_secret_key import WebhookSecretKey
+from .log_entry_query import LogEntryQuery
+from .log_entry_collection import LogEntryCollection
 from .cpu_availability_prototype import CpuAvailabilityPrototype
 from .cpu_availability import CpuAvailability
 from .gpu_availability_prototype import GpuAvailabilityPrototype
 from .gpu_availability import GpuAvailability
-from .webhook_secret_key import WebhookSecretKey
-from .log_entry_query import LogEntryQuery
-from .log_entry_collection import LogEntryCollection
 from .container import Container
 from .country_code import CountryCode
 from .container_group_state import ContainerGroupState
@@ -39,6 +39,7 @@ from .queue_based_autoscaler_configuration import QueueBasedAutoscalerConfigurat
 from .container_group_queue_connection import ContainerGroupQueueConnection
 from .container_group_readiness_probe import ContainerGroupReadinessProbe
 from .container_restart_policy import ContainerRestartPolicy
+from .container_group_scaling_action import ContainerGroupScalingAction
 from .container_group_startup_probe import ContainerGroupStartupProbe
 from .container_logging import ContainerLogging
 from .container_resource_requirements import ContainerResourceRequirements
@@ -49,9 +50,9 @@ from .new_relic_logging_configuration import NewRelicLoggingConfiguration
 from .container_logging_splunk_configuration import ContainerLoggingSplunkConfiguration
 from .tcp_logging_configuration import TcpLoggingConfiguration
 from .datadog_tag_for_container_logging import DatadogTagForContainerLogging
+from .container_logging_http_compression import ContainerLoggingHttpCompression
 from .container_logging_http_format import ContainerLoggingHttpFormat
 from .container_logging_http_header import ContainerLoggingHttpHeader
-from .container_logging_http_compression import ContainerLoggingHttpCompression
 from .container_group_instance_status_count import ContainerGroupInstanceStatusCount
 from .container_group_status import ContainerGroupStatus
 from .container_group_probe_exec import ContainerGroupProbeExec
@@ -95,8 +96,8 @@ from .the_container_group_instance_state import TheContainerGroupInstanceState
 from .system_log import SystemLog
 from .queue_job_event import QueueJobEvent, Action
 from .container_groups_quotas import ContainerGroupsQuotas
-from .status import Status
 from .inference_endpoint_job_event import InferenceEndpointJobEvent
+from .status import Status
 from .inference_endpoint_job_event_action import InferenceEndpointJobEventAction
 from .gpu_class import GpuClass, GpuClassType
 from .gpu_class_price import GpuClassPrice

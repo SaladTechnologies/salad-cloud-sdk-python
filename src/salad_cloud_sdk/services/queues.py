@@ -18,6 +18,11 @@ from ..models import (
 
 
 class QueuesService(BaseService):
+    """
+    Service class for QueuesService operations.
+    Provides methods to interact with QueuesService-related API endpoints.
+    Inherits common functionality from BaseService including authentication and request handling.
+    """
 
     @cast_models
     def list_queues(self, organization_name: str, project_name: str) -> QueueCollection:

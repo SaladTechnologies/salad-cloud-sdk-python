@@ -9,7 +9,6 @@ sdk = SaladCloudSdk(
 )
 
 request_body = ContainerGroupPatch(
-    display_name="ZJjdnvu",
     container={
         "command": [
             "command"
@@ -19,13 +18,13 @@ request_body = ContainerGroupPatch(
         "image_caching": True,
         "logging": {
             "axiom": {
-                "host": "host",
                 "api_token": "api_token",
-                "dataset": "dataset"
+                "dataset": "dataset",
+                "host": "host"
             },
             "datadog": {
-                "host": "host",
                 "api_key": "api_key",
+                "host": "host",
                 "tags": [
                     {
                         "name": "name",
@@ -34,11 +33,7 @@ request_body = ContainerGroupPatch(
                 ]
             },
             "http": {
-                "host": "host",
-                "port": 55354,
-                "user": "user",
-                "password": "password",
-                "path": "path",
+                "compression": "none",
                 "format": "json",
                 "headers": [
                     {
@@ -46,7 +41,11 @@ request_body = ContainerGroupPatch(
                         "value": "value"
                     }
                 ],
-                "compression": "none"
+                "host": "host",
+                "password": "password",
+                "path": "path",
+                "port": 55354,
+                "user": "user"
             },
             "new_relic": {
                 "host": "host",
@@ -68,12 +67,12 @@ request_body = ContainerGroupPatch(
                 "secret_access_key": "secret_access_key"
             },
             "basic": {
-                "username": "username",
-                "password": "password"
+                "password": "password",
+                "username": "username"
             },
             "docker_hub": {
-                "username": "username",
-                "personal_access_token": "personal_access_token"
+                "personal_access_token": "personal_access_token",
+                "username": "username"
             },
             "gcp_gar": {
                 "service_key": "service_key"
@@ -83,22 +82,19 @@ request_body = ContainerGroupPatch(
             }
         },
         "resources": {
-            "cpu": 1013,
-            "memory": 352043675,
+            "cpu": 191,
             "gpu_classes": [
                 "gpu_classes"
             ],
-            "storage_amount": 1032076497908566.1,
-            "shm_size": 64
+            "memory": 909130690,
+            "shm_size": 64,
+            "storage_amount": 699558298076245
         }
     },
-    replicas=56,
     country_codes=[
         "af"
     ],
-    networking={
-        "port": 13142
-    },
+    display_name="ykW8yoj HBQ",
     liveness_probe={
         "exec_": {
             "command": [
@@ -128,6 +124,17 @@ request_body = ContainerGroupPatch(
             "port": 13817
         },
         "timeout_seconds": 30
+    },
+    networking={
+        "port": 17025
+    },
+    queue_autoscaler={
+        "desired_queue_length": 53,
+        "max_downscale_per_minute": 59,
+        "max_replicas": 321,
+        "max_upscale_per_minute": 100,
+        "min_replicas": 54,
+        "polling_period": 140
     },
     readiness_probe={
         "exec_": {
@@ -159,6 +166,14 @@ request_body = ContainerGroupPatch(
         },
         "timeout_seconds": 1
     },
+    replicas=102,
+    scaling_actions=[
+        {
+            "replicas": 461,
+            "schedule": "7kwC/T8C   da       x6Ci   bM-rgGYn     bDY6,vT"
+        }
+    ],
+    scheduled_scaling_enabled=True,
     startup_probe={
         "exec_": {
             "command": [
@@ -181,21 +196,13 @@ request_body = ContainerGroupPatch(
             "port": 29069,
             "scheme": "http"
         },
-        "initial_delay_seconds": 1106,
+        "initial_delay_seconds": 503,
+        "period_seconds": 3,
+        "success_threshold": 2,
         "tcp": {
             "port": 13817
         },
-        "period_seconds": 3,
-        "success_threshold": 2,
         "timeout_seconds": 10
-    },
-    queue_autoscaler={
-        "desired_queue_length": 53,
-        "max_replicas": 291,
-        "max_downscale_per_minute": 65,
-        "max_upscale_per_minute": 100,
-        "min_replicas": 54,
-        "polling_period": 140
     }
 )
 
